@@ -1,0 +1,250 @@
+
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/delay_ctrl_i"                  IODELAY_GROUP = FMC_BOTTOM_IODELAY_GRP;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/serdes_data_gen[*].iodelay_i"  IODELAY_GROUP = FMC_BOTTOM_IODELAY_GRP;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/iodelay_dci_i"                 IODELAY_GROUP = FMC_BOTTOM_IODELAY_GRP;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/iodelay_frame_i"               IODELAY_GROUP = FMC_BOTTOM_IODELAY_GRP;
+
+NET "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/serdes_rst_s_TIG" TIG;
+
+INST "*axi_mo1000_0/U_MMCM_V6_Inst/clkout1_buf" LOC = BUFGCTRL_X0Y1;
+INST "*axi_mo1000_0/U_MMCM_V6_Inst/clkout2_buf" LOC = BUFGCTRL_X0Y4;
+INST "*axi_mo1000_0/U_MMCM_V6_Inst/RX_CLK_BUFR" LOC = BUFR_X1Y9;
+
+# LOC constraint for logic around SERDES to ease routing
+# All the following constraints are not necessary but will greatly help the routing
+# at high operating frequency (>250 MHz)
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v4_dci_s_0"                LOC = SLICE_X0Y221;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v4_dci_s_1"                LOC = SLICE_X0Y221;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_s_33"       LOC = SLICE_X0Y221;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_r1_s_33"    LOC = SLICE_X0Y221;
+
+INST "*axi_mo1000_0/mo1000_wrapper_i/v4_Frame_s_0"                              LOC = SLICE_X0Y219;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v4_Frame_s_1"                              LOC = SLICE_X0Y219;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v4_Frame_s_2"                              LOC = SLICE_X0Y219;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v4_Frame_s_3"                              LOC = SLICE_X0Y219;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_s_32"       LOC = SLICE_X0Y219;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_r1_s_32"    LOC = SLICE_X0Y219;
+
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh1_s_0"                            LOC = SLICE_X0Y239;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh2_s_0"                            LOC = SLICE_X0Y239;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh3_s_0"                            LOC = SLICE_X0Y239;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh4_s_0"                            LOC = SLICE_X0Y239;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_s_0"        LOC = SLICE_X0Y239;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_r1_s_0"     LOC = SLICE_X0Y239;
+
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh1_s_1"                            LOC = SLICE_X0Y205;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh2_s_1"                            LOC = SLICE_X0Y205;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh3_s_1"                            LOC = SLICE_X0Y205;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh4_s_1"                            LOC = SLICE_X0Y205;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_s_1"        LOC = SLICE_X0Y205;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_r1_s_1"     LOC = SLICE_X0Y205;
+
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh1_s_2"                            LOC = SLICE_X0Y235;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh2_s_2"                            LOC = SLICE_X0Y235;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh3_s_2"                            LOC = SLICE_X0Y235;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh4_s_2"                            LOC = SLICE_X0Y235;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_s_2"        LOC = SLICE_X0Y235;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_r1_s_2"     LOC = SLICE_X0Y235;
+
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh1_s_3"                            LOC = SLICE_X0Y229;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh2_s_3"                            LOC = SLICE_X0Y229;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh3_s_3"                            LOC = SLICE_X0Y229;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh4_s_3"                            LOC = SLICE_X0Y229;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_s_3"        LOC = SLICE_X0Y229;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_r1_s_3"     LOC = SLICE_X0Y229;
+
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh1_s_4"                            LOC = SLICE_X0Y233;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh2_s_4"                            LOC = SLICE_X0Y233;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh3_s_4"                            LOC = SLICE_X0Y233;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh4_s_4"                            LOC = SLICE_X0Y233;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_s_4"        LOC = SLICE_X0Y233;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_r1_s_4"     LOC = SLICE_X0Y233;
+
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh1_s_5"                            LOC = SLICE_X0Y217;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh2_s_5"                            LOC = SLICE_X0Y217;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh3_s_5"                            LOC = SLICE_X0Y217;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh4_s_5"                            LOC = SLICE_X0Y217;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_s_5"        LOC = SLICE_X0Y217;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_r1_s_5"     LOC = SLICE_X0Y217;
+
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh1_s_6"                            LOC = SLICE_X0Y209;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh2_s_6"                            LOC = SLICE_X0Y209;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh3_s_6"                            LOC = SLICE_X0Y209;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh4_s_6"                            LOC = SLICE_X0Y209;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_s_6"        LOC = SLICE_X0Y209;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_r1_s_6"     LOC = SLICE_X0Y209;
+
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh1_s_7"                            LOC = SLICE_X0Y225;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh2_s_7"                            LOC = SLICE_X0Y225;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh3_s_7"                            LOC = SLICE_X0Y225;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh4_s_7"                            LOC = SLICE_X0Y225;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_s_7"        LOC = SLICE_X0Y225;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_r1_s_7"     LOC = SLICE_X0Y225;
+
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh1_s_8"                            LOC = SLICE_X0Y223;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh2_s_8"                            LOC = SLICE_X0Y223;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh3_s_8"                            LOC = SLICE_X0Y223;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh4_s_8"                            LOC = SLICE_X0Y223;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_s_8"        LOC = SLICE_X0Y223;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_r1_s_8"     LOC = SLICE_X0Y223;
+
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh1_s_9"                            LOC = SLICE_X0Y213;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh2_s_9"                            LOC = SLICE_X0Y213;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh3_s_9"                            LOC = SLICE_X0Y213;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh4_s_9"                            LOC = SLICE_X0Y213;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_s_9"        LOC = SLICE_X0Y213;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_r1_s_9"     LOC = SLICE_X0Y213;
+
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh1_s_10"                           LOC = SLICE_X0Y227;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh2_s_10"                           LOC = SLICE_X0Y227;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh3_s_10"                           LOC = SLICE_X0Y227;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh4_s_10"                           LOC = SLICE_X0Y227;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_s_10"       LOC = SLICE_X0Y227;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_r1_s_10"    LOC = SLICE_X0Y227;
+
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh1_s_11"                           LOC = SLICE_X0Y215;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh2_s_11"                           LOC = SLICE_X0Y215;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh3_s_11"                           LOC = SLICE_X0Y215;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh4_s_11"                           LOC = SLICE_X0Y215;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_s_11"       LOC = SLICE_X0Y215;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_r1_s_11"    LOC = SLICE_X0Y215;
+
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh1_s_12"                           LOC = SLICE_X0Y207;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh2_s_12"                           LOC = SLICE_X0Y207;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh3_s_12"                           LOC = SLICE_X0Y207;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh4_s_12"                           LOC = SLICE_X0Y207;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_s_12"       LOC = SLICE_X0Y207;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_r1_s_12"    LOC = SLICE_X0Y207;
+
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh1_s_13"                           LOC = SLICE_X0Y279;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh2_s_13"                           LOC = SLICE_X0Y279;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh3_s_13"                           LOC = SLICE_X0Y279;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh4_s_13"                           LOC = SLICE_X0Y279;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_s_13"       LOC = SLICE_X0Y279;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_r1_s_13"    LOC = SLICE_X0Y279;
+
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh1_s_14"                           LOC = SLICE_X0Y237;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh2_s_14"                           LOC = SLICE_X0Y237;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh3_s_14"                           LOC = SLICE_X0Y237;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh4_s_14"                           LOC = SLICE_X0Y237;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_s_14"       LOC = SLICE_X0Y237;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_r1_s_14"    LOC = SLICE_X0Y237;
+
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh1_s_15"                           LOC = SLICE_X0Y261;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh2_s_15"                           LOC = SLICE_X0Y261;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh3_s_15"                           LOC = SLICE_X0Y261;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh4_s_15"                           LOC = SLICE_X0Y261;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_s_15"       LOC = SLICE_X0Y261;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_r1_s_15"    LOC = SLICE_X0Y261;
+
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh5_s_0"                            LOC = SLICE_X0Y249;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh6_s_0"                            LOC = SLICE_X0Y249;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh7_s_0"                            LOC = SLICE_X0Y249;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh8_s_0"                            LOC = SLICE_X0Y249;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_s_16"       LOC = SLICE_X0Y249;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_r1_s_16"    LOC = SLICE_X0Y249;
+
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh5_s_1"                            LOC = SLICE_X0Y259;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh6_s_1"                            LOC = SLICE_X0Y259;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh7_s_1"                            LOC = SLICE_X0Y259;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh8_s_1"                            LOC = SLICE_X0Y259;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_s_17"       LOC = SLICE_X0Y259;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_r1_s_17"    LOC = SLICE_X0Y259;
+
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh5_s_2"                            LOC = SLICE_X0Y241;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh6_s_2"                            LOC = SLICE_X0Y241;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh7_s_2"                            LOC = SLICE_X0Y241;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh8_s_2"                            LOC = SLICE_X0Y241;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_s_18"       LOC = SLICE_X0Y241;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_r1_s_18"    LOC = SLICE_X0Y241;
+
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh5_s_3"                            LOC = SLICE_X0Y257;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh6_s_3"                            LOC = SLICE_X0Y257;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh7_s_3"                            LOC = SLICE_X0Y257;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh8_s_3"                            LOC = SLICE_X0Y257;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_s_19"       LOC = SLICE_X0Y257;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_r1_s_19"    LOC = SLICE_X0Y257;
+
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh5_s_4"                            LOC = SLICE_X0Y245;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh6_s_4"                            LOC = SLICE_X0Y245;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh7_s_4"                            LOC = SLICE_X0Y245;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh8_s_4"                            LOC = SLICE_X0Y245;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_s_20"       LOC = SLICE_X0Y245;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_r1_s_20"    LOC = SLICE_X0Y245;
+
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh5_s_5"                            LOC = SLICE_X0Y267;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh6_s_5"                            LOC = SLICE_X0Y267;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh7_s_5"                            LOC = SLICE_X0Y267;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh8_s_5"                            LOC = SLICE_X0Y267;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_s_21"       LOC = SLICE_X0Y267;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_r1_s_21"    LOC = SLICE_X0Y267;
+
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh5_s_6"                            LOC = SLICE_X0Y269;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh6_s_6"                            LOC = SLICE_X0Y269;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh7_s_6"                            LOC = SLICE_X0Y269;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh8_s_6"                            LOC = SLICE_X0Y269;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_s_22"       LOC = SLICE_X0Y269;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_r1_s_22"    LOC = SLICE_X0Y269;
+
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh5_s_7"                            LOC = SLICE_X0Y253;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh6_s_7"                            LOC = SLICE_X0Y253;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh7_s_7"                            LOC = SLICE_X0Y253;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh8_s_7"                            LOC = SLICE_X0Y253;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_s_23"       LOC = SLICE_X0Y253;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_r1_s_23"    LOC = SLICE_X0Y253;
+
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh5_s_8"                            LOC = SLICE_X0Y263;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh6_s_8"                            LOC = SLICE_X0Y263;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh7_s_8"                            LOC = SLICE_X0Y263;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh8_s_8"                            LOC = SLICE_X0Y263;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_s_24"       LOC = SLICE_X0Y263;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_r1_s_24"    LOC = SLICE_X0Y263;
+
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh5_s_9"                            LOC = SLICE_X0Y265;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh6_s_9"                            LOC = SLICE_X0Y265;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh7_s_9"                            LOC = SLICE_X0Y265;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh8_s_9"                            LOC = SLICE_X0Y265;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_s_25"       LOC = SLICE_X0Y265;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_r1_s_25"    LOC = SLICE_X0Y265;
+
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh5_s_10"                           LOC = SLICE_X0Y275;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh6_s_10"                           LOC = SLICE_X0Y275;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh7_s_10"                           LOC = SLICE_X0Y275;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh8_s_10"                           LOC = SLICE_X0Y275;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_s_26"       LOC = SLICE_X0Y275;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_r1_s_26"    LOC = SLICE_X0Y275;
+
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh5_s_11"                           LOC = SLICE_X0Y273;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh6_s_11"                           LOC = SLICE_X0Y273;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh7_s_11"                           LOC = SLICE_X0Y273;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh8_s_11"                           LOC = SLICE_X0Y273;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_s_27"       LOC = SLICE_X0Y273;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_r1_s_27"    LOC = SLICE_X0Y273;
+
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh5_s_12"                           LOC = SLICE_X0Y277;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh6_s_12"                           LOC = SLICE_X0Y277;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh7_s_12"                           LOC = SLICE_X0Y277;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh8_s_12"                           LOC = SLICE_X0Y277;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_s_28"       LOC = SLICE_X0Y277;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_r1_s_28"    LOC = SLICE_X0Y277;
+
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh5_s_13"                           LOC = SLICE_X0Y243;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh6_s_13"                           LOC = SLICE_X0Y243;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh7_s_13"                           LOC = SLICE_X0Y243;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh8_s_13"                           LOC = SLICE_X0Y243;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_s_29"       LOC = SLICE_X0Y243;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_r1_s_29"    LOC = SLICE_X0Y243;
+
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh5_s_14"                           LOC = SLICE_X0Y255;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh6_s_14"                           LOC = SLICE_X0Y255;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh7_s_14"                           LOC = SLICE_X0Y255;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh8_s_14"                           LOC = SLICE_X0Y255;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_s_30"       LOC = SLICE_X0Y255;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_r1_s_30"    LOC = SLICE_X0Y255;
+
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh5_s_15"                           LOC = SLICE_X0Y247;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh6_s_15"                           LOC = SLICE_X0Y247;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh7_s_15"                           LOC = SLICE_X0Y247;
+INST "*axi_mo1000_0/mo1000_wrapper_i/v16_DacCh8_s_15"                           LOC = SLICE_X0Y247;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_s_31"       LOC = SLICE_X0Y247;
+INST "*axi_mo1000_0/mo1000_wrapper_i/dac_interface_i/v34_serdes_rst_r1_s_31"    LOC = SLICE_X0Y247;

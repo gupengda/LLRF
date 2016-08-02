@@ -1,0 +1,1375 @@
+
+ PARAMETER VERSION = 2.1.0
+
+
+ PORT i_SysRst_p = sys_reset, DIR = I, SIGIS = RST, RST_POLARITY = 1
+ PORT i_pSysClk_p = CLK, DIR = I, SIGIS = CLK, CLK_FREQ = 200000000, DIFFERENTIAL_POLARITY = P
+ PORT i_nSysClk_p = CLK, DIR = I, SIGIS = CLK, CLK_FREQ = 200000000, DIFFERENTIAL_POLARITY = N
+ PORT i_pSodimmclk_p = CLK_SODIMM_DIFF, DIR = I, SIGIS = CLK, CLK_FREQ = 400000000, DIFFERENTIAL_POLARITY = P
+ PORT i_nSodimmclk_p = CLK_SODIMM_DIFF, DIR = I, SIGIS = CLK, CLK_FREQ = 400000000, DIFFERENTIAL_POLARITY = N
+ PORT o_nFpgaProg_p = axi_perseus6010_regs_o_nFpgaProg_p, DIR = O
+ PORT fpga_0_FLASH_Mem_A_pin = fpga_0_FLASH_Mem_A, DIR = O, VEC = [0:24]
+ PORT Flash_Mem_WEN_pin = Flash_Mem_WEN, DIR = O
+ PORT Flash_Mem_DQ_pin = Flash_Mem_DQ, DIR = IO, VEC = [0:15]
+ PORT Flash_Mem_CEN_pin = Flash_Mem_CEN, DIR = O
+ PORT Flash_Mem_OEN_pin = Flash_Mem_OEN, DIR = O
+ PORT o_nFlashRst_p = nflash_rst, DIR = O
+ PORT axi_ethernet_0_MGT_CLK_P_pin = axi_ethernet_0_MGT_CLK_P, DIR = I
+ PORT axi_ethernet_0_MGT_CLK_N_pin = axi_ethernet_0_MGT_CLK_N, DIR = I
+ PORT axi_ethernet_0_TXP_pin = axi_ethernet_0_TXP, DIR = O
+ PORT axi_ethernet_0_TXN_pin = axi_ethernet_0_TXN, DIR = O
+ PORT axi_ethernet_0_RXP_pin = axi_ethernet_0_RXP, DIR = I
+ PORT axi_ethernet_0_RXN_pin = axi_ethernet_0_RXN, DIR = I
+ PORT i_FpUartRX_p = i_FpUartRX_p, DIR = I
+ PORT io_FpUartTX_p = io_FpUartTX_p, DIR = IO
+ PORT i_AMCUartRX_p = i_AMCUartRX_p, DIR = I
+ PORT io_AMCUartTX_p = io_AMCUartTX_p, DIR = IO
+ PORT i_IpmiUartRX_p = IpmiUartRX_s, DIR = I
+ PORT o_IpmiUartTX_p = IpmiUartTX_s, DIR = O
+ PORT axi_v6_ddrx_0_ddr_addr_pin = axi_v6_ddrx_0_ddr_addr, DIR = O, VEC = [13:0]
+ PORT axi_v6_ddrx_0_ddr_ba_pin = axi_v6_ddrx_0_ddr_ba, DIR = O, VEC = [2:0]
+ PORT axi_v6_ddrx_0_ddr_cas_n_pin = axi_v6_ddrx_0_ddr_cas_n, DIR = O
+ PORT axi_v6_ddrx_0_ddr_ck_p_pin = axi_v6_ddrx_0_ddr_ck_p, DIR = O, SIGIS = CLK
+ PORT axi_v6_ddrx_0_ddr_ck_n_pin = axi_v6_ddrx_0_ddr_ck_n, DIR = O, SIGIS = CLK
+ PORT axi_v6_ddrx_0_ddr_cke_pin = axi_v6_ddrx_0_ddr_cke, DIR = O
+ PORT axi_v6_ddrx_0_ddr_cs_n_pin = axi_v6_ddrx_0_ddr_cs_n, DIR = O
+ PORT axi_v6_ddrx_0_ddr_dm_pin = axi_v6_ddrx_0_ddr_dm, DIR = O
+ PORT axi_v6_ddrx_0_ddr_odt_pin = axi_v6_ddrx_0_ddr_odt, DIR = O
+ PORT axi_v6_ddrx_0_ddr_ras_n_pin = axi_v6_ddrx_0_ddr_ras_n, DIR = O
+ PORT axi_v6_ddrx_0_ddr_reset_n_pin = axi_v6_ddrx_0_ddr_reset_n, DIR = O
+ PORT axi_v6_ddrx_0_ddr_we_n_pin = axi_v6_ddrx_0_ddr_we_n, DIR = O
+ PORT axi_v6_ddrx_0_ddr_dqs_p = axi_v6_ddrx_0_ddr_dqs_p, DIR = IO
+ PORT axi_v6_ddrx_0_ddr_dqs_n = axi_v6_ddrx_0_ddr_dqs_n, DIR = IO
+ PORT axi_v6_ddrx_0_ddr_dq = axi_v6_ddrx_0_ddr_dq, DIR = IO, VEC = [7:0]
+ PORT axi_record_playback_ddr3_dq = axi_record_playback_ddr3_dq, DIR = IO, VEC = [63:0]
+ PORT axi_record_playback_ddr3_addr_pin = axi_record_playback_ddr3_addr, DIR = O, VEC = [15:0]
+ PORT axi_record_playback_ddr3_ba_pin = axi_record_playback_ddr3_ba, DIR = O, VEC = [2:0]
+ PORT axi_record_playback_ddr3_ras_n_pin = axi_record_playback_ddr3_ras_n, DIR = O
+ PORT axi_record_playback_ddr3_cas_n_pin = axi_record_playback_ddr3_cas_n, DIR = O
+ PORT axi_record_playback_ddr3_we_n_pin = axi_record_playback_ddr3_we_n, DIR = O
+ PORT axi_record_playback_ddr3_reset_n_pin = axi_record_playback_ddr3_reset_n, DIR = O
+ PORT axi_record_playback_ddr3_cs_n_pin = axi_record_playback_ddr3_cs_n, DIR = O
+ PORT axi_record_playback_ddr3_odt_pin = axi_record_playback_ddr3_odt, DIR = O
+ PORT axi_record_playback_ddr3_cke_pin = axi_record_playback_ddr3_cke, DIR = O
+ PORT axi_record_playback_ddr3_dm_pin = axi_record_playback_ddr3_dm, DIR = O, VEC = [7:0]
+ PORT axi_record_playback_ddr3_dqs_p = axi_record_playback_ddr3_dqs_p, DIR = IO, VEC = [7:0]
+ PORT axi_record_playback_ddr3_dqs_n = axi_record_playback_ddr3_dqs_n, DIR = IO, VEC = [7:0]
+ PORT axi_record_playback_ddr3_ck_p_pin = axi_record_playback_ddr3_ck_p, DIR = O, VEC = [1:0]
+ PORT axi_record_playback_ddr3_ck_n_pin = axi_record_playback_ddr3_ck_n, DIR = O, VEC = [1:0]
+ PORT io_FmcI2cSCL_p = FmcI2cSCL_s, DIR = IO
+ PORT io_FmcI2cSDA_p = FmcI2cSDA_s, DIR = IO
+ PORT i_DaughterIoAbsent_p = axiLite_perseus6010_regs_0_i_DaughterIoAbsent_p, DIR = I
+ PORT i_FmcAbsent_p = axiLite_perseus6010_regs_0_i_FmcAbsent_p, DIR = I
+ PORT i_FmcStackAbsent_p = axiLite_perseus6010_regs_0_i_FmcStackAbsent_p, DIR = I
+ PORT io_Ddr3I2cSDA_p = iic_ddr3_sda_s, DIR = IO
+ PORT io_Ddr3I2cSCL_p = iic_ddr3_scl_s, DIR = IO
+ PORT o_CtrlTclkdTxEn_p = axiLite_perseus6010_regs_0_o_CtrlTclkdTxEn_p, DIR = O
+ PORT o_CtrlTclkdRxDis_p = axiLite_perseus6010_regs_0_o_CtrlTclkdRxDis_p, DIR = O
+ PORT o_CtrlAmctclkc2Fmcclk3En_p = axiLite_perseus6010_regs_0_o_CtrlAmctclkc2Fmcclk3En_p, DIR = O
+ PORT o_CtrlAmctclka2Fmcclk2En_p = axiLite_perseus6010_regs_0_o_CtrlAmctclka2Fmcclk2En_p, DIR = O
+ PORT o_CtrlFclkaHighz_p = axiLite_perseus6010_regs_0_o_CtrlFclkaHighz_p, DIR = O
+ PORT o_Ctrl100mhzOutEn_p = axiLite_perseus6010_regs_0_o_Ctrl100mhzOutEn_p, DIR = O
+ PORT o_CtrlTclkaTxEn_p = axiLite_perseus6010_regs_0_o_CtrlTclkaTxEn_p, DIR = O
+ PORT o_CtrlFmcclk02AmctclkbEn_p = axiLite_perseus6010_regs_0_o_CtrlFmcclk02AmctclkbEn_p, DIR = O
+ PORT o_CtrlTclkcTxEn_p = axiLite_perseus6010_regs_0_o_CtrlTclkcTxEn_p, DIR = O
+ PORT o_CtrlVadjEn_p = axiLite_perseus6010_regs_0_o_CtrlVadjEn_p, DIR = O
+ PORT o_CtrlTclkbRxDis_p = axiLite_perseus6010_regs_0_o_CtrlTclkbRxDis_p, DIR = O
+ PORT ov2_CtrlVadjSel_p = axiLite_perseus6010_regs_0_ov2_CtrlVadjSel_p, DIR = O, VEC = [1:0]
+ PORT o_CtrlTclkbTxEn_p = axiLite_perseus6010_regs_0_o_CtrlTclkbTxEn_p, DIR = O
+ PORT o_CtrlFmcclk12AmctclkdEn_p = axiLite_perseus6010_regs_0_o_CtrlFmcclk12AmctclkdEn_p, DIR = O
+ PORT o_CtrlTclkcRxDis_p = axiLite_perseus6010_regs_0_o_CtrlTclkcRxDis_p, DIR = O
+ PORT o_CtrlTclkaRxDis_p = axiLite_perseus6010_regs_0_o_CtrlTclkaRxDis_p, DIR = O
+ PORT o_CtrlLedBufOd_p = axiLite_perseus6010_regs_0_o_CtrlLedBufOd_p, DIR = O
+ PORT ov8_nCtrlLedGrn_p = axiLite_perseus6010_regs_0_ov8_nCtrlLedGrn_p, DIR = O, VEC = [7:0]
+ PORT ov8_nCtrlLedRed_p = axiLite_perseus6010_regs_0_ov8_nCtrlLedRed_p, DIR = O, VEC = [7:0]
+ PORT i_MmcI2cReleaseAck_p = axiLite_perseus6010_regs_0_i_MmcI2cReleaseAck_p, DIR = I
+ PORT o_MmcI2cReleaseReq_p = axiLite_perseus6010_regs_0_o_MmcI2cReleaseReq_p, DIR = O
+# MO1000 bottom MAPPING
+ PORT idp_MO1000_0_ClockFromFMC_p = mo1000_0_pClockFromFMC_s, DIR = I, SIGIS = CLK
+ PORT idn_MO1000_0_ClockFromFMC_p = mo1000_0_nClockFromFMC_s, DIR = I, SIGIS = CLK
+ PORT odp_MO1000_0_DataToFMC_p = mo1000_0_pDataToFMC_s, DIR = O, VEC = [31:0]
+ PORT odn_MO1000_0_DataToFMC_p = mo1000_0_nDataToFMC_s, DIR = O, VEC = [31:0]
+ PORT odp_MO1000_0_DciToFMC_p = mo1000_0_pDciToFMC_s, DIR = O
+ PORT odn_MO1000_0_DciToFMC_p = mo1000_0_nDciToFMC_s, DIR = O
+ PORT odp_MO1000_0_FrameToFMC_p = mo1000_0_pFrameToFMC_s, DIR = O
+ PORT odn_MO1000_0_FrameToFMC_p = mo1000_0_nFrameToFMC_s, DIR = O
+ PORT i_MO1000_0_TriggerFromFMC_p = mo1000_0_TriggerFromFMC_s, DIR = I
+# MI125 top MAPPING
+ PORT idp_DataFromADCTop_p = dp_Mi125DataFromADCTop_s, DIR = I, VEC = [31:0]
+ PORT idn_DataFromADCTop_p = dn_Mi125DataFromADCTop_s, DIR = I, VEC = [31:0]
+ PORT idp_ClockFromADCTop_p = dp_Mi125ClockFromADCTop_s, DIR = I, SIGIS = CLK
+ PORT idn_ClockFromADCTop_p = dn_Mi125ClockFromADCTop_s, DIR = I, SIGIS = CLK
+ PORT idp_FrameFromADCTop_p = dp_Mi125FrameFromADCTop_s, DIR = I
+ PORT idn_FrameFromADCTop_p = dn_Mi125FrameFromADCTop_s, DIR = I
+# ####################################################################
+# # Mestor Breakout Box mapping ## Added on 20140823 #################
+ PORT odp_DioSetDir_p = odp_DioSetDir_p, DIR = O
+ PORT odn_DioSetDir_p = odn_DioSetDir_p, DIR = O
+ PORT odp_DioReset_p = odp_DioReset_p, DIR = O
+ PORT odn_DioReset_p = odn_DioReset_p, DIR = O
+ PORT ov4dp_Dpio_p = ov4dp_Dpio_p, DIR = O, VEC = [3:0]
+ PORT ov4dn_Dpio_p = ov4dn_Dpio_p, DIR = O, VEC = [3:0]
+ PORT iv4dp_Dpio_p = iv4dp_Dpio_p, DIR = I, VEC = [3:0]
+ PORT iv4dn_Dpio_p = iv4dn_Dpio_p, DIR = I, VEC = [3:0]
+ PORT odp_DpioClk_p = odp_DpioClk_p, DIR = O
+ PORT odn_DpioClk_p = odn_DpioClk_p, DIR = O
+ PORT iv2dp_AdcData_p = iv2dp_AdcData_p, DIR = I, VEC = [1:0]
+ PORT iv2dn_AdcData_p = iv2dn_AdcData_p, DIR = I, VEC = [1:0]
+ PORT odp_DioConfig_p = odp_DioConfig_p, DIR = O
+ PORT odn_DioConfig_p = odn_DioConfig_p, DIR = O
+ PORT idp_DioResetAck_p = idp_DioResetAck_p, DIR = I
+ PORT idn_DioResetAck_p = idn_DioResetAck_p, DIR = I
+
+
+BEGIN proc_sys_reset
+ PARAMETER INSTANCE = proc_sys_reset_0
+ PARAMETER HW_VER = 3.00.a
+ PARAMETER C_EXT_RESET_HIGH = 1
+ PARAMETER C_EXT_RST_WIDTH = 16
+ PARAMETER C_AUX_RST_WIDTH = 16
+ PORT MB_Debug_Sys_Rst = proc_sys_reset_0_MB_Debug_Sys_Rst
+ PORT Dcm_locked = proc_sys_reset_0_Dcm_locked
+ PORT MB_Reset = proc_sys_reset_0_MB_Reset
+ PORT Slowest_sync_clk = clk_100_0000MHzMMCM0
+ PORT Interconnect_aresetn = proc_sys_reset_0_Interconnect_aresetn
+ PORT Ext_Reset_In = sys_reset
+ PORT BUS_STRUCT_RESET = proc_sys_reset_0_BUS_STRUCT_RESET
+ PORT Peripheral_Reset = sys_periph_reset
+ PORT Aux_Reset_In = axi_timebase_wdt_0_WDT_Reset
+END
+
+BEGIN lmb_v10
+ PARAMETER INSTANCE = i_lmb
+ PARAMETER HW_VER = 2.00.b
+ PORT SYS_RST = proc_sys_reset_0_BUS_STRUCT_RESET
+ PORT LMB_CLK = clk_100_0000MHzMMCM0
+END
+
+BEGIN lmb_bram_if_cntlr
+ PARAMETER INSTANCE = i_bram_ctrl
+ PARAMETER HW_VER = 3.00.b
+ PARAMETER C_BASEADDR = 0x00000000
+ PARAMETER C_HIGHADDR = 0x00007fff
+ BUS_INTERFACE SLMB = i_lmb
+ BUS_INTERFACE BRAM_PORT = microblaze_0_i_bram_ctrl_2_microblaze_0_bram_block
+END
+
+BEGIN lmb_v10
+ PARAMETER INSTANCE = d_lmb
+ PARAMETER HW_VER = 2.00.b
+ PORT SYS_RST = proc_sys_reset_0_BUS_STRUCT_RESET
+ PORT LMB_CLK = clk_100_0000MHzMMCM0
+END
+
+BEGIN lmb_bram_if_cntlr
+ PARAMETER INSTANCE = d_bram_ctrl
+ PARAMETER HW_VER = 3.00.b
+ PARAMETER C_BASEADDR = 0x00000000
+ PARAMETER C_HIGHADDR = 0x00007fff
+ BUS_INTERFACE SLMB = d_lmb
+ BUS_INTERFACE BRAM_PORT = microblaze_0_d_bram_ctrl_2_microblaze_0_bram_block
+END
+
+BEGIN bram_block
+ PARAMETER INSTANCE = bram_block0
+ PARAMETER HW_VER = 1.00.a
+ BUS_INTERFACE PORTA = microblaze_0_i_bram_ctrl_2_microblaze_0_bram_block
+ BUS_INTERFACE PORTB = microblaze_0_d_bram_ctrl_2_microblaze_0_bram_block
+END
+
+BEGIN microblaze
+ PARAMETER INSTANCE = main_cpu
+ PARAMETER HW_VER = 8.20.b
+ PARAMETER C_INTERCONNECT = 2
+ PARAMETER C_USE_BARREL = 1
+ PARAMETER C_USE_FPU = 2
+ PARAMETER C_DEBUG_ENABLED = 1
+ PARAMETER C_ICACHE_BASEADDR = 0x90000000
+ PARAMETER C_ICACHE_HIGHADDR = 0x97ffffff
+ PARAMETER C_USE_ICACHE = 1
+ PARAMETER C_CACHE_BYTE_SIZE = 16384
+ PARAMETER C_ICACHE_ALWAYS_USED = 1
+ PARAMETER C_DCACHE_BASEADDR = 0x90000000
+ PARAMETER C_DCACHE_HIGHADDR = 0x97ffffff
+ PARAMETER C_USE_DCACHE = 1
+ PARAMETER C_DCACHE_BYTE_SIZE = 16384
+ PARAMETER C_DCACHE_ALWAYS_USED = 1
+ PARAMETER C_STREAM_INTERCONNECT = 0
+ PARAMETER C_ICACHE_STREAMS = 0
+ PARAMETER C_ICACHE_VICTIMS = 0
+ PARAMETER C_DCACHE_LINE_LEN = 4
+ PARAMETER C_DCACHE_USE_WRITEBACK = 0
+ PARAMETER C_USE_DIV = 1
+ PARAMETER C_USE_BRANCH_TARGET_CACHE = 0
+ PARAMETER C_USE_HW_MUL = 2
+ PARAMETER C_ICACHE_LINE_LEN = 4
+ PARAMETER C_USE_MMU = 3
+ BUS_INTERFACE DEBUG = microblaze_0_debug
+ BUS_INTERFACE M_AXI_DP = AXI_Lite
+ BUS_INTERFACE M_AXI_IP = AXI_Lite
+ BUS_INTERFACE M_AXI_DC = AXI_MM
+ BUS_INTERFACE M_AXI_IC = AXI_MM
+ BUS_INTERFACE DLMB = d_lmb
+ BUS_INTERFACE ILMB = i_lmb
+ PORT MB_RESET = proc_sys_reset_0_MB_Reset
+ PORT CLK = clk_100_0000MHzMMCM0
+ PORT INTERRUPT = Interrupt_Cntlr_Irq
+END
+
+BEGIN mdm
+ PARAMETER INSTANCE = debug_module
+ PARAMETER HW_VER = 2.00.b
+ PARAMETER C_INTERCONNECT = 2
+ PARAMETER C_USE_UART = 1
+ PARAMETER C_BASEADDR = 0x80000000
+ PARAMETER C_HIGHADDR = 0x8000ffff
+ BUS_INTERFACE S_AXI = AXI_Lite_0x8
+ BUS_INTERFACE MBDEBUG_0 = microblaze_0_debug
+ PORT Debug_SYS_Rst = proc_sys_reset_0_MB_Debug_Sys_Rst
+ PORT S_AXI_ACLK = clk_100_0000MHzMMCM0
+ PORT Interrupt = debug_module_Interrupt
+END
+
+BEGIN clock_generator
+ PARAMETER INSTANCE = clock_generator_0
+ PARAMETER HW_VER = 4.03.a
+ PARAMETER C_CLKIN_FREQ = 200000000
+ PARAMETER C_CLKOUT0_FREQ = 100000000
+ PARAMETER C_CLKOUT0_GROUP = MMCM0
+ PARAMETER C_CLKOUT1_FREQ = 200000000
+ PARAMETER C_CLKOUT1_GROUP = MMCM0
+ PARAMETER C_CLKOUT2_FREQ = 400000000
+ PARAMETER C_CLKOUT2_GROUP = MMCM0
+ PARAMETER C_CLKOUT3_FREQ = 400000000
+ PARAMETER C_CLKOUT3_GROUP = MMCM0
+ PARAMETER C_CLKOUT3_BUF = FALSE
+ PARAMETER C_CLKOUT3_VARIABLE_PHASE = TRUE
+ PARAMETER C_CLKOUT1_BUF = TRUE
+ PORT LOCKED = proc_sys_reset_0_Dcm_locked
+ PORT CLKOUT0 = clk_100_0000MHzMMCM0
+ PORT CLKOUT3 = clk_400_0000MHzMMCM0_nobuf_varphase
+ PORT CLKOUT2 = clk_400_0000MHzMMCM0
+ PORT CLKOUT1 = clk_200_0000MHzMMCM0
+ PORT CLKIN = CLK
+ PORT PSCLK = clk_200_0000MHzMMCM0
+ PORT PSEN = DDR3_SDRAM_pd_PSEN
+ PORT PSINCDEC = DDR3_SDRAM_pd_PSINCDEC
+ PORT PSDONE = clock_generator_0_PSDONE
+END
+
+BEGIN axi_interconnect
+ PARAMETER INSTANCE = AXI_Lite
+ PARAMETER HW_VER = 1.04.a
+ PARAMETER C_INTERCONNECT_CONNECTIVITY_MODE = 0
+ PORT INTERCONNECT_ARESETN = proc_sys_reset_0_Interconnect_aresetn
+ PORT INTERCONNECT_ACLK = clk_100_0000MHzMMCM0
+END
+
+BEGIN axi2axi_connector
+ PARAMETER INSTANCE = axi2axi_0x7
+ PARAMETER HW_VER = 1.00.a
+ PARAMETER C_S_AXI_NUM_ADDR_RANGES = 1
+ PARAMETER C_S_AXI_RNG00_BASEADDR = 0x70000000
+ PARAMETER C_S_AXI_RNG00_HIGHADDR = 0x7FFFFFFF
+ PARAMETER C_S_AXI_PROTOCOL = AXI4LITE
+ PARAMETER C_INTERCONNECT_M_AXI_AW_REGISTER = 7
+ PARAMETER C_INTERCONNECT_M_AXI_AR_REGISTER = 7
+ PARAMETER C_INTERCONNECT_M_AXI_W_REGISTER = 7
+ PARAMETER C_INTERCONNECT_M_AXI_R_REGISTER = 7
+ PARAMETER C_INTERCONNECT_M_AXI_B_REGISTER = 7
+ BUS_INTERFACE S_AXI = AXI_Lite
+ BUS_INTERFACE M_AXI = AXI_Lite_0x7
+END
+
+BEGIN axi2axi_connector
+ PARAMETER INSTANCE = axi2axi_0x8
+ PARAMETER C_S_AXI_RNG00_BASEADDR = 0x80000000
+ PARAMETER C_S_AXI_RNG00_HIGHADDR = 0x8FFFFFFF
+ PARAMETER HW_VER = 1.00.a
+ PARAMETER C_INTERCONNECT_M_AXI_AW_REGISTER = 7
+ PARAMETER C_INTERCONNECT_M_AXI_AR_REGISTER = 7
+ PARAMETER C_INTERCONNECT_M_AXI_W_REGISTER = 7
+ PARAMETER C_INTERCONNECT_M_AXI_R_REGISTER = 7
+ PARAMETER C_INTERCONNECT_M_AXI_B_REGISTER = 7
+ BUS_INTERFACE S_AXI = AXI_Lite
+ BUS_INTERFACE M_AXI = AXI_Lite_0x8
+END
+
+BEGIN axi_interconnect
+ PARAMETER INSTANCE = AXI_Lite_0x7
+ PARAMETER HW_VER = 1.04.a
+ PARAMETER C_INTERCONNECT_CONNECTIVITY_MODE = 0
+ PORT INTERCONNECT_ARESETN = proc_sys_reset_0_Interconnect_aresetn
+ PORT INTERCONNECT_ACLK = clk_100_0000MHzMMCM0
+END
+
+BEGIN axi_interconnect
+ PARAMETER INSTANCE = AXI_Lite_0x8
+ PARAMETER HW_VER = 1.04.a
+ PARAMETER C_INTERCONNECT_CONNECTIVITY_MODE = 0
+ PORT INTERCONNECT_ARESETN = proc_sys_reset_0_Interconnect_aresetn
+ PORT INTERCONNECT_ACLK = clk_100_0000MHzMMCM0
+END
+
+BEGIN lyt_uart_switch
+ PARAMETER INSTANCE = uart_switch
+ PARAMETER HW_VER = 1.00.a
+ PORT iv2_SelectMode_p = v2_UartSelectMode_s
+ PORT i_DaughterAbsent_p = net_gnd
+ PORT i_Daughter_RX_p = i_FpUartRX_p
+ PORT io_Daughter_TX_p = io_FpUartTX_p
+ PORT i_AMC_RX_p = i_AMCUartRX_p
+ PORT io_AMC_TX_p = io_AMCUartTX_p
+ PORT o_AXI_RX_p = FpUartRX_s
+ PORT i_AXI_TX_p = FpUartTX_s
+END
+
+BEGIN axi_uartlite
+ PARAMETER INSTANCE = fp_uart
+ PARAMETER HW_VER = 1.02.a
+ PARAMETER C_BAUDRATE = 115200
+ PARAMETER C_BASEADDR = 0x84000000
+ PARAMETER C_HIGHADDR = 0x8400ffff
+ BUS_INTERFACE S_AXI = AXI_Lite_0x8
+ PORT RX = FpUartRX_s
+ PORT TX = FpUartTX_s
+ PORT S_AXI_ACLK = clk_100_0000MHzMMCM0
+ PORT Interrupt = fp_uart_Interrupt
+END
+
+BEGIN axi_interconnect
+ PARAMETER INSTANCE = AXI_MM
+ PARAMETER HW_VER = 1.05.a
+ PORT INTERCONNECT_ACLK = clk_100_0000MHzMMCM0
+ PORT INTERCONNECT_ARESETN = proc_sys_reset_0_Interconnect_aresetn
+END
+
+BEGIN axi_emc
+ PARAMETER INSTANCE = Flash
+ PARAMETER HW_VER = 1.03.a
+ PARAMETER C_MAX_MEM_WIDTH = 16
+ PARAMETER C_MEM0_WIDTH = 16
+ PARAMETER C_INCLUDE_DATAWIDTH_MATCHING_0 = 1
+ PARAMETER C_MEM0_TYPE = 5
+ PARAMETER C_TCEDV_PS_MEM_0 = 110000
+ PARAMETER C_TAVDV_PS_MEM_0 = 110000
+ PARAMETER C_THZCE_PS_MEM_0 = 35000
+ PARAMETER C_THZOE_PS_MEM_0 = 15000
+ PARAMETER C_TWC_PS_MEM_0 = 110000
+ PARAMETER C_TWP_PS_MEM_0 = 70000
+ PARAMETER C_TLZWE_PS_MEM_0 = 35
+ PARAMETER C_S_AXI_MEM_ID_WIDTH = 1
+ PARAMETER C_S_AXI_MEM_PROTOCOL = axi4lite
+ PARAMETER C_S_AXI_MEM0_BASEADDR = 0xa0000000
+ PARAMETER C_S_AXI_MEM0_HIGHADDR = 0xa3ffffff
+ BUS_INTERFACE S_AXI_MEM = AXI_Lite
+ PORT RdClk = clk_100_0000MHzMMCM0
+ PORT S_AXI_ACLK = clk_100_0000MHzMMCM0
+ PORT Mem_A = 0b000000 & fpga_0_FLASH_Mem_A & 0b0
+ PORT Mem_WEN = Flash_Mem_WEN
+ PORT Mem_DQ = Flash_Mem_DQ
+ PORT Mem_CEN = Flash_Mem_CEN
+ PORT Mem_OEN = Flash_Mem_OEN
+ PORT Mem_ADV_LDN = Flash_Mem_ADV_LDN
+END
+
+BEGIN util_vector_logic
+ PARAMETER INSTANCE = util_vector_logic_0
+ PARAMETER HW_VER = 1.00.a
+ PARAMETER C_OPERATION = not
+ PARAMETER C_SIZE = 1
+ PORT Op1 = sys_periph_reset
+ PORT Res = nflash_rst
+END
+
+BEGIN axi_ethernet
+ PARAMETER INSTANCE = Hard_Ethernet_MAC
+ PARAMETER HW_VER = 3.00.a
+ PARAMETER C_TYPE = 2
+ PARAMETER C_PHY_TYPE = 5
+ PARAMETER C_TXMEM = 16384
+ PARAMETER C_RXMEM = 16384
+ PARAMETER C_TXCSUM = 2
+ PARAMETER C_RXCSUM = 2
+ PARAMETER C_PHYADDR = 0b10111
+ PARAMETER C_BASEADDR = 0x81c00000
+ PARAMETER C_HIGHADDR = 0x81c7ffff
+ BUS_INTERFACE S_AXI = AXI_Lite_0x8
+# ##
+# ##
+ BUS_INTERFACE AXI_STR_RXS = Hard_Ethernet_MAC_AXI_STR_RXS
+ BUS_INTERFACE AXI_STR_RXD = Hard_Ethernet_MAC_AXI_STR_RXD
+ BUS_INTERFACE AXI_STR_TXC = axi_rtdex_eth_AXI_STR_EMAC_RXS
+ BUS_INTERFACE AXI_STR_TXD = axi_rtdex_eth_AXI_STR_EMAC_RXD
+# ##
+# BUS_INTERFACE AXI_STR_TXC = ETHERNET_dma_txc
+# BUS_INTERFACE AXI_STR_TXD = ETHERNET_dma_txd
+# BUS_INTERFACE AXI_STR_RXD = ETHERNET_dma_rxd
+# BUS_INTERFACE AXI_STR_RXS = ETHERNET_dma_rxs
+# ##
+ PORT S_AXI_ACLK = clk_100_0000MHzMMCM0
+ PORT PHY_RST_N = axi_ethernet_0_PHY_RST_N
+ PORT MGT_CLK_P = axi_ethernet_0_MGT_CLK_P
+ PORT MGT_CLK_N = axi_ethernet_0_MGT_CLK_N
+ PORT TXP = axi_ethernet_0_TXP
+ PORT TXN = axi_ethernet_0_TXN
+ PORT RXP = axi_ethernet_0_RXP
+ PORT RXN = axi_ethernet_0_RXN
+ PORT INTERRUPT = Hard_Ethernet_MAC_INTERRUPT
+ PORT AXI_STR_TXC_ACLK = clk_100_0000MHzMMCM0
+ PORT AXI_STR_TXD_ACLK = clk_100_0000MHzMMCM0
+ PORT AXI_STR_RXS_ACLK = clk_100_0000MHzMMCM0
+ PORT AXI_STR_RXD_ACLK = clk_100_0000MHzMMCM0
+END
+
+BEGIN axi_dma
+ PARAMETER INSTANCE = Ethernet_DMA
+ PARAMETER HW_VER = 5.00.a
+ PARAMETER C_INCLUDE_MM2S_DRE = 1
+ PARAMETER C_MM2S_BURST_SIZE = 256
+ PARAMETER C_INCLUDE_S2MM_DRE = 1
+ PARAMETER C_S2MM_BURST_SIZE = 256
+ PARAMETER C_SG_INCLUDE_DESC_QUEUE = 1
+ PARAMETER C_SG_LENGTH_WIDTH = 16
+ PARAMETER C_DLYTMR_RESOLUTION = 1250
+ PARAMETER C_PRMRY_IS_ACLK_ASYNC = 0
+ PARAMETER C_BASEADDR = 0x84600000
+ PARAMETER C_HIGHADDR = 0x8460ffff
+ BUS_INTERFACE S_AXI_LITE = AXI_Lite_0x8
+ BUS_INTERFACE M_AXI_SG = AXI_MM
+ BUS_INTERFACE M_AXI_MM2S = AXI_MM
+ BUS_INTERFACE M_AXI_S2MM = AXI_MM
+# ##
+ BUS_INTERFACE M_AXIS_MM2S_CNTRL = Ethernet_DMA_M_AXIS_MM2S_CNTRL
+ BUS_INTERFACE M_AXIS_MM2S = Ethernet_DMA_M_AXIS_MM2S
+ BUS_INTERFACE S_AXIS_S2MM = axi_rtdex_eth_AXI_STR_EDMA_RXD
+ BUS_INTERFACE S_AXIS_S2MM_STS = axi_rtdex_eth_AXI_STR_EDMA_RXS
+# BUS_INTERFACE M_AXIS_MM2S_CNTRL = ETHERNET_dma_txc
+# BUS_INTERFACE M_AXIS_MM2S = ETHERNET_dma_txd
+# BUS_INTERFACE S_AXIS_S2MM = ETHERNET_dma_rxd
+# BUS_INTERFACE S_AXIS_S2MM_STS = ETHERNET_dma_rxs
+# ###
+ PORT s_axi_lite_aclk = clk_100_0000MHzMMCM0
+ PORT m_axi_sg_aclk = clk_100_0000MHzMMCM0
+ PORT m_axi_mm2s_aclk = clk_100_0000MHzMMCM0
+ PORT m_axi_s2mm_aclk = clk_100_0000MHzMMCM0
+ PORT mm2s_introut = Ethernet_DMA_mm2s_introut
+ PORT s2mm_introut = Ethernet_DMA_s2mm_introut
+END
+
+BEGIN axi_intc
+ PARAMETER INSTANCE = irq_Ctlr
+ PARAMETER HW_VER = 1.01.a
+ PARAMETER C_BASEADDR = 0x81800000
+ PARAMETER C_HIGHADDR = 0x8180ffff
+ BUS_INTERFACE S_AXI = AXI_Lite_0x8
+ PORT S_AXI_ACLK = clk_100_0000MHzMMCM0
+ PORT Intr = fp_uart_Interrupt & debug_module_Interrupt & Ethernet_DMA_mm2s_introut & Ethernet_DMA_s2mm_introut & Hard_Ethernet_MAC_INTERRUPT & axi_timer_0_Interrupt
+ PORT Irq = Interrupt_Cntlr_Irq
+END
+
+BEGIN axi_timer
+ PARAMETER INSTANCE = timer
+ PARAMETER HW_VER = 1.03.a
+ PARAMETER C_BASEADDR = 0x83c00000
+ PARAMETER C_HIGHADDR = 0x83c0ffff
+ BUS_INTERFACE S_AXI = AXI_Lite_0x8
+ PORT S_AXI_ACLK = clk_100_0000MHzMMCM0
+ PORT Interrupt = axi_timer_0_Interrupt
+END
+
+BEGIN axi_v6_ddrx
+ PARAMETER INSTANCE = DDR3_SDRAM
+ PARAMETER HW_VER = 1.05.a
+ PARAMETER C_MEM_PARTNO = MT41J128M8XX-15E
+ PARAMETER C_DM_WIDTH = 1
+ PARAMETER C_DQS_WIDTH = 1
+ PARAMETER C_ROW_WIDTH = 14
+ PARAMETER C_DQ_WIDTH = 8
+ PARAMETER C_RTT_NOM = 60
+ PARAMETER C_OUTPUT_DRV = LOW
+ PARAMETER C_MMCM_EXT_LOC = MMCM_ADV_X0Y10
+ PARAMETER C_INTERCONNECT_S_AXI_MASTERS = Ethernet_DMA.M_AXI_SG & Ethernet_DMA.M_AXI_MM2S & Ethernet_DMA.M_AXI_S2MM & main_cpu.M_AXI_DC & main_cpu.M_AXI_IC
+# #
+ PARAMETER C_IODELAY_GRP = DUAL_DDR3
+# #
+ PARAMETER C_S_AXI_BASEADDR = 0x90000000
+ PARAMETER C_S_AXI_HIGHADDR = 0x97ffffff
+ PARAMETER C_INTERCONNECT_S_AXI_AW_REGISTER = 1
+ PARAMETER C_INTERCONNECT_S_AXI_AR_REGISTER = 1
+ BUS_INTERFACE S_AXI = AXI_MM
+ PORT clk = clk_200_0000MHzMMCM0
+ PORT ddr_addr = axi_v6_ddrx_0_ddr_addr
+ PORT ddr_ba = axi_v6_ddrx_0_ddr_ba
+ PORT ddr_cas_n = axi_v6_ddrx_0_ddr_cas_n
+ PORT ddr_ck_p = axi_v6_ddrx_0_ddr_ck_p
+ PORT ddr_ck_n = axi_v6_ddrx_0_ddr_ck_n
+ PORT ddr_cke = axi_v6_ddrx_0_ddr_cke
+ PORT ddr_cs_n = axi_v6_ddrx_0_ddr_cs_n
+ PORT ddr_dm = axi_v6_ddrx_0_ddr_dm
+ PORT ddr_odt = axi_v6_ddrx_0_ddr_odt
+ PORT ddr_ras_n = axi_v6_ddrx_0_ddr_ras_n
+ PORT ddr_reset_n = axi_v6_ddrx_0_ddr_reset_n
+ PORT ddr_parity = axi_v6_ddrx_0_ddr_parity
+ PORT ddr_we_n = axi_v6_ddrx_0_ddr_we_n
+ PORT ddr_dq = axi_v6_ddrx_0_ddr_dq
+ PORT ddr_dqs_p = axi_v6_ddrx_0_ddr_dqs_p
+ PORT ddr_dqs_n = axi_v6_ddrx_0_ddr_dqs_n
+ PORT clk_mem = clk_400_0000MHzMMCM0
+ PORT clk_rd_base = clk_400_0000MHzMMCM0_nobuf_varphase
+ PORT clk_ref = clk_200_0000MHzMMCM0
+ PORT pd_PSEN = DDR3_SDRAM_pd_PSEN
+ PORT pd_PSINCDEC = DDR3_SDRAM_pd_PSINCDEC
+ PORT pd_PSDONE = clock_generator_0_PSDONE
+# #
+ PORT iodelay_ctrl_rdy_o = DDR3_SDRAM_iodelay_ctrl_rdy_o
+# #
+ PORT phy_init_done = DDR3_SDRAM_phy_init_done_0
+END
+
+BEGIN axi_timebase_wdt
+ PARAMETER INSTANCE = watchdog
+ PARAMETER HW_VER = 1.01.a
+ PARAMETER C_BASEADDR = 0x83600000
+ PARAMETER C_HIGHADDR = 0x8360ffff
+ BUS_INTERFACE S_AXI = AXI_Lite_0x8
+ PORT S_AXI_ACLK = clk_100_0000MHzMMCM0
+ PORT WDT_Reset = axi_timebase_wdt_0_WDT_Reset
+END
+
+BEGIN axi_uartlite
+ PARAMETER INSTANCE = ipmi_uart
+ PARAMETER HW_VER = 1.02.a
+ PARAMETER C_ODD_PARITY = 1
+ PARAMETER C_BASEADDR = 0x84100000
+ PARAMETER C_HIGHADDR = 0x8410ffff
+ BUS_INTERFACE S_AXI = AXI_Lite_0x8
+ PORT S_AXI_ACLK = clk_100_0000MHzMMCM0
+ PORT Interrupt = IpmiUartIRQ_s
+ PORT RX = IpmiUartRX_s
+ PORT TX = IpmiUartTX_s
+END
+
+BEGIN axi_iic
+ PARAMETER INSTANCE = fmc_i2c
+ PARAMETER HW_VER = 1.01.b
+ PARAMETER C_SCL_INERTIAL_DELAY = 5
+ PARAMETER C_SDA_INERTIAL_DELAY = 5
+ PARAMETER C_BASEADDR = 0x81600000
+ PARAMETER C_HIGHADDR = 0x8160ffff
+ BUS_INTERFACE S_AXI = AXI_Lite_0x8
+ PORT S_AXI_ACLK = clk_100_0000MHzMMCM0
+ PORT IIC2INTC_Irpt = FmcI2cIRQ_s
+ PORT Sda = FmcI2cSDA_s
+ PORT Scl = FmcI2cSCL_s
+END
+
+BEGIN axi_sysmon_adc
+ PARAMETER INSTANCE = axi_sysmon_adc_0
+ PARAMETER HW_VER = 2.00.a
+ PARAMETER C_INCLUDE_INTR = 1
+ PARAMETER C_BASEADDR = 0x75000000
+ PARAMETER C_HIGHADDR = 0x75000FFF
+ BUS_INTERFACE S_AXI = AXI_Lite_0x7
+ PORT S_AXI_ACLK = clk_100_0000MHzMMCM0
+ PORT IP2INTC_Irpt = sysmon_adc_intr
+END
+
+BEGIN lyt_axi_perseus6010_regs
+ PARAMETER INSTANCE = axi_perseus6010_regs
+ PARAMETER HW_VER = 1.00.a
+ PARAMETER C_BASEADDR = 0x70000000
+ PARAMETER C_HIGHADDR = 0x7000FFFF
+ BUS_INTERFACE S_AXI = AXI_Lite_0x7
+ PORT S_AXI_ACLK = clk_100_0000MHzMMCM0
+ PORT o_nFpgaProg_p = axi_perseus6010_regs_o_nFpgaProg_p
+ PORT i_DaughterIoAbsent_p = axiLite_perseus6010_regs_0_i_DaughterIoAbsent_p
+ PORT ov2_UartSelectMode_p = v2_UartSelectMode_s
+ PORT i_FmcAbsent_p = axiLite_perseus6010_regs_0_i_FmcAbsent_p
+ PORT i_FmcStackAbsent_p = axiLite_perseus6010_regs_0_i_FmcStackAbsent_p
+ PORT o_CtrlTclkdTxEn_p = axiLite_perseus6010_regs_0_o_CtrlTclkdTxEn_p
+ PORT o_CtrlTclkdRxDis_p = axiLite_perseus6010_regs_0_o_CtrlTclkdRxDis_p
+ PORT o_CtrlAmctclkc2Fmcclk3En_p = axiLite_perseus6010_regs_0_o_CtrlAmctclkc2Fmcclk3En_p
+ PORT o_CtrlAmctclka2Fmcclk2En_p = axiLite_perseus6010_regs_0_o_CtrlAmctclka2Fmcclk2En_p
+ PORT o_CtrlFclkaHighz_p = axiLite_perseus6010_regs_0_o_CtrlFclkaHighz_p
+ PORT o_Ctrl100mhzOutEn_p = axiLite_perseus6010_regs_0_o_Ctrl100mhzOutEn_p
+ PORT o_CtrlTclkaTxEn_p = axiLite_perseus6010_regs_0_o_CtrlTclkaTxEn_p
+ PORT o_CtrlFmcclk02AmctclkbEn_p = axiLite_perseus6010_regs_0_o_CtrlFmcclk02AmctclkbEn_p
+ PORT o_CtrlTclkcTxEn_p = axiLite_perseus6010_regs_0_o_CtrlTclkcTxEn_p
+ PORT o_CtrlVadjEn_p = axiLite_perseus6010_regs_0_o_CtrlVadjEn_p
+ PORT o_CtrlTclkbRxDis_p = axiLite_perseus6010_regs_0_o_CtrlTclkbRxDis_p
+ PORT ov2_CtrlVadjSel_p = axiLite_perseus6010_regs_0_ov2_CtrlVadjSel_p
+ PORT o_CtrlTclkbTxEn_p = axiLite_perseus6010_regs_0_o_CtrlTclkbTxEn_p
+ PORT o_CtrlFmcclk12AmctclkdEn_p = axiLite_perseus6010_regs_0_o_CtrlFmcclk12AmctclkdEn_p
+ PORT o_CtrlTclkcRxDis_p = axiLite_perseus6010_regs_0_o_CtrlTclkcRxDis_p
+ PORT o_CtrlTclkaRxDis_p = axiLite_perseus6010_regs_0_o_CtrlTclkaRxDis_p
+ PORT o_CtrlLedBufOd_p = axiLite_perseus6010_regs_0_o_CtrlLedBufOd_p
+ PORT ov8_nCtrlLedGrn_p = axiLite_perseus6010_regs_0_ov8_nCtrlLedGrn_p
+ PORT ov8_nCtrlLedRed_p = axiLite_perseus6010_regs_0_ov8_nCtrlLedRed_p
+ PORT i_Ddr3CceInitDone_p = DDR3_SDRAM_phy_init_done_0
+ PORT i_MmcI2cReleaseAck_p = axiLite_perseus6010_regs_0_i_MmcI2cReleaseAck_p
+ PORT o_MmcI2cReleaseReq_p = axiLite_perseus6010_regs_0_o_MmcI2cReleaseReq_p
+# PORT iv32_CustomReg3_p = 0b0000000000000000000000000000 & v4_AdcDataMuxSel_s
+# PORT ov32_CustomReg3_p = 0b0000000000000000000000000000 & v4_AdcDataMuxSel_s
+ PORT iv32_CustomReg4_p = 0b0000000000000000000000000000000 & fifo_rst_s
+ PORT ov32_CustomReg4_p = 0b0000000000000000000000000000000 & fifo_rst_s
+# PORT iv32_CustomReg16_p = v32_DDS_Data_s
+# PORT ov32_CustomReg16_p = v32_DDS_Data_s
+# PORT iv32_CustomReg17_p = 0b0000000000000000 & mo1000_1_DacRdyCh8_s & mo1000_1_DacRdyCh7_s & mo1000_1_DacRdyCh6_s & mo1000_1_DacRdyCh5_s & mo1000_1_DacRdyCh4_s & mo1000_1_DacRdyCh3_s & mo1000_1_DacRdyCh2_s & mo1000_1_DacRdyCh1_s & mo1000_0_DacRdyCh8_s & mo1000_0_DacRdyCh7_s & mo1000_0_DacRdyCh6_s & mo1000_0_DacRdyCh5_s & mo1000_0_DacRdyCh4_s & mo1000_0_DacRdyCh3_s & mo1000_0_DacRdyCh2_s & mo1000_0_DacRdyCh1_s
+# PORT iv32_CustomReg18_p = 0b0000000000000000000000000000000 & mo1000_0_Trigger_r1_s
+# PORT iv32_CustomReg19_p = 0b0000000000000000000000000000000 & DacDataMuxSel_s
+# PORT ov32_CustomReg19_p = 0b0000000000000000000000000000000 & DacDataMuxSel_s
+# # Custom register used for LLRF settings and readbacks
+ PORT iv32_CustomReg0_p = 0b0000000000000000000000000000000 & RecTrigger_s
+ PORT ov32_CustomReg0_p = 0b0000000000000000000000000000000 & RecTrigger_s
+ PORT iv32_CustomReg10_p = v32_reg_data1_A_s
+ PORT ov32_CustomReg10_p = v32_reg_data1_A_s
+ PORT iv32_CustomReg11_p = 0x0000 & o_v16_reg_data2_A_s
+ PORT ov32_CustomReg11_p = 0x0000 & i_v16_reg_data2_A_s
+ PORT iv32_CustomReg12_p = o_v32_reg_data3_A_s
+ PORT ov32_CustomReg12_p = 0x000 & 0b000 & i_v17_reg_data3_A_s
+ PORT iv32_CustomReg13_p = v32_gpio_configuration
+ PORT ov32_CustomReg13_p = v32_gpio_configuration
+ PORT iv32_CustomReg14_p = 0x0000 & custom_reg_gpio_read_out_s
+ PORT ov32_CustomReg14_p = 0x0000 & custom_reg_gpio_read_in_s
+ PORT iv32_CustomReg15_p = 0x0000000 & 0b00 & conf
+ PORT ov32_CustomReg15_p = 0x0000000 & 0b00 & conf
+ PORT iv32_CustomReg20_p = v32_reg_data1_B_s
+ PORT ov32_CustomReg20_p = v32_reg_data1_B_s
+ PORT iv32_CustomReg21_p = 0x0000 & o_v16_reg_data2_B_s
+ PORT ov32_CustomReg21_p = 0x0000 & i_v16_reg_data2_B_s
+ PORT iv32_CustomReg22_p = o_v32_reg_data3_B_s
+ PORT ov32_CustomReg22_p = 0x000 & 0b000 & i_v17_reg_data3_B_s
+# # FPGA Version Code
+# # 2016 08 02 - 00 - Loops Version 00 - DLS LLRF NC, SC and Booster
+ PORT iv32_CustomReg31_p = 0x782AF148
+END
+
+# ###
+BEGIN lyt_axi_mo1000
+ PARAMETER INSTANCE = axi_mo1000_0
+ PARAMETER HW_VER = 1.00.a
+ PARAMETER C_BASEADDR = 0x85000000
+ PARAMETER C_HIGHADDR = 0x85000FFF
+ PARAMETER C_CLOCK_MASTER = true
+ PARAMETER C_FMC_POSITION = 0
+ PARAMETER C_AXI_CLK_FREQ_MHZ = 100
+ PARAMETER C_REF_CLK_FREQ_MHZ = 200.0
+ BUS_INTERFACE S_AXI = AXI_Lite_0x8
+ PORT S_AXI_ACLK = clk_100_0000MHzMMCM0
+ PORT i_Rst_p = sys_periph_reset
+ PORT i_RefClk_p = clk_200_0000MHzMMCM0
+ PORT o_DesignClk_p = mo1000_0_DesignClk_s
+ PORT iv16_DacDataCh1_p = Control1_l
+ PORT iv16_DacDataCh2_p = Control2_l
+ PORT iv16_DacDataCh3_p = Control3_l
+ PORT iv16_DacDataCh4_p = Control4_l
+ PORT iv16_DacDataCh5_p = Control5_l
+ PORT iv16_DacDataCh6_p = Control6_l
+ PORT iv16_DacDataCh7_p = Control7_l
+ PORT iv16_DacDataCh8_p = Control8_l
+ PORT o_DacRdyCh1_p = mo1000_0_DacRdyCh1_s
+ PORT o_DacRdyCh2_p = mo1000_0_DacRdyCh2_s
+ PORT o_DacRdyCh3_p = mo1000_0_DacRdyCh3_s
+ PORT o_DacRdyCh4_p = mo1000_0_DacRdyCh4_s
+ PORT o_DacRdyCh5_p = mo1000_0_DacRdyCh5_s
+ PORT o_DacRdyCh6_p = mo1000_0_DacRdyCh6_s
+ PORT o_DacRdyCh7_p = mo1000_0_DacRdyCh7_s
+ PORT o_DacRdyCh8_p = mo1000_0_DacRdyCh8_s
+ PORT o_Trigger_p = mo1000_0_Trigger_s
+ PORT idp_ClockFromFMC_p = mo1000_0_pClockFromFMC_s
+ PORT idn_ClockFromFMC_p = mo1000_0_nClockFromFMC_s
+ PORT odp_DataToFMC_p = mo1000_0_pDataToFMC_s
+ PORT odn_DataToFMC_p = mo1000_0_nDataToFMC_s
+ PORT odp_DciToFMC_p = mo1000_0_pDciToFMC_s
+ PORT odn_DciToFMC_p = mo1000_0_nDciToFMC_s
+ PORT odp_FrameToFMC_p = mo1000_0_pFrameToFMC_s
+ PORT odn_FrameToFMC_p = mo1000_0_nFrameToFMC_s
+ PORT i_TriggerFromFMC_p = mo1000_0_TriggerFromFMC_s
+END
+
+# MI125 Top (slave)
+BEGIN lyt_axi_mi125
+ PARAMETER INSTANCE = axi_mi125_top
+ PARAMETER HW_VER = 1.00.a
+ PARAMETER C_BASEADDR = 0x85001000
+ PARAMETER C_HIGHADDR = 0x85001FFF
+ PARAMETER C_PRIMARY_MODULE = true
+ PARAMETER C_BOTTOM_POSITION = false
+ PARAMETER ADC_CLKIN_FREQ = 125.0
+ PARAMETER ADC_CLKFBOUT_MULT_F = 8.0
+ PARAMETER ADC_DIVCLK_DIVIDE = 2
+ PARAMETER ADC_CLKOUT0_DIVIDE_F = 2.0
+ PARAMETER ADC_CLKOUT1_DIVIDE = 8
+ BUS_INTERFACE S_AXI = AXI_Lite_0x8
+ PORT S_AXI_ACLK = clk_100_0000MHzMMCM0
+ PORT i_RefClk200MHz_p = clk_200_0000MHzMMCM0
+ PORT idp_DataFromADC_p = dp_Mi125DataFromADCTop_s
+ PORT idn_DataFromADC_p = dn_Mi125DataFromADCTop_s
+ PORT idp_ClockFromADC_p = dp_Mi125ClockFromADCTop_s
+ PORT idn_ClockFromADC_p = dn_Mi125ClockFromADCTop_s
+ PORT idp_FrameFromADC_p = dp_Mi125FrameFromADCTop_s
+ PORT idn_FrameFromADC_p = dn_Mi125FrameFromADCTop_s
+ PORT i_logicRst_p = sys_periph_reset
+ PORT o_AdcDataClk_p = Mi125AdcDataClkTop_s
+ PORT ov14_AdcDataCh1_p = v14_Mi125AdcDataCh1Top_s
+ PORT ov14_AdcDataCh2_p = v14_Mi125AdcDataCh2Top_s
+ PORT ov14_AdcDataCh3_p = v14_Mi125AdcDataCh3Top_s
+ PORT ov14_AdcDataCh4_p = v14_Mi125AdcDataCh4Top_s
+ PORT ov14_AdcDataCh5_p = v14_Mi125AdcDataCh5Top_s
+ PORT ov14_AdcDataCh6_p = v14_Mi125AdcDataCh6Top_s
+ PORT ov14_AdcDataCh7_p = v14_Mi125AdcDataCh7Top_s
+ PORT ov14_AdcDataCh8_p = v14_Mi125AdcDataCh8Top_s
+ PORT ov14_AdcDataCh9_p = v14_Mi125AdcDataCh9Top_s
+ PORT ov14_AdcDataCh10_p = v14_Mi125AdcDataCh10Top_s
+ PORT ov14_AdcDataCh11_p = v14_Mi125AdcDataCh11Top_s
+ PORT ov14_AdcDataCh12_p = v14_Mi125AdcDataCh12Top_s
+ PORT ov14_AdcDataCh13_p = v14_Mi125AdcDataCh13Top_s
+ PORT ov14_AdcDataCh14_p = v14_Mi125AdcDataCh14Top_s
+ PORT ov14_AdcDataCh15_p = v14_Mi125AdcDataCh15Top_s
+ PORT ov14_AdcDataCh16_p = v14_Mi125AdcDataCh16Top_s
+ PORT o_AdcCh1Valid_p = Mi125AdcCh1ValidTop_s
+ PORT o_AdcCh2Valid_p = Mi125AdcCh2ValidTop_s
+ PORT o_AdcCh3Valid_p = Mi125AdcCh3ValidTop_s
+ PORT o_AdcCh4Valid_p = Mi125AdcCh4ValidTop_s
+ PORT o_AdcCh5Valid_p = Mi125AdcCh5ValidTop_s
+ PORT o_AdcCh6Valid_p = Mi125AdcCh6ValidTop_s
+ PORT o_AdcCh7Valid_p = Mi125AdcCh7ValidTop_s
+ PORT o_AdcCh8Valid_p = Mi125AdcCh8ValidTop_s
+ PORT o_AdcCh9Valid_p = Mi125AdcCh9ValidTop_s
+ PORT o_AdcCh10Valid_p = Mi125AdcCh10ValidTop_s
+ PORT o_AdcCh11Valid_p = Mi125AdcCh11ValidTop_s
+ PORT o_AdcCh12Valid_p = Mi125AdcCh12ValidTop_s
+ PORT o_AdcCh13Valid_p = Mi125AdcCh13ValidTop_s
+ PORT o_AdcCh14Valid_p = Mi125AdcCh14ValidTop_s
+ PORT o_AdcCh15Valid_p = Mi125AdcCh15ValidTop_s
+ PORT o_AdcCh16Valid_p = Mi125AdcCh16ValidTop_s
+ PORT o_AdcCh1to4Enabled_p = Mi125AdcCh1to4EnabledTop_s
+ PORT o_AdcCh5to8Enabled_p = Mi125AdcCh5to8EnabledTop_s
+ PORT o_AdcCh9to12Enabled_p = Mi125AdcCh9to12EnabledTop_s
+ PORT o_AdcCh13to16Enabled_p = Mi125AdcCh13to16EnabledTop_s
+END
+
+BEGIN util_reduced_logic
+ PARAMETER INSTANCE = dac_rdy_reduced
+ PARAMETER HW_VER = 1.00.a
+ PARAMETER C_OPERATION = or
+ PARAMETER C_SIZE = 8
+ PORT Op1 = mo1000_0_DacRdyCh8_s & mo1000_0_DacRdyCh7_s & mo1000_0_DacRdyCh6_s & mo1000_0_DacRdyCh5_s & mo1000_0_DacRdyCh4_s & mo1000_0_DacRdyCh3_s & mo1000_0_DacRdyCh2_s & mo1000_0_DacRdyCh1_s
+ PORT Res = dac_rdy_s
+END
+
+BEGIN util_flipflop
+ PARAMETER INSTANCE = ff_dac_rdy
+ PARAMETER HW_VER = 1.10.a
+ PARAMETER C_USE_RST = 0
+ PARAMETER C_USE_SET = 0
+ PARAMETER C_SET_RST_HIGH = 0
+ PARAMETER C_USE_CE = 0
+ PARAMETER C_USE_ASYNCH = 0
+ PARAMETER C_SIZE = 1
+ PORT Clk = mo1000_0_DesignClk_s
+ PORT D = dac_rdy_s
+ PORT Q = dac_rdy_r1_s
+END
+
+# BEGIN lyt_dds
+# PARAMETER INSTANCE = lyt_dds_0
+# PARAMETER HW_VER = 1.00.a
+# PORT i_Clk_p = mo1000_0_DesignClk_s
+# PORT i_Rst_p = sys_periph_reset
+# PORT i_ClkEn_p = dac_rdy_r1_s
+# PORT iv32_Data_p = v32_DDS_Data_s
+# PORT i_WriteEn_p = net_vcc
+# PORT ov16_Cosine_p = v16_Cosine_s
+# END
+# BEGIN lyt_mux16
+# PARAMETER INSTANCE = lyt_mux16_1
+# PARAMETER HW_VER = 1.00.a
+# PARAMETER DATA_LENGTH = 15
+# PORT iv_Data1_p = Mi125AdcCh1ValidTop_s & v14_Mi125AdcDataCh1Top_s
+# PORT iv_Data2_p = Mi125AdcCh2ValidTop_s & v14_Mi125AdcDataCh2Top_s
+# PORT iv_Data3_p = Mi125AdcCh3ValidTop_s & v14_Mi125AdcDataCh3Top_s
+# PORT iv_Data4_p = Mi125AdcCh4ValidTop_s & v14_Mi125AdcDataCh4Top_s
+# PORT iv_Data5_p = Mi125AdcCh5ValidTop_s & v14_Mi125AdcDataCh5Top_s
+# PORT iv_Data6_p = Mi125AdcCh6ValidTop_s & v14_Mi125AdcDataCh6Top_s
+# PORT iv_Data7_p = Mi125AdcCh7ValidTop_s & v14_Mi125AdcDataCh7Top_s
+# PORT iv_Data8_p = Mi125AdcCh8ValidTop_s & v14_Mi125AdcDataCh8Top_s
+# PORT iv_Data9_p = Mi125AdcCh9ValidTop_s & v14_Mi125AdcDataCh9Top_s
+# PORT iv_Data10_p = Mi125AdcCh10ValidTop_s & v14_Mi125AdcDataCh10Top_s
+# PORT iv_Data11_p = Mi125AdcCh11ValidTop_s & v14_Mi125AdcDataCh11Top_s
+# PORT iv_Data12_p = Mi125AdcCh12ValidTop_s & v14_Mi125AdcDataCh12Top_s
+# PORT iv_Data13_p = Mi125AdcCh13ValidTop_s & v14_Mi125AdcDataCh13Top_s
+# PORT iv_Data14_p = Mi125AdcCh14ValidTop_s & v14_Mi125AdcDataCh14Top_s
+# PORT iv_Data15_p = Mi125AdcCh15ValidTop_s & v14_Mi125AdcDataCh15Top_s
+# PORT iv_Data16_p = Mi125AdcCh16ValidTop_s & v14_Mi125AdcDataCh16Top_s
+# PORT iv4_Sel_p = v4_AdcDataMuxSel_s
+# PORT ov_Data_p = AdcValidMux_s & v14_AdcDataMux_s
+# END
+# BEGIN util_flipflop
+# PARAMETER INSTANCE = ff_AdcMux
+# PARAMETER HW_VER = 1.10.a
+# PARAMETER C_USE_RST = 0
+# PARAMETER C_USE_SET = 0
+# PARAMETER C_SET_RST_HIGH = 0
+# PARAMETER C_USE_CE = 0
+# PARAMETER C_USE_ASYNCH = 0
+# PARAMETER C_SIZE = 14
+# PORT Clk = Mi125AdcDataClkTop_s
+# PORT D = v14_AdcDataMux_s
+# PORT Q = v14_AdcDataMux_r1_s
+# END
+# BEGIN util_flipflop
+# PARAMETER INSTANCE = ff_AdcMuxValid
+# PARAMETER HW_VER = 1.10.a
+# PARAMETER C_USE_RST = 0
+# PARAMETER C_USE_SET = 0
+# PARAMETER C_SET_RST_HIGH = 0
+# PARAMETER C_USE_CE = 0
+# PARAMETER C_USE_ASYNCH = 0
+# PARAMETER C_SIZE = 1
+# PORT Clk = Mi125AdcDataClkTop_s
+# PORT D = AdcValidMux_s
+# PORT Q = AdcValidMux_r1_s
+# END
+# BEGIN lyt_async_fifo
+# PARAMETER INSTANCE = lyt_async_fifo_0
+# PARAMETER HW_VER = 1.00.a
+# PORT i_Rst_p = fifo_rst_s
+# PORT i_WrClk_p = Mi125AdcDataClkTop_s
+# PORT iv32_Data_p = 0b000000000000000000 & v14_AdcDataMux_r1_s
+# PORT i_WeEn_p = AdcValidMux_r1_s
+# PORT i_RdClk_p = mo1000_0_DesignClk_s
+# PORT i_RdEn_p = dac_rdy_r1_s
+# PORT ov32_Data_p = 0b000000000000000000 & v14_FifoData_s
+# END
+# BEGIN lyt_resize
+# PARAMETER INSTANCE = lyt_resize_1
+# PARAMETER HW_VER = 1.00.a
+# PARAMETER INPUT_LENGTH = 14
+# PARAMETER OUTPUT_LENGTH = 16
+# PARAMETER SLL_EN = true
+# PORT iv_Data_p = v14_FifoData_s
+# PORT i_DataFormat_p = net_vcc
+# PORT ov_Data_p = v16_FifoData_s
+# END
+# BEGIN lyt_mux2
+# PARAMETER INSTANCE = lyt_mux2_1
+# PARAMETER HW_VER = 1.00.a
+# PARAMETER DATA_LENGTH = 16
+# PORT iv_Data1_p = v16_Cosine_s
+# PORT iv_Data2_p = v16_FifoData_s
+# PORT i_Sel_p = DacDataMuxSel_s
+# PORT ov_Data_p = v16_MO1000DacData_s
+# END
+BEGIN lyt_async_fifo
+ PARAMETER INSTANCE = lyt_async_fifo_0
+ PARAMETER HW_VER = 1.00.a
+ PORT i_Rst_p = fifo_rst_s
+ PORT i_WrClk_p = Mi125AdcDataClkTop_s
+ PORT iv32_Data_p = Control2 & Control1
+ PORT i_WeEn_p = Mi125AdcCh1ValidTop_s
+ PORT i_RdClk_p = mo1000_0_DesignClk_s
+ PORT i_RdEn_p = dac_rdy_r1_s
+ PORT ov32_Data_p = Control2_s & Control1_s
+END
+
+BEGIN lyt_async_fifo
+ PARAMETER INSTANCE = lyt_async_fifo_1
+ PARAMETER HW_VER = 1.00.a
+ PORT i_Rst_p = fifo_rst_s
+ PORT i_WrClk_p = Mi125AdcDataClkTop_s
+ PORT iv32_Data_p = Control4 & Control3
+ PORT i_WeEn_p = Mi125AdcCh1ValidTop_s
+ PORT i_RdClk_p = mo1000_0_DesignClk_s
+ PORT i_RdEn_p = dac_rdy_r1_s
+ PORT ov32_Data_p = Control4_s & Control3_s
+END
+
+BEGIN lyt_async_fifo
+ PARAMETER INSTANCE = lyt_async_fifo_2
+ PARAMETER HW_VER = 1.00.a
+ PORT i_Rst_p = fifo_rst_s
+ PORT i_WrClk_p = Mi125AdcDataClkTop_s
+ PORT iv32_Data_p = Control6 & Control5
+ PORT i_WeEn_p = Mi125AdcCh1ValidTop_s
+ PORT i_RdClk_p = mo1000_0_DesignClk_s
+ PORT i_RdEn_p = dac_rdy_r1_s
+ PORT ov32_Data_p = Control6_s & Control5_s
+END
+
+BEGIN lyt_async_fifo
+ PARAMETER INSTANCE = lyt_async_fifo_3
+ PARAMETER HW_VER = 1.00.a
+ PORT i_Rst_p = fifo_rst_s
+ PORT i_WrClk_p = Mi125AdcDataClkTop_s
+ PORT iv32_Data_p = Control8_IFDACsA & Control8_IFDACsA
+ PORT i_WeEn_p = Mi125AdcCh1ValidTop_s
+ PORT i_RdClk_p = mo1000_0_DesignClk_s
+ PORT i_RdEn_p = dac_rdy_r1_s
+ PORT ov32_Data_p = Control8_s & Control7_s
+END
+
+BEGIN util_flipflop
+ PARAMETER INSTANCE = ff_MO1000DacData_1
+ PARAMETER HW_VER = 1.10.a
+ PARAMETER C_USE_RST = 0
+ PARAMETER C_USE_SET = 0
+ PARAMETER C_SET_RST_HIGH = 0
+ PARAMETER C_USE_CE = 0
+ PARAMETER C_USE_ASYNCH = 0
+ PARAMETER C_SIZE = 16
+ PORT Clk = mo1000_0_DesignClk_s
+ PORT D = Control1_s
+ PORT Q = Control1_l
+END
+
+BEGIN util_flipflop
+ PARAMETER INSTANCE = ff_MO1000DacData_2
+ PARAMETER HW_VER = 1.10.a
+ PARAMETER C_USE_RST = 0
+ PARAMETER C_USE_SET = 0
+ PARAMETER C_SET_RST_HIGH = 0
+ PARAMETER C_USE_CE = 0
+ PARAMETER C_USE_ASYNCH = 0
+ PARAMETER C_SIZE = 16
+ PORT Clk = mo1000_0_DesignClk_s
+ PORT D = Control2_s
+ PORT Q = Control2_l
+END
+
+BEGIN util_flipflop
+ PARAMETER INSTANCE = ff_MO1000DacData_3
+ PARAMETER HW_VER = 1.10.a
+ PARAMETER C_USE_RST = 0
+ PARAMETER C_USE_SET = 0
+ PARAMETER C_SET_RST_HIGH = 0
+ PARAMETER C_USE_CE = 0
+ PARAMETER C_USE_ASYNCH = 0
+ PARAMETER C_SIZE = 16
+ PORT Clk = mo1000_0_DesignClk_s
+ PORT D = Control3_s
+ PORT Q = Control3_l
+END
+
+BEGIN util_flipflop
+ PARAMETER INSTANCE = ff_MO1000DacData_4
+ PARAMETER HW_VER = 1.10.a
+ PARAMETER C_USE_RST = 0
+ PARAMETER C_USE_SET = 0
+ PARAMETER C_SET_RST_HIGH = 0
+ PARAMETER C_USE_CE = 0
+ PARAMETER C_USE_ASYNCH = 0
+ PARAMETER C_SIZE = 16
+ PORT Clk = mo1000_0_DesignClk_s
+ PORT D = Control4_s
+ PORT Q = Control4_l
+END
+
+BEGIN util_flipflop
+ PARAMETER INSTANCE = ff_MO1000DacData_5
+ PARAMETER HW_VER = 1.10.a
+ PARAMETER C_USE_RST = 0
+ PARAMETER C_USE_SET = 0
+ PARAMETER C_SET_RST_HIGH = 0
+ PARAMETER C_USE_CE = 0
+ PARAMETER C_USE_ASYNCH = 0
+ PARAMETER C_SIZE = 16
+ PORT Clk = mo1000_0_DesignClk_s
+ PORT D = Control5_s
+ PORT Q = Control5_l
+END
+
+BEGIN util_flipflop
+ PARAMETER INSTANCE = ff_MO1000DacData_6
+ PARAMETER HW_VER = 1.10.a
+ PARAMETER C_USE_RST = 0
+ PARAMETER C_USE_SET = 0
+ PARAMETER C_SET_RST_HIGH = 0
+ PARAMETER C_USE_CE = 0
+ PARAMETER C_USE_ASYNCH = 0
+ PARAMETER C_SIZE = 16
+ PORT Clk = mo1000_0_DesignClk_s
+ PORT D = Control6_s
+ PORT Q = Control6_l
+END
+
+BEGIN util_flipflop
+ PARAMETER INSTANCE = ff_MO1000DacData_7
+ PARAMETER HW_VER = 1.10.a
+ PARAMETER C_USE_RST = 0
+ PARAMETER C_USE_SET = 0
+ PARAMETER C_SET_RST_HIGH = 0
+ PARAMETER C_USE_CE = 0
+ PARAMETER C_USE_ASYNCH = 0
+ PARAMETER C_SIZE = 16
+ PORT Clk = mo1000_0_DesignClk_s
+ PORT D = Control7_s
+ PORT Q = Control7_l
+END
+
+BEGIN util_flipflop
+ PARAMETER INSTANCE = ff_MO1000DacData_8
+ PARAMETER HW_VER = 1.10.a
+ PARAMETER C_USE_RST = 0
+ PARAMETER C_USE_SET = 0
+ PARAMETER C_SET_RST_HIGH = 0
+ PARAMETER C_USE_CE = 0
+ PARAMETER C_USE_ASYNCH = 0
+ PARAMETER C_SIZE = 16
+ PORT Clk = mo1000_0_DesignClk_s
+ PORT D = Control8_s
+ PORT Q = Control8_l
+END
+
+BEGIN util_flipflop
+ PARAMETER INSTANCE = ff_trigger
+ PARAMETER HW_VER = 1.10.a
+ PARAMETER C_USE_RST = 0
+ PARAMETER C_USE_SET = 0
+ PARAMETER C_SET_RST_HIGH = 0
+ PARAMETER C_USE_CE = 0
+ PARAMETER C_USE_ASYNCH = 0
+ PARAMETER C_SIZE = 1
+ PORT Clk = mo1000_0_DesignClk_s
+ PORT D = mo1000_0_Trigger_s
+ PORT Q = mo1000_0_Trigger_r1_s
+END
+
+# BEGIN chipscope_icon
+# PARAMETER INSTANCE = chipscope_icon_0
+# PARAMETER HW_VER = 1.06.a
+# PARAMETER C_NUM_CONTROL_PORTS = 2
+# PORT control0 = chipscope_icon_0_control0
+# PORT control1 = chipscope_icon_0_control1
+# END
+# BEGIN chipscope_ila
+# PARAMETER INSTANCE = chipscope_ila_0
+# PARAMETER HW_VER = 1.05.a
+# PARAMETER C_NUM_DATA_SAMPLES = 4096
+# PARAMETER C_DATA_SAME_AS_TRIGGER = 0
+# PARAMETER C_DATA_IN_WIDTH = 33
+# PARAMETER C_TRIG0_TRIGGER_IN_WIDTH = 1
+# PORT CHIPSCOPE_ILA_CONTROL = chipscope_icon_0_control0
+# PORT CLK = mo1000_0_DesignClk_s
+# PORT DATA = mo1000_0_Trigger_r1_s & mo1000_1_DacRdyCh8_s & mo1000_1_DacRdyCh7_s & mo1000_1_DacRdyCh6_s & mo1000_1_DacRdyCh5_s & mo1000_1_DacRdyCh4_s & mo1000_1_DacRdyCh3_s & mo1000_1_DacRdyCh2_s & mo1000_1_DacRdyCh1_s & mo1000_0_DacRdyCh8_s & mo1000_0_DacRdyCh7_s & mo1000_0_DacRdyCh6_s & mo1000_0_DacRdyCh5_s & mo1000_0_DacRdyCh4_s & mo1000_0_DacRdyCh3_s & mo1000_0_DacRdyCh2_s & mo1000_0_DacRdyCh1_s & v16_MO1000DacData_r1_s
+# PORT TRIG0 = mo1000_0_Trigger_r1_s
+# END
+# BEGIN chipscope_ila
+# PARAMETER INSTANCE = chipscope_ila_top
+# PARAMETER HW_VER = 1.05.a
+# PARAMETER C_NUM_DATA_SAMPLES = 1024
+# PARAMETER C_DATA_SAME_AS_TRIGGER = 0
+# PARAMETER C_DATA_IN_WIDTH = 244
+# PARAMETER C_TRIG0_TRIGGER_IN_WIDTH = 1
+# PORT CHIPSCOPE_ILA_CONTROL = chipscope_icon_0_control1
+# PORT CLK = Mi125AdcDataClkTop_s
+# PORT DATA = Mi125AdcCh13to16EnabledTop_s & Mi125AdcCh9to12EnabledTop_s & Mi125AdcCh5to8EnabledTop_s & Mi125AdcCh1to4EnabledTop_s & Mi125AdcCh16ValidTop_s & Mi125AdcCh15ValidTop_s & Mi125AdcCh14ValidTop_s & Mi125AdcCh13ValidTop_s & Mi125AdcCh12ValidTop_s & Mi125AdcCh11ValidTop_s & Mi125AdcCh10ValidTop_s & Mi125AdcCh9ValidTop_s & Mi125AdcCh8ValidTop_s & Mi125AdcCh7ValidTop_s & Mi125AdcCh6ValidTop_s & Mi125AdcCh5ValidTop_s & Mi125AdcCh4ValidTop_s & Mi125AdcCh3ValidTop_s & Mi125AdcCh2ValidTop_s & Mi125AdcCh1ValidTop_s & v14_Mi125AdcDataCh16Top_s & v14_Mi125AdcDataCh15Top_s & v14_Mi125AdcDataCh14Top_s & v14_Mi125AdcDataCh13Top_s & v14_Mi125AdcDataCh12Top_s & v14_Mi125AdcDataCh11Top_s & v14_Mi125AdcDataCh10Top_s & v14_Mi125AdcDataCh9Top_s & v14_Mi125AdcDataCh8Top_s & v14_Mi125AdcDataCh7Top_s & v14_Mi125AdcDataCh6Top_s & v14_Mi125AdcDataCh5Top_s & v14_Mi125AdcDataCh4Top_s & v14_Mi125AdcDataCh3Top_s & v14_Mi125AdcDataCh2Top_s & v14_Mi125AdcDataCh1Top_s
+# PORT TRIG0 = Mi125AdcCh1ValidTop_s
+# END
+# ###################################
+# ## Code implemented for LLRF
+BEGIN lyt_axi_record_playback
+ PARAMETER INSTANCE = axi_record_playback
+ PARAMETER HW_VER = 1.00.a
+ PARAMETER RecordPortWidth_g = 16
+ PARAMETER NumberOfRecordPorts_g = 16
+ PARAMETER PlayBackPortWidth_g = 16
+ PARAMETER NumberOfPlayBackPorts_g = 1
+ PARAMETER C_BASEADDR = 0x73000000
+ PARAMETER C_HIGHADDR = 0x7300ffff
+ BUS_INTERFACE S_AXI = AXI_Lite_0x7
+ PORT S_AXI_ACLK = clk_100_0000MHzMMCM0
+ PORT sys_clk = CLK_SODIMM_DIFF
+ PORT ddr3_dq = axi_record_playback_ddr3_dq
+ PORT ddr3_addr = axi_record_playback_ddr3_addr
+ PORT ddr3_ba = axi_record_playback_ddr3_ba
+ PORT ddr3_ras_n = axi_record_playback_ddr3_ras_n
+ PORT ddr3_cas_n = axi_record_playback_ddr3_cas_n
+ PORT ddr3_we_n = axi_record_playback_ddr3_we_n
+ PORT ddr3_reset_n = axi_record_playback_ddr3_reset_n
+ PORT ddr3_cs_n = axi_record_playback_ddr3_cs_n
+ PORT ddr3_odt = axi_record_playback_ddr3_odt
+ PORT ddr3_cke = axi_record_playback_ddr3_cke
+ PORT ddr3_dm = axi_record_playback_ddr3_dm
+ PORT ddr3_dqs_p = axi_record_playback_ddr3_dqs_p
+ PORT ddr3_dqs_n = axi_record_playback_ddr3_dqs_n
+ PORT ddr3_ck_p = axi_record_playback_ddr3_ck_p
+ PORT ddr3_ck_n = axi_record_playback_ddr3_ck_n
+ PORT iodelay_ctrl_rdy = DDR3_SDRAM_iodelay_ctrl_rdy_o
+ PORT clk_ref = clk_200_0000MHzMMCM0
+ PORT i_RecDataClk_p = Mi125AdcDataClkTop_s
+ PORT i_RecTrigger_p = FDL_Trig_out
+# ## Record Ports
+ PORT iv_RecDataPort0_p = v16_A_Interface_01
+ PORT iv_RecDataPort1_p = v16_A_Interface_02
+ PORT iv_RecDataPort2_p = v16_A_Interface_03
+ PORT iv_RecDataPort3_p = v16_A_Interface_04
+ PORT iv_RecDataPort4_p = v16_A_Interface_05
+ PORT iv_RecDataPort5_p = v16_A_Interface_06
+ PORT iv_RecDataPort6_p = v16_A_Interface_07
+ PORT iv_RecDataPort7_p = v16_A_Interface_08
+ PORT iv_RecDataPort8_p = v16_B_Interface_01
+ PORT iv_RecDataPort9_p = v16_B_Interface_02
+ PORT iv_RecDataPort10_p = v16_B_Interface_03
+ PORT iv_RecDataPort11_p = v16_B_Interface_04
+ PORT iv_RecDataPort12_p = v16_B_Interface_05
+ PORT iv_RecDataPort13_p = v16_B_Interface_06
+ PORT iv_RecDataPort14_p = v16_B_Interface_07
+ PORT iv_RecDataPort15_p = v16_B_Interface_08
+# ####
+ PORT i_RecWriteEn_p = Mi125AdcCh1ValidTop_s
+ PORT ov32_TxDataCh0_p = axi_record_playback_ov32_TxDataCh0_p
+ PORT o_TxWe_p = axi_record_playback_o_TxWe_p
+ PORT i_TxReady_p = axi_rtdex_eth_o_TxReadyCh0_p_0
+ PORT i_RTDExTxClock_p = clk_100_0000MHzMMCM0
+ PORT o_MemClk_p = axi_record_playback_o_MemClk_p
+END
+
+BEGIN lyt_axi_emac_rtdex
+ PARAMETER INSTANCE = axi_emac_rtdex
+ PARAMETER HW_VER = 1.00.a
+ PARAMETER C_RTDEX_RX_NUMER_OF_CHANNELS = 1
+ PARAMETER C_RTDEX_TX_NUMER_OF_CHANNELS = 1
+ PARAMETER C_RX_CH_FIFO_DEPTH = 8192
+ PARAMETER C_TX_CH_FIFO_DEPTH = 8192
+ PARAMETER C_RX_STATS_COUNTERS = 1
+ PARAMETER C_TX_STATS_COUNTERS = 1
+ PARAMETER C_SUPPORT_JUMBO_FRM = 1
+ PARAMETER C_BASEADDR = 0x71000000
+ PARAMETER C_HIGHADDR = 0x7100ffff
+ BUS_INTERFACE S_AXI = AXI_Lite_0x7
+ BUS_INTERFACE AXI_STR_EMAC_TXC = Hard_Ethernet_MAC_AXI_STR_RXS
+ BUS_INTERFACE AXI_STR_EMAC_TXD = Hard_Ethernet_MAC_AXI_STR_RXD
+ BUS_INTERFACE AXI_STR_EMAC_RXS = axi_rtdex_eth_AXI_STR_EMAC_RXS
+ BUS_INTERFACE AXI_STR_EMAC_RXD = axi_rtdex_eth_AXI_STR_EMAC_RXD
+ BUS_INTERFACE AXI_STR_EDMA_TXC = Ethernet_DMA_M_AXIS_MM2S_CNTRL
+ BUS_INTERFACE AXI_STR_EDMA_TXD = Ethernet_DMA_M_AXIS_MM2S
+ BUS_INTERFACE AXI_STR_EDMA_RXD = axi_rtdex_eth_AXI_STR_EDMA_RXD
+ BUS_INTERFACE AXI_STR_EDMA_RXS = axi_rtdex_eth_AXI_STR_EDMA_RXS
+ PORT AXI_STR_EMAC_TXC_ACLK = clk_100_0000MHzMMCM0
+ PORT AXI_STR_EMAC_TXD_ACLK = clk_100_0000MHzMMCM0
+ PORT AXI_STR_EMAC_RXS_ACLK = clk_100_0000MHzMMCM0
+ PORT AXI_STR_EMAC_RXD_ACLK = clk_100_0000MHzMMCM0
+ PORT AXI_STR_EDMA_TXC_ACLK = clk_100_0000MHzMMCM0
+ PORT AXI_STR_EDMA_TXD_ACLK = clk_100_0000MHzMMCM0
+ PORT AXI_STR_EDMA_RXS_ACLK = clk_100_0000MHzMMCM0
+ PORT AXI_STR_EDMA_RXD_ACLK = clk_100_0000MHzMMCM0
+ PORT S_AXI_ACLK = clk_100_0000MHzMMCM0
+ PORT i_TxUserClk_p = clk_100_0000MHzMMCM0
+ PORT ov32_RxDataCh0_p = axi_rtdex_eth_ov32_RxDataCh0_p_0
+ PORT iv32_TxDataCh0_p = axi_record_playback_ov32_TxDataCh0_p
+ PORT i_TxWeCh0_p = axi_record_playback_o_TxWe_p
+ PORT o_TxReadyCh0_p = axi_rtdex_eth_o_TxReadyCh0_p_0
+END
+
+BEGIN MainProgram
+ PARAMETER INSTANCE = MainProgram_A
+ PARAMETER HW_VER = 1.00.a
+ PORT VCav = v14_Mi125AdcDataCh1Top_s
+ PORT FwCav = v14_Mi125AdcDataCh2Top_s
+ PORT RvCav = v14_Mi125AdcDataCh3Top_s
+ PORT MO = v14_Mi125AdcDataCh4Top_s
+ PORT FwIOT1 = v14_Mi125AdcDataCh5Top_s
+ PORT RvIOT1 = v14_Mi125AdcDataCh6Top_s
+ PORT RFIn7 = v14_Mi125AdcDataCh7Top_s
+ PORT RFIn8 = v14_Mi125AdcDataCh8Top_s
+ PORT RFIn9 = v14_Mi125AdcDataCh9Top_s
+ PORT RFIn10 = v14_Mi125AdcDataCh10Top_s
+ PORT RFIn11 = v14_Mi125AdcDataCh11Top_s
+ PORT RFIn12 = v14_Mi125AdcDataCh12Top_s
+ PORT RFIn13 = v14_Mi125AdcDataCh13Top_s
+ PORT RFIn14 = v14_Mi125AdcDataCh14Top_s
+ PORT RFIn15 = v14_Mi125AdcDataCh15Top_s
+ PORT DACsIF = v14_Mi125AdcDataCh16Top_s
+ PORT reg_data1_input = v32_reg_data1_A_s
+ PORT reg_data2_input = i_v16_reg_data2_A_s
+ PORT reg_data2_output = o_v16_reg_data2_A_s
+ PORT reg_data3_input = i_v17_reg_data3_A_s
+ PORT reg_data3_output = o_v32_reg_data3_A_s
+ PORT Interface_01 = v16_A_Interface_01
+ PORT Interface_02 = v16_A_Interface_02
+ PORT Interface_03 = v16_A_Interface_03
+ PORT Interface_04 = v16_A_Interface_04
+ PORT Interface_05 = v16_A_Interface_05
+ PORT Interface_06 = v16_A_Interface_06
+ PORT Interface_07 = v16_A_Interface_07
+ PORT Interface_08 = v16_A_Interface_08
+ PORT Control1 = v16_Control1_A
+ PORT Control2 = v16_Control2_A
+ PORT Control3 = v16_Control3_A
+ PORT Control4 = v16_Control4_A
+ PORT Control5_VCav = v16_Control5_VCavA
+ PORT Control8_IFDACs = Control8_IFDACsA
+ PORT gpio_input = v12_gpio_input_A
+ PORT gpio_output = v10_gpio_output_A
+ PORT clk = Mi125AdcDataClkTop_s
+ PORT FDL_Trig_out = FDL_Trig_out_A
+ PORT PinDiodeSw = PinDiodeSw_A
+ PORT LLRFItckOut = LLRFItckOut_A
+ PORT LLRFItckIn = LLRFItckOut_B
+ PORT TRG3Hz = mo1000_0_Trigger_r1_s
+ PORT Conf = Conf
+END
+
+BEGIN MainProgram
+ PARAMETER INSTANCE = MainProgram_B
+ PARAMETER HW_VER = 1.00.a
+ PORT VCav = v14_Mi125AdcDataCh9Top_s
+ PORT FwCav = v14_Mi125AdcDataCh10Top_s
+ PORT RvCav = v14_Mi125AdcDataCh11Top_s
+ PORT MO = v14_Mi125AdcDataCh4Top_s
+ PORT FwIOT1 = v14_Mi125AdcDataCh12Top_s
+ PORT RvIOT1 = v14_Mi125AdcDataCh13Top_s
+ PORT RFIn7 = v14_Mi125AdcDataCh14Top_s
+ PORT RFIn8 = v14_Mi125AdcDataCh15Top_s
+ PORT RFIn9 = 0b00000000000000
+ PORT RFIn10 = 0b00000000000000
+ PORT RFIn11 = 0b00000000000000
+ PORT RFIn12 = 0b00000000000000
+ PORT RFIn13 = 0b00000000000000
+ PORT RFIn14 = 0b00000000000000
+ PORT RFIn15 = 0b00000000000000
+ PORT DACsIF = v14_Mi125AdcDataCh16Top_s
+ PORT reg_data1_input = v32_reg_data1_B_s
+ PORT reg_data2_input = i_v16_reg_data2_B_s
+ PORT reg_data2_output = o_v16_reg_data2_B_s
+ PORT reg_data3_input = i_v17_reg_data3_B_s
+ PORT reg_data3_output = o_v32_reg_data3_B_s
+ PORT Interface_01 = v16_B_Interface_01
+ PORT Interface_02 = v16_B_Interface_02
+ PORT Interface_03 = v16_B_Interface_03
+ PORT Interface_04 = v16_B_Interface_04
+ PORT Interface_05 = v16_B_Interface_05
+ PORT Interface_06 = v16_B_Interface_06
+ PORT Interface_07 = v16_B_Interface_07
+ PORT Interface_08 = v16_B_Interface_08
+ PORT Control1 = v16_Control1_B
+ PORT Control2 = v16_Control2_B
+ PORT Control3 = v16_Control3_B
+ PORT Control4 = v16_Control4_B
+ PORT Control5_VCav = v16_Control5_VCavB
+ PORT Control8_IFDACs = Control8_IFDACsB
+ PORT gpio_input = v12_gpio_input_B
+ PORT gpio_output = v10_gpio_output_B
+ PORT clk = Mi125AdcDataClkTop_s
+ PORT FDL_Trig_out = FDL_Trig_out_B
+ PORT PinDiodeSw = PinDiodeSw_B
+ PORT LLRFItckOut = LLRFItckOut_B
+ PORT LLRFItckIn = LLRFItckOut_A
+ PORT TRG3Hz = mo1000_0_Trigger_r1_s
+ PORT Conf = Conf
+END
+
+BEGIN lyt_mestor_mbb1
+ PARAMETER INSTANCE = lyt_mestor_mbb1_0
+ PARAMETER HW_VER = 1.00.a
+ PORT i_SysClk_p = clk_200_0000MHzMMCM0
+ PORT i_Reset_p = i_Reset_p
+ PORT o_DelayRdy_p = o_DelayRdy_p
+ PORT iv32_GpioDIn_p = iv32_DioDIn_p
+ PORT iv32_GpioDir_p = iv32_DioDInDir_p
+ PORT ov32_GpioDOut_p = ov32_DioDOut_p
+ PORT i_SetGpioDir_p = i_SetGpioDir_p
+ PORT i_Start_p = i_Start_p
+ PORT ov12_AdcData0_p = ov12_AdcData0_p
+ PORT ov12_AdcData1_p = ov12_AdcData1_p
+ PORT ov12_AdcData2_p = ov12_AdcData2_p
+ PORT ov12_AdcData3_p = ov12_AdcData3_p
+ PORT odp_DpioSetDir_p = odp_DioSetDir_p
+ PORT odn_DpioSetDir_p = odn_DioSetDir_p
+ PORT odp_DpioReset_p = odp_DioReset_p
+ PORT odn_DpioReset_p = odn_DioReset_p
+ PORT odp_DpioConfig_p = odp_DioConfig_p
+ PORT odn_DpioConfig_p = odn_DioConfig_p
+ PORT idp_DpioResetAck_p = idp_DioResetAck_p
+ PORT idn_DpioResetAck_p = idn_DioResetAck_p
+ PORT ov4dp_Dpio_p = ov4dp_Dpio_p
+ PORT ov4dn_Dpio_p = ov4dn_Dpio_p
+ PORT iv4dp_Dpio_p = iv4dp_Dpio_p
+ PORT iv4dn_Dpio_p = iv4dn_Dpio_p
+ PORT odp_DpioClk_p = odp_DpioClk_p
+ PORT odn_DpioClk_p = odn_DpioClk_p
+ PORT iv2dp_AdcData_p = iv2dp_AdcData_p
+ PORT iv2dn_AdcData_p = iv2dn_AdcData_p
+ PORT o_AdcData0Valid_p = o_AdcData0Valid_p
+ PORT o_AdcData1Valid_p = o_AdcData1Valid_p
+ PORT o_AdcData2Valid_p = o_AdcData2Valid_p
+ PORT o_AdcData3Valid_p = o_AdcData3Valid_p
+END
+
+BEGIN GPIO_Interface
+ PARAMETER INSTANCE = GPIO_Interface_0
+ PARAMETER HW_VER = 1.00.a
+ PORT o_Reset = i_Reset_p
+ PORT i_Ready = o_DelayRdy_p
+ PORT ov32_Gpio_out = iv32_DioDIn_p
+ PORT ov32_GpioDir = iv32_DioDInDir_p
+ PORT iv32_Gpio_in = ov32_DioDOut_p
+ PORT o_SetGpioDir = i_SetGpioDir_p
+ PORT o_StartGpio = i_Start_p
+ PORT iv12_GpioAdcData0 = ov12_AdcData0_p
+ PORT iv12_GpioAdcData1 = ov12_AdcData1_p
+ PORT iv12_GpioAdcData2 = ov12_AdcData2_p
+ PORT iv12_GpioAdcData3 = ov12_AdcData3_p
+ PORT i_GpioAdcData0Valid = o_AdcData0Valid_p
+ PORT i_GpioAdcData1Valid = o_AdcData1Valid_p
+ PORT i_GpioAdcData2Valid = o_AdcData2Valid_p
+ PORT i_GpioAdcData3Valid = o_AdcData3Valid_p
+ PORT clk = Mi125AdcDataClkTop_s
+ PORT custom_reg_gpio_write = v32_gpio_configuration
+ PORT custom_reg_gpio_read_in = custom_reg_gpio_read_in_s
+ PORT custom_reg_gpio_read_out = custom_reg_gpio_read_out_s
+ PORT gpio_input_A = v12_gpio_input_A
+ PORT gpio_output_A = v10_gpio_output_A
+ PORT gpio_input_B = v12_gpio_input_B
+ PORT gpio_output_B = v10_gpio_output_B
+ PORT PinDiodeSw = PinDiodeSw
+ PORT LLRFItckOut = LLRFItckOut
+ PORT Conf = Conf
+END
+
+BEGIN Plant_Interface
+ PARAMETER INSTANCE = Plant_Interface_0
+ PARAMETER HW_VER = 1.00.a
+ PORT Conf = Conf
+ PORT PinDiodeSw_A = PinDiodeSw_A
+ PORT PinDiodeSw_B = PinDiodeSw_B
+ PORT FDL_Trig_Out_A = FDL_Trig_Out_A
+ PORT FDL_Trig_Out_B = FDL_Trig_Out_B
+ PORT ControlA1 = v16_Control1_A
+ PORT ControlA2 = v16_Control2_A
+ PORT ControlA3 = v16_Control3_A
+ PORT ControlA4 = v16_Control4_A
+ PORT ControlB1 = v16_Control1_B
+ PORT ControlB2 = v16_Control2_B
+ PORT VCavA = v16_Control5_VCavA
+ PORT VCavB = v16_Control5_VCavB
+ PORT LLRFItck_A = LLRFItckOut_A
+ PORT LLRFItck_B = LLRFItckOut_B
+ PORT Control1 = Control1
+ PORT Control2 = Control2
+ PORT Control3 = Control3
+ PORT Control4 = Control4
+ PORT Control5 = Control5
+ PORT Control6 = Control6
+ PORT PinDiodeSw = PinDiodeSw
+ PORT FDL_Trig_out = FDL_Trig_out
+ PORT LLRFItckOut = LLRFItckOut
+ PORT clk = Mi125AdcDataClkTop_s
+END
+
+BEGIN axi_iic
+ PARAMETER INSTANCE = IIC_DDR3
+ PARAMETER HW_VER = 1.01.b
+ PARAMETER C_IIC_FREQ = 100000
+ PARAMETER C_TEN_BIT_ADR = 0
+ PARAMETER C_BASEADDR = 0x74000000
+ PARAMETER C_HIGHADDR = 0x7400ffff
+ PARAMETER C_S_AXI_ACLK_FREQ_HZ = 100000000
+ BUS_INTERFACE S_AXI = AXI_Lite_0x7
+ PORT S_AXI_ACLK = clk_100_0000MHzMMCM0
+ PORT Scl = iic_ddr3_scl_s
+ PORT Sda = iic_ddr3_sda_s
+END
+

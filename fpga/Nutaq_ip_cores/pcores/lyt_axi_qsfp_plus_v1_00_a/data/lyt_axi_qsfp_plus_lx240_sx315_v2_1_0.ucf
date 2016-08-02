@@ -1,0 +1,6 @@
+INST *Qsfp0GtxWrapper_l/v6_gtxwizard_v1_12_l/gtx0_v6_gtxwizard_v1_5_i/gtxe1_i LOC=GTXE1_X0Y16;
+INST *Qsfp1GtxWrapper_l/v6_gtxwizard_v1_12_l/gtx0_v6_gtxwizard_v1_5_i/gtxe1_i LOC=GTXE1_X0Y17;
+INST *Qsfp2GtxWrapper_l/v6_gtxwizard_v1_12_l/gtx0_v6_gtxwizard_v1_5_i/gtxe1_i LOC=GTXE1_X0Y18;
+INST *Qsfp3GtxWrapper_l/v6_gtxwizard_v1_12_l/gtx0_v6_gtxwizard_v1_5_i/gtxe1_i LOC=GTXE1_X0Y19;
+INST *Sfp0GtxWrapper_l/v6_gtxwizard_v1_12_l/gtx0_v6_gtxwizard_v1_5_i/gtxe1_i LOC=GTXE1_X0Y20;
+INST *Sfp1GtxWrapper_l/v6_gtxwizard_v1_12_l/gtx0_v6_gtxwizard_v1_5_i/gtxe1_i LOC=GTXE1_X0Y21;

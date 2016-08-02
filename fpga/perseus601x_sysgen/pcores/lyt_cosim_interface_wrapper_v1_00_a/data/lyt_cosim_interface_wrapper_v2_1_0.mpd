@@ -1,0 +1,625 @@
+BEGIN lyt_cosim_interface_wrapper
+
+## Peripheral Options
+OPTION IPTYPE = PERIPHERAL
+OPTION IMP_NETLIST = TRUE
+OPTION RUN_NGCBUILD = TRUE
+OPTION HDL = VHDL
+
+## Bus Interfaces
+
+## Generics for VHDL or Parameters for Verilog
+
+ PARAMETER RecordPortWidth_g = 8, DT = INTEGER
+ PARAMETER PlayBackPortWidth_g = 8, DT = INTEGER
+ PARAMETER NumberOfRecordPorts_g = 1, DT = INTEGER
+ PARAMETER NumberOfPlayBackPorts_g = 1, DT = INTEGER
+ PARAMETER lvds_io_params_gen_lvds_io_top_g     = 14, DT = INTEGER
+ PARAMETER lvds_io_params_gen_lvds_io_bottom_g   = 14, DT = INTEGER
+ PARAMETER Aurora_4_7_user_DATA_width   = 32, DT = INTEGER
+ PARAMETER Aurora_8_11_user_DATA_width  = 32, DT = INTEGER
+ PARAMETER Aurora_17_20_user_DATA_width = 32, DT = INTEGER
+ PARAMETER LVDS_DATA_WIDTH_0 = 8, DT = INTEGER
+ PARAMETER LVDS_DATA_WIDTH_1 = 8, DT = INTEGER
+ PARAMETER LVDS_DATA_WIDTH_2 = 8, DT = INTEGER
+ PARAMETER LVDS_DATA_WIDTH_3 = 8, DT = INTEGER
+
+## Ports
+ PORT i_DesignClk_p = "", DIR = I, SIGIS = CLK
+ PORT o_DesignClk_p = "", DIR = O
+
+ PORT iv8_SysgenBanksel_p = "", DIR = I, VEC = [7:0]
+ PORT iv24_SysgenAddr_p = "", DIR = I, VEC = [23:0]
+ PORT iv32_SysgenDataIn_p = "", DIR = I, VEC = [31:0]
+ PORT i_SysgenWe_p = "", DIR = I
+ PORT i_SysgenRe_p = "", DIR = I
+ PORT ov32_SysgenDataOut_p = "", DIR = O, VEC = [31:0]
+ PORT i_SysgenPciClk_p = "", DIR = I, SIGIS = CLK
+
+ PORT ov32_CustomReg0wr_p  = "", DIR = O, VEC = [31:0]
+ PORT iv32_CustomReg0rd_p  = "", DIR = I, VEC = [31:0]
+ PORT ov32_CustomReg1wr_p  = "", DIR = O, VEC = [31:0]
+ PORT iv32_CustomReg1rd_p  = "", DIR = I, VEC = [31:0]
+ PORT ov32_CustomReg2wr_p  = "", DIR = O, VEC = [31:0]
+ PORT iv32_CustomReg2rd_p  = "", DIR = I, VEC = [31:0]
+ PORT ov32_CustomReg3wr_p  = "", DIR = O, VEC = [31:0]
+ PORT iv32_CustomReg3rd_p  = "", DIR = I, VEC = [31:0]
+ PORT ov32_CustomReg4wr_p  = "", DIR = O, VEC = [31:0]
+ PORT iv32_CustomReg4rd_p  = "", DIR = I, VEC = [31:0]
+ PORT ov32_CustomReg5wr_p  = "", DIR = O, VEC = [31:0]
+ PORT iv32_CustomReg5rd_p  = "", DIR = I, VEC = [31:0]
+ PORT ov32_CustomReg6wr_p  = "", DIR = O, VEC = [31:0]
+ PORT iv32_CustomReg6rd_p  = "", DIR = I, VEC = [31:0]
+ PORT ov32_CustomReg7wr_p  = "", DIR = O, VEC = [31:0]
+ PORT iv32_CustomReg7rd_p  = "", DIR = I, VEC = [31:0]
+ PORT ov32_CustomReg8wr_p  = "", DIR = O, VEC = [31:0]
+ PORT iv32_CustomReg8rd_p  = "", DIR = I, VEC = [31:0]
+ PORT ov32_CustomReg9wr_p  = "", DIR = O, VEC = [31:0]
+ PORT iv32_CustomReg9rd_p  = "", DIR = I, VEC = [31:0]
+ PORT ov32_CustomReg10wr_p = "", DIR = O, VEC = [31:0]
+ PORT iv32_CustomReg10rd_p = "", DIR = I, VEC = [31:0]
+ PORT ov32_CustomReg11wr_p = "", DIR = O, VEC = [31:0]
+ PORT iv32_CustomReg11rd_p = "", DIR = I, VEC = [31:0]
+ PORT ov32_CustomReg12wr_p = "", DIR = O, VEC = [31:0]
+ PORT iv32_CustomReg12rd_p = "", DIR = I, VEC = [31:0]
+ PORT ov32_CustomReg13wr_p = "", DIR = O, VEC = [31:0]
+ PORT iv32_CustomReg13rd_p = "", DIR = I, VEC = [31:0]
+ PORT ov32_CustomReg14wr_p = "", DIR = O, VEC = [31:0]
+ PORT iv32_CustomReg14rd_p = "", DIR = I, VEC = [31:0]
+ PORT ov32_CustomReg15wr_p = "", DIR = O, VEC = [31:0]
+ PORT iv32_CustomReg15rd_p = "", DIR = I, VEC = [31:0]
+ PORT ov32_CustomReg16wr_p = "", DIR = O, VEC = [31:0]
+ PORT iv32_CustomReg16rd_p = "", DIR = I, VEC = [31:0]
+ PORT ov32_CustomReg17wr_p = "", DIR = O, VEC = [31:0]
+ PORT iv32_CustomReg17rd_p = "", DIR = I, VEC = [31:0]
+ PORT ov32_CustomReg18wr_p = "", DIR = O, VEC = [31:0]
+ PORT iv32_CustomReg18rd_p = "", DIR = I, VEC = [31:0]
+ PORT ov32_CustomReg19wr_p = "", DIR = O, VEC = [31:0]
+ PORT iv32_CustomReg19rd_p = "", DIR = I, VEC = [31:0]
+ PORT ov32_CustomReg20wr_p = "", DIR = O, VEC = [31:0]
+ PORT iv32_CustomReg20rd_p = "", DIR = I, VEC = [31:0]
+ PORT ov32_CustomReg21wr_p = "", DIR = O, VEC = [31:0]
+ PORT iv32_CustomReg21rd_p = "", DIR = I, VEC = [31:0]
+ PORT ov32_CustomReg22wr_p = "", DIR = O, VEC = [31:0]
+ PORT iv32_CustomReg22rd_p = "", DIR = I, VEC = [31:0]
+ PORT ov32_CustomReg23wr_p = "", DIR = O, VEC = [31:0]
+ PORT iv32_CustomReg23rd_p = "", DIR = I, VEC = [31:0]
+ PORT ov32_CustomReg24wr_p = "", DIR = O, VEC = [31:0]
+ PORT iv32_CustomReg24rd_p = "", DIR = I, VEC = [31:0]
+ PORT ov32_CustomReg25wr_p = "", DIR = O, VEC = [31:0]
+ PORT iv32_CustomReg25rd_p = "", DIR = I, VEC = [31:0]
+ PORT ov32_CustomReg26wr_p = "", DIR = O, VEC = [31:0]
+ PORT iv32_CustomReg26rd_p = "", DIR = I, VEC = [31:0]
+ PORT ov32_CustomReg27wr_p = "", DIR = O, VEC = [31:0]
+ PORT iv32_CustomReg27rd_p = "", DIR = I, VEC = [31:0]
+ PORT ov32_CustomReg28wr_p = "", DIR = O, VEC = [31:0]
+ PORT iv32_CustomReg28rd_p = "", DIR = I, VEC = [31:0]
+ PORT ov32_CustomReg29wr_p = "", DIR = O, VEC = [31:0]
+ PORT iv32_CustomReg29rd_p = "", DIR = I, VEC = [31:0]
+ PORT ov32_CustomReg30wr_p = "", DIR = O, VEC = [31:0]
+ PORT iv32_CustomReg30rd_p = "", DIR = I, VEC = [31:0]
+ PORT ov32_CustomReg31wr_p = "", DIR = O, VEC = [31:0]
+ PORT iv32_CustomReg31rd_p = "", DIR = I, VEC = [31:0]
+
+# RTDEx Emac0 ports
+ PORT i_RTDEx_Emac0_RxReadyCh0_p      = "", DIR = I
+ PORT i_RTDEx_Emac0_RxReadyCh1_p      = "", DIR = I
+ PORT i_RTDEx_Emac0_RxReadyCh2_p      = "", DIR = I
+ PORT i_RTDEx_Emac0_RxReadyCh3_p      = "", DIR = I
+ PORT i_RTDEx_Emac0_RxReadyCh4_p      = "", DIR = I
+ PORT i_RTDEx_Emac0_RxReadyCh5_p      = "", DIR = I
+ PORT i_RTDEx_Emac0_RxReadyCh6_p      = "", DIR = I
+ PORT i_RTDEx_Emac0_RxReadyCh7_p      = "", DIR = I
+
+ PORT o_RTDEx_Emac0_RxReCh0_p         = "", DIR = O
+ PORT o_RTDEx_Emac0_RxReCh1_p         = "", DIR = O
+ PORT o_RTDEx_Emac0_RxReCh2_p         = "", DIR = O
+ PORT o_RTDEx_Emac0_RxReCh3_p         = "", DIR = O
+ PORT o_RTDEx_Emac0_RxReCh4_p         = "", DIR = O
+ PORT o_RTDEx_Emac0_RxReCh5_p         = "", DIR = O
+ PORT o_RTDEx_Emac0_RxReCh6_p         = "", DIR = O
+ PORT o_RTDEx_Emac0_RxReCh7_p         = "", DIR = O
+
+ PORT iv32_RTDEx_Emac0_RxDataCh0_p    = "", DIR = I, VEC = [31:0]
+ PORT iv32_RTDEx_Emac0_RxDataCh1_p    = "", DIR = I, VEC = [31:0]
+ PORT iv32_RTDEx_Emac0_RxDataCh2_p    = "", DIR = I, VEC = [31:0]
+ PORT iv32_RTDEx_Emac0_RxDataCh3_p    = "", DIR = I, VEC = [31:0]
+ PORT iv32_RTDEx_Emac0_RxDataCh4_p    = "", DIR = I, VEC = [31:0]
+ PORT iv32_RTDEx_Emac0_RxDataCh5_p    = "", DIR = I, VEC = [31:0]
+ PORT iv32_RTDEx_Emac0_RxDataCh6_p    = "", DIR = I, VEC = [31:0]
+ PORT iv32_RTDEx_Emac0_RxDataCh7_p    = "", DIR = I, VEC = [31:0]
+
+ PORT i_RTDEx_Emac0_RxDataValidCh0_p  = "", DIR = I
+ PORT i_RTDEx_Emac0_RxDataValidCh1_p  = "", DIR = I
+ PORT i_RTDEx_Emac0_RxDataValidCh2_p  = "", DIR = I
+ PORT i_RTDEx_Emac0_RxDataValidCh3_p  = "", DIR = I
+ PORT i_RTDEx_Emac0_RxDataValidCh4_p  = "", DIR = I
+ PORT i_RTDEx_Emac0_RxDataValidCh5_p  = "", DIR = I
+ PORT i_RTDEx_Emac0_RxDataValidCh6_p  = "", DIR = I
+ PORT i_RTDEx_Emac0_RxDataValidCh7_p  = "", DIR = I
+
+ PORT i_RTDEx_Emac0_TxReadyCh0_p      = "", DIR = I
+ PORT i_RTDEx_Emac0_TxReadyCh1_p      = "", DIR = I
+ PORT i_RTDEx_Emac0_TxReadyCh2_p      = "", DIR = I
+ PORT i_RTDEx_Emac0_TxReadyCh3_p      = "", DIR = I
+ PORT i_RTDEx_Emac0_TxReadyCh4_p      = "", DIR = I
+ PORT i_RTDEx_Emac0_TxReadyCh5_p      = "", DIR = I
+ PORT i_RTDEx_Emac0_TxReadyCh6_p      = "", DIR = I
+ PORT i_RTDEx_Emac0_TxReadyCh7_p      = "", DIR = I
+
+ PORT o_RTDEx_Emac0_TxWeCh0_p         = "", DIR = O
+ PORT o_RTDEx_Emac0_TxWeCh1_p         = "", DIR = O
+ PORT o_RTDEx_Emac0_TxWeCh2_p         = "", DIR = O
+ PORT o_RTDEx_Emac0_TxWeCh3_p         = "", DIR = O
+ PORT o_RTDEx_Emac0_TxWeCh4_p         = "", DIR = O
+ PORT o_RTDEx_Emac0_TxWeCh5_p         = "", DIR = O
+ PORT o_RTDEx_Emac0_TxWeCh6_p         = "", DIR = O
+ PORT o_RTDEx_Emac0_TxWeCh7_p         = "", DIR = O
+
+ PORT ov32_RTDEx_Emac0_TxDataCh0_p    = "", DIR = O, VEC = [31:0]
+ PORT ov32_RTDEx_Emac0_TxDataCh1_p    = "", DIR = O, VEC = [31:0]
+ PORT ov32_RTDEx_Emac0_TxDataCh2_p    = "", DIR = O, VEC = [31:0]
+ PORT ov32_RTDEx_Emac0_TxDataCh3_p    = "", DIR = O, VEC = [31:0]
+ PORT ov32_RTDEx_Emac0_TxDataCh4_p    = "", DIR = O, VEC = [31:0]
+ PORT ov32_RTDEx_Emac0_TxDataCh5_p    = "", DIR = O, VEC = [31:0]
+ PORT ov32_RTDEx_Emac0_TxDataCh6_p    = "", DIR = O, VEC = [31:0]
+ PORT ov32_RTDEx_Emac0_TxDataCh7_p    = "", DIR = O, VEC = [31:0]
+
+# RTDEx PCIe ports
+ PORT i_RTDEx_PCIe_RxReadyCh0_p      = "", DIR = I
+ PORT i_RTDEx_PCIe_RxReadyCh1_p      = "", DIR = I
+ PORT i_RTDEx_PCIe_RxReadyCh2_p      = "", DIR = I
+ PORT i_RTDEx_PCIe_RxReadyCh3_p      = "", DIR = I
+ PORT i_RTDEx_PCIe_RxReadyCh4_p      = "", DIR = I
+ PORT i_RTDEx_PCIe_RxReadyCh5_p      = "", DIR = I
+ PORT i_RTDEx_PCIe_RxReadyCh6_p      = "", DIR = I
+ PORT i_RTDEx_PCIe_RxReadyCh7_p      = "", DIR = I
+
+ PORT o_RTDEx_PCIe_RxReCh0_p         = "", DIR = O
+ PORT o_RTDEx_PCIe_RxReCh1_p         = "", DIR = O
+ PORT o_RTDEx_PCIe_RxReCh2_p         = "", DIR = O
+ PORT o_RTDEx_PCIe_RxReCh3_p         = "", DIR = O
+ PORT o_RTDEx_PCIe_RxReCh4_p         = "", DIR = O
+ PORT o_RTDEx_PCIe_RxReCh5_p         = "", DIR = O
+ PORT o_RTDEx_PCIe_RxReCh6_p         = "", DIR = O
+ PORT o_RTDEx_PCIe_RxReCh7_p         = "", DIR = O
+
+ PORT iv32_RTDEx_PCIe_RxDataCh0_p    = "", DIR = I, VEC = [31:0]
+ PORT iv32_RTDEx_PCIe_RxDataCh1_p    = "", DIR = I, VEC = [31:0]
+ PORT iv32_RTDEx_PCIe_RxDataCh2_p    = "", DIR = I, VEC = [31:0]
+ PORT iv32_RTDEx_PCIe_RxDataCh3_p    = "", DIR = I, VEC = [31:0]
+ PORT iv32_RTDEx_PCIe_RxDataCh4_p    = "", DIR = I, VEC = [31:0]
+ PORT iv32_RTDEx_PCIe_RxDataCh5_p    = "", DIR = I, VEC = [31:0]
+ PORT iv32_RTDEx_PCIe_RxDataCh6_p    = "", DIR = I, VEC = [31:0]
+ PORT iv32_RTDEx_PCIe_RxDataCh7_p    = "", DIR = I, VEC = [31:0]
+
+ PORT i_RTDEx_PCIe_RxDataValidCh0_p  = "", DIR = I
+ PORT i_RTDEx_PCIe_RxDataValidCh1_p  = "", DIR = I
+ PORT i_RTDEx_PCIe_RxDataValidCh2_p  = "", DIR = I
+ PORT i_RTDEx_PCIe_RxDataValidCh3_p  = "", DIR = I
+ PORT i_RTDEx_PCIe_RxDataValidCh4_p  = "", DIR = I
+ PORT i_RTDEx_PCIe_RxDataValidCh5_p  = "", DIR = I
+ PORT i_RTDEx_PCIe_RxDataValidCh6_p  = "", DIR = I
+ PORT i_RTDEx_PCIe_RxDataValidCh7_p  = "", DIR = I
+
+ PORT i_RTDEx_PCIe_TxReadyCh0_p      = "", DIR = I
+ PORT i_RTDEx_PCIe_TxReadyCh1_p      = "", DIR = I
+ PORT i_RTDEx_PCIe_TxReadyCh2_p      = "", DIR = I
+ PORT i_RTDEx_PCIe_TxReadyCh3_p      = "", DIR = I
+ PORT i_RTDEx_PCIe_TxReadyCh4_p      = "", DIR = I
+ PORT i_RTDEx_PCIe_TxReadyCh5_p      = "", DIR = I
+ PORT i_RTDEx_PCIe_TxReadyCh6_p      = "", DIR = I
+ PORT i_RTDEx_PCIe_TxReadyCh7_p      = "", DIR = I
+
+ PORT o_RTDEx_PCIe_TxWeCh0_p         = "", DIR = O
+ PORT o_RTDEx_PCIe_TxWeCh1_p         = "", DIR = O
+ PORT o_RTDEx_PCIe_TxWeCh2_p         = "", DIR = O
+ PORT o_RTDEx_PCIe_TxWeCh3_p         = "", DIR = O
+ PORT o_RTDEx_PCIe_TxWeCh4_p         = "", DIR = O
+ PORT o_RTDEx_PCIe_TxWeCh5_p         = "", DIR = O
+ PORT o_RTDEx_PCIe_TxWeCh6_p         = "", DIR = O
+ PORT o_RTDEx_PCIe_TxWeCh7_p         = "", DIR = O
+
+ PORT ov32_RTDEx_PCIe_TxDataCh0_p    = "", DIR = O, VEC = [31:0]
+ PORT ov32_RTDEx_PCIe_TxDataCh1_p    = "", DIR = O, VEC = [31:0]
+ PORT ov32_RTDEx_PCIe_TxDataCh2_p    = "", DIR = O, VEC = [31:0]
+ PORT ov32_RTDEx_PCIe_TxDataCh3_p    = "", DIR = O, VEC = [31:0]
+ PORT ov32_RTDEx_PCIe_TxDataCh4_p    = "", DIR = O, VEC = [31:0]
+ PORT ov32_RTDEx_PCIe_TxDataCh5_p    = "", DIR = O, VEC = [31:0]
+ PORT ov32_RTDEx_PCIe_TxDataCh6_p    = "", DIR = O, VEC = [31:0]
+ PORT ov32_RTDEx_PCIe_TxDataCh7_p    = "", DIR = O, VEC = [31:0]
+
+# Record Playback ports
+ PORT o_RecTrigger_p  =    "", DIR = O
+ PORT ov_RecDataPort0_p =  "", DIR = O,  VEC = [(RecordPortWidth_g-1):0]
+ PORT ov_RecDataPort1_p =  "", DIR = O,  VEC = [(RecordPortWidth_g-1):0]
+ PORT ov_RecDataPort2_p =  "", DIR = O,  VEC = [(RecordPortWidth_g-1):0]
+ PORT ov_RecDataPort3_p =  "", DIR = O,  VEC = [(RecordPortWidth_g-1):0]
+ PORT ov_RecDataPort4_p =  "", DIR = O,  VEC = [(RecordPortWidth_g-1):0]
+ PORT ov_RecDataPort5_p =  "", DIR = O,  VEC = [(RecordPortWidth_g-1):0]
+ PORT ov_RecDataPort6_p =  "", DIR = O,  VEC = [(RecordPortWidth_g-1):0]
+ PORT ov_RecDataPort7_p =  "", DIR = O,  VEC = [(RecordPortWidth_g-1):0]
+ PORT ov_RecDataPort8_p =  "", DIR = O,  VEC = [(RecordPortWidth_g-1):0]
+ PORT ov_RecDataPort9_p =  "", DIR = O,  VEC = [(RecordPortWidth_g-1):0]
+ PORT ov_RecDataPort10_p = "", DIR = O,  VEC = [(RecordPortWidth_g-1):0]
+ PORT ov_RecDataPort11_p = "", DIR = O,  VEC = [(RecordPortWidth_g-1):0]
+ PORT ov_RecDataPort12_p = "", DIR = O,  VEC = [(RecordPortWidth_g-1):0]
+ PORT ov_RecDataPort13_p = "", DIR = O,  VEC = [(RecordPortWidth_g-1):0]
+ PORT ov_RecDataPort14_p = "", DIR = O,  VEC = [(RecordPortWidth_g-1):0]
+ PORT ov_RecDataPort15_p = "", DIR = O,  VEC = [(RecordPortWidth_g-1):0]
+ PORT o_RecWriteEn_p =     "", DIR = O
+ PORT i_RecFifoFull_p =    "", DIR = I
+
+ PORT o_PlayTriggerIn_p =   "", DIR = O
+ PORT iv_PlayDataPort0_p =  "", DIR = I,  VEC = [(PlaybackPortWidth_g-1):0]
+ PORT iv_PlayDataPort1_p =  "", DIR = I,  VEC = [(PlaybackPortWidth_g-1):0]
+ PORT iv_PlayDataPort2_p =  "", DIR = I,  VEC = [(PlaybackPortWidth_g-1):0]
+ PORT iv_PlayDataPort3_p =  "", DIR = I,  VEC = [(PlaybackPortWidth_g-1):0]
+ PORT iv_PlayDataPort4_p =  "", DIR = I,  VEC = [(PlaybackPortWidth_g-1):0]
+ PORT iv_PlayDataPort5_p =  "", DIR = I,  VEC = [(PlaybackPortWidth_g-1):0]
+ PORT iv_PlayDataPort6_p =  "", DIR = I,  VEC = [(PlaybackPortWidth_g-1):0]
+ PORT iv_PlayDataPort7_p =  "", DIR = I,  VEC = [(PlaybackPortWidth_g-1):0]
+ PORT iv_PlayDataPort8_p =  "", DIR = I,  VEC = [(PlaybackPortWidth_g-1):0]
+ PORT iv_PlayDataPort9_p =  "", DIR = I,  VEC = [(PlaybackPortWidth_g-1):0]
+ PORT iv_PlayDataPort10_p = "", DIR = I,  VEC = [(PlaybackPortWidth_g-1):0]
+ PORT iv_PlayDataPort11_p = "", DIR = I,  VEC = [(PlaybackPortWidth_g-1):0]
+ PORT iv_PlayDataPort12_p = "", DIR = I,  VEC = [(PlayBackPortWidth_g-1):0]
+ PORT iv_PlayDataPort13_p = "", DIR = I,  VEC = [(PlaybackPortWidth_g-1):0]
+ PORT iv_PlayDataPort14_p = "", DIR = I,  VEC = [(PlaybackPortWidth_g-1):0]
+ PORT iv_PlayDataPort15_p = "", DIR = I,  VEC = [(PlaybackPortWidth_g-1):0]
+ PORT i_PlayValid_p =       "", DIR = I
+ PORT o_PlayReadEn_p =      "", DIR = O
+ PORT i_PlayEmpty_p =       "", DIR = I
+
+ PORT i_RecPlayRxRe_p         = "", DIR = I
+ PORT o_RecPlayRxReady_p      = "", DIR = O
+ PORT o_RecPlayRxDataValid_p  = "", DIR = O
+ PORT ov32_RecPlayRxDataCh0_p = "", DIR = O,  VEC = [31:0]
+
+ PORT i_RecPlayTxWe_p         = "", DIR = I
+ PORT o_RecPlayTxReady_p      = "", DIR = O
+ PORT iv32_RecPlayTxDataCh0_p = "", DIR = I,  VEC = [31:0]
+
+ PORT o_TwrftExtCtrlEn_p      = "", DIR = O
+ PORT o_TwrftTxGainAtt_p      = "", DIR = O
+ PORT ov2_TwrftTxGainPaGain_p = "", DIR = O, VEC = [1:0]
+ PORT ov5_TwrftTxGainMixAtt_p = "", DIR = O, VEC = [4:0]
+ PORT ov12_TwrftRxGain_p      = "", DIR = O, VEC = [11:0]
+ PORT ov14_TwrftRxPllCfg_p    = "", DIR = O, VEC = [13:0]
+ PORT ov14_TwrftTxPllCfg_p    = "", DIR = O, VEC = [13:0]
+ PORT o_TwrftTxGain_update_p  = "", DIR = O
+ PORT o_TwrftRxGain_update_p  = "", DIR = O
+ PORT o_TwrftRxPllCfgUpdate_p = "", DIR = O
+ PORT o_TwrftTxPllCfgUpdate_p = "", DIR = O
+ PORT o_TwrftTxnRx1_p         = "", DIR = O
+ PORT o_TwrftTxnRx2_p         = "", DIR = O
+ PORT o_TwrftTransceiverId_p  = "", DIR = O
+ PORT i_TwrftLockDetect_p     = "", DIR = I
+ PORT i_TwrftSpiBusy_p        = "", DIR = I
+
+ # Radio 420x
+ PORT iv12_Radio420xAdcDataCh1_p        = "", DIR = I, VEC = [11:0]
+ PORT iv12_Radio420xAdcDataCh2_p        = "", DIR = I, VEC = [11:0]
+ PORT ov12_Radio420xDacDataCh1_p        = "", DIR = O, VEC = [11:0]
+ PORT ov12_Radio420xDacDataCh2_p        = "", DIR = O, VEC = [11:0]
+ PORT i_Radio420xAdcIQSelCh1_p          = "", DIR = I
+ PORT i_Radio420xAdcIQSelCh2_p          = "", DIR = I
+ PORT o_Radio420xDacIQSelCh1_p          = "", DIR = O
+ PORT o_Radio420xDacIQSelCh2_p          = "", DIR = O
+ PORT iv5_Radio420xExtCtrlCh1_p          = "", DIR = I, VEC = [4:0]
+ PORT iv5_Radio420xExtCtrlCh2_p          = "", DIR = I, VEC = [4:0]
+ PORT ov16_Radio420xDacRefClkCh1_p      = "", DIR = O, VEC =[15:0]
+ PORT ov16_Radio420xDacRefClkCh2_p      = "", DIR = O, VEC =[15:0]
+ PORT o_Radio420xDacRefClkStartCh1_p    = "", DIR = O
+ PORT o_Radio420xDacRefClkStartCh2_p    = "", DIR = O
+ PORT i_Radio420xDacRefClkBusyCh1_p     = "", DIR = I
+ PORT i_Radio420xDacRefClkBusyCh2_p     = "", DIR = I
+ PORT ov16_Radio420xLimeDataCh1_p       = "", DIR = O, VEC = [15:0]
+ PORT ov16_Radio420xLimeDataCh2_p       = "", DIR = O, VEC = [15:0]
+ PORT o_Radio420xLimeDataStartCh1_p     = "", DIR = O
+ PORT o_Radio420xLimeDataStartCh2_p     = "", DIR = O
+ PORT i_Radio420xLimeDataBusyCh1_p      = "", DIR = I
+ PORT i_Radio420xLimeDataBusyCh2_p      = "", DIR = I
+ PORT ov6_Radio420xRxGainCh1_p          = "", DIR = O, VEC = [5:0]
+ PORT ov6_Radio420xRxGainCh2_p          = "", DIR = O, VEC = [5:0]
+ PORT o_Radio420xRxGainStartCh1_p       = "", DIR = O,
+ PORT o_Radio420xRxGainStartCh2_p       = "", DIR = O,
+ ##PORT o_Radio420xRxGainStartCh1_p       = "", DIR = O, VEC = [2:0]
+ ##PORT o_Radio420xRxGainStartCh2_p       = "", DIR = O, VEC = [2:0]
+ PORT i_Radio420xRxGainBusyCh1_p        = "", DIR = I
+ PORT i_Radio420xRxGainBusyCh2_p        = "", DIR = I
+ PORT ov6_Radio420xTxGainCh1_p          = "", DIR = O, VEC = [5:0]
+ PORT ov6_Radio420xTxGainCh2_p          = "", DIR = O, VEC = [5:0]
+ PORT o_Radio420xTxGainStartCh1_p       = "", DIR = O
+ PORT o_Radio420xTxGainStartCh2_p       = "", DIR = O
+ PORT i_Radio420xTxGainBusyCh1_p        = "", DIR = I
+ PORT i_Radio420xTxGainBusyCh2_p        = "", DIR = I
+ PORT ov32_Radio420xPllCtrlCh1_p        = "", DIR = O, VEC = [31:0]
+ PORT ov32_Radio420xPllCtrlCh2_p        = "", DIR = O, VEC = [31:0]
+ PORT ov2_Radio420xPllCtrlStartCh1_p    = "", DIR = O, VEC = [1:0]
+ PORT ov2_Radio420xPllCtrlStartCh2_p    = "", DIR = O, VEC = [1:0]
+ PORT i_Radio420xPllCtrlBusyCh1_p       = "", DIR = I
+ PORT i_Radio420xPllCtrlBusyCh2_p       = "", DIR = I
+
+ # ADAC250
+ PORT iv14_Adac250_AdcDataChA_p     = "", DIR = I, VEC = [13:0]
+ PORT i_Adac250_ChA_OvrFiltred_p    = "", DIR = I
+ PORT i_Adac250_ChA_OvrNotFiltred_p = "", DIR = I
+ PORT iv14_Adac250_AdcDataChB_p     = "", DIR = I, VEC = [13:0]
+ PORT i_Adac250_ChB_OvrFiltred_p    = "", DIR = I
+ PORT i_Adac250_ChB_OvrNotFiltred_p = "", DIR = I
+ PORT i_Adac250_DataFormat_p        = "", DIR = I
+ PORT ov16_Adac250_DacChA_p         = "", DIR = O, VEC = [15:0]
+ PORT ov16_Adac250_DacChB_p         = "", DIR = O, VEC = [15:0]
+ PORT i_Adac250_Trigger_p           = "", DIR = I
+ PORT o_Adac250_DacDataSync_p       = "", DIR = O
+
+ # ADC5000
+ PORT iv80_Adc5000_DataChA_p    = "", DIR = I, VEC = [79:0]
+ PORT iv80_Adc5000_DataChB_p    = "", DIR = I, VEC = [79:0]
+ PORT iv80_Adc5000_DataChC_p    = "", DIR = I, VEC = [79:0]
+ PORT iv80_Adc5000_DataChD_p    = "", DIR = I, VEC = [79:0]
+ PORT i_Adc5000_OverRangeChA_p  = "", DIR = I
+ PORT i_Adc5000_OverRangeChB_p  = "", DIR = I
+ PORT i_Adc5000_OverRangeChC_p  = "", DIR = I
+ PORT i_Adc5000_OverRangeChD_p  = "", DIR = I
+ PORT i_Adc5000_ReadyChA_p      = "", DIR = I
+ PORT i_Adc5000_ReadyChB_p      = "", DIR = I
+ PORT i_Adc5000_ReadyChC_p      = "", DIR = I
+ PORT i_Adc5000_ReadyChD_p      = "", DIR = I
+ PORT i_Adc5000_Trigger_p       = "", DIR = I
+
+ # AURORA
+ PORT  o_aurora_amc4_7_RX_Fifo_Read_Enable_p    = "", DIR = O
+ PORT iv_aurora_amc4_7_RX_Fifo_Data_p           = "", DIR = I, VEC = [(Aurora_4_7_user_DATA_width-1):0]
+ PORT  i_aurora_amc4_7_RX_Data_Valid_p          = "", DIR = I
+ PORT ov_aurora_amc4_7_TX_Fifo_Data_p           = "", DIR = O, VEC = [(Aurora_4_7_user_DATA_width-1):0]
+ PORT  o_aurora_amc4_7_TX_Fifo_Write_Enable_p   = "", DIR = O
+ PORT  i_aurora_amc4_7_TX_Fifo_Ready_p          = "", DIR = I
+
+ PORT  o_aurora_amc8_11_RX_Fifo_Read_Enable_p   = "", DIR = O
+ PORT iv_aurora_amc8_11_RX_Fifo_Data_p          = "", DIR = I, VEC = [(Aurora_8_11_user_DATA_width-1):0]
+ PORT  i_aurora_amc8_11_RX_Data_Valid_p         = "", DIR = I
+ PORT ov_aurora_amc8_11_TX_Fifo_Data_p          = "", DIR = O, VEC = [(Aurora_8_11_user_DATA_width-1):0]
+ PORT  o_aurora_amc8_11_TX_Fifo_Write_Enable_p  = "", DIR = O
+ PORT  i_aurora_amc8_11_TX_Fifo_Ready_p         = "", DIR = I
+
+ PORT  o_aurora_amc17_20_RX_Fifo_Read_Enable_p  = "", DIR = O
+ PORT iv_aurora_amc17_20_RX_Fifo_Data_p         = "", DIR = I, VEC = [(Aurora_17_20_user_DATA_width-1):0]
+ PORT  i_aurora_amc17_20_RX_Data_Valid_p        = "", DIR = I
+ PORT ov_aurora_amc17_20_TX_Fifo_Data_p         = "", DIR = O, VEC = [(Aurora_17_20_user_DATA_width-1):0]
+ PORT  o_aurora_amc17_20_TX_Fifo_Write_Enable_p = "", DIR = O
+ PORT  i_aurora_amc17_20_TX_Fifo_Ready_p        = "", DIR = I
+
+ # MI250
+ PORT iv14_Mi250AdcADataOut_p =  "", DIR = I, VEC = [13:0]
+ PORT iv14_Mi250AdcBDataOut_p =  "", DIR = I, VEC = [13:0]
+ PORT iv14_Mi250AdcCDataOut_p =  "", DIR = I, VEC = [13:0]
+ PORT iv14_Mi250AdcDDataOut_p =  "", DIR = I, VEC = [13:0]
+ PORT iv14_Mi250AdcEDataOut_p =  "", DIR = I, VEC = [13:0]
+ PORT iv14_Mi250AdcFDataOut_p =  "", DIR = I, VEC = [13:0]
+ PORT iv14_Mi250AdcGDataOut_p =  "", DIR = I, VEC = [13:0]
+ PORT iv14_Mi250AdcHDataOut_p =  "", DIR = I, VEC = [13:0]
+ PORT i_Mi250AdcADataValid_p =  "", DIR = I
+ PORT i_Mi250AdcBDataValid_p =  "", DIR = I
+ PORT i_Mi250AdcCDataValid_p =  "", DIR = I
+ PORT i_Mi250AdcDDataValid_p =  "", DIR = I
+ PORT i_Mi250AdcEDataValid_p =  "", DIR = I
+ PORT i_Mi250AdcFDataValid_p =  "", DIR = I
+ PORT i_Mi250AdcGDataValid_p =  "", DIR = I
+ PORT i_Mi250AdcHDataValid_p =  "", DIR = I
+ PORT i_Mi250AdcTrigout_p   =  "", DIR = I
+
+ # MI125
+ PORT iv14_Mi125AdcDataCh1_p =  "", DIR = I, VEC = [13:0]
+ PORT iv14_Mi125AdcDataCh2_p =  "", DIR = I, VEC = [13:0]
+ PORT iv14_Mi125AdcDataCh3_p =  "", DIR = I, VEC = [13:0]
+ PORT iv14_Mi125AdcDataCh4_p =  "", DIR = I, VEC = [13:0]
+ PORT iv14_Mi125AdcDataCh5_p =  "", DIR = I, VEC = [13:0]
+ PORT iv14_Mi125AdcDataCh6_p =  "", DIR = I, VEC = [13:0]
+ PORT iv14_Mi125AdcDataCh7_p =  "", DIR = I, VEC = [13:0]
+ PORT iv14_Mi125AdcDataCh8_p =  "", DIR = I, VEC = [13:0]
+ PORT iv14_Mi125AdcDataCh9_p =  "", DIR = I, VEC = [13:0]
+ PORT iv14_Mi125AdcDataCh10_p =  "", DIR = I, VEC = [13:0]
+ PORT iv14_Mi125AdcDataCh11_p =  "", DIR = I, VEC = [13:0]
+ PORT iv14_Mi125AdcDataCh12_p =  "", DIR = I, VEC = [13:0]
+ PORT iv14_Mi125AdcDataCh13_p =  "", DIR = I, VEC = [13:0]
+ PORT iv14_Mi125AdcDataCh14_p =  "", DIR = I, VEC = [13:0]
+ PORT iv14_Mi125AdcDataCh15_p =  "", DIR = I, VEC = [13:0]
+ PORT iv14_Mi125AdcDataCh16_p =  "", DIR = I, VEC = [13:0]
+ PORT iv14_Mi125AdcDataCh17_p =  "", DIR = I, VEC = [13:0]
+ PORT iv14_Mi125AdcDataCh18_p =  "", DIR = I, VEC = [13:0]
+ PORT iv14_Mi125AdcDataCh19_p =  "", DIR = I, VEC = [13:0]
+ PORT iv14_Mi125AdcDataCh20_p =  "", DIR = I, VEC = [13:0]
+ PORT iv14_Mi125AdcDataCh21_p =  "", DIR = I, VEC = [13:0]
+ PORT iv14_Mi125AdcDataCh22_p =  "", DIR = I, VEC = [13:0]
+ PORT iv14_Mi125AdcDataCh23_p =  "", DIR = I, VEC = [13:0]
+ PORT iv14_Mi125AdcDataCh24_p =  "", DIR = I, VEC = [13:0]
+ PORT iv14_Mi125AdcDataCh25_p =  "", DIR = I, VEC = [13:0]
+ PORT iv14_Mi125AdcDataCh26_p =  "", DIR = I, VEC = [13:0]
+ PORT iv14_Mi125AdcDataCh27_p =  "", DIR = I, VEC = [13:0]
+ PORT iv14_Mi125AdcDataCh28_p =  "", DIR = I, VEC = [13:0]
+ PORT iv14_Mi125AdcDataCh29_p =  "", DIR = I, VEC = [13:0]
+ PORT iv14_Mi125AdcDataCh30_p =  "", DIR = I, VEC = [13:0]
+ PORT iv14_Mi125AdcDataCh31_p =  "", DIR = I, VEC = [13:0]
+ PORT iv14_Mi125AdcDataCh32_p =  "", DIR = I, VEC = [13:0]
+ PORT i_Mi125AdcCh1Valid_p =  "", DIR = I
+ PORT i_Mi125AdcCh2Valid_p =  "", DIR = I
+ PORT i_Mi125AdcCh3Valid_p =  "", DIR = I
+ PORT i_Mi125AdcCh4Valid_p =  "", DIR = I
+ PORT i_Mi125AdcCh5Valid_p =  "", DIR = I
+ PORT i_Mi125AdcCh6Valid_p =  "", DIR = I
+ PORT i_Mi125AdcCh7Valid_p =  "", DIR = I
+ PORT i_Mi125AdcCh8Valid_p =  "", DIR = I
+ PORT i_Mi125AdcCh9Valid_p =  "", DIR = I
+ PORT i_Mi125AdcCh10Valid_p =  "", DIR = I
+ PORT i_Mi125AdcCh11Valid_p =  "", DIR = I
+ PORT i_Mi125AdcCh12Valid_p =  "", DIR = I
+ PORT i_Mi125AdcCh13Valid_p =  "", DIR = I
+ PORT i_Mi125AdcCh14Valid_p =  "", DIR = I
+ PORT i_Mi125AdcCh15Valid_p =  "", DIR = I
+ PORT i_Mi125AdcCh16Valid_p =  "", DIR = I
+ PORT i_Mi125AdcCh17Valid_p =  "", DIR = I
+ PORT i_Mi125AdcCh18Valid_p =  "", DIR = I
+ PORT i_Mi125AdcCh19Valid_p =  "", DIR = I
+ PORT i_Mi125AdcCh20Valid_p =  "", DIR = I
+ PORT i_Mi125AdcCh21Valid_p =  "", DIR = I
+ PORT i_Mi125AdcCh22Valid_p =  "", DIR = I
+ PORT i_Mi125AdcCh23Valid_p =  "", DIR = I
+ PORT i_Mi125AdcCh24Valid_p =  "", DIR = I
+ PORT i_Mi125AdcCh25Valid_p =  "", DIR = I
+ PORT i_Mi125AdcCh26Valid_p =  "", DIR = I
+ PORT i_Mi125AdcCh27Valid_p =  "", DIR = I
+ PORT i_Mi125AdcCh28Valid_p =  "", DIR = I
+ PORT i_Mi125AdcCh29Valid_p =  "", DIR = I
+ PORT i_Mi125AdcCh30Valid_p =  "", DIR = I
+ PORT i_Mi125AdcCh31Valid_p =  "", DIR = I
+ PORT i_Mi125AdcCh32Valid_p =  "", DIR = I
+ PORT i_Mi125TriggerInput_p =  "", DIR = I
+ PORT o_Mi125TriggerOutput_p =  "", DIR = O
+ PORT i_Mi125DataFormat_p =  "", DIR = I
+ PORT i_Mi125Adc1to4Enabled_p =  "", DIR = I
+ PORT i_Mi125Adc5to8Enabled_p =  "", DIR = I
+ PORT i_Mi125Adc9to12Enabled_p =  "", DIR = I
+ PORT i_Mi125Adc13to16Enabled_p =  "", DIR = I
+ PORT i_Mi125Adc17to20Enabled_p =  "", DIR = I
+ PORT i_Mi125Adc21to24Enabled_p =  "", DIR = I
+ PORT i_Mi125Adc25to28Enabled_p =  "", DIR = I
+ PORT i_Mi125Adc29to32Enabled_p =  "", DIR = I
+
+ # MO1000 0
+ PORT ov16_Mo1000DacDataCh1_p =  "", DIR = O, VEC = [15:0]
+ PORT ov16_Mo1000DacDataCh2_p =  "", DIR = O, VEC = [15:0]
+ PORT ov16_Mo1000DacDataCh3_p =  "", DIR = O, VEC = [15:0]
+ PORT ov16_Mo1000DacDataCh4_p =  "", DIR = O, VEC = [15:0]
+ PORT ov16_Mo1000DacDataCh5_p =  "", DIR = O, VEC = [15:0]
+ PORT ov16_Mo1000DacDataCh6_p =  "", DIR = O, VEC = [15:0]
+ PORT ov16_Mo1000DacDataCh7_p =  "", DIR = O, VEC = [15:0]
+ PORT ov16_Mo1000DacDataCh8_p =  "", DIR = O, VEC = [15:0]
+ PORT i_Mo1000DacRdyCh1_p =  "", DIR = I
+ PORT i_Mo1000DacRdyCh2_p =  "", DIR = I
+ PORT i_Mo1000DacRdyCh3_p =  "", DIR = I
+ PORT i_Mo1000DacRdyCh4_p =  "", DIR = I
+ PORT i_Mo1000DacRdyCh5_p =  "", DIR = I
+ PORT i_Mo1000DacRdyCh6_p =  "", DIR = I
+ PORT i_Mo1000DacRdyCh7_p =  "", DIR = I
+ PORT i_Mo1000DacRdyCh8_p =  "", DIR = I
+ PORT i_Mo1000Trigger_p =  "", DIR = I
+
+ # MO1000 1
+ PORT ov16_Mo1000DacDataCh9_p =  "", DIR = O, VEC = [15:0]
+ PORT ov16_Mo1000DacDataCh10_p =  "", DIR = O, VEC = [15:0]
+ PORT ov16_Mo1000DacDataCh11_p =  "", DIR = O, VEC = [15:0]
+ PORT ov16_Mo1000DacDataCh12_p =  "", DIR = O, VEC = [15:0]
+ PORT ov16_Mo1000DacDataCh13_p =  "", DIR = O, VEC = [15:0]
+ PORT ov16_Mo1000DacDataCh14_p =  "", DIR = O, VEC = [15:0]
+ PORT ov16_Mo1000DacDataCh15_p =  "", DIR = O, VEC = [15:0]
+ PORT ov16_Mo1000DacDataCh16_p =  "", DIR = O, VEC = [15:0]
+ PORT i_Mo1000DacRdyCh9_p =  "", DIR = I
+ PORT i_Mo1000DacRdyCh10_p =  "", DIR = I
+ PORT i_Mo1000DacRdyCh11_p =  "", DIR = I
+ PORT i_Mo1000DacRdyCh12_p =  "", DIR = I
+ PORT i_Mo1000DacRdyCh13_p =  "", DIR = I
+ PORT i_Mo1000DacRdyCh14_p =  "", DIR = I
+ PORT i_Mo1000DacRdyCh15_p =  "", DIR = I
+ PORT i_Mo1000DacRdyCh16_p =  "", DIR = I
+
+ ## LVDSio data port
+ PORT iv_lvdsIo_IN_2_rxData0_p         = "", DIR = I, VEC = [(lvds_io_params_gen_lvds_io_top_g-1):0]
+ PORT o_lvdsIo_IN_2_rxRdEn0_p         = "", DIR = O
+ PORT i_lvdsIo_IN_2_rxValid0_p         = "", DIR = I
+ PORT i_lvdsIo_IN_2_rxEmpty0_p         = "", DIR = I
+ PORT iv_lvdsIo_IN_2_rxData1_p         = "", DIR = I, VEC = [(lvds_io_params_gen_lvds_io_top_g-1):0]
+ PORT o_lvdsIo_IN_2_rxRdEn1_p         = "", DIR = O
+ PORT i_lvdsIo_IN_2_rxValid1_p         = "", DIR = I
+ PORT i_lvdsIo_IN_2_rxEmpty1_p         = "", DIR = I
+  ##
+ PORT ov_lvdsIo_OUT_2_txData0_p         = "", DIR = O, VEC = [(lvds_io_params_gen_lvds_io_top_g-1):0]
+ PORT o_lvdsIo_OUT_2_txWrEn0_p         = "", DIR = O
+ PORT i_lvdsIo_OUT_2_txWrAck0_p         = "", DIR = I
+ PORT i_lvdsIo_OUT_2_txFull0_p         = "", DIR = I
+ PORT ov_lvdsIo_OUT_2_txData1_p         = "", DIR = O, VEC = [(lvds_io_params_gen_lvds_io_top_g-1):0]
+ PORT o_lvdsIo_OUT_2_txWrEn1_p         = "", DIR = O
+ PORT i_lvdsIo_OUT_2_txWrAck1_p         = "", DIR = I
+ PORT i_lvdsIo_OUT_2_txFull1_p         = "", DIR = I
+  ##
+ PORT iv_lvdsIo_IN_1_rxData0_p         = "", DIR = I, VEC = [(lvds_io_params_gen_lvds_io_bottom_g-1):0]
+ PORT o_lvdsIo_IN_1_rxRdEn0_p         = "", DIR = O
+ PORT i_lvdsIo_IN_1_rxValid0_p        = "", DIR = I
+ PORT i_lvdsIo_IN_1_rxEmpty0_p         = "", DIR = I
+ PORT iv_lvdsIo_IN_1_rxData1_p         = "", DIR = I, VEC = [(lvds_io_params_gen_lvds_io_bottom_g-1):0]
+ PORT o_lvdsIo_IN_1_rxRdEn1_p         = "", DIR = O
+ PORT i_lvdsIo_IN_1_rxValid1_p         = "", DIR = I
+ PORT i_lvdsIo_IN_1_rxEmpty1_p         = "", DIR = I
+  ##
+ PORT ov_lvdsIo_OUT_1_txData0_p       = "", DIR = O, VEC = [(lvds_io_params_gen_lvds_io_bottom_g-1):0]
+ PORT o_lvdsIo_OUT_1_txWrEn0_p         = "", DIR = O
+ PORT i_lvdsIo_OUT_1_txWrAck0_p       = "", DIR = I
+ PORT i_lvdsIo_OUT_1_txFull0_p         = "", DIR = I
+ PORT ov_lvdsIo_OUT_1_txData1_p       = "", DIR = O, VEC = [(lvds_io_params_gen_lvds_io_bottom_g-1):0]
+ PORT o_lvdsIo_OUT_1_txWrEn1_p        = "", DIR = O
+ PORT i_lvdsIo_OUT_1_txWrAck1_p       = "", DIR = I
+ PORT i_lvdsIo_OUT_1_txFull1_p         = "", DIR = I
+
+ # LVDS GPIO
+ PORT ov_mestor_gpio_0_data_p           = "", DIR = O, VEC = [(LVDS_DATA_WIDTH_0-1):0]
+ PORT iv_mestor_gpio_0_data_p           = "", DIR = I, VEC = [(LVDS_DATA_WIDTH_0-1):0]
+ PORT ov_mestor_gpio_0_outputenable_p   = "", DIR = O, VEC = [(LVDS_DATA_WIDTH_0-1):0]
+ PORT ov_mestor_gpio_1_data_p           = "", DIR = O, VEC = [(LVDS_DATA_WIDTH_1-1):0]
+ PORT iv_mestor_gpio_1_data_p           = "", DIR = I, VEC = [(LVDS_DATA_WIDTH_1-1):0]
+ PORT ov_mestor_gpio_1_outputenable_p   = "", DIR = O, VEC = [(LVDS_DATA_WIDTH_1-1):0]
+ PORT ov_mestor_gpio_2_data_p           = "", DIR = O, VEC = [(LVDS_DATA_WIDTH_2-1):0]
+ PORT iv_mestor_gpio_2_data_p           = "", DIR = I, VEC = [(LVDS_DATA_WIDTH_2-1):0]
+ PORT ov_mestor_gpio_2_outputenable_p   = "", DIR = O, VEC = [(LVDS_DATA_WIDTH_2-1):0]
+ PORT ov_mestor_gpio_3_data_p           = "", DIR = O, VEC = [(LVDS_DATA_WIDTH_3-1):0]
+ PORT iv_mestor_gpio_3_data_p           = "", DIR = I, VEC = [(LVDS_DATA_WIDTH_3-1):0]
+ PORT ov_mestor_gpio_3_outputenable_p   = "", DIR = O, VEC = [(LVDS_DATA_WIDTH_3-1):0]
+ # LVDS SYNC
+ PORT o_mestor_sync_0_outputenable_p    = "", DIR = O
+ PORT i_mestor_sync_0_rxready_p         = "", DIR = I
+ PORT o_mestor_sync_0_rxre_p            = "", DIR = O
+ PORT iv_mestor_sync_0_rxdata_p         = "", DIR = I, VEC = [(LVDS_DATA_WIDTH_0-1):0]
+ PORT i_mestor_sync_0_rxdatavalid_p     = "", DIR = I
+ PORT i_mestor_sync_0_txready_p         = "", DIR = I
+ PORT ov_mestor_sync_0_txdata_p         = "", DIR = O, VEC = [(LVDS_DATA_WIDTH_0-1):0]
+ PORT o_mestor_sync_0_txwe_p            = "", DIR = O
+ PORT o_mestor_sync_1_outputenable_p    = "", DIR = O
+ PORT i_mestor_sync_1_rxready_p         = "", DIR = I
+ PORT o_mestor_sync_1_rxre_p            = "", DIR = O
+ PORT iv_mestor_sync_1_rxdata_p         = "", DIR = I, VEC = [(LVDS_DATA_WIDTH_1-1):0]
+ PORT i_mestor_sync_1_rxdatavalid_p     = "", DIR = I
+ PORT i_mestor_sync_1_txready_p         = "", DIR = I
+ PORT ov_mestor_sync_1_txdata_p         = "", DIR = O, VEC = [(LVDS_DATA_WIDTH_1-1):0]
+ PORT o_mestor_sync_1_txwe_p            = "", DIR = O
+ PORT o_mestor_sync_2_outputenable_p    = "", DIR = O
+ PORT i_mestor_sync_2_rxready_p         = "", DIR = I
+ PORT o_mestor_sync_2_rxre_p            = "", DIR = O
+ PORT iv_mestor_sync_2_rxdata_p         = "", DIR = I, VEC = [(LVDS_DATA_WIDTH_2-1):0]
+ PORT i_mestor_sync_2_rxdatavalid_p     = "", DIR = I
+ PORT i_mestor_sync_2_txready_p         = "", DIR = I
+ PORT ov_mestor_sync_2_txdata_p         = "", DIR = O, VEC = [(LVDS_DATA_WIDTH_2-1):0]
+ PORT o_mestor_sync_2_txwe_p            = "", DIR = O
+ PORT o_mestor_sync_3_outputenable_p    = "", DIR = O
+ PORT i_mestor_sync_3_rxready_p         = "", DIR = I
+ PORT o_mestor_sync_3_rxre_p            = "", DIR = O
+ PORT iv_mestor_sync_3_rxdata_p         = "", DIR = I, VEC = [(LVDS_DATA_WIDTH_3-1):0]
+ PORT i_mestor_sync_3_rxdatavalid_p     = "", DIR = I
+ PORT i_mestor_sync_3_txready_p         = "", DIR = I
+ PORT ov_mestor_sync_3_txdata_p         = "", DIR = O, VEC = [(LVDS_DATA_WIDTH_3-1):0]
+ PORT o_mestor_sync_3_txwe_p            = "", DIR = O
+
+ # AMC GPIO section
+ PORT o_nutaq_backplane_gpio_0_p = "", DIR = O
+ PORT o_nutaq_backplane_gpio_1_p = "", DIR = O
+ PORT i_nutaq_backplane_gpio_0_p = "", DIR = I
+ PORT i_nutaq_backplane_gpio_1_p = "", DIR = I
+ PORT o_nutaq_backplane_gpio_tclk_a_p = "", DIR = O
+ PORT o_nutaq_backplane_gpio_tclk_b_p = "", DIR = O
+ PORT o_nutaq_backplane_gpio_tclk_c_p = "", DIR = O
+ PORT o_nutaq_backplane_gpio_tclk_d_p = "", DIR = O
+ PORT i_nutaq_backplane_gpio_tclk_a_p = "", DIR = I
+ PORT i_nutaq_backplane_gpio_tclk_b_p = "", DIR = I
+ PORT i_nutaq_backplane_gpio_tclk_c_p = "", DIR = I
+ PORT i_nutaq_backplane_gpio_tclk_d_p = "", DIR = I
+
+END

@@ -1,0 +1,39 @@
+
+#------------------------------------------------------------------------------
+# lyt_axi_sfp_plus_v2_1_0.pao
+#
+# Copyright (c) 2012 Nutaq RD Inc.  All rights reserved.
+#
+# Nutaq RD, Inc.
+#------------------------------------------------------------------------------
+
+lib proc_common_v3_00_a  all
+lib axi_lite_ipif_v1_01_a  all
+
+lib lyt_axi_sfp_plus_v1_00_a mgt_usrclk_source_mmcm vhdl
+lib lyt_axi_sfp_plus_v1_00_a mmcm_calib_e vhdl
+lib lyt_axi_sfp_plus_v1_00_a mmcm_calib_rtl_a vhdl
+lib lyt_axi_sfp_plus_v1_00_a mmcm_phase_calibration vhdl
+lib lyt_axi_sfp_plus_v1_00_a mdioCtrl_e vhdl
+lib lyt_axi_sfp_plus_v1_00_a mdioCtrl_a vhdl
+lib lyt_axi_sfp_plus_v1_00_a rawdata2xgmii_e vhdl
+lib lyt_axi_sfp_plus_v1_00_a rawdata2xgmii_beh_a vhdl
+lib lyt_axi_sfp_plus_v1_00_a chanbond_monitor vhdl
+lib lyt_axi_sfp_plus_v1_00_a gtx_wrapper vhdl
+lib lyt_axi_sfp_plus_v1_00_a gtx_wrapper_gtx vhdl
+lib lyt_axi_sfp_plus_v1_00_a tx_sync vhdl
+lib lyt_axi_sfp_plus_v1_00_a xaui_v10_2_block vhdl
+lib lyt_axi_sfp_plus_v1_00_a xgmii2rawdata_beh_a vhdl
+lib lyt_axi_sfp_plus_v1_00_a xgmii2rawdata_e vhdl
+lib lyt_axi_sfp_plus_v1_00_a packetgen_e vhdl
+lib lyt_axi_sfp_plus_v1_00_a packetgen_beh_a vhdl
+lib lyt_axi_sfp_plus_v1_00_a rawdataoverxaui_e vhdl
+lib lyt_axi_sfp_plus_v1_00_a rawdataoverxaui_beh_a vhdl
+lib lyt_axi_sfp_plus_v1_00_a packetchecker_beh_a vhdl
+lib lyt_axi_sfp_plus_v1_00_a packetchecker_e vhdl
+lib lyt_axi_sfp_plus_v1_00_a xgmii_p vhdl
+lib lyt_axi_sfp_plus_v1_00_a xauiloopbacktest_beh_a vhdl
+lib lyt_axi_sfp_plus_v1_00_a xauiloopbacktest_e vhdl
+lib lyt_axi_sfp_plus_v1_00_a user_logic vhdl
+lib lyt_axi_sfp_plus_v1_00_a axi_sfp_plus vhdl
+lib lyt_axi_sfp_plus_v1_00_a lyt_axi_sfp_plus vhdl

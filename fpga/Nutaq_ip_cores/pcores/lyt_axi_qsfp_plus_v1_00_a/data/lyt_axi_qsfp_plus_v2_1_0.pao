@@ -1,0 +1,23 @@
+
+#------------------------------------------------------------------------------
+# lyt_axi_qsfp_plus_v2_1_0.pao
+#
+# Copyright (c) 2012 Nutaq RD Inc.  All rights reserved.
+#
+# Nutaq RD, Inc.
+#------------------------------------------------------------------------------
+
+lib proc_common_v3_00_a  all
+lib axi_lite_ipif_v1_01_a  all
+
+lib lyt_axi_qsfp_plus_v1_00_a mmcm_calib_e vhdl
+lib lyt_axi_qsfp_plus_v1_00_a mmcm_calib_rtl_a vhdl
+lib lyt_axi_qsfp_plus_v1_00_a mmcm_phase_calibration vhdl
+lib lyt_axi_qsfp_plus_v1_00_a user_logic vhdl
+lib lyt_axi_qsfp_plus_v1_00_a axi_qsfp_plus vhdl
+lib lyt_axi_qsfp_plus_v1_00_a frame_gen vhdl
+lib lyt_axi_qsfp_plus_v1_00_a frame_check vhdl
+lib lyt_axi_qsfp_plus_v1_00_a v6_gtxwizard_v1_12_gtx vhdl
+lib lyt_axi_qsfp_plus_v1_00_a v6_gtxwizard_v1_12 vhdl
+lib lyt_axi_qsfp_plus_v1_00_a gtx_test_wrapper vhdl
+lib lyt_axi_qsfp_plus_v1_00_a lyt_axi_qsfp_plus vhdl

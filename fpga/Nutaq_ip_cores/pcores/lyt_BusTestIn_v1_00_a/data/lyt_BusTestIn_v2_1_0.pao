@@ -1,0 +1,4 @@
+
+lib lyt_BusTestIn_v1_00_a Bustestin_wrapper_p vhdl
+lib lyt_BusTestIn_v1_00_a lyt_BusTestIn vhdl
+lib lyt_BusTestIn_v1_00_a rampTestIn vhdl

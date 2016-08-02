@@ -1,0 +1,53 @@
+lib MainProgram_v1_00_a MainProgram 					vhdl
+lib MainProgram_v1_00_a Average.vhd						vhdl
+lib MainProgram_v1_00_a Averages.vhd					vhdl
+lib MainProgram_v1_00_a ControlOutputSelection.vhd		vhdl
+lib MainProgram_v1_00_a CordicPolar2Rect.vhd            vhdl
+lib MainProgram_v1_00_a CordicPolar2RectIteration.vhd   vhdl
+lib MainProgram_v1_00_a CordicPolar2RectIteration_0.vhd vhdl
+lib MainProgram_v1_00_a CordicRect2Polar.vhd            vhdl
+lib MainProgram_v1_00_a CordicRect2PolarIteration.vhd   vhdl
+lib MainProgram_v1_00_a CordicRect2PolarIteration_0.vhd vhdl
+lib MainProgram_v1_00_a Demux.vhd                       vhdl
+lib MainProgram_v1_00_a Demuxes.vhd                     vhdl
+lib MainProgram_v1_00_a Fast_PI.vhd                     vhdl
+lib MainProgram_v1_00_a FastLoopInput_Selection.vhd     vhdl
+lib MainProgram_v1_00_a FastPI_Polar.vhd                vhdl
+lib MainProgram_v1_00_a FDL_Interface.vhd               vhdl
+lib MainProgram_v1_00_a FIM.vhd               			vhdl
+lib MainProgram_v1_00_a FwMinLoopsEnable.vhd   			vhdl
+lib MainProgram_v1_00_a Gain_OL_CL.vhd               	vhdl
+lib MainProgram_v1_00_a GPIO_Interface.vhd             	vhdl
+lib MainProgram_v1_00_a ITCK.vhd 		            	vhdl
+lib MainProgram_v1_00_a LoopInput_Selection.vhd         vhdl
+lib MainProgram_v1_00_a mem.vhd					        vhdl
+lib MainProgram_v1_00_a MovAverage_20b.vhd		        vhdl
+lib MainProgram_v1_00_a PhaseShift.vhd                  vhdl
+lib MainProgram_v1_00_a PhaseShifts_LoopsInputs.vhd     vhdl
+lib MainProgram_v1_00_a PI_Polar.vhd                    vhdl
+lib MainProgram_v1_00_a PID.vhd                         vhdl
+lib MainProgram_v1_00_a Polar2Rect.vhd                  vhdl
+lib MainProgram_v1_00_a PolarLoops.vhd                  vhdl
+lib MainProgram_v1_00_a Reference.vhd                   vhdl
+lib MainProgram_v1_00_a Startup.vhd                     vhdl
+lib MainProgram_v1_00_a Tuning.vhd                      vhdl
+lib MainProgram_v1_00_a VCXO_Programming.vhd            vhdl
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

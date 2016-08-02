@@ -1,0 +1,34 @@
+BEGIN Plant_Interface
+## Peripheral options
+OPTION IPTYPE = PERIPHERAL
+OPTION IMP_NETLIST = FALSE
+OPTION HDL = VHDL
+OPTION IP_GROUP = Utility
+
+## Ports
+PORT Conf = "", DIR = i, VEC = [1:0]
+PORT PinDiodeSw_A = "", DIR = i
+PORT PinDiodeSw_B = "", DIR = i
+PORT FDL_Trig_Out_A = "", DIR = i
+PORT FDL_Trig_Out_B = "", DIR = i
+PORT ControlA1 = "", DIR = i, VEC =[15:0]
+PORT ControlA2 = "", DIR = i, VEC =[15:0]
+PORT ControlA3 = "", DIR = i, VEC =[15:0]
+PORT ControlA4 = "", DIR = i, VEC =[15:0]
+PORT ControlB1 = "", DIR = i, VEC =[15:0]
+PORT ControlB2 = "", DIR = i, VEC =[15:0]
+PORT VCavA = "", DIR = i, VEC = [15:0]
+PORT VCavB = "", DIR = i, VEC = [15:0]
+PORT LLRFITCK_A = "", DIR = i
+PORT LLRFITCK_B = "", DIR = i
+PORT Control1 = "", DIR = o, VEC =[15:0]
+PORT Control2 = "", DIR = o, VEC =[15:0]
+PORT Control3 = "", DIR = o, VEC =[15:0]
+PORT Control4 = "", DIR = o, VEC =[15:0]
+PORT Control5 = "", DIR = o, VEC =[15:0]
+PORT Control6 = "", DIR = o, VEC =[15:0]
+PORT PinDiodeSw = "", DIR = o, VEC =[3:0]
+PORT FDL_Trig_out = "", DIR = o
+PORT LLRFItckOut = "", DIR = o
+PORT clk = "", DIR = i
+END

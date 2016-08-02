@@ -1,0 +1,35 @@
+BEGIN GPIO_Interface
+## Peripheral options
+OPTION IPTYPE = PERIPHERAL
+OPTION IMP_NETLIST = FALSE
+OPTION HDL = VHDL
+OPTION IP_GROUP = Utility
+
+## Ports
+PORT o_Reset = "", DIR = o
+PORT i_Ready = "", DIR = i
+PORT ov32_Gpio_out = "", DIR = o, VEC = [31:0]
+PORT ov32_GpioDir = "", DIR = o, VEC = [31:0]
+PORT iv32_Gpio_in = "", DIR = i, VEC = [31:0]
+PORT o_SetGpioDir = "", DIR = o
+PORT o_StartGpio = "", DIR = o
+PORT iv12_GpioAdcData0 = "", DIR = i, VEC = [11:0]
+PORT iv12_GpioAdcData1 = "", DIR = i, VEC = [11:0]
+PORT iv12_GpioAdcData2 = "", DIR = i, VEC = [11:0]
+PORT iv12_GpioAdcData3 = "", DIR = i, VEC = [11:0]
+PORT i_GpioAdcData0Valid = "", DIR = i
+PORT i_GpioAdcData1Valid = "", DIR = i
+PORT i_GpioAdcData2Valid = "", DIR = i
+PORT i_GpioAdcData3Valid = "", DIR = i
+PORT clk = "", DIR = i
+PORT custom_reg_gpio_write = "", DIR = i, VEC = [31:0]
+PORT custom_reg_gpio_read_in = "", DIR = i, VEC = [15:0]
+PORT custom_reg_gpio_read_out = "", DIR = o, VEC = [15:0]
+PORT gpio_input_A = "", DIR = o, VEC = [12:0]
+PORT gpio_output_A = "", DIR = i, VEC = [10:0]
+PORT gpio_input_B = "", DIR = o, VEC = [12:0]
+PORT gpio_output_B = "", DIR = i, VEC = [10:0]
+PORT PinDiodeSw = "", DIR = i, VEC = [3:0]
+PORT LLRFItckOut = "", DIR = i
+PORT Conf = "", DIR = i, VEC = [1:0]
+END

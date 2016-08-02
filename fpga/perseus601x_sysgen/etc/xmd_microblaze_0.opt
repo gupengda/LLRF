@@ -1,0 +1,2 @@
+connect mb mdm -debugdevice cpunr 1
+

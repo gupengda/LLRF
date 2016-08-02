@@ -1,0 +1,12 @@
+shell echo ------------------------------------
+shell echo        Configuring DDS Mode
+shell echo ------------------------------------
+shell echo Connecting...
+connect 192.168.0.101
+shell echo  - Setting DDS Freq Value...
+custom_register_write 16 343597384
+shell echo     DONE
+shell echo  - Setting DAC mux to DDS...
+custom_register_write 19 0
+shell echo     DONE
+disconnect

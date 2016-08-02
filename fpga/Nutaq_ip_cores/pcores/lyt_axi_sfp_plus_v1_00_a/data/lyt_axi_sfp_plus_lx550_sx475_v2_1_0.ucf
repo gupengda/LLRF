@@ -1,0 +1,12 @@
+INST *RawDataOverXauiA_l/xaui_v10_2_block_l/gtx_wrapper_i/gtx0_gtx_wrapper_i/gtxe1_i LOC=GTXE1_X0Y24;
+INST *RawDataOverXauiA_l/xaui_v10_2_block_l/gtx_wrapper_i/gtx1_gtx_wrapper_i/gtxe1_i LOC=GTXE1_X0Y25;
+INST *RawDataOverXauiA_l/xaui_v10_2_block_l/gtx_wrapper_i/gtx2_gtx_wrapper_i/gtxe1_i LOC=GTXE1_X0Y26;
+INST *RawDataOverXauiA_l/xaui_v10_2_block_l/gtx_wrapper_i/gtx3_gtx_wrapper_i/gtxe1_i LOC=GTXE1_X0Y27;
+
+
+
+INST *RawDataOverXauiB_l/xaui_v10_2_block_l/gtx_wrapper_i/gtx2_gtx_wrapper_i/gtxe1_i LOC=GTXE1_X0Y28;
+INST *RawDataOverXauiB_l/xaui_v10_2_block_l/gtx_wrapper_i/gtx3_gtx_wrapper_i/gtxe1_i LOC=GTXE1_X0Y29;
+INST *RawDataOverXauiB_l/xaui_v10_2_block_l/gtx_wrapper_i/gtx1_gtx_wrapper_i/gtxe1_i LOC=GTXE1_X0Y30;
+INST *RawDataOverXauiB_l/xaui_v10_2_block_l/gtx_wrapper_i/gtx0_gtx_wrapper_i/gtxe1_i LOC=GTXE1_X0Y31;
+

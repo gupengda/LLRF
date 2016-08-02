@@ -1,0 +1,18 @@
+shell echo ------------------------------------
+shell echo     Configuring Pass-Through Mode
+shell echo ------------------------------------
+shell echo Connecting...
+connect 192.168.0.101
+shell echo " - Setting DAC mux to ADC (Pass-Through)..."
+custom_register_write 19 1
+shell echo     DONE
+shell echo  - Setting MI125 Channel to use...
+custom_register_write 3 0
+shell echo     DONE
+shell echo  - Resetting asynchrone FIFO...
+custom_register_write 4 1
+shell echo     DONE
+shell echo  - Enabling asynchrone FIFO...
+custom_register_write 4 0
+shell echo     DONE
+disconnect

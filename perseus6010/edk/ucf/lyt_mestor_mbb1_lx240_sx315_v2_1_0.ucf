@@ -1,0 +1,6 @@
+
+# Locations of the IDELAYCTRLs
+
+INST "*/IdelayCtrl_l"                           IODELAY_GROUP = MESTOR_MBB_IODELAY_GRP;
+INST "*/OutputCaptureGen_l[*].OutputDelay1_l"   IODELAY_GROUP = MESTOR_MBB_IODELAY_GRP;
+INST "*/InputCaptureGen_l[*].InputDelay1_l"     IODELAY_GROUP = MESTOR_MBB_IODELAY_GRP;

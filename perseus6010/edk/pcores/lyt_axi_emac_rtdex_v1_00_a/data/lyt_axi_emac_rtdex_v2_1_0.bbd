@@ -1,0 +1,2 @@
+FILES
+rtdex_tx_core.ngc, rtdex_mux_tx.ngc, rtdex_rx_core.ngc, rtdex_mux_rx.ngc, rtdex_pause_req_gen.ngc, fifo_w37_d16.ngc, fifo_w37_d32.ngc, fifo1k_w32_async_rx.ngc, fifo2k_w32_async_rx.ngc, fifo4k_w32_async_rx.ngc, fifo8k_w32_async_rx.ngc, fifo16k_w32_async_rx.ngc, fifo32k_w32_async_rx.ngc, fifo1k_w32_async_fwft_tx.ngc, fifo2k_w32_async_fwft_tx.ngc, fifo4k_w32_async_fwft_tx.ngc, fifo8k_w32_async_fwft_tx.ngc, fifo16k_w32_async_fwft_tx.ngc, fifo32k_w32_async_fwft_tx.ngc

@@ -1,0 +1,7 @@
+
+# Radio420x constraints for Channel 2, LX240 and SX315
+
+# Locations of the IDELAYCTRLs
+
+INST "*/radio420x_top_u0/limeADC_l/IDELAYCTRL_inst" LOC = "IDELAYCTRL_X0Y2";
+

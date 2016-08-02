@@ -1,0 +1,561 @@
+#
+# pin constraints
+#
+#
+# additional constraints
+#
+
+#CONFIG PART = 6vlx240tff1759-1;
+
+Net "i_pSysClk_p" LOC= "E14"   |  IOSTANDARD=LVDS_25  |  DIFF_TERM = TRUE;
+Net "i_nSysClk_p" LOC= "F14"   |  IOSTANDARD=LVDS_25  |  DIFF_TERM = TRUE;
+
+
+NET "i_SysRst_p"  LOC= "AV16" |  IOSTANDARD=LVCMOS25 |  TIG | PULLDOWN;
+
+Net "i_pSysClk_p" TNM_NET = sys_clk_pin;
+Net "i_nSysClk_p" TNM_NET = sys_clk_pin;
+TIMESPEC TS_sys_clk_pin = PERIOD sys_clk_pin 200000 kHz;
+
+NET "o_nFpgaProg_p" LOC="G13" | IOSTANDARD=LVCMOS25 | DRIVE = 4;
+
+NET "io_FpUartTX_p"          LOC = "BA34"  |  IOSTANDARD=LVCMOS25;
+NET "i_FpUartRX_p"          LOC = "BB34"  |  PULLUP  |IOSTANDARD=LVCMOS25;
+NET "io_AMCUartTX_p"         LOC = "AJ31"  |  IOSTANDARD=LVCMOS25;
+NET "i_AMCUartRX_p"         LOC = "AK33"  |  PULLUP  |IOSTANDARD=LVCMOS25;
+
+NET "o_IpmiUartTX_p"        LOC = "AY34"  |  IOSTANDARD=LVCMOS25;
+NET "i_IpmiUartRX_p"        LOC = "AW35"  |  IOSTANDARD=LVCMOS25;
+
+Net "io_FmcI2cSCL_p"        LOC = "BA35"  |  IOSTANDARD=LVCMOS25;
+Net "io_FmcI2cSDA_p"        LOC = "AY35"  |  IOSTANDARD=LVCMOS25;
+
+#NET "o_CtrlLedBufOd_p_pin"           LOC="AW40" | IOSTANDARD=LVCMOS25 | DRIVE = 2;
+#NET "ov8_UserLedGreen_pin<0>" LOC="AP40" | IOSTANDARD=LVCMOS25 | DRIVE = 2;
+#NET "ov8_UserLedRed_pin<0>" LOC="AN40" | IOSTANDARD=LVCMOS25 | DRIVE = 2;
+#NET "ov8_UserLedGreen_pin<1>" LOC="AP41" | IOSTANDARD=LVCMOS25 | DRIVE = 2;
+#NET "ov8_UserLedRed_pin<1>" LOC="AN41" | IOSTANDARD=LVCMOS25 | DRIVE = 2;
+#NET "ov8_UserLedGreen_pin<2>" LOC="AM39" | IOSTANDARD=LVCMOS25 | DRIVE = 2;
+#NET "ov8_UserLedRed_pin<2>" LOC="AN39" | IOSTANDARD=LVCMOS25 | DRIVE = 2;
+#NET "ov8_UserLedGreen_pin<3>" LOC="AR42" | IOSTANDARD=LVCMOS25 | DRIVE = 2;
+#NET "ov8_UserLedRed_pin<3>" LOC="AP42" | IOSTANDARD=LVCMOS25 | DRIVE = 2;
+#NET "ov8_UserLedGreen_pin<4>" LOC="AM38" | IOSTANDARD=LVCMOS25 | DRIVE = 2;
+#NET "ov8_UserLedRed_pin<4>" LOC="AL37" | IOSTANDARD=LVCMOS25 | DRIVE = 2;
+#NET "ov8_UserLedGreen_pin<5>" LOC="AU42" | IOSTANDARD=LVCMOS25 | DRIVE = 2;
+#NET "ov8_UserLedRed_pin<5>" LOC="AT42" | IOSTANDARD=LVCMOS25 | DRIVE = 2;
+#NET "ov8_UserLedGreen_pin<6>" LOC="AL35" | IOSTANDARD=LVCMOS25 | DRIVE = 2;
+#NET "ov8_UserLedRed_pin<6>" LOC="AM34" | IOSTANDARD=LVCMOS25 | DRIVE = 2;
+#NET "ov8_UserLedGreen_pin<7>" LOC="AW41" | IOSTANDARD=LVCMOS25 | DRIVE = 2;
+#NET "ov8_UserLedRed_pin<7>" LOC="AW42" | IOSTANDARD=LVCMOS25 | DRIVE = 2;
+#
+#NET "o_CtrlVadjEn_p"       LOC="A14"  | IOSTANDARD=LVCMOS25 | DRIVE = 2;
+#NET "ov2_CtrlVadjSel_p<0>" LOC="AV34" | IOSTANDARD=LVCMOS25 | DRIVE = 2;
+#NET "ov2_CtrlVadjSel_p<1>" LOC="AV35" | IOSTANDARD=LVCMOS25 | DRIVE = 2;
+
+Net "o_MmcI2cReleaseReq_p"  LOC = "F15"   |  IOSTANDARD=LVCMOS25;
+Net "i_MmcI2cReleaseAck_p"  LOC = "AW16"  |  IOSTANDARD=LVCMOS25;
+Net "io_Ddr3I2cSCL_p"       LOC = "C20"   |  IOSTANDARD = SSTL15;
+Net "io_Ddr3I2cSDA_p"       LOC = "D20"   |  IOSTANDARD = SSTL15;
+NET "i_FmcAbsent_p"              LOC="AT34" | IOSTANDARD=LVCMOS25;
+NET "i_FmcStackAbsent_p"         LOC="N34"  | IOSTANDARD=LVCMOS25;
+NET "i_DaughterIoAbsent_p"       LOC="AU34" | IOSTANDARD=LVCMOS25;
+NET "o_CtrlTclkdTxEn_p"          LOC="D12"  | IOSTANDARD=LVCMOS25 | DRIVE = 2;
+NET "o_CtrlTclkdRxDis_p"         LOC="C14"  | IOSTANDARD=LVCMOS25 | DRIVE = 2;
+NET "o_CtrlFclkaHighz_p"         LOC="A15"  | IOSTANDARD=LVCMOS25 | DRIVE = 2;
+NET "o_Ctrl100mhzOutEn_p"        LOC="H14"  | IOSTANDARD=LVCMOS25 | DRIVE = 2;
+NET "o_CtrlTclkcTxEn_p"          LOC="C13"  | IOSTANDARD=LVCMOS25 | DRIVE = 2;
+NET "o_CtrlTclkcRxDis_p"         LOC="B14"  | IOSTANDARD=LVCMOS25 | DRIVE = 2;
+NET "o_CtrlTclkbTxEn_p"          LOC="L14"  | IOSTANDARD=LVCMOS25 | DRIVE = 2;
+NET "o_CtrlTclkaRxDis_p"         LOC="J13"  | IOSTANDARD=LVCMOS25 | DRIVE = 2;
+NET "o_CtrlTclkaTxEn_p"          LOC="K14"  | IOSTANDARD=LVCMOS25 | DRIVE = 2;
+NET "o_CtrlTclkbRxDis_p"         LOC="K13"  | IOSTANDARD=LVCMOS25 | DRIVE = 2;
+NET "o_CtrlLedBufOd_p"           LOC="AW40" | IOSTANDARD=LVCMOS25 | DRIVE = 2;
+NET "o_CtrlAmctclka2Fmcclk2En_p" LOC="N14"  | IOSTANDARD=LVCMOS25 | DRIVE = 2;
+NET "o_CtrlFmcclk12AmctclkdEn_p" LOC="G14"  | IOSTANDARD=LVCMOS25 | DRIVE = 2;
+NET "o_CtrlAmctclkc2Fmcclk3En_p" LOC="AU16" | IOSTANDARD=LVCMOS25 | DRIVE = 2;
+NET "o_CtrlFmcclk02AmctclkbEn_p" LOC="H15"  | IOSTANDARD=LVCMOS25 | DRIVE = 2;
+NET "ov8_nCtrlLedGrn_p<0>" LOC="AP40" | IOSTANDARD=LVCMOS25 | DRIVE = 2;
+NET "ov8_nCtrlLedRed_p<0>" LOC="AN40" | IOSTANDARD=LVCMOS25 | DRIVE = 2;
+NET "ov8_nCtrlLedGrn_p<1>" LOC="AP41" | IOSTANDARD=LVCMOS25 | DRIVE = 2;
+NET "ov8_nCtrlLedRed_p<1>" LOC="AN41" | IOSTANDARD=LVCMOS25 | DRIVE = 2;
+NET "ov8_nCtrlLedGrn_p<2>" LOC="AM39" | IOSTANDARD=LVCMOS25 | DRIVE = 2;
+NET "ov8_nCtrlLedRed_p<2>" LOC="AN39" | IOSTANDARD=LVCMOS25 | DRIVE = 2;
+NET "ov8_nCtrlLedGrn_p<3>" LOC="AR42" | IOSTANDARD=LVCMOS25 | DRIVE = 2;
+NET "ov8_nCtrlLedRed_p<3>" LOC="AP42" | IOSTANDARD=LVCMOS25 | DRIVE = 2;
+NET "ov8_nCtrlLedGrn_p<4>" LOC="AM38" | IOSTANDARD=LVCMOS25 | DRIVE = 2;
+NET "ov8_nCtrlLedRed_p<4>" LOC="AL37" | IOSTANDARD=LVCMOS25 | DRIVE = 2;
+NET "ov8_nCtrlLedGrn_p<5>" LOC="AU42" | IOSTANDARD=LVCMOS25 | DRIVE = 2;
+NET "ov8_nCtrlLedRed_p<5>" LOC="AT42" | IOSTANDARD=LVCMOS25 | DRIVE = 2;
+NET "ov8_nCtrlLedGrn_p<6>" LOC="AL35" | IOSTANDARD=LVCMOS25 | DRIVE = 2;
+NET "ov8_nCtrlLedRed_p<6>" LOC="AM34" | IOSTANDARD=LVCMOS25 | DRIVE = 2;
+NET "ov8_nCtrlLedGrn_p<7>" LOC="AW41" | IOSTANDARD=LVCMOS25 | DRIVE = 2;
+NET "ov8_nCtrlLedRed_p<7>" LOC="AW42" | IOSTANDARD=LVCMOS25 | DRIVE = 2;
+
+NET "o_CtrlVadjEn_p"       LOC="A14"  | IOSTANDARD=LVCMOS25 | DRIVE = 2;
+NET "ov2_CtrlVadjSel_p<0>" LOC="AV34" | IOSTANDARD=LVCMOS25 | DRIVE = 2;
+NET "ov2_CtrlVadjSel_p<1>" LOC="AV35" | IOSTANDARD=LVCMOS25 | DRIVE = 2;
+
+
+############ FLASH #####################
+Net fpga_0_FLASH_Mem_A_pin<24> LOC=AW13 |  SLEW = FAST  |  DRIVE = 8  |  IOSTANDARD=LVCMOS25;
+Net fpga_0_FLASH_Mem_A_pin<23> LOC=AW12 |  SLEW = FAST  |  DRIVE = 8  |  IOSTANDARD=LVCMOS25;
+Net fpga_0_FLASH_Mem_A_pin<22> LOC=BB14 |  SLEW = FAST  |  DRIVE = 8  |  IOSTANDARD=LVCMOS25;
+Net fpga_0_FLASH_Mem_A_pin<21> LOC=BB13 |  SLEW = FAST  |  DRIVE = 8  |  IOSTANDARD=LVCMOS25;
+Net fpga_0_FLASH_Mem_A_pin<20> LOC=AU13 |  SLEW = FAST  |  DRIVE = 8  |  IOSTANDARD=LVCMOS25;
+Net fpga_0_FLASH_Mem_A_pin<19> LOC=AU12 |  SLEW = FAST  |  DRIVE = 8  |  IOSTANDARD=LVCMOS25;
+Net fpga_0_FLASH_Mem_A_pin<18> LOC=AW15 |  SLEW = FAST  |  DRIVE = 8  |  IOSTANDARD=LVCMOS25;
+Net fpga_0_FLASH_Mem_A_pin<17> LOC=AY15 |  SLEW = FAST  |  DRIVE = 8  |  IOSTANDARD=LVCMOS25;
+Net fpga_0_FLASH_Mem_A_pin<16> LOC=AR13 |  SLEW = FAST  |  DRIVE = 8  |  IOSTANDARD=LVCMOS25;
+Net fpga_0_FLASH_Mem_A_pin<15> LOC=AP13 |  SLEW = FAST  |  DRIVE = 8  |  IOSTANDARD=LVCMOS25;
+Net fpga_0_FLASH_Mem_A_pin<14> LOC=AU14 |  SLEW = FAST  |  DRIVE = 8  |  IOSTANDARD=LVCMOS25;
+Net fpga_0_FLASH_Mem_A_pin<13> LOC=AV15 |  SLEW = FAST  |  DRIVE = 8  |  IOSTANDARD=LVCMOS25;
+Net fpga_0_FLASH_Mem_A_pin<12> LOC=AT12 |  SLEW = FAST  |  DRIVE = 8  |  IOSTANDARD=LVCMOS25;
+Net fpga_0_FLASH_Mem_A_pin<11> LOC=AR12 |  SLEW = FAST  |  DRIVE = 8  |  IOSTANDARD=LVCMOS25;
+Net fpga_0_FLASH_Mem_A_pin<10> LOC=BA14 |  SLEW = FAST  |  DRIVE = 8  |  IOSTANDARD=LVCMOS25;
+Net fpga_0_FLASH_Mem_A_pin<9> LOC=BA15 |  SLEW = FAST  |  DRIVE = 8  |  IOSTANDARD=LVCMOS25;
+Net fpga_0_FLASH_Mem_A_pin<8> LOC=AW17 |  SLEW = FAST  |  DRIVE = 8  |  IOSTANDARD=LVCMOS25;
+Net fpga_0_FLASH_Mem_A_pin<7> LOC=AY17 |  SLEW = FAST  |  DRIVE = 8  |  IOSTANDARD=LVCMOS25;
+Net fpga_0_FLASH_Mem_A_pin<6> LOC=AR15 |  SLEW = FAST  |  DRIVE = 8  |  IOSTANDARD=LVCMOS25;
+Net fpga_0_FLASH_Mem_A_pin<5> LOC=AP15 |  SLEW = FAST  |  DRIVE = 8  |  IOSTANDARD=LVCMOS25;
+Net fpga_0_FLASH_Mem_A_pin<4> LOC=BB17 |  SLEW = FAST  |  DRIVE = 8  |  IOSTANDARD=LVCMOS25;
+Net fpga_0_FLASH_Mem_A_pin<3>  LOC=BB16 |  SLEW = FAST  |  DRIVE = 8  |  IOSTANDARD=LVCMOS25;
+Net fpga_0_FLASH_Mem_A_pin<2>  LOC=AT14 |  SLEW = FAST  |  DRIVE = 8  |  IOSTANDARD=LVCMOS25;
+Net fpga_0_FLASH_Mem_A_pin<1>  LOC=AR14 |  SLEW = FAST  |  DRIVE = 8  |  IOSTANDARD=LVCMOS25;
+NET fpga_0_FLASH_Mem_A_pin<0>  LOC=BA17 | SLEW = FAST  |  DRIVE = 8  |  IOSTANDARD=LVCMOS25;
+
+Net Flash_Mem_DQ_pin<15>  LOC=U31  |  PULLDOWN  |  SLEW = FAST  |  DRIVE = 12  |  IOSTANDARD=LVCMOS25;
+Net Flash_Mem_DQ_pin<14>  LOC=T31  |  PULLDOWN  |  SLEW = FAST  |  DRIVE = 12  |  IOSTANDARD=LVCMOS25;
+Net Flash_Mem_DQ_pin<13>  LOC=AL32 |  PULLDOWN  |  SLEW = FAST  |  DRIVE = 12  |  IOSTANDARD=LVCMOS25;
+Net Flash_Mem_DQ_pin<12>  LOC=AK32 |  PULLDOWN  |  SLEW = FAST  |  DRIVE = 12  |  IOSTANDARD=LVCMOS25;
+Net Flash_Mem_DQ_pin<11>  LOC=R33  |  PULLDOWN  |  SLEW = FAST  |  DRIVE = 12  |  IOSTANDARD=LVCMOS25;
+Net Flash_Mem_DQ_pin<10>  LOC=P32  |  PULLDOWN  |  SLEW = FAST  |  DRIVE = 12  |  IOSTANDARD=LVCMOS25;
+Net Flash_Mem_DQ_pin<9>   LOC=AH33 |  PULLDOWN  |  SLEW = FAST  |  DRIVE = 12  |  IOSTANDARD=LVCMOS25;
+Net Flash_Mem_DQ_pin<8>   LOC=AJ33 |  PULLDOWN  |  SLEW = FAST  |  DRIVE = 12  |  IOSTANDARD=LVCMOS25;
+Net Flash_Mem_DQ_pin<7>   LOC=P33  |  PULLDOWN  |  SLEW = FAST  |  DRIVE = 12  |  IOSTANDARD=LVCMOS25;
+Net Flash_Mem_DQ_pin<6>   LOC=N33  |  PULLDOWN  |  SLEW = FAST  |  DRIVE = 12  |  IOSTANDARD=LVCMOS25;
+Net Flash_Mem_DQ_pin<5>   LOC=AG31 |  PULLDOWN  |  SLEW = FAST  |  DRIVE = 12  |  IOSTANDARD=LVCMOS25;
+Net Flash_Mem_DQ_pin<4>   LOC=AH31 |  PULLDOWN  |  SLEW = FAST  |  DRIVE = 12  |  IOSTANDARD=LVCMOS25;
+Net Flash_Mem_DQ_pin<3>   LOC=R30  |  PULLDOWN  |  SLEW = FAST  |  DRIVE = 12  |  IOSTANDARD=LVCMOS25;
+Net Flash_Mem_DQ_pin<2>   LOC=T30  |  PULLDOWN  |  SLEW = FAST  |  DRIVE = 12  |  IOSTANDARD=LVCMOS25;
+Net Flash_Mem_DQ_pin<1>   LOC=AF31 |  PULLDOWN  |  SLEW = FAST  |  DRIVE = 12  |  IOSTANDARD=LVCMOS25;
+Net Flash_Mem_DQ_pin<0>   LOC=AG32 |  PULLDOWN  |  SLEW = FAST  |  DRIVE = 12  |  IOSTANDARD=LVCMOS25;
+
+Net Flash_Mem_CEN_pin LOC=AH30  |  IOSTANDARD=LVCMOS25;
+Net Flash_Mem_OEN_pin LOC=AJ30  |  SLEW = FAST  |  DRIVE = 12  |  IOSTANDARD=LVCMOS25;
+Net Flash_Mem_WEN_pin LOC=V31  |  SLEW = FAST  |  DRIVE = 12  |  IOSTANDARD=LVCMOS25;
+NET o_nFlashRst_p     LOC=W31  | IOSTANDARD=LVCMOS25 | SLEW=FAST | DRIVE=8;
+
+############ HArd TEMAC #####################
+Net "axi_ethernet_0_TXP_pin"                  LOC="AH3";
+Net "axi_ethernet_0_TXN_pin"                  LOC="AH4";
+Net "axi_ethernet_0_RXP_pin"                  LOC="AE5";
+Net "axi_ethernet_0_RXN_pin"                  LOC="AE6";
+Net "axi_ethernet_0_MGT_CLK_P_pin"            LOC="AF8";
+Net "axi_ethernet_0_MGT_CLK_N_pin"            LOC="AF7";
+
+############################################################################
+# SODIMM DDR3 PinOut                                             #
+############################################################################
+Net "i_pSodimmclk_p" LOC= "L12"   |  IOSTANDARD=LVDS_25  |  DIFF_TERM = TRUE;
+Net "i_nSodimmclk_p" LOC= "M12"   |  IOSTANDARD=LVDS_25  |  DIFF_TERM = TRUE;
+Net "i_pSodimmclk_p" TNM_NET = sodimm_clk_pin;
+Net "i_nSodimmclk_p" TNM_NET = sodimm_clk_pin;
+TIMESPEC TS_sodimm_clk_pin = PERIOD sodimm_clk_pin 2.5 ns high 50%; # 400 MHz
+
+NET  "axi_record_playback_ddr3_addr_pin[0]"		 LOC = "D40" ;
+NET  "axi_record_playback_ddr3_addr_pin[10]"		 LOC = "B42" ;
+NET  "axi_record_playback_ddr3_addr_pin[11]"		 LOC = "F41" ;
+NET  "axi_record_playback_ddr3_addr_pin[12]"		 LOC = "H34" ;
+NET  "axi_record_playback_ddr3_addr_pin[13]"		 LOC = "B39" ;
+NET  "axi_record_playback_ddr3_addr_pin[14]"		 LOC = "F42" ;
+NET  "axi_record_playback_ddr3_addr_pin[15]"		 LOC = "F36" ;
+NET  "axi_record_playback_ddr3_addr_pin[1]"		 LOC = "G41" ;
+NET  "axi_record_playback_ddr3_addr_pin[2]"		 LOC = "G42" ;
+NET  "axi_record_playback_ddr3_addr_pin[3]"		 LOC = "F37" ;
+NET  "axi_record_playback_ddr3_addr_pin[4]"		 LOC = "D41" ;
+NET  "axi_record_playback_ddr3_addr_pin[5]"		 LOC = "F35" ;
+NET  "axi_record_playback_ddr3_addr_pin[6]"		 LOC = "F40" ;
+NET  "axi_record_playback_ddr3_addr_pin[7]"		 LOC = "E42" ;
+NET  "axi_record_playback_ddr3_addr_pin[8]"		 LOC = "G37" ;
+NET  "axi_record_playback_ddr3_addr_pin[9]"		 LOC = "G36" ;
+NET  "axi_record_playback_ddr3_ba_pin[0]"		 LOC = "C41" ;
+NET  "axi_record_playback_ddr3_ba_pin[1]"		 LOC = "A39" ;
+NET  "axi_record_playback_ddr3_ba_pin[2]"		 LOC = "H36" ;
+NET  "axi_record_playback_ddr3_cas_n_pin"		 LOC = "C40" ;
+NET  "axi_record_playback_ddr3_ck_n_pin[0]"		 LOC = "E38" ;
+NET  "axi_record_playback_ddr3_ck_n_pin[1]"		 LOC = "A41" ;
+NET  "axi_record_playback_ddr3_ck_p_pin[0]"		 LOC = "E39" ;
+NET  "axi_record_playback_ddr3_ck_p_pin[1]"		 LOC = "A40" ;
+NET  "axi_record_playback_ddr3_cke_pin"		 LOC = "H35" ;
+NET  "axi_record_playback_ddr3_cs_n_pin"		 LOC = "D38" ;
+NET  "axi_record_playback_ddr3_dm_pin[0]"		 LOC = "J38" ;
+NET  "axi_record_playback_ddr3_dm_pin[1]"		 LOC = "K33" ;
+NET  "axi_record_playback_ddr3_dm_pin[2]"		 LOC = "F32" ;
+NET  "axi_record_playback_ddr3_dm_pin[3]"		 LOC = "P28" ;
+NET  "axi_record_playback_ddr3_dm_pin[4]"		 LOC = "E33" ;
+NET  "axi_record_playback_ddr3_dm_pin[5]"		 LOC = "H30" ;
+NET  "axi_record_playback_ddr3_dm_pin[6]"		 LOC = "B17" ;
+NET  "axi_record_playback_ddr3_dm_pin[7]"		 LOC = "P17" ;
+NET  "axi_record_playback_ddr3_dq[0]"		 LOC = "M33" ;
+NET  "axi_record_playback_ddr3_dq[10]"		 LOC = "L34" ;
+NET  "axi_record_playback_ddr3_dq[11]"		 LOC = "L32" ;
+NET  "axi_record_playback_ddr3_dq[12]"		 LOC = "H41" ;
+NET  "axi_record_playback_ddr3_dq[13]"		 LOC = "J37" ;
+NET  "axi_record_playback_ddr3_dq[14]"		 LOC = "K32" ;
+NET  "axi_record_playback_ddr3_dq[15]"		 LOC = "L31" ;
+NET  "axi_record_playback_ddr3_dq[16]"		 LOC = "F31" ;
+NET  "axi_record_playback_ddr3_dq[17]"		 LOC = "D32" ;
+NET  "axi_record_playback_ddr3_dq[18]"		 LOC = "B32" ;
+NET  "axi_record_playback_ddr3_dq[19]"		 LOC = "A32" ;
+NET  "axi_record_playback_ddr3_dq[1]"		 LOC = "L37" ;
+NET  "axi_record_playback_ddr3_dq[20]"		 LOC = "E35" ;
+NET  "axi_record_playback_ddr3_dq[21]"		 LOC = "E32" ;
+NET  "axi_record_playback_ddr3_dq[22]"		 LOC = "C33" ;
+NET  "axi_record_playback_ddr3_dq[23]"		 LOC = "B33" ;
+NET  "axi_record_playback_ddr3_dq[24]"		 LOC = "P31" ;
+NET  "axi_record_playback_ddr3_dq[25]"		 LOC = "P30" ;
+NET  "axi_record_playback_ddr3_dq[26]"		 LOC = "P27" ;
+NET  "axi_record_playback_ddr3_dq[27]"		 LOC = "R27" ;
+NET  "axi_record_playback_ddr3_dq[28]"		 LOC = "M31" ;
+NET  "axi_record_playback_ddr3_dq[29]"		 LOC = "N31" ;
+NET  "axi_record_playback_ddr3_dq[2]"		 LOC = "H39" ;
+NET  "axi_record_playback_ddr3_dq[30]"		 LOC = "R29" ;
+NET  "axi_record_playback_ddr3_dq[31]"		 LOC = "N28" ;
+NET  "axi_record_playback_ddr3_dq[32]"		 LOC = "B36" ;
+NET  "axi_record_playback_ddr3_dq[33]"		 LOC = "A36" ;
+NET  "axi_record_playback_ddr3_dq[34]"		 LOC = "D36" ;
+NET  "axi_record_playback_ddr3_dq[35]"		 LOC = "E34" ;
+NET  "axi_record_playback_ddr3_dq[36]"		 LOC = "C35" ;
+NET  "axi_record_playback_ddr3_dq[37]"		 LOC = "C36" ;
+NET  "axi_record_playback_ddr3_dq[38]"		 LOC = "F34" ;
+NET  "axi_record_playback_ddr3_dq[39]"		 LOC = "D37" ;
+NET  "axi_record_playback_ddr3_dq[3]"		 LOC = "J42" ;
+NET  "axi_record_playback_ddr3_dq[40]"		 LOC = "G32" ;
+NET  "axi_record_playback_ddr3_dq[41]"		 LOC = "G31" ;
+NET  "axi_record_playback_ddr3_dq[42]"		 LOC = "J30" ;
+NET  "axi_record_playback_ddr3_dq[43]"		 LOC = "L30" ;
+NET  "axi_record_playback_ddr3_dq[44]"		 LOC = "H31" ;
+NET  "axi_record_playback_ddr3_dq[45]"		 LOC = "J32" ;
+NET  "axi_record_playback_ddr3_dq[46]"		 LOC = "L29" ;
+NET  "axi_record_playback_ddr3_dq[47]"		 LOC = "M29" ;
+NET  "axi_record_playback_ddr3_dq[48]"		 LOC = "D18" ;
+NET  "axi_record_playback_ddr3_dq[49]"		 LOC = "A19" ;
+NET  "axi_record_playback_ddr3_dq[4]"		 LOC = "M32" ;
+NET  "axi_record_playback_ddr3_dq[50]"		 LOC = "B18" ;
+NET  "axi_record_playback_ddr3_dq[51]"		 LOC = "C18" ;
+NET  "axi_record_playback_ddr3_dq[52]"		 LOC = "A17" ;
+NET  "axi_record_playback_ddr3_dq[53]"		 LOC = "D17" ;
+NET  "axi_record_playback_ddr3_dq[54]"		 LOC = "G17" ;
+NET  "axi_record_playback_ddr3_dq[55]"		 LOC = "J17" ;
+NET  "axi_record_playback_ddr3_dq[56]"		 LOC = "M17" ;
+NET  "axi_record_playback_ddr3_dq[57]"		 LOC = "N15" ;
+NET  "axi_record_playback_ddr3_dq[58]"		 LOC = "N18" ;
+NET  "axi_record_playback_ddr3_dq[59]"		 LOC = "P16" ;
+NET  "axi_record_playback_ddr3_dq[5]"		 LOC = "M34" ;
+NET  "axi_record_playback_ddr3_dq[60]"		 LOC = "M16" ;
+NET  "axi_record_playback_ddr3_dq[61]"		 LOC = "L17" ;
+NET  "axi_record_playback_ddr3_dq[62]"		 LOC = "J15" ;
+NET  "axi_record_playback_ddr3_dq[63]"		 LOC = "K17" ;
+NET  "axi_record_playback_ddr3_dq[6]"		 LOC = "H38" ;
+NET  "axi_record_playback_ddr3_dq[7]"		 LOC = "K42" ;
+NET  "axi_record_playback_ddr3_dq[8]"		 LOC = "J40" ;
+NET  "axi_record_playback_ddr3_dq[9]"		 LOC = "H40" ;
+NET  "axi_record_playback_ddr3_dqs_n[0]"		 LOC = "L36" ;
+NET  "axi_record_playback_ddr3_dqs_n[1]"		 LOC = "K34" ;
+NET  "axi_record_playback_ddr3_dqs_n[2]"		 LOC = "A35" ;
+NET  "axi_record_playback_ddr3_dqs_n[3]"		 LOC = "N30" ;
+NET  "axi_record_playback_ddr3_dqs_n[4]"		 LOC = "C34" ;
+NET  "axi_record_playback_ddr3_dqs_n[5]"		 LOC = "K30" ;
+NET  "axi_record_playback_ddr3_dqs_n[6]"		 LOC = "B19" ;
+NET  "axi_record_playback_ddr3_dqs_n[7]"		 LOC = "L15" ;
+NET  "axi_record_playback_ddr3_dqs_p[0]"		 LOC = "L35" ;
+NET  "axi_record_playback_ddr3_dqs_p[1]"		 LOC = "K35" ;
+NET  "axi_record_playback_ddr3_dqs_p[2]"		 LOC = "A34" ;
+NET  "axi_record_playback_ddr3_dqs_p[3]"		 LOC = "N29" ;
+NET  "axi_record_playback_ddr3_dqs_p[4]"		 LOC = "B34" ;
+NET  "axi_record_playback_ddr3_dqs_p[5]"		 LOC = "K29" ;
+NET  "axi_record_playback_ddr3_dqs_p[6]"		 LOC = "C19" ;
+NET  "axi_record_playback_ddr3_dqs_p[7]"		 LOC = "L16" ;
+NET  "axi_record_playback_ddr3_odt_pin"		 LOC = "A37" ;
+NET  "axi_record_playback_ddr3_ras_n_pin"		 LOC = "B38" ;
+NET  "axi_record_playback_ddr3_reset_n_pin"		 LOC = "J35" ;
+NET  "axi_record_playback_ddr3_we_n_pin"		 LOC = "B41" ;
+#
+###################################################################################################
+NET "axi_record_playback_ddr3_dq<*>"                IOSTANDARD = SSTL15_T_DCI;
+NET "axi_record_playback_ddr3_addr_pin<*>"          IOSTANDARD = SSTL15;
+NET "axi_record_playback_ddr3_ba_pin<*>"            IOSTANDARD = SSTL15;
+NET "axi_record_playback_ddr3_ras_n_pin"            IOSTANDARD = SSTL15;
+NET "axi_record_playback_ddr3_cas_n_pin"            IOSTANDARD = SSTL15;
+NET "axi_record_playback_ddr3_we_n_pin"             IOSTANDARD = SSTL15;
+NET "axi_record_playback_ddr3_reset_n_pin"          IOSTANDARD = SSTL15;
+NET "axi_record_playback_ddr3_cs_n_pin"             IOSTANDARD = SSTL15;
+NET "axi_record_playback_ddr3_odt_pin"              IOSTANDARD = SSTL15;
+NET "axi_record_playback_ddr3_cke_pin"              IOSTANDARD = SSTL15;
+NET "axi_record_playback_ddr3_dm_pin<*>"            IOSTANDARD = SSTL15;
+NET "axi_record_playback_ddr3_dqs_p<*>"             IOSTANDARD = DIFF_SSTL15_T_DCI;
+NET "axi_record_playback_ddr3_dqs_n<*>"             IOSTANDARD = DIFF_SSTL15_T_DCI;
+NET "axi_record_playback_ddr3_ck_p_pin<*>"          IOSTANDARD = DIFF_SSTL15;
+NET "axi_record_playback_ddr3_ck_n_pin<*>"          IOSTANDARD = DIFF_SSTL15;
+
+
+############################################################################
+# Timing constraints                                                        #
+############################################################################
+# Constrain BUFR clocks used to synchronize data from IOB to fabric logic
+# Note that ISE cannot infer this from other PERIOD constraints because
+# of the use of OSERDES blocks in the BUFR clock generation path
+NET "*/v6Ddr3Controler64b_l/u_memc_ui_top/u_mem_intfc/phy_top0/clk_rsync[?]" TNM_NET = TNM_clk_rsync;
+TIMESPEC "TS_clk_rsync" = PERIOD "TNM_clk_rsync" 5 ns;
+
+# Paths between DQ/DQS ISERDES.Q outputs and CLB flops clocked by falling
+# edge of BUFR will by design only be used if DYNCLKDIVSEL is asserted for
+# that particular flop. Mark this path as being a full-cycle, rather than
+# a half cycle path for timing purposes. NOTE: This constraint forces full-
+# cycle timing to be applied globally for all rising->falling edge paths
+# in all resynchronizaton clock domains. If the user had modified the logic
+# in the resync clock domain such that other rising->falling edge paths
+# exist, then constraint below should be modified to utilize pattern
+# matching to specific affect only the DQ/DQS ISERDES.Q outputs
+TIMEGRP "TG_clk_rsync_rise" = RISING  "TNM_clk_rsync";
+TIMEGRP "TG_clk_rsync_fall" = FALLING "TNM_clk_rsync";
+TIMESPEC "TS_clk_rsync_rise_to_fall" =
+  FROM "TG_clk_rsync_rise" TO "TG_clk_rsync_fall" "TS_sodimm_clk_pin" * 2;
+
+# Signal to select between controller and physical layer signals. Four divided by two clock
+# cycles (4 memory clock cycles) are provided by design for the signal to settle down.
+# Used only by the phy modules.
+INST "*/v6Ddr3Controler64b_l/u_memc_ui_top/u_mem_intfc/phy_top0/u_phy_init/u_ff_phy_init_data_sel" TNM = "TNM_PHY_INIT_SEL";
+TIMESPEC "TS_MC_PHY_INIT_SEL" = FROM "TNM_PHY_INIT_SEL" TO FFS = "TS_sodimm_clk_pin"*4;
+
+NET "clk_100_0000MHzMMCM0" TNM_NET = "axiClk";
+NET "clk_200_0000MHzMMCM0" TNM_NET = "RefClk200";
+NET "*/axi_record_playback/MemClk_s" TNM_NET = "MemUserClk";
+
+NET "*/axi_record_playback/CoreReset_s" TIG;
+NET "*/axi_record_playback/MemReset_s" TIG;
+
+TIMESPEC TS_axi2MemUserClk          = FROM "axiClk" TO "MemUserClk"  10 ns DATAPATHONLY;
+TIMESPEC TS_MemUserClk2axi          = FROM "MemUserClk" TO "axiClk"  10 ns DATAPATHONLY;
+###################################################################
+
+
+
+
+##  MO1000  Constraints                      #
+##############################################
+
+# MO1000 bottom MAPPING
+NET "idp_MO1000_0_ClockFromFMC_p" LOC="W30" | IOSTANDARD = "LVDS_25" | DIFF_TERM = TRUE;
+NET "idn_MO1000_0_ClockFromFMC_p" LOC="V30" | IOSTANDARD = "LVDS_25" | DIFF_TERM = TRUE;
+
+NET "odp_MO1000_0_DciToFMC_p" LOC="AD32" | IOSTANDARD = "LVDS_25";
+NET "odn_MO1000_0_DciToFMC_p" LOC="AE32" | IOSTANDARD = "LVDS_25";
+
+NET "odp_MO1000_0_FrameToFMC_p" LOC="AE37" | IOSTANDARD = "LVDS_25";
+NET "odn_MO1000_0_FrameToFMC_p" LOC="AD37" | IOSTANDARD = "LVDS_25";
+
+NET "odp_MO1000_0_DataToFMC_p<0>" LOC="AE34" | IOSTANDARD = "LVDS_25";
+NET "odn_MO1000_0_DataToFMC_p<0>" LOC="AE35" | IOSTANDARD = "LVDS_25";
+NET "odp_MO1000_0_DataToFMC_p<1>" LOC="AF42" | IOSTANDARD = "LVDS_25";
+NET "odn_MO1000_0_DataToFMC_p<1>" LOC="AF41" | IOSTANDARD = "LVDS_25";
+NET "odp_MO1000_0_DataToFMC_p<2>" LOC="AE33" | IOSTANDARD = "LVDS_25";
+NET "odn_MO1000_0_DataToFMC_p<2>" LOC="AD33" | IOSTANDARD = "LVDS_25";
+NET "odp_MO1000_0_DataToFMC_p<3>" LOC="AA41" | IOSTANDARD = "LVDS_25";
+NET "odn_MO1000_0_DataToFMC_p<3>" LOC="AB41" | IOSTANDARD = "LVDS_25";
+NET "odp_MO1000_0_DataToFMC_p<4>" LOC="AB39" | IOSTANDARD = "LVDS_25";
+NET "odn_MO1000_0_DataToFMC_p<4>" LOC="AA40" | IOSTANDARD = "LVDS_25";
+NET "odp_MO1000_0_DataToFMC_p<5>" LOC="AC41" | IOSTANDARD = "LVDS_25";
+NET "odn_MO1000_0_DataToFMC_p<5>" LOC="AD41" | IOSTANDARD = "LVDS_25";
+NET "odp_MO1000_0_DataToFMC_p<6>" LOC="AD42" | IOSTANDARD = "LVDS_25";
+NET "odn_MO1000_0_DataToFMC_p<6>" LOC="AE42" | IOSTANDARD = "LVDS_25";
+NET "odp_MO1000_0_DataToFMC_p<7>" LOC="AA42" | IOSTANDARD = "LVDS_25";
+NET "odn_MO1000_0_DataToFMC_p<7>" LOC="AB42" | IOSTANDARD = "LVDS_25";
+NET "odp_MO1000_0_DataToFMC_p<8>" LOC="AC36" | IOSTANDARD = "LVDS_25";
+NET "odn_MO1000_0_DataToFMC_p<8>" LOC="AB36" | IOSTANDARD = "LVDS_25";
+NET "odp_MO1000_0_DataToFMC_p<9>" LOC="AC40" | IOSTANDARD = "LVDS_25";
+NET "odn_MO1000_0_DataToFMC_p<9>" LOC="AD40" | IOSTANDARD = "LVDS_25";
+NET "odp_MO1000_0_DataToFMC_p<10>" LOC="AE38" | IOSTANDARD = "LVDS_25";
+NET "odn_MO1000_0_DataToFMC_p<10>" LOC="AD38" | IOSTANDARD = "LVDS_25";
+NET "odp_MO1000_0_DataToFMC_p<11>" LOC="AB32" | IOSTANDARD = "LVDS_25";
+NET "odn_MO1000_0_DataToFMC_p<11>" LOC="AB33" | IOSTANDARD = "LVDS_25";
+NET "odp_MO1000_0_DataToFMC_p<12>" LOC="AC35" | IOSTANDARD = "LVDS_25";
+NET "odn_MO1000_0_DataToFMC_p<12>" LOC="AB34" | IOSTANDARD = "LVDS_25";
+NET "odp_MO1000_0_DataToFMC_p<13>" LOC="W37" | IOSTANDARD = "LVDS_25";
+NET "odn_MO1000_0_DataToFMC_p<13>" LOC="Y37" | IOSTANDARD = "LVDS_25";
+NET "odp_MO1000_0_DataToFMC_p<14>" LOC="AB37" | IOSTANDARD = "LVDS_25";
+NET "odn_MO1000_0_DataToFMC_p<14>" LOC="AB38" | IOSTANDARD = "LVDS_25";
+NET "odp_MO1000_0_DataToFMC_p<15>" LOC="W32" | IOSTANDARD = "LVDS_25";
+NET "odn_MO1000_0_DataToFMC_p<15>" LOC="Y33" | IOSTANDARD = "LVDS_25";
+NET "odp_MO1000_0_DataToFMC_p<16>" LOC="W42" | IOSTANDARD = "LVDS_25";
+NET "odn_MO1000_0_DataToFMC_p<16>" LOC="Y42" | IOSTANDARD = "LVDS_25";
+NET "odp_MO1000_0_DataToFMC_p<17>" LOC="V34" | IOSTANDARD = "LVDS_25";
+NET "odn_MO1000_0_DataToFMC_p<17>" LOC="U34" | IOSTANDARD = "LVDS_25";
+NET "odp_MO1000_0_DataToFMC_p<18>" LOC="Y38" | IOSTANDARD = "LVDS_25";
+NET "odn_MO1000_0_DataToFMC_p<18>" LOC="AA39" | IOSTANDARD = "LVDS_25";
+NET "odp_MO1000_0_DataToFMC_p<19>" LOC="V40" | IOSTANDARD = "LVDS_25";
+NET "odn_MO1000_0_DataToFMC_p<19>" LOC="W40" | IOSTANDARD = "LVDS_25";
+NET "odp_MO1000_0_DataToFMC_p<20>" LOC="Y40" | IOSTANDARD = "LVDS_25";
+NET "odn_MO1000_0_DataToFMC_p<20>" LOC="Y39" | IOSTANDARD = "LVDS_25";
+NET "odp_MO1000_0_DataToFMC_p<21>" LOC="W35" | IOSTANDARD = "LVDS_25";
+NET "odn_MO1000_0_DataToFMC_p<21>" LOC="V35" | IOSTANDARD = "LVDS_25";
+NET "odp_MO1000_0_DataToFMC_p<22>" LOC="U39" | IOSTANDARD = "LVDS_25";
+NET "odn_MO1000_0_DataToFMC_p<22>" LOC="V39" | IOSTANDARD = "LVDS_25";
+NET "odp_MO1000_0_DataToFMC_p<23>" LOC="V41" | IOSTANDARD = "LVDS_25";
+NET "odn_MO1000_0_DataToFMC_p<23>" LOC="W41" | IOSTANDARD = "LVDS_25";
+NET "odp_MO1000_0_DataToFMC_p<24>" LOC="AA35" | IOSTANDARD = "LVDS_25";
+NET "odn_MO1000_0_DataToFMC_p<24>" LOC="Y35" | IOSTANDARD = "LVDS_25";
+NET "odp_MO1000_0_DataToFMC_p<25>" LOC="V38" | IOSTANDARD = "LVDS_25";
+NET "odn_MO1000_0_DataToFMC_p<25>" LOC="W38" | IOSTANDARD = "LVDS_25";
+NET "odp_MO1000_0_DataToFMC_p<26>" LOC="W36" | IOSTANDARD = "LVDS_25";
+NET "odn_MO1000_0_DataToFMC_p<26>" LOC="V36" | IOSTANDARD = "LVDS_25";
+NET "odp_MO1000_0_DataToFMC_p<27>" LOC="U42" | IOSTANDARD = "LVDS_25";
+NET "odn_MO1000_0_DataToFMC_p<27>" LOC="U41" | IOSTANDARD = "LVDS_25";
+NET "odp_MO1000_0_DataToFMC_p<28>" LOC="U37" | IOSTANDARD = "LVDS_25";
+NET "odn_MO1000_0_DataToFMC_p<28>" LOC="U38" | IOSTANDARD = "LVDS_25";
+NET "odp_MO1000_0_DataToFMC_p<29>" LOC="V33" | IOSTANDARD = "LVDS_25";
+NET "odn_MO1000_0_DataToFMC_p<29>" LOC="W33" | IOSTANDARD = "LVDS_25";
+NET "odp_MO1000_0_DataToFMC_p<30>" LOC="AA32" | IOSTANDARD = "LVDS_25";
+NET "odn_MO1000_0_DataToFMC_p<30>" LOC="Y32" | IOSTANDARD = "LVDS_25";
+NET "odp_MO1000_0_DataToFMC_p<31>" LOC="U32" | IOSTANDARD = "LVDS_25";
+NET "odn_MO1000_0_DataToFMC_p<31>" LOC="U33" | IOSTANDARD = "LVDS_25";
+
+NET "i_MO1000_0_TriggerFromFMC_p"  LOC="R37";
+
+Net "idp_MO1000_0_ClockFromFMC_p" TNM_NET = MO1000_0_Clock_In;
+#TIMESPEC TS_MO1000_0_Clock_In = PERIOD MO1000_0_Clock_In 1.666667 ns HIGH 50%;
+#TIMESPEC TS_MO1000_0_Clock_In = PERIOD MO1000_0_Clock_In 2 ns HIGH 50%;
+TIMESPEC TS_MO1000_0_Clock_In = PERIOD MO1000_0_Clock_In 4 ns HIGH 50%;
+
+##############################################
+##  MI125 Main Constraints                   #
+##############################################
+
+#####        PIN CONSTRAINTS             #####
+
+NET "idp_ClockFromADCTop_p" LOC="AH34" |IOSTANDARD = "LVDS_25" |DIFF_TERM = TRUE;
+NET "idn_ClockFromADCTop_p" LOC="AJ35" |IOSTANDARD = "LVDS_25" |DIFF_TERM = TRUE;
+
+NET "idp_FrameFromADCTop_p" LOC="AF40";
+NET "idn_FrameFromADCTop_p" LOC="AG41";
+
+NET "idn_DataFromADCTop_p<0>" LOC="AJ38";                                                                                                         
+NET "idp_DataFromADCTop_p<0>" LOC="AK38";
+NET "idn_DataFromADCTop_p<1>" LOC="AK42"; 
+NET "idp_DataFromADCTop_p<1>" LOC="AJ42"; 
+NET "idn_DataFromADCTop_p<2>" LOC="AM42"; 
+NET "idp_DataFromADCTop_p<2>" LOC="AL42"; 
+NET "idn_DataFromADCTop_p<3>" LOC="AH35"; 
+NET "idp_DataFromADCTop_p<3>" LOC="AJ36"; 
+NET "idn_DataFromADCTop_p<4>" LOC="AH41"; 
+NET "idp_DataFromADCTop_p<4>" LOC="AG42"; 
+NET "idn_DataFromADCTop_p<5>" LOC="AF34"; 
+NET "idp_DataFromADCTop_p<5>" LOC="AG34"; 
+NET "idn_DataFromADCTop_p<6>" LOC="AG37"; 
+NET "idp_DataFromADCTop_p<6>" LOC="AF37"; 
+NET "idn_DataFromADCTop_p<7>" LOC="AG39"; 
+NET "idp_DataFromADCTop_p<7>" LOC="AF39"; 
+NET "idn_DataFromADCTop_p<8>" LOC="AG33"; 
+NET "idp_DataFromADCTop_p<8>" LOC="AF32"; 
+NET "idn_DataFromADCTop_p<9>" LOC="AL36"; 
+NET "idp_DataFromADCTop_p<9>" LOC="AK35"; 
+NET "idn_DataFromADCTop_p<10>" LOC="AK34"; 
+NET "idp_DataFromADCTop_p<10>" LOC="AL34"; 
+NET "idn_DataFromADCTop_p<11>" LOC="AL39";  
+NET "idp_DataFromADCTop_p<11>" LOC="AK39";  
+NET "idn_DataFromADCTop_p<12>" LOC="AL40";  
+NET "idp_DataFromADCTop_p<12>" LOC="AK40";  
+NET "idn_DataFromADCTop_p<13>" LOC="AF36";  
+NET "idp_DataFromADCTop_p<13>" LOC="AF35";  
+NET "idn_DataFromADCTop_p<14>" LOC="AM41";  
+NET "idp_DataFromADCTop_p<14>" LOC="AL41";  
+NET "idn_DataFromADCTop_p<15>" LOC="AJ40";  
+NET "idp_DataFromADCTop_p<15>" LOC="AH39";
+NET "idn_DataFromADCTop_p<16>" LOC="M37";  
+NET "idp_DataFromADCTop_p<16>" LOC="M36";  
+NET "idn_DataFromADCTop_p<17>" LOC="P38";  
+NET "idp_DataFromADCTop_p<17>" LOC="R39";  
+NET "idn_DataFromADCTop_p<18>" LOC="L42";  
+NET "idp_DataFromADCTop_p<18>" LOC="L41";  
+NET "idn_DataFromADCTop_p<19>" LOC="N39";  
+NET "idp_DataFromADCTop_p<19>" LOC="N38";  
+NET "idn_DataFromADCTop_p<20>" LOC="M39";                                                        
+NET "idp_DataFromADCTop_p<20>" LOC="M38"; 
+NET "idn_DataFromADCTop_p<21>" LOC="L40";  
+NET "idp_DataFromADCTop_p<21>" LOC="L39";  
+NET "idn_DataFromADCTop_p<22>" LOC="AM36";  
+NET "idp_DataFromADCTop_p<22>" LOC="AM37";  
+NET "idn_DataFromADCTop_p<23>" LOC="AP38";  
+NET "idp_DataFromADCTop_p<23>" LOC="AN38";  
+NET "idn_DataFromADCTop_p<24>" LOC="AE39";  
+NET "idp_DataFromADCTop_p<24>" LOC="AE40";  
+NET "idn_DataFromADCTop_p<25>" LOC="N41";  
+NET "idp_DataFromADCTop_p<25>" LOC="N40";  
+NET "idn_DataFromADCTop_p<26>" LOC="AC33";  
+NET "idp_DataFromADCTop_p<26>" LOC="AC34";  
+NET "idn_DataFromADCTop_p<27>" LOC="M42";  
+NET "idp_DataFromADCTop_p<27>" LOC="M41";  
+NET "idn_DataFromADCTop_p<28>" LOC="P37";  
+NET "idp_DataFromADCTop_p<28>" LOC="N36";  
+NET "idn_DataFromADCTop_p<29>" LOC="P35";  
+NET "idp_DataFromADCTop_p<29>" LOC="P36";  
+NET "idn_DataFromADCTop_p<30>" LOC="AK37"; 
+NET "idp_DataFromADCTop_p<30>" LOC="AJ37";
+NET "idn_DataFromADCTop_p<31>" LOC="AJ41";  
+NET "idp_DataFromADCTop_p<31>" LOC="AH40"; 
+
+#####       Clock Constraints            ##### 
+# DO NOT CHANGE THE FOLLOWING CONSTRAINT VALUES !!!
+# The design support slower clock speed but the constraints must be kept to (125 MHz x4)
+
+Net "idp_ClockFromADCTop_p" TNM_NET = ADCCLOCKTOP_In;               
+TIMESPEC TS_ADCCLOCKTOP_In = PERIOD ADCCLOCKTOP_In 500MHz HIGH 50%;
+NET "idp_ClockFromADCTop_p" CLOCK_DEDICATED_ROUTE = FALSE;
+
+
+#####  MO1000 - MI125 constraint  ##### 
+TIMESPEC TS_Mi125ToMo1000 = FROM "ADCCLOCKTOP_In" TO "MO1000_0_Clock_In" 8 ns DATAPATHONLY;
+TIMESPEC TS_Mo1000ToMi125 = FROM "MO1000_0_Clock_In" TO "ADCCLOCKTOP_In" 8 ns DATAPATHONLY;
+NET "*async_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_gc<*>" TIG;
+NET "*async_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_gc<*>" TIG;
+#######################################
+
+
+#### GPIO Constraints ################## Added on 20140823
+
+NET iv2dn_AdcData_p<1>               LOC = "AY37"   |  IOSTANDARD=LVDS_25  |  DIFF_TERM = TRUE;
+NET iv2dp_AdcData_p<1>               LOC = "AY38"   |  IOSTANDARD=LVDS_25  |  DIFF_TERM = TRUE;
+NET iv2dn_AdcData_p<0>               LOC = "AU38"   |  IOSTANDARD=LVDS_25  |  DIFF_TERM = TRUE;
+NET iv2dp_AdcData_p<0>               LOC = "AU37"   |  IOSTANDARD=LVDS_25  |  DIFF_TERM = TRUE;
+
+NET ov4dp_Dpio_p<3>                  LOC = "AN35"   |  IOSTANDARD=LVDSEXT_25;
+NET ov4dn_Dpio_p<3>                  LOC = "AN36"   |  IOSTANDARD=LVDSEXT_25;
+NET ov4dn_Dpio_p<2>                  LOC = "BB37"   |  IOSTANDARD=LVDSEXT_25;
+NET ov4dp_Dpio_p<2>                  LOC = "BA37"   |  IOSTANDARD=LVDSEXT_25;
+NET ov4dn_Dpio_p<1>                  LOC = "BB38"   |  IOSTANDARD=LVDSEXT_25;
+NET ov4dp_Dpio_p<1>                  LOC = "BB39"   |  IOSTANDARD=LVDSEXT_25;
+NET ov4dn_Dpio_p<0>                  LOC = "BA36"   |  IOSTANDARD=LVDSEXT_25;
+NET ov4dp_Dpio_p<0>                  LOC = "BB36"   |  IOSTANDARD=LVDSEXT_25;
+
+NET iv4dn_Dpio_p<3>                  LOC = "AV36"   |  IOSTANDARD=LVDS_25  |  DIFF_TERM = TRUE;
+NET iv4dp_Dpio_p<3>                  LOC = "AW36"   |  IOSTANDARD=LVDS_25  |  DIFF_TERM = TRUE;
+NET iv4dn_Dpio_p<2>                  LOC = "BA39"   |  IOSTANDARD=LVDS_25  |  DIFF_TERM = TRUE;
+NET iv4dp_Dpio_p<2>                  LOC = "AY39"   |  IOSTANDARD=LVDS_25  |  DIFF_TERM = TRUE;
+NET iv4dn_Dpio_p<1>                  LOC = "AW38"   |  IOSTANDARD=LVDS_25  |  DIFF_TERM = TRUE;
+NET iv4dp_Dpio_p<1>                  LOC = "AW37"   |  IOSTANDARD=LVDS_25  |  DIFF_TERM = TRUE;
+NET iv4dn_Dpio_p<0>                  LOC = "AV38"   |  IOSTANDARD=LVDS_25  |  DIFF_TERM = TRUE;
+NET iv4dp_Dpio_p<0>                  LOC = "AV39"   |  IOSTANDARD=LVDS_25  |  DIFF_TERM = TRUE;
+
+NET odn_DioReset_p                  LOC = "AR38"   |  IOSTANDARD=LVDSEXT_25;
+NET odp_DioReset_p                  LOC = "AT37"   |  IOSTANDARD=LVDSEXT_25;
+NET odn_DioSetDir_p                 LOC = "AT36"   |  IOSTANDARD=LVDSEXT_25;
+NET odp_DioSetDir_p                 LOC = "AU36"   |  IOSTANDARD=LVDSEXT_25;
+
+NET odn_DioConfig_p            LOC = "AR37"   |  IOSTANDARD=LVDSEXT_25;
+NET odp_DioConfig_p            LOC = "AP37"   |  IOSTANDARD=LVDSEXT_25;
+
+NET idn_DioResetAck_p          LOC = "AT35"   |  IOSTANDARD=LVDS_25  |  DIFF_TERM = TRUE;
+NET idp_DioResetAck_p          LOC = "AR35"   |  IOSTANDARD=LVDS_25  |  DIFF_TERM = TRUE;
+
+NET odn_DpioClk_p                LOC = "AP35"   |  IOSTANDARD=LVDSEXT_25;
+NET odp_DpioClk_p                LOC = "AP36"   |  IOSTANDARD=LVDSEXT_25;

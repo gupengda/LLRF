@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project NoOfControllers="1" >
+    <ModuleName>DDR3_SDRAM</ModuleName>
+    <dci_inouts_inputs>1</dci_inouts_inputs>
+    <dci_outputs>0</dci_outputs>
+    <Debug_En>OFF</Debug_En>
+    <TargetFPGA>xc6vlx240t-ff1759/-1</TargetFPGA>
+    <Version>3.91</Version>
+    <SystemClock>Differential</SystemClock>
+    <PinSelectionFlag>TRUE</PinSelectionFlag>
+    <IODelayHighPerformanceMode>HIGH</IODelayHighPerformanceMode>
+    <InternalVref>0</InternalVref>
+    <IdelayGroupName>DUAL_DDR3</IdelayGroupName>
+    <FPGADevice>
+        <selected>lx/xc6vlx550t-ff1759</selected>
+        <selected>sx/xc6vsx315t-ff1759</selected>
+        <selected>sx/xc6vsx475t-ff1759</selected>
+    </FPGADevice>
+    <Controller number="0" >
+        <MemoryDevice>DDR3_SDRAM/Components/MT41J128M8XX-15E</MemoryDevice>
+        <TimePeriod>2500</TimePeriod>
+        <DataWidth>8</DataWidth>
+        <DeepMemory>1</DeepMemory>
+        <DataMask>1</DataMask>
+        <CustomPart>FALSE</CustomPart>
+        <NewPartName></NewPartName>
+        <RowAddress>14</RowAddress>
+        <ColAddress>10</ColAddress>
+        <BankAddress>3</BankAddress>
+        <TimingParameters>
+            <Parameters twtr="7.5" trrd="6" trefi="7.8" tfaw="30" trtp="7.5" trfc="110" trp="13.5" tras="36" trcd="13.5" />
+        </TimingParameters>
+        <ECC>Disabled</ECC>
+        <DiscreteBankSelections>1</DiscreteBankSelections>
+        <CaptureClock>37</CaptureClock>
+        <UserMemoryAddressMap>BANK_ROW_COLUMN</UserMemoryAddressMap>
+        <Ordering>Normal</Ordering>
+        <PinSelection>
+            <Pin SignalName="BUFIO:0" PINNumber="N16" SignalGroup="Data" Bank="36" />
+            <Pin SignalName="BUFR:0" PINNumber="J22" SignalGroup="Data" Bank="37" />
+            <Pin SignalName="ddr3_addr[0]" PINNumber="E24" SignalGroup="Address" Bank="37" />
+            <Pin SignalName="ddr3_addr[10]" PINNumber="F21" SignalGroup="Address" Bank="37" />
+            <Pin SignalName="ddr3_addr[11]" PINNumber="A24" SignalGroup="Address" Bank="37" />
+            <Pin SignalName="ddr3_addr[12]" PINNumber="B22" SignalGroup="Address" Bank="37" />
+            <Pin SignalName="ddr3_addr[13]" PINNumber="L21" SignalGroup="Address" Bank="37" />
+            <Pin SignalName="ddr3_addr[1]" PINNumber="D22" SignalGroup="Address" Bank="37" />
+            <Pin SignalName="ddr3_addr[2]" PINNumber="C24" SignalGroup="Address" Bank="37" />
+            <Pin SignalName="ddr3_addr[3]" PINNumber="H23" SignalGroup="Address" Bank="37" />
+            <Pin SignalName="ddr3_addr[4]" PINNumber="B23" SignalGroup="Address" Bank="37" />
+            <Pin SignalName="ddr3_addr[5]" PINNumber="K20" SignalGroup="Address" Bank="37" />
+            <Pin SignalName="ddr3_addr[6]" PINNumber="C23" SignalGroup="Address" Bank="37" />
+            <Pin SignalName="ddr3_addr[7]" PINNumber="J21" SignalGroup="Address" Bank="37" />
+            <Pin SignalName="ddr3_addr[8]" PINNumber="B24" SignalGroup="Address" Bank="37" />
+            <Pin SignalName="ddr3_addr[9]" PINNumber="K22" SignalGroup="Address" Bank="37" />
+            <Pin SignalName="ddr3_ba[0]" PINNumber="J20" SignalGroup="Address" Bank="37" />
+            <Pin SignalName="ddr3_ba[1]" PINNumber="A22" SignalGroup="Address" Bank="37" />
+            <Pin SignalName="ddr3_ba[2]" PINNumber="E23" SignalGroup="Address" Bank="37" />
+            <Pin SignalName="ddr3_cas#" PINNumber="G22" SignalGroup="Address" Bank="37" />
+            <Pin SignalName="ddr3_ck#[0]" PINNumber="G21" SignalGroup="Address" Bank="37" />
+            <Pin SignalName="ddr3_ck_p[0]" PINNumber="H20" SignalGroup="Address" Bank="37" />
+            <Pin SignalName="ddr3_cke[0]" PINNumber="D23" SignalGroup="Address" Bank="37" />
+            <Pin SignalName="ddr3_cs#[0]" PINNumber="H21" SignalGroup="Address" Bank="37" />
+            <Pin SignalName="ddr3_dm[0]" PINNumber="J16" SignalGroup="Data" Bank="36" />
+            <Pin SignalName="ddr3_dq[0]" PINNumber="K18" SignalGroup="Data" Bank="36" />
+            <Pin SignalName="ddr3_dq[1]" PINNumber="G18" SignalGroup="Data" Bank="36" />
+            <Pin SignalName="ddr3_dq[2]" PINNumber="G19" SignalGroup="Data" Bank="36" />
+            <Pin SignalName="ddr3_dq[3]" PINNumber="E18" SignalGroup="Data" Bank="36" />
+            <Pin SignalName="ddr3_dq[4]" PINNumber="H18" SignalGroup="Data" Bank="36" />
+            <Pin SignalName="ddr3_dq[5]" PINNumber="E19" SignalGroup="Data" Bank="36" />
+            <Pin SignalName="ddr3_dq[6]" PINNumber="J18" SignalGroup="Data" Bank="36" />
+            <Pin SignalName="ddr3_dq[7]" PINNumber="F19" SignalGroup="Data" Bank="36" />
+            <Pin SignalName="ddr3_dqs#[0]" PINNumber="F16" SignalGroup="Data" Bank="36" />
+            <Pin SignalName="ddr3_dqs_p[0]" PINNumber="G16" SignalGroup="Data" Bank="36" />
+            <Pin SignalName="ddr3_odt[0]" PINNumber="F22" SignalGroup="Address" Bank="37" />
+            <Pin SignalName="ddr3_ras#" PINNumber="K19" SignalGroup="Address" Bank="37" />
+            <Pin SignalName="ddr3_reset#" PINNumber="L20" SignalGroup="Address" Bank="37" />
+            <Pin SignalName="ddr3_we#" PINNumber="G23" SignalGroup="Address" Bank="37" />
+        </PinSelection>
+        <BankSelection>
+            <Bank SysClk="0" Data="1" name="36" Address="0" wasso="40" />
+            <Bank SysClk="0" Data="0" name="37" Address="1" wasso="40" />
+        </BankSelection>
+        <mrBurstLength name="Burst Length" >8 - Fixed</mrBurstLength>
+        <mrBurstType name="Read Burst Type" >Sequential</mrBurstType>
+        <mrCasLatency name="CAS Latency" >6</mrCasLatency>
+        <mrMode name="Mode" >Normal</mrMode>
+        <mrDllReset name="DLL Reset" >No</mrDllReset>
+        <mrPdMode name="DLL control for precharge PD" >Slow Exit</mrPdMode>
+        <emrDllEnable name="DLL Enable" >Enable</emrDllEnable>
+        <emrOutputDriveStrength name="Output Driver Impedance Control" >RZQ/6</emrOutputDriveStrength>
+        <emrRTT name="RTT (nominal) - On Die Termination (ODT)" >RZQ/4</emrRTT>
+        <emrPosted name="Additive Latency (AL)" >0</emrPosted>
+        <emrOCD name="Write Leveling Enable" >Disabled</emrOCD>
+        <emrDQS name="TDQS enable" >Enabled</emrDQS>
+        <emrRDQS name="Qoff" >Output Buffer Enabled</emrRDQS>
+        <mr2PartialArraySelfRefresh name="Partial-Array Self Refresh" >Full Array</mr2PartialArraySelfRefresh>
+        <mr2CasWriteLatency name="CAS write latency" >5</mr2CasWriteLatency>
+        <mr2AutoSelfRefresh name="Auto Self Refresh" >Enabled</mr2AutoSelfRefresh>
+        <mr2SelfRefreshTempRange name="High Temparature Self Refresh Rate" >Normal</mr2SelfRefreshTempRange>
+        <mr2RTTWR name="RTT_WR - Dynamic On Die Termination (ODT)" >Dynamic ODT off</mr2RTTWR>
+        <PortInterface>AXI</PortInterface>
+        <AXIParameters>
+            <C_INTERCONNECT_S_AXI_AR_REGISTER>BYPASS</C_INTERCONNECT_S_AXI_AR_REGISTER>
+            <C_INTERCONNECT_S_AXI_AW_REGISTER>BYPASS</C_INTERCONNECT_S_AXI_AW_REGISTER>
+            <C_INTERCONNECT_S_AXI_B_REGISTER>BYPASS</C_INTERCONNECT_S_AXI_B_REGISTER>
+            <C_INTERCONNECT_S_AXI_READ_ACCEPTANCE>4</C_INTERCONNECT_S_AXI_READ_ACCEPTANCE>
+            <C_INTERCONNECT_S_AXI_READ_FIFO_DEPTH>0</C_INTERCONNECT_S_AXI_READ_FIFO_DEPTH>
+            <C_INTERCONNECT_S_AXI_R_REGISTER>BYPASS</C_INTERCONNECT_S_AXI_R_REGISTER>
+            <C_INTERCONNECT_S_AXI_SECURE>0</C_INTERCONNECT_S_AXI_SECURE>
+            <C_INTERCONNECT_S_AXI_WRITE_ACCEPTANCE>4</C_INTERCONNECT_S_AXI_WRITE_ACCEPTANCE>
+            <C_INTERCONNECT_S_AXI_WRITE_FIFO_DEPTH>0</C_INTERCONNECT_S_AXI_WRITE_FIFO_DEPTH>
+            <C_INTERCONNECT_S_AXI_W_REGISTER>BYPASS</C_INTERCONNECT_S_AXI_W_REGISTER>
+            <C_RD_WR_ARB_ALGORITHM>RD_PRI_REG</C_RD_WR_ARB_ALGORITHM>
+            <C_S_AXI_ADDR_WIDTH>32</C_S_AXI_ADDR_WIDTH>
+            <C_S_AXI_BASEADDR>0x90000000</C_S_AXI_BASEADDR>
+            <C_S_AXI_DATA_WIDTH>32</C_S_AXI_DATA_WIDTH>
+            <C_S_AXI_HIGHADDR>0x97ffffff</C_S_AXI_HIGHADDR>
+            <C_S_AXI_SUPPORTS_NARROW_BURST>Auto</C_S_AXI_SUPPORTS_NARROW_BURST>
+        </AXIParameters>
+    </Controller>
+</Project>

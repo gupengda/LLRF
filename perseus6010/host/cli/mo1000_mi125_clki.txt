@@ -1,0 +1,58 @@
+shell echo ------------------------------------
+shell echo     Initializing MO1000 Bottom
+shell echo ------------------------------------
+shell echo Connecting...
+connect 192.168.0.101
+shell echo  - Powerup...
+mo1000_powerup 1
+shell echo     DONE
+shell echo  - Reset...
+mo1000_reset 1
+shell echo     DONE
+shell echo  - Init...
+mo1000_init 1
+shell echo     DONE
+shell echo  - Set DAC Interpolation...
+mo1000_setdacparinterpolation 1 8x
+shell echo     DONE
+shell echo  - DAC Update...
+mo1000_dodacupdate 1
+shell echo     DONE
+shell echo  - Set Clock Config...
+mo1000_setclockconfig 1 125mhz 125000000 1000000000 Manual 125000000
+shell echo     DONE
+shell echo  - Write Clock Config...
+mo1000_writeclockconfig 1
+shell echo     DONE
+shell echo  - DAC Calibration...
+mo1000_dodaccalibration 1
+shell echo     DONE
+shell echo  - DAC Output Enable...
+mo1000_setdacoutctrl 1 1 Enable
+mo1000_setdacoutctrl 1 2 Enable
+mo1000_setdacoutctrl 1 3 Enable
+mo1000_setdacoutctrl 1 4 Enable
+mo1000_setdacoutctrl 1 5 Enable
+mo1000_setdacoutctrl 1 6 Enable
+mo1000_setdacoutctrl 1 7 Enable
+mo1000_setdacoutctrl 1 8 Enable
+shell echo     DONE
+shell echo  - Board Temperature...
+mo1000_gettemperature 1 temp1c
+shell echo     DONE
+shell echo ------------------------------------
+shell echo       Initializing MI125 Top
+shell echo ------------------------------------
+shell echo  - Powerup...
+mi125_powerup 2
+shell echo     DONE
+shell echo  - Reset...
+mi125_reset 2
+shell echo     DONE
+shell echo  - Set Clock Config...
+mi125_set_clksrc 2 BOTTOMFMC
+shell echo     DONE
+shell echo  - Board Temperature...
+mi125_get_temperature 2 TEMP1C
+shell echo     DONE
+disconnect

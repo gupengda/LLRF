@@ -1,0 +1,53 @@
+##############################################################
+#
+# Xilinx Core Generator version 13.4
+# Date: Tue Mar 19 17:56:42 2013
+#
+##############################################################
+#
+#  This file contains the customisation parameters for a
+#  Xilinx CORE Generator IP GUI. It is strongly recommended
+#  that you do not manually alter this file as it may cause
+#  unexpected and unsupported behavior.
+#
+##############################################################
+#
+#  Generated from component: xilinx.com:ip:xaui:10.2
+#
+##############################################################
+#
+# BEGIN Project Options
+SET addpads = false
+SET asysymbol = true
+SET busformat = BusFormatAngleBracketNotRipped
+SET createndf = false
+SET designentry = VHDL
+SET device = xc6vlx240t
+SET devicefamily = virtex6
+SET flowvendor = Other
+SET formalverification = false
+SET foundationsym = false
+SET implementationfiletype = Ngc
+SET package = ff1759
+SET removerpms = false
+SET simulationfiles = Behavioral
+SET speedgrade = -1
+SET verilogsim = false
+SET vhdlsim = true
+# END Project Options
+# BEGIN Select
+SELECT XAUI xilinx.com:ip:xaui:10.2
+# END Select
+# BEGIN Parameters
+CSET 802_3ae_state_machines=true
+CSET component_name=xaui_v10_2
+CSET data_rate=TenGbps
+CSET mdio_management=false
+CSET use_tx_elastic_buffer=false
+CSET xgmii_interface=Internal
+# END Parameters
+# BEGIN Extra information
+MISC pkg_timestamp=2011-11-28T16:31:05Z
+# END Extra information
+GENERATE
+# CRC: 1f088d95

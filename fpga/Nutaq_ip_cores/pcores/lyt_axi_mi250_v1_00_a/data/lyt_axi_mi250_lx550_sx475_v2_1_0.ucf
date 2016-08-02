@@ -1,0 +1,35 @@
+
+# Locations of the IDELAYCTRLs
+
+INST "*mi250Top_u0/Mi250Ctrl_inst/io_buf_adc_ab/IDELAYCTRL_inst"                          IODELAY_GROUP = MI250_IODELAY_GRP;
+INST "*mi250Top_u0/Mi250Ctrl_inst/io_buf_adc_ab/clkAB_iodelaye1_inst"                     IODELAY_GROUP = MI250_IODELAY_GRP;
+INST "*mi250Top_u0/Mi250Ctrl_inst/io_buf_adc_ab/clkCD_iodelaye1_inst"                     IODELAY_GROUP = MI250_IODELAY_GRP;
+INST "*mi250Top_u0/Mi250Ctrl_inst/io_buf_adc_ab/clkEF_iodelaye1_inst"                     IODELAY_GROUP = MI250_IODELAY_GRP;
+INST "*mi250Top_u0/Mi250Ctrl_inst/io_buf_adc_ab/clkGH_iodelaye1_inst"                     IODELAY_GROUP = MI250_IODELAY_GRP;
+INST "*mi250Top_u0/Mi250Ctrl_inst/io_buf_adc_ab/i0_iobuff/data_b*.dataB_iodelaye1_inst"   IODELAY_GROUP = MI250_IODELAY_GRP;
+INST "*mi250Top_u0/Mi250Ctrl_inst/io_buf_adc_ab/i0_iobuff/data_a*.dataA_iodelaye1_inst"   IODELAY_GROUP = MI250_IODELAY_GRP;
+INST "*mi250Top_u0/Mi250Ctrl_inst/io_buf_adc_ab/i1_iobuff/data_b*.dataB_iodelaye1_inst"   IODELAY_GROUP = MI250_IODELAY_GRP;
+INST "*mi250Top_u0/Mi250Ctrl_inst/io_buf_adc_ab/i1_iobuff/data_a*.dataA_iodelaye1_inst"   IODELAY_GROUP = MI250_IODELAY_GRP;
+INST "*mi250Top_u0/Mi250Ctrl_inst/io_buf_adc_ab/i2_iobuff/data_b*.dataB_iodelaye1_inst"   IODELAY_GROUP = MI250_IODELAY_GRP;
+INST "*mi250Top_u0/Mi250Ctrl_inst/io_buf_adc_ab/i2_iobuff/data_a*.dataA_iodelaye1_inst"   IODELAY_GROUP = MI250_IODELAY_GRP;
+INST "*mi250Top_u0/Mi250Ctrl_inst/io_buf_adc_ab/i3_iobuff/data_b*.dataB_iodelaye1_inst"   IODELAY_GROUP = MI250_IODELAY_GRP;
+INST "*mi250Top_u0/Mi250Ctrl_inst/io_buf_adc_ab/i3_iobuff/data_a*.dataA_iodelaye1_inst"   IODELAY_GROUP = MI250_IODELAY_GRP;
+
+# Area constraint for the ADC interface
+
+INST "*mi250Top_u0/Mi250Ctrl_inst" AREA_GROUP = "Mi250AdcInterface";
+AREA_GROUP "Mi250AdcInterface" RANGE=SLICE_X0Y160:SLICE_X11Y319;
+AREA_GROUP "Mi250AdcInterface" RANGE=DSP48_X0Y64:DSP48_X0Y127;
+AREA_GROUP "Mi250AdcInterface" RANGE=RAMB18_X0Y64:RAMB18_X0Y127;
+AREA_GROUP "Mi250AdcInterface" RANGE=RAMB36_X0Y32:RAMB36_X0Y63;
+
+# ADC BUFR locations
+
+INST "*mi250Top_u0/Mi250Ctrl_inst/io_buf_adc_ab/bufr_inst_ab" LOC = "BUFR_X0Y11";
+INST "*mi250Top_u0/Mi250Ctrl_inst/io_buf_adc_ab/bufr_inst_cd" LOC = "BUFR_X0Y10";
+INST "*mi250Top_u0/Mi250Ctrl_inst/io_buf_adc_ab/bufr_inst_ef" LOC = "BUFR_X0Y13";
+INST "*mi250Top_u0/Mi250Ctrl_inst/io_buf_adc_ab/bufr_inst_gh" LOC = "BUFR_X0Y12";
+
+# ADC MMCM locations
+
+INST "*ClkModule_l/mmcm_adv_inst_ab/MmcmAdv_l" LOC = "MMCM_ADV_X0Y11";
