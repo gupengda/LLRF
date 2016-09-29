@@ -195,12 +195,12 @@ if(clk'EVENT and clk = '1') then
 			 
 	
 	if(ForwardMin = '0') then
-		TTL1Signal <= '1';
-		TTL2Signal <= '1';
-		TTL3Signal <= '1';
-		TTL4Signal <= '1';
+		TTL1Signal <= '0';
+		TTL2Signal <= '0';
+		TTL3Signal <= '0';
+		TTL4Signal <= '0';
 		
-	elsif(TuningOnDelay = '1' and PulseUp = '1') then
+	elsif(TuningOnDelay = '1' and PulseUp = '1') then -- In case tuning dephase out of deadband, both plunger are moved simultaneouly and in the same sense
 	
 		TTL1Signal <= TTL1Signal_sig;
 		TTL2Signal <= TTL2Signal_sig;
@@ -220,10 +220,10 @@ if(clk'EVENT and clk = '1') then
 			TTL4Signal <= TTL2Signal_sig;
 		end if;
 	else
-		TTL1Signal <= '1';
-		TTL2Signal <= '1';
-		TTL3Signal <= '1';
-		TTL4Signal <= '1';
+		TTL1Signal <= '0';
+		TTL2Signal <= '0';
+		TTL3Signal <= '0';
+		TTL4Signal <= '0';
 	end if;
 
 		
@@ -266,12 +266,11 @@ begin
 			TTL2 <= TTL2Signal;			
 			TTL3 <= TTL3Signal;
 			TTL4 <= TTL4Signal;		
-			PlungerMoving_Auto <= (ForwardMin and TuningOnDelay and TuningEnable) or (ForwardMin and FFOn and FFEnable);
+			PlungerMoving_Auto <= (ForwardMin and TuningOnDelay and TuningEnable) or (ForwardMin and FFOn and FFEnable and (not(TuningOnDelay)));
 			PlungerMoving_Manual1 <= '0';
 			PlungerMoving_Manual2 <= '0';
 		elsif(CounterTuning < NumSteps_latch or CounterTuning2 < NumSteps_latch) then -- X"B2D05E00" = 50e6*60 --> number of clocks per minute; X"2FAF080" = 50e6 --> number of clocks per second (50MHz)			
 			PlungerMoving_Auto <= '0'; 
-			PlungerMoving_Manual1 <= '1'; 
 			if(CounterTuning < NumSteps_latch and MovePLG1 = '1') then
 				PlungerMoving_Manual1 <= '1';
 				if(CounterPulse < NumCLK1_2) then
@@ -288,9 +287,10 @@ begin
 				end if;
 			else			
 				PlungerMoving_Manual1 <= '0';
-				TTL1 <= '1';
-				TTL2 <= '1';
+				TTL1 <= '0';
+				TTL2 <= '0';
 			end if;
+			
 			if(CounterTuning2 < NumSteps_latch and MovePLG2 = '1') then
 				PlungerMoving_Manual2 <= '1';
 				if(CounterPulse2 < NumCLK1_2) then
@@ -307,16 +307,16 @@ begin
 				end if;
 			else			
 				PlungerMoving_Manual2 <= '0';
-				TTL3 <= '1';
-				TTL4 <= '1';
+				TTL3 <= '0';
+				TTL4 <= '0';
 			end if;
 			
 		
 		else
-		TTL1 <= '1';
-		TTL2 <= '1';
-		TTL3 <= '1';
-		TTL4 <= '1';
+		TTL1 <= '0';
+		TTL2 <= '0';
+		TTL3 <= '0';
+		TTL4 <= '0';
 		PlungerMoving_Auto <= '0';
 		PlungerMoving_Manual1 <= '0';
 		PlungerMoving_Manual2 <= '0';
@@ -327,12 +327,12 @@ begin
 		TTL_gpio_output_1 <= TTL1; --direction plunger
 		TTL_gpio_output_2 <= TTL2; --pulse plunger
 		
-		if (conf = "11") then
+		if (conf = "11") then -- in booster configuration, second plunger controlled by Cavity A. In other configuration, second plunger should be controlled by cavity B
 			TTL_gpio_output_3 <= TTL3; --direction plunger
 			TTL_gpio_output_4 <= TTL4; --pulse plunger
 		else
-			TTL_gpio_output_3 <= '1'; --direction plunger
-			TTL_gpio_output_4 <= '1'; --pulse plunger
+			TTL_gpio_output_3 <= '0'; --direction plunger
+			TTL_gpio_output_4 <= '0'; --pulse plunger
 		end if;
 		
 

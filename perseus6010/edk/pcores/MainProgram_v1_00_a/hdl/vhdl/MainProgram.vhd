@@ -8,24 +8,24 @@ use ieee.numeric_std.all;
 
 ENTITY MainProgram IS
 
-	PORT ( VCav : in std_logic_vector (13 downto 0);
-			 FwCav : in std_logic_vector (13 downto 0);
-			 RvCav : in std_logic_vector (13 downto 0);
-			 MO : in std_logic_vector (13 downto 0);
-			 FwIOT1 : in std_logic_vector (13 downto 0);
-			 RvIOT1 : in std_logic_vector (13 downto 0);
+	PORT ( VCav : in std_logic_vector (15 downto 0);
+			 FwCav : in std_logic_vector (15 downto 0);
+			 RvCav : in std_logic_vector (15 downto 0);
+			 MO : in std_logic_vector (15 downto 0);
+			 FwIOT1 : in std_logic_vector (15 downto 0);
+			 RvIOT1 : in std_logic_vector (15 downto 0);
 			 
-			 DACsIF : in std_logic_vector (13 downto 0);
+			 DACsIF : in std_logic_vector (15 downto 0);
 			 
-			 RFIn7 : in std_logic_vector (13 downto 0);
-			 RFIn8 : in std_logic_vector (13 downto 0);
-			 RFIn9 : in std_logic_vector (13 downto 0);
-			 RFIn10 : in std_logic_vector (13 downto 0);
-			 RFIn11 : in std_logic_vector (13 downto 0);
-			 RFIn12 : in std_logic_vector (13 downto 0);
-			 RFIn13 : in std_logic_vector (13 downto 0);
-			 RFIn14 : in std_logic_vector (13 downto 0);
-			 RFIn15 : in std_logic_vector (13 downto 0);
+			 RFIn7 : in std_logic_vector (15 downto 0);
+			 RFIn8 : in std_logic_vector (15 downto 0);
+			 RFIn9 : in std_logic_vector (15 downto 0);
+			 RFIn10 : in std_logic_vector (15 downto 0);
+			 RFIn11 : in std_logic_vector (15 downto 0);
+			 RFIn12 : in std_logic_vector (15 downto 0);
+			 RFIn13 : in std_logic_vector (15 downto 0);
+			 RFIn14 : in std_logic_vector (15 downto 0);
+			 RFIn15 : in std_logic_vector (15 downto 0);
 			 
 			 reg_data1_input : in std_logic_vector(31 downto 0);
 			 reg_data2_input : in std_logic_vector (15 downto 0);
@@ -342,6 +342,57 @@ ARCHITECTURE MainProgram_arc OF MainProgram is
 	signal QControlBottom : std_logic_vector (15 downto 0);
 	signal IErrorBottom : std_logic_vector (15 downto 0);
 	signal QErrorBottom : std_logic_vector (15 downto 0);
+	signal IFwCavTop : std_logic_vector (15 downto 0);
+	signal QFwCavTop : std_logic_vector (15 downto 0);
+	signal IFwCavBottom : std_logic_vector (15 downto 0);
+	signal QFwCavBottom : std_logic_vector (15 downto 0);
+	
+	
+	signal ICell3TopL : std_logic_vector (15 downto 0);
+	signal QCell3TopL : std_logic_vector (15 downto 0);
+	signal ICell2TopL : std_logic_vector (15 downto 0);
+	signal QCell2TopL : std_logic_vector (15 downto 0);
+	signal ICell4TopL : std_logic_vector (15 downto 0);
+	signal QCell4TopL : std_logic_vector (15 downto 0);
+	signal IFwIOT1TopL : std_logic_vector (15 downto 0);
+	signal QFwIOT1TopL : std_logic_vector (15 downto 0);
+	signal IRvIOT1TopL : std_logic_vector (15 downto 0);
+	signal QRvIOT1TopL : std_logic_vector (15 downto 0);
+	signal IRvCavTopL : std_logic_vector (15 downto 0);
+	signal QRvCavTopL : std_logic_vector (15 downto 0);
+	signal TuningDephaseTopL : std_logic_vector (15 downto 0);
+	signal FFErrorTopL : std_logic_vector (15 downto 0);
+	signal IRefTopL : std_logic_vector (15 downto 0);
+	signal QRefTopL : std_logic_vector (15 downto 0);
+	signal IcontrolTopL : std_logic_vector (15 downto 0);
+	signal QControlTopL : std_logic_vector (15 downto 0);
+	signal IErrorTopL : std_logic_vector (15 downto 0);
+	signal QErrorTopL : std_logic_vector (15 downto 0);	
+	signal ICell3BottomL : std_logic_vector (15 downto 0);
+	signal QCell3BottomL : std_logic_vector (15 downto 0);
+	signal ICell2BottomL : std_logic_vector (15 downto 0);
+	signal QCell2BottomL : std_logic_vector (15 downto 0);
+	signal ICell4BottomL : std_logic_vector (15 downto 0);
+	signal QCell4BottomL : std_logic_vector (15 downto 0);
+	signal IFwIOT1BottomL : std_logic_vector (15 downto 0);
+	signal QFwIOT1BottomL : std_logic_vector (15 downto 0);
+	signal IRvIOT1BottomL : std_logic_vector (15 downto 0);
+	signal QRvIOT1BottomL : std_logic_vector (15 downto 0);
+	signal IRvCavBottomL : std_logic_vector (15 downto 0);
+	signal QRvCavBottomL : std_logic_vector (15 downto 0);
+	signal TuningDephaseBottomL : std_logic_vector (15 downto 0);
+	signal FFErrorBottomL : std_logic_vector (15 downto 0);
+	signal IRefBottomL : std_logic_vector (15 downto 0);
+	signal QRefBottomL : std_logic_vector (15 downto 0);
+	signal IcontrolBottomL : std_logic_vector (15 downto 0);
+	signal QControlBottomL : std_logic_vector (15 downto 0);
+	signal IErrorBottomL : std_logic_vector (15 downto 0);
+	signal QErrorBottomL : std_logic_vector (15 downto 0);
+	signal IFwCavTopL : std_logic_vector (15 downto 0);
+	signal QFwCavTopL : std_logic_vector (15 downto 0);
+	signal IFwCavBottomL : std_logic_vector (15 downto 0);
+	signal QFwCavBottomL : std_logic_vector (15 downto 0);
+	signal average_update_ramping : std_logic;
 				
 	
 
@@ -505,8 +556,8 @@ ARCHITECTURE MainProgram_arc OF MainProgram is
 	signal FFOn : std_logic;
 	signal FFError,FFErrorMean,FFErrorL : std_logic_vector (15 downto 0);
 	signal FFPercentage : std_logic_vector (8 downto 0);
-	signal AmpCell2Gain : std_logic_vector (15 downto 0);
-	signal AmpCell4Gain : std_logic_vector (15 downto 0);
+	signal AmpCell2Gain, AmpCell2Gain_sig : std_logic_vector (15 downto 0);
+	signal AmpCell4Gain, AmpCell4Gain_sig : std_logic_vector (15 downto 0);
 	signal AmpCell2 : std_logic_vector (16 downto 0);
 	signal AmpCell4 : std_logic_vector (16 downto 0);
 	signal PhCell2, PhCell4 : std_logic_vector (15 downto 0);
@@ -804,7 +855,18 @@ ARCHITECTURE MainProgram_arc OF MainProgram is
 	signal SlopeAmpRampDw : std_logic_vector (15 downto 0);
 	signal SlopePhRampUp : std_logic_vector (15 downto 0);
 	signal SlopePhRampDw : std_logic_vector (15 downto 0);
-
+	
+	-- FDL ADCs Raw Data
+	signal Interface_01_sig : std_logic_vector (15 downto 0);
+	signal Interface_02_sig : std_logic_vector (15 downto 0);
+	signal Interface_03_sig : std_logic_vector (15 downto 0);
+	signal Interface_04_sig : std_logic_vector (15 downto 0);
+	signal Interface_05_sig : std_logic_vector (15 downto 0);
+	signal Interface_06_sig : std_logic_vector (15 downto 0);
+	signal Interface_07_sig : std_logic_vector (15 downto 0);
+	signal Interface_08_sig : std_logic_vector (15 downto 0);	
+	
+	signal FDL_ADCsRawData : std_logic;
 
 	
   ---Components Declaration
@@ -894,6 +956,7 @@ ARCHITECTURE MainProgram_arc OF MainProgram is
            In81 : in  STD_LOGIC_VECTOR (15 downto 0);
            In82 : in  STD_LOGIC_VECTOR (15 downto 0);
            In83 : in  STD_LOGIC_VECTOR (15 downto 0);
+           In84 : in  STD_LOGIC_VECTOR (15 downto 0);
            clk : in  STD_LOGIC;
 			  PulseUp : in std_logic;
 			  Conditioning : in std_logic;
@@ -979,7 +1042,9 @@ ARCHITECTURE MainProgram_arc OF MainProgram is
            Out80 : Out  STD_LOGIC_VECTOR (15 downto 0);
            Out81 : Out  STD_LOGIC_VECTOR (15 downto 0);
            Out82 : Out  STD_LOGIC_VECTOR (15 downto 0);
-           Out83 : Out  STD_LOGIC_VECTOR (15 downto 0)
+           Out83 : Out  STD_LOGIC_VECTOR (15 downto 0);
+           Out84 : Out  STD_LOGIC_VECTOR (15 downto 0);
+			  average_update_out : out std_logic
 			  );
 	end component averages;	
 	
@@ -1371,7 +1436,9 @@ ARCHITECTURE MainProgram_arc OF MainProgram is
 			  RampIncRate : in std_logic_vector (15 downto 0);
 			  TopRampAmp_out : out std_logic_vector (15 downto 0);
 			  AmpRamp_out : out std_logic_vector (15 downto 0);
-			  PhRamp_out : out std_logic_vector (15 downto 0)
+			  PhRamp_out : out std_logic_vector (15 downto 0);
+			  
+			  PolarLoopsEnable : in std_logic
 			  );	
 			  
 end component Reference;
@@ -1777,11 +1844,11 @@ BEGIN
   begin
 	if(clk'EVENT and clk = '1') then
 	
-	if(gpio_out_inversion ='1') then
-		PulseUP_sig <= pulseup;
-	else		
-		PulseUP_sig <= not(pulseup);
-	end if;
+--	if(gpio_out_inversion ='1') then
+--		PulseUP_sig <= pulseup;
+--	else		
+--		PulseUP_sig <= not(pulseup);
+--	end if;
 	
 	
 	reg_data1_in_add 				<= reg_data1_input(31 downto 16);
@@ -1842,6 +1909,7 @@ BEGIN
 		
 		-- FDL SW Trigger
 		when X"0040" => FDL_Trig_SW_input <= reg_data1_in_data_loops(0); -- Fast Data Logger Software Trigger Input
+		when X"0042" => FDL_ADCsRawData <= reg_data1_in_data_loops(0); -- Fast Data Logger ADCs Raw Data enable
 		
 		--Enables
 		
@@ -1904,9 +1972,9 @@ BEGIN
 		--Field Flatness -- Only for Booster Configuration
 		when X"02BC" => FFEnable <= reg_data1_in_data_tuning(0); -- Field Flatness Enable
 		when X"02BE" => FFPos <= reg_data1_in_data_tuning(0); -- Field Flatness Loop Direction
-		when X"02B0" => FFPercentage <= reg_data1_in_data_tuning(8 downto 0); -- Field Flatness Loop Direction
-		when X"02C2" => AmpCell2Gain <= reg_data1_in_data_tuning; -- Gain for amplitude of Cell2 Voltage for Field Flatness Loops
-		when X"02C4" => AmpCell4Gain <= reg_data1_in_data_tuning; -- Gain for amplitude of Cell4 Voltage for Field Flatness Loops
+		when X"02C0" => FFPercentage <= reg_data1_in_data_tuning(8 downto 0); -- Field Flatness Loop Direction
+		when X"02C2" => AmpCell2Gain_sig <= reg_data1_in_data_tuning; -- Gain for amplitude of Cell2 Voltage for Field Flatness Loops
+		when X"02C4" => AmpCell4Gain_sig <= reg_data1_in_data_tuning; -- Gain for amplitude of Cell4 Voltage for Field Flatness Loops
 		
 		-- Ramping parameters -- only for Booster Configuration
 		when X"02C6" => RampEnable <= reg_data1_in_data_ramping(0); -- Ramping Enable 
@@ -1969,18 +2037,13 @@ BEGIN
 		when X"0666" =>  DisableITCK_ESwDw2 <= reg_data1_in_data_FIM(5 downto 0);
 		when X"0668" =>  EndSwitchNO <= reg_data1_in_data_FIM(0);
 		when X"066A" =>  ResetFIM <= reg_data1_in_data_FIM(0);
-		when X"066B" =>  delay_interlocks <= reg_data1_in_data_FIM;
-
-
-
-
-
-
-			
+		when X"066C" =>  delay_interlocks <= reg_data1_in_data_FIM;		
 		
 		
 		when others => null;
 	end case;
+	
+	-- Default values for gains and PI Limit settings
 		if(IntLimit1 = X"000") then
 			IntLimit <= X"3FFF";
 		else
@@ -1991,6 +2054,18 @@ BEGIN
 			GainOL <= X"40";
 		else
 			GainOL <= GainOL1;
+		end if;
+		
+		if(AmpCell4Gain_sig = X"0000") then
+			AmpCell4Gain <= X"4000";
+		else
+			AmpCell4Gain <= AmpCell4Gain_sig;
+		end if;
+		
+		if(AmpCell2Gain_sig = X"0000") then
+			AmpCell2Gain <= X"4000";
+		else
+			AmpCell2Gain <= AmpCell2Gain_sig;
 		end if;
 		
 
@@ -2034,6 +2109,7 @@ BEGIN
 		
 		--  FDL Sw Trigger		
 		when X"0020" => reg_data2_output(15 downto 0) <= X"000"&"000"&FDL_Trig_Sw_Input;
+		when X"0021" => reg_data2_output(15 downto 0) <= X"000"&"000"&FDL_ADCsRawData;
 		
 		
 			
@@ -2256,6 +2332,54 @@ BEGIN
 
 			IRefL <= IRefIn;
 			QRefL <= QRefIn;
+			
+			ICell3TopL 			<= ICell3Top;			
+			QCell3TopL 			<= QCell3Top; 			
+			ICell2TopL 			<= ICell2Top; 			
+			QCell2TopL 			<= QCell2Top; 			
+			ICell4TopL 			<= ICell4Top; 			
+			QCell4TopL 			<= QCell4Top; 			
+			IFwIOT1TopL			<= IFwIOT1Top;			
+			QFwIOT1TopL			<= QFwIOT1Top;			
+			IRvIOT1TopL			<= IRvIOT1Top;			
+			QRvIOT1TopL			<= QRvIOT1Top;			
+			IRvCavTopL 			<= IRvCavTop;			
+			QRvCavTopL 			<= QRvCavTop; 			
+			TuningDephaseTopL 	<= TuningDephaseTop;
+			FFErrorTopL 		<= FFErrorTop;
+			IControlTopL 		<= IControlTop; 		
+			QControlTopL 		<= QControlTop; 		
+			IErrorTopL 			<= IErrorTop; 			
+			QErrorTopL 			<= QErrorTop; 			
+			IRefTopL 			<= IRefTop;			
+			QRefTopL 			<= QRefTop; 			
+			IFwCavTopL 			<= IFwCavTop; 			
+			QFwCavTopL 			<= QFwCavTop; 			
+					
+			ICell3BottomL 			<= ICell3Bottom; 		
+			QCell3BottomL 			<= QCell3Bottom; 		
+			ICell2BottomL 			<= ICell2Bottom; 		
+			QCell2BottomL 			<= QCell2Bottom; 		
+			ICell4BottomL 			<= ICell4Bottom; 		
+			QCell4BottomL 			<= QCell4Bottom; 		
+			IFwIOT1BottomL 			<= IFwIOT1Bottom; 		
+			QFwIOT1BottomL 			<= QFwIOT1Bottom; 		
+			IRvIOT1BottomL 			<= IRvIOT1Bottom; 		
+			QRvIOT1BottomL 			<= QRvIOT1Bottom; 		
+			IRvCavBottomL  			<= IRvCavBottom;  		
+			QRvCavBottomL  			<= QRvCavBottom;  		
+			TuningDephaseBottomL 	<= TuningDephaseBottom;
+			FFErrorBottomL 			<= FFErrorBottom; 		
+			IControlBottomL 		<= IControlBottom; 	
+			QControlBottomL 		<= QControlBottom; 	
+			IErrorBottomL 			<= IErrorBottom; 		
+			QErrorBottomL 			<= QErrorBottom; 		
+			IRefBottomL 			<= IRefBottom; 		
+			QRefBottomL 			<= QRefBottom; 		
+			IFwCavBottomL 			<= IFwCavBottom; 		
+			QFwCavBottomL 			<= QFwCavBottom;
+			
+			
 	end if;
 	
 
@@ -2400,46 +2524,50 @@ BEGIN
 		when X"007D"	=> reg_data3_out_LSB <= QRef_FastPI; 
 		
 		-- Ramping Diagnostics Signals - only for Booster			
-		when X"0096" =>	reg_data3_out_LSB <= ICell3Top;
-		when X"0097" =>	reg_data3_out_LSB <= QCell3Top;
-		when X"0098" =>	reg_data3_out_LSB <= ICell2Top;
-		when X"0099" =>	reg_data3_out_LSB <= QCell2Top;
-		when X"009A" =>	reg_data3_out_LSB <= ICell4Top;
-		when X"009B" =>	reg_data3_out_LSB <= QCell4Top;
-		when X"009C" =>	reg_data3_out_LSB <= IFwIOT1Top;
-		when X"009D" =>	reg_data3_out_LSB <= QFwIOT1Top;
-		when X"009E" =>	reg_data3_out_LSB <= IRvIOT1Top;
-		when X"009F" =>	reg_data3_out_LSB <= QRvIOT1Top;
-		when X"00A0" =>	reg_data3_out_LSB <= IRvCavTop;
-		when X"00A1" =>	reg_data3_out_LSB <= QRvCavTop;
-		when X"00A2" =>	reg_data3_out_LSB <= TuningDephaseTop;
-		when X"00A3" =>	reg_data3_out_LSB <= FFErrorTop;
-		when X"00A4" =>	reg_data3_out_LSB <= IRefTop;
-		when X"00A5" =>	reg_data3_out_LSB <= QRefTop;
-		when X"00A6" =>	reg_data3_out_LSB <= IcontrolTop;
-		when X"00A7" =>	reg_data3_out_LSB <= QControlTop;
-		when X"00A8" =>	reg_data3_out_LSB <= IErrorTop;
-		when X"00A9" =>	reg_data3_out_LSB <= QErrorTop;	
-		when X"00AA" =>	reg_data3_out_LSB <= ICell3Bottom;
-		when X"00AB" =>	reg_data3_out_LSB <= QCell3Bottom;
-		when X"00AC" =>	reg_data3_out_LSB <= ICell2Bottom;
-		when X"00AD" =>	reg_data3_out_LSB <= QCell2Bottom;
-		when X"00AE" =>	reg_data3_out_LSB <= ICell4Bottom;
-		when X"00AF" =>	reg_data3_out_LSB <= QCell4Bottom;
-		when X"00B0" =>	reg_data3_out_LSB <= IFwIOT1Bottom;
-		when X"00B1" =>	reg_data3_out_LSB <= QFwIOT1Bottom;
-		when X"00B2" =>	reg_data3_out_LSB <= IRvIOT1Bottom;
-		when X"00B3" =>	reg_data3_out_LSB <= QRvIOT1Bottom;
-		when X"00B4" =>	reg_data3_out_LSB <= IRvCavBottom;
-		when X"00B5" =>	reg_data3_out_LSB <= QRvCavBottom;
-		when X"00B6" =>	reg_data3_out_LSB <= TuningDephaseBottom;
-		when X"00B7" =>	reg_data3_out_LSB <= FFErrorBottom;
-		when X"00B8" =>	reg_data3_out_LSB <= IRefBottom;
-		when X"00B9" =>	reg_data3_out_LSB <= QRefBottom;
-		when X"00BA" =>	reg_data3_out_LSB <= IcontrolBottom;
-		when X"00BB" =>	reg_data3_out_LSB <= QControlBottom;
-		when X"00BC" =>	reg_data3_out_LSB <= IErrorBottom;
-		when X"00BD" =>	reg_data3_out_LSB <= QErrorBottom;	
+		when X"0096" =>	reg_data3_out_LSB <= ICell3TopL;
+		when X"0097" =>	reg_data3_out_LSB <= QCell3TopL;
+		when X"0098" =>	reg_data3_out_LSB <= ICell2TopL;
+		when X"0099" =>	reg_data3_out_LSB <= QCell2TopL;
+		when X"009A" =>	reg_data3_out_LSB <= ICell4TopL;
+		when X"009B" =>	reg_data3_out_LSB <= QCell4TopL;
+		when X"009C" =>	reg_data3_out_LSB <= IFwIOT1TopL;
+		when X"009D" =>	reg_data3_out_LSB <= QFwIOT1TopL;
+		when X"009E" =>	reg_data3_out_LSB <= IRvIOT1TopL;
+		when X"009F" =>	reg_data3_out_LSB <= QRvIOT1TopL;
+		when X"00A0" =>	reg_data3_out_LSB <= IRvCavTopL;
+		when X"00A1" =>	reg_data3_out_LSB <= QRvCavTopL;
+		when X"00A2" =>	reg_data3_out_LSB <= TuningDephaseTopL;
+		when X"00A3" =>	reg_data3_out_LSB <= FFErrorTopL;
+		when X"00A4" =>	reg_data3_out_LSB <= IRefTopL;
+		when X"00A5" =>	reg_data3_out_LSB <= QRefTopL;
+		when X"00A6" =>	reg_data3_out_LSB <= IcontrolTopL;
+		when X"00A7" =>	reg_data3_out_LSB <= QControlTopL;
+		when X"00A8" =>	reg_data3_out_LSB <= IErrorTopL;
+		when X"00A9" =>	reg_data3_out_LSB <= QErrorTopL;	
+		when X"00AA" =>	reg_data3_out_LSB <= ICell3BottomL;
+		when X"00AB" =>	reg_data3_out_LSB <= QCell3BottomL;
+		when X"00AC" =>	reg_data3_out_LSB <= ICell2BottomL;
+		when X"00AD" =>	reg_data3_out_LSB <= QCell2BottomL;
+		when X"00AE" =>	reg_data3_out_LSB <= ICell4BottomL;
+		when X"00AF" =>	reg_data3_out_LSB <= QCell4BottomL;
+		when X"00B0" =>	reg_data3_out_LSB <= IFwIOT1BottomL;
+		when X"00B1" =>	reg_data3_out_LSB <= QFwIOT1BottomL;
+		when X"00B2" =>	reg_data3_out_LSB <= IRvIOT1BottomL;
+		when X"00B3" =>	reg_data3_out_LSB <= QRvIOT1BottomL;
+		when X"00B4" =>	reg_data3_out_LSB <= IRvCavBottomL;
+		when X"00B5" =>	reg_data3_out_LSB <= QRvCavBottomL;
+		when X"00B6" =>	reg_data3_out_LSB <= TuningDephaseBottomL;
+		when X"00B7" =>	reg_data3_out_LSB <= FFErrorBottomL;
+		when X"00B8" =>	reg_data3_out_LSB <= IRefBottomL;
+		when X"00B9" =>	reg_data3_out_LSB <= QRefBottomL;
+		when X"00BA" =>	reg_data3_out_LSB <= IcontrolBottomL;
+		when X"00BB" =>	reg_data3_out_LSB <= QControlBottomL;
+		when X"00BC" =>	reg_data3_out_LSB <= IErrorBottomL;
+		when X"00BD" =>	reg_data3_out_LSB <= QErrorBottomL;	
+		when X"00BE" =>	reg_data3_out_LSB <= IFwCavTopL;	
+		when X"00BF" =>	reg_data3_out_LSB <= QFwCavTopL;	
+		when X"00C0" =>	reg_data3_out_LSB <= IFwCavBottomL;	
+		when X"00C1" =>	reg_data3_out_LSB <= QFwCavBottomL;	
 
 		-- Polar to Rect Diagnostics for phase shifters
 		when X"00C8"	=> reg_data3_out_LSB <= sin_phsh_cav;
@@ -2502,7 +2630,7 @@ BEGIN
 		when X"013A"	=> reg_data3_out_LSB <= X"000"&"000"&TTL3;								-- Plunger 2 being moved up
 		when X"013B"	=> reg_data3_out_LSB <= X"000"&"000"&PlungerMovingManual2;			-- Plunger 2 being manually moved
 		when X"013C"	=> reg_data3_out_LSB <= X"000"&"000"&(MoveUp1 and PlungerMovingManual2);					-- Plunger being moved manually in up direction
-		-- when X"013D"	=> reg_data3_out_LSB <= 							
+		when X"013D"	=> reg_data3_out_LSB <= FFErrorMean;							
 		 when X"013E"	=> reg_data3_out_LSB <= AmpCell2Mean;						
 		 when X"013F"	=> reg_data3_out_LSB <= AmpCell4Mean;							
 		 when X"0140"	=> reg_data3_out_LSB <= AmpCell2FF;							
@@ -2516,7 +2644,7 @@ BEGIN
 		when X"0194" => reg_data3_out_LSB <= X"000"&"000"&RFONState;
 		when X"0195" => reg_data3_out_LSB <= X"000"&"000"&FIM_ITCK;
 		when X"0196" => reg_data3_out_LSB <= X"000"&"000"&PulseUp;
-		when X"0197" => reg_data3_out_LSB <= X"000"&"000"&PulseUp_sig;
+--		when X"0197" => reg_data3_out_LSB <= X"000"&"000"&PulseUp_sig;
 		when X"0198" => reg_data3_out_LSB <= X"000"&"000"&SpareDI1;
 --		when X"0199" => reg_data3_out_LSB <= X"000"&"000"&SpareDI2;
 --		when X"019A" => reg_data3_out_LSB <= X"000"&"000"&SpareDI3;
@@ -2699,6 +2827,53 @@ BEGIN
 		when X"0461"	=> reg_data3_out_LSB <= QLoopInputMean; 
 		when X"0462"	=> reg_data3_out_LSB <= IInput_FastPIMean; 
 		when X"0463"	=> reg_data3_out_LSB <= QInput_FastPIMean; 
+		
+		
+		-- Ramping Diagnostics Signals - only for Booster			
+		when X"0492" =>	reg_data3_out_LSB <= ICell3Top;
+		when X"0493" =>	reg_data3_out_LSB <= QCell3Top;
+		when X"0494" =>	reg_data3_out_LSB <= ICell2Top;
+		when X"0495" =>	reg_data3_out_LSB <= QCell2Top;
+		when X"0496" =>	reg_data3_out_LSB <= ICell4Top;
+		when X"0497" =>	reg_data3_out_LSB <= QCell4Top;
+		when X"0498" =>	reg_data3_out_LSB <= IFwIOT1Top;
+		when X"0499" =>	reg_data3_out_LSB <= QFwIOT1Top;
+		when X"049A" =>	reg_data3_out_LSB <= IRvIOT1Top;
+		when X"049B" =>	reg_data3_out_LSB <= QRvIOT1Top;
+		when X"049C" =>	reg_data3_out_LSB <= IRvCavTop;
+		when X"049D" =>	reg_data3_out_LSB <= QRvCavTop;
+		when X"049E" =>	reg_data3_out_LSB <= TuningDephaseTop;
+		when X"049F" =>	reg_data3_out_LSB <= FFErrorTop;
+		when X"04A0" =>	reg_data3_out_LSB <= IRefTop;
+		when X"04A1" =>	reg_data3_out_LSB <= QRefTop;
+		when X"04A2" =>	reg_data3_out_LSB <= IcontrolTop;
+		when X"04A3" =>	reg_data3_out_LSB <= QControlTop;
+		when X"04A4" =>	reg_data3_out_LSB <= IErrorTop;
+		when X"04A5" =>	reg_data3_out_LSB <= QErrorTop;	
+		when X"04A6" =>	reg_data3_out_LSB <= ICell3Bottom;
+		when X"04A7" =>	reg_data3_out_LSB <= QCell3Bottom;
+		when X"04A8" =>	reg_data3_out_LSB <= ICell2Bottom;
+		when X"04A9" =>	reg_data3_out_LSB <= QCell2Bottom;
+		when X"04AA" =>	reg_data3_out_LSB <= ICell4Bottom;
+		when X"04AB" =>	reg_data3_out_LSB <= QCell4Bottom;
+		when X"04AC" =>	reg_data3_out_LSB <= IFwIOT1Bottom;
+		when X"04AD" =>	reg_data3_out_LSB <= QFwIOT1Bottom;
+		when X"04AE" =>	reg_data3_out_LSB <= IRvIOT1Bottom;
+		when X"04AF" =>	reg_data3_out_LSB <= QRvIOT1Bottom;
+		when X"04B0" =>	reg_data3_out_LSB <= IRvCavBottom;
+		when X"04B1" =>	reg_data3_out_LSB <= QRvCavBottom;
+		when X"04B2" =>	reg_data3_out_LSB <= TuningDephaseBottom;
+		when X"04B3" =>	reg_data3_out_LSB <= FFErrorBottom;
+		when X"04B4" =>	reg_data3_out_LSB <= IRefBottom;
+		when X"04B5" =>	reg_data3_out_LSB <= QRefBottom;
+		when X"04B6" =>	reg_data3_out_LSB <= IcontrolBottom;
+		when X"04B7" =>	reg_data3_out_LSB <= QControlBottom;
+		when X"04B8" =>	reg_data3_out_LSB <= IErrorBottom;
+		when X"04B9" =>	reg_data3_out_LSB <= QErrorBottom;	
+		when X"04BA" =>	reg_data3_out_LSB <= IFwCavTop;	
+		when X"04BB" =>	reg_data3_out_LSB <= QFwCavTop;	
+		when X"04BC" =>	reg_data3_out_LSB <= IFwCavBottom;	
+		when X"04BD" =>	reg_data3_out_LSB <= QFwCavBottom;	 		
 		
 		
 		--Signals not latched and not filtered		
@@ -2915,6 +3090,7 @@ BEGIN
 			In81 => PhCorrectionControl,				
 			In82 => AmpCell2(15 downto 0),				
 			In83 => AmpCell4(15 downto 0),				
+			In84 => FFError,				
 			
 			clk => clk,
 			PulseUp => PulseUP,
@@ -3005,7 +3181,9 @@ BEGIN
 			Out80 => PhCorrection_ErrorMean,			
 			Out81 => PhCorrectionControlMean,		
 			Out82 => AmpCell2Mean,	
-			Out83 => AmpCell4Mean		
+			Out83 => AmpCell4Mean,		
+			Out84 => FFErrorMean,
+			average_update_out => average_update_ramping
 			);
 --
 --inst_RampDiag : component RampDiag
@@ -3079,7 +3257,7 @@ BEGIN
 process(clk)
 begin
 	if(clk'EVENT and clk ='1') then
-		if(TopRamp = '1') then			
+		if(TopRamp = '1' and average_update_ramping = '1') then			
 			ICell3Top <= ICavMean;
 			QCell3Top <= QCavMean; 
 			ICell2Top <= ICell2Mean;
@@ -3100,9 +3278,11 @@ begin
 			QErrorTop <= QErrorMean;
 			IRefTop <= IRefIn;
 			QRefTop <= QRefIn;
+			IFwCavTop <= IFwCavMean;
+			QFwCavTop <= QFwCavMean;
 		end if;
 		
-		if(BottomRamp = '1') then		
+		if(BottomRamp = '1' and average_update_ramping = '1') then		
 			ICell3Bottom <= ICavMean;
 			QCell3Bottom <= QCavMean; 
 			ICell2Bottom <= ICell2Mean;
@@ -3123,6 +3303,8 @@ begin
 			QErrorBottom <= QErrorMean;
 			IRefBottom <= IRefIn;
 			QRefBottom <= QRefIn;
+			IFwCavBottom <= IFwCavMean;
+			QFwCavBottom <= QFwCavMean;
 		end if;
 	end if;
 end process;
@@ -3141,45 +3323,45 @@ end process;
 process(clk)
 begin
 	if(clk'EVENT and clk = '1') then	
-		VCav_16b	 	 <= VCav(13)&VCav(13)&VCav;	
-		FwCav_16b	 <= FwCav(13)&FwCav(13)&FwCav;	
-		RvCav_16b	 <= RvCav(13)&RvCav(13)&RvCav;	
-      MO_16b		 <= MO(13)&MO(13)&MO;
-		FwIOT1_16b	 <= FwIOT1(13)&FwIOT1(13)&FwIOT1;	
-		RvIOT1_16b	 <= RvIOT1(13)&RvIOT1(13)&RvIOT1;	
-		DACsIF_16b <= DACsIF(13)&DACsIF(13)&DACsIF;
+		VCav_16b	 	 <= VCav;	
+		FwCav_16b	 <= FwCav;	
+		RvCav_16b	 <= RvCav;	
+      MO_16b		 <= MO;
+		FwIOT1_16b	 <= FwIOT1;	
+		RvIOT1_16b	 <= RvIOT1;	
+		DACsIF_16b 	 <= DACsIF;
 		
-		RFIn7_16b <= RFIn7(13)&RFIn7(13)&RFIn7;
-		RFIn8_16b <= RFIn8(13)&RFIn8(13)&RFIn8;
-		RFIn9_16b <= RFIn9(13)&RFIn9(13)&RFIn9;
-		RFIn10_16b <= RFIn10(13)&RFIn10(13)&RFIn10;
-		RFIn11_16b <= RFIn11(13)&RFIn11(13)&RFIn11;
-		RFIn12_16b <= RFIn12(13)&RFIn12(13)&RFIn12;
-		RFIn13_16b <= RFIn13(13)&RFIn13(13)&RFIn13;
-		RFIn14_16b <= RFIn14(13)&RFIn14(13)&RFIn14;
-		RFIn15_16b <= RFIn15(13)&RFIn15(13)&RFIn15;
+		RFIn7_16b <= RFIn7;
+		RFIn8_16b <= RFIn8;
+		RFIn9_16b <= RFIn9;
+		RFIn10_16b <= RFIn10;
+		RFIn11_16b <= RFIn11;
+		RFIn12_16b <= RFIn12;
+		RFIn13_16b <= RFIn13;
+		RFIn14_16b <= RFIn14;
+		RFIn15_16b <= RFIn15;
 	end if;
 end process;
 
 
 inst_demuxes : component Demuxes 
-    Port map ( VCav => VCav_16b,
-					FwCav => FwCav_16b,
-					RvCav => RvCav_16b,
-					MO => MO_16b,
-					FwIOT1 => FwIOT1_16b,
-					RvIOT1 => RvIOT1_16b,
-					DACsIF => DACsIF_16b,
+    Port map ( VCav => VCav,
+					FwCav => FwCav,
+					RvCav => RvCav,
+					MO => MO,
+					FwIOT1 => FwIOT1,
+					RvIOT1 => RvIOT1,
+					DACsIF => DACsIF,
 
-					RFIn7 => RFIn7_16b,
-					RFIn8 => RFIn8_16b,
-					RFIn9 => RFIn9_16b,
-					RFIn10 => RFIn10_16b,
-					RFIn11 => RFIn11_16b,
-					RFIn12 => RFIn12_16b,
-					RFIn13 => RFIn13_16b,
-					RFIn14 => RFIn14_16b,
-					RFIn15 => RFIn15_16b,
+					RFIn7 => RFIn7,
+					RFIn8 => RFIn8,
+					RFIn9 => RFIn9,
+					RFIn10 => RFIn10,
+					RFIn11 => RFIn11,
+					RFIn12 => RFIn12,
+					RFIn13 => RFIn13,
+					RFIn14 => RFIn14,
+					RFIn15 => RFIn15,
 					
 					LookRefLatch 	=> LookRefLatch,
 					LookRefManual 	=> LookRefManual,
@@ -3365,18 +3547,18 @@ begin
 			FIM_ITCK_delay <= '1';-- DACs Disable signal coming from FIM component
 		end if;
 		
-		if(RFONState = '0') then
+		if(RFONState = '1') then -- when Tx Ready for operation, RFONState = 1
 			RFONState_counter <= (others => '0');
-			RFONState_Delay <= '0';
-		elsif (RFONState = '1' and RFONState_counter < X"E4E1C00") then -- wait for 3 seconds before disabling loops
+			RFONState_Delay <= '1';
+		elsif (RFONState = '0' and RFONState_counter < X"E4E1C00") then -- wait for 3 seconds before disabling loops
 			RFONState_counter <= RFONState_counter + 1;
-			RFONState_Delay <= '0';
+			RFONState_Delay <= '1';
 		else
 			RFONState_counter <= RFONState_counter;
 			if(RFONState_Disable = '1') then
-				RFONState_Delay <= '0';
-			else
 				RFONState_Delay <= '1';
+			else
+				RFONState_Delay <= '0';
 			end if;		
 		end if;
 	end if;
@@ -3542,12 +3724,12 @@ P2R : component Polar2Rect
 			 			 
 inst_reference : component Reference
 Port map ( 
-			AmpRefIn 		         => AmpRefIn,	        
-			PhRefIn 		           	=> PhRefIn, 		        
+			AmpRefIn 		         => AmpRefIn_Latch,	   -- Amplitude reference provided by automatic startup     
+			PhRefIn 		           	=> PhRefIn_Latch, 		-- Phase reference provided by automatic startup        
 			AmpRefMin 		         => AmpRefMin, 		        
 			PhRefMin 		         => PhRefMin, 		        
-			AmpRefOld_out 	         => AmpRefOld, 	        
-			PhRefOld_out 			   => PhRefOld,			
+			AmpRefOld_out 	         => AmpRefOld,				-- Amplitude reference to be used by loops or to be directly sent to DACs when working in Open Loop	 
+			PhRefOld_out 			   => PhRefOld,				-- Phase reference to be used by loops or to be directly sent to DACs when working in Open Loop
          VoltIncRate 	         => VoltIncRate, 	        
          PhIncRate 		         => PhIncRate, 		        
          clk 			            => clk, 			        
@@ -3566,8 +3748,8 @@ Port map (
 			TRG3HzDiag 				   => TRG3HzDiag, 				
 			AmpRampInit 			   => AmpRampInit, 			
 			PhRampInit 				   => PhRampInit, 				
-			AmpRampEnd 				   => AmpRampEnd, 				
-			PhRampEnd 				   => PhRampEnd, 				
+			AmpRampEnd 				   => AmpRampEnd_latch, 				
+			PhRampEnd 				   => PhRampEnd_latch, 				
 			RampingState_out 		   => RampingState, 		
 			RampReady 				   => RampReady, 				
 			t1ramping 				   => t1ramping, 				
@@ -3583,7 +3765,8 @@ Port map (
 			RampIncRate 			   => RampIncRate, 			
 			TopRampAmp_out 			=> TopRampAmp,			
 			AmpRamp_out 			   => AmpRamp, 			
-			PhRamp_out 				   => PhRamp
+			PhRamp_out 				   => PhRamp,
+			PolarLoopsEnable			=> PolarLoopsEnable
 			);	
 			  
 -------------------------------------------------------------------------
@@ -3895,46 +4078,51 @@ begin
 		LLRFItckOut2LLRF_sig <= gpio_out_itck(4);
 		
 
-		-- Signals to DB9 for tuning
-			gpio_output_sig(0) <= PulseUp_sig; -- connected to gpio_16 in cavity A & gpio_17 in cavity B
+		-- GPIO Outputs
+			gpio_output_sig(0) <= PulseUp; -- connected to gpio_16 in cavity A & gpio_17 in cavity B
+--			gpio_output_sig(1) <= TTL1; --direction plunger. connected to gpio_28 in cavity A and gpio_19 in cavity B
+--			gpio_output_sig(2) <= TTL2; --pulse plunger. Connected to gpio_20 in cavity A and gpio_21 in cavity B
+--			gpio_output_sig(3) <= TTL3; --direction plunger - field flatness. connected to gpio_19 in cavity A and NOT CONNECTED IN CAVITY B
+--			gpio_output_sig(4) <= TTL4; --pulse plunger - field flatness. Connected to gpio_21 in cavity A and NOT CONNECTED IN CAVITY B
+			gpio_output_sig(5) <= LLRFItckOut2PLC_sig; -- connected to gpio_22 in cavity A and connected to gpio:23 in cavity B			
+--			gpio_output_sig(6) <= PinDiodeSw_sig; -- depending on cav conf, to be connected to gpio_24-25-26-27 in cavity A and connected to gpio_26-27 in cavity B		
+--			gpio_output_sig(7) <= VCXO_Enable; -- connected gpio 28 in cavity A and not connected in cavity B
+--			gpio_output_sig(8) <= VCXO_clk; -- connected to gpio_29 in cavity A and not connected in cavity B
+--			gpio_output_sig(9) <= VCXO_Word; -- connected to gpio_30 in cavity A and not connected in cavity B
+			gpio_output_sig(10) <= LLRFItckOut2LLRF_sig; -- connected to gpio_31 in cavity A&B
 			
 			PlungerMoving_diag1 <= PlungerMovingAuto or PlungerMovingManual1;
-			PlungerMovingUp_diag1 <= PlungerMoving_diag1 and TTL1;
+			PlungerMovingUp_diag1 <= PlungerMoving_diag1 and (not(TTL1));
 			PlungerMoving_diag2 <= PlungerMovingAuto2 or PlungerMovingManual2;
-			PlungerMovingUp_diag2 <= PlungerMoving_diag2 and TTL3;
+			PlungerMovingUp_diag2 <= PlungerMoving_diag2 and (not(TTL3));
 			
 			LLRFItckOut <= LLRFItckOut2LLRF_sig;
 			PinDiodeSw <= PinDiodeSw_sig;
 		
-		if(gpio_out_inversion = '1') then		
+		if(gpio_out_inversion = '1') then		-- Signals that need to be inverted when there is NO Perseus Digital Patch panel
 			gpio_output_sig(1) <= TTL1; --direction plunger. connected to gpio_28 in cavity A and gpio_19 in cavity B
 			gpio_output_sig(2) <= TTL2; --pulse plunger. Connected to gpio_20 in cavity A and gpio_21 in cavity B
 			gpio_output_sig(3) <= TTL3; --direction plunger - field flatness. connected to gpio_19 in cavity A and NOT CONNECTED IN CAVITY B
 			gpio_output_sig(4) <= TTL4; --pulse plunger - field flatness. Connected to gpio_21 in cavity A and NOT CONNECTED IN CAVITY B
-
-			gpio_output_sig(5) <= LLRFItckOut2PLC_sig; -- connected to gpio_22 in cavity A and connected to gpio:23 in cavity B
 			
-			gpio_output_sig(6) <= PinDiodeSw_sig; -- depending on cav conf, to be connected to gpio_24-25-26-27 in cavity A and connected to gpio_26-27 in cavity B
-		
+			gpio_output_sig(6) <= not(PinDiodeSw_sig); -- depending on cav conf, to be connected to gpio_24-25-26-27 in cavity A and connected to gpio_26-27 in cavity B		
+			
 			gpio_output_sig(7) <= VCXO_Enable; -- connected gpio 28 in cavity A and not connected in cavity B
 			gpio_output_sig(8) <= VCXO_clk; -- connected to gpio_29 in cavity A and not connected in cavity B
 			gpio_output_sig(9) <= VCXO_Word; -- connected to gpio_30 in cavity A and not connected in cavity B
-			gpio_output_sig(10) <= LLRFItckOut2LLRF_sig; -- connected to gpio_31 in cavity A&B
 			
 		else				
 			gpio_output_sig(1) <= not(TTL1); --direction plunger. connected to gpio_28 in cavity A and gpio_19 in cavity B
 			gpio_output_sig(2) <= not(TTL2); --pulse plunger. Connected to gpio_20 in cavity A and gpio_21 in cavity B
 			gpio_output_sig(3) <= not(TTL3); --direction plunger - field flatness. connected to gpio_19 in cavity A and NOT CONNECTED IN CAVITY B
 			gpio_output_sig(4) <= not(TTL4); --pulse plunger - field flatness. Connected to gpio_21 in cavity A and NOT CONNECTED IN CAVITY B
-
-			gpio_output_sig(5) <= not(LLRFItckOut2PLC_sig); -- connected to gpio_22 in cavity A and connected to gpio:23 in cavity B
-			
-			gpio_output_sig(6) <= not(PinDiodeSw_sig); -- depending on cav conf, to be connected to gpio_24-25-26-27 in cavity A and connected to gpio_26-27 in cavity B
+		
+			gpio_output_sig(6) <= PinDiodeSw_sig; -- depending on cav conf, to be connected to gpio_24-25-26-27 in cavity A and connected to gpio_26-27 in cavity B		
 		
 			gpio_output_sig(7) <= not(VCXO_Enable); -- connected gpio 28 in cavity A and not connected in cavity B
 			gpio_output_sig(8) <= not(VCXO_clk); -- connected to gpio_29 in cavity A and not connected in cavity B
 			gpio_output_sig(9) <= not(VCXO_Word); -- connected to gpio_30 in cavity A and not connected in cavity B
-			gpio_output_sig(10) <= not(LLRFItckOut2LLRF_sig); -- connected to gpio_31 in cavity A&B
+		
 		end if;
 	end if;
 end process gpio_outs;
@@ -3965,11 +4153,11 @@ begin
 		mux_r2p <= mux_r2p + 1;
 		
 	
-	case mux_r2p(1 downto 0) is 
-		when "10" => I_in_r2p_PolarLoops <= IPolarAmpLoop;
+	case mux_r2p(0) is 
+		when '0' => I_in_r2p_PolarLoops <= IPolarAmpLoop;
 							Q_in_r2p_PolarLoops <= QPolarAmpLoop;
 							id_in_r2p_PolarLoops <= "0010";
-		when "11" => I_in_r2p_PolarLoops <= IPolarPhLoop;
+		when '1' => I_in_r2p_PolarLoops <= IPolarPhLoop;
 							Q_in_r2p_PolarLoops <= QPolarPhLoop;
 							id_in_r2p_PolarLoops <= "0011";	
 		when others => null;
@@ -4115,14 +4303,15 @@ end process;
 
 
 FDL: component FDL_Interface 
-    Port map(Interface_01		=> Interface_01,
-			Interface_02        => Interface_02,
-			Interface_03        => Interface_03,
-			Interface_04        => Interface_04,
-			Interface_05        => Interface_05,
-			Interface_06        => Interface_06,
-			Interface_07        => Interface_07,
-			Interface_08        => Interface_08,
+    Port map(
+			Interface_01		  => Interface_01_sig,
+			Interface_02        => Interface_02_sig,
+			Interface_03        => Interface_03_sig,
+			Interface_04        => Interface_04_sig,
+			Interface_05        => Interface_05_sig,
+			Interface_06        => Interface_06_sig,
+			Interface_07        => Interface_07_sig,
+			Interface_08        => Interface_08_sig,								
 			clk                 => clk,
 			ICav                => ICav,
 			QCav                => QCav,
@@ -4180,7 +4369,34 @@ FDL: component FDL_Interface
 			QPolarAmpLoop  		=> QPolarAmploop,  		
 			IPolarPhLoop  			=> IPolarPhloop,  		
 			QPolarPhLoop 			=> QPolarPhloop,
-			VCav_16b					=> VCav_16b); 						
+			VCav_16b					=> VCav_16b); 		
+
+
+process (clk)
+begin
+	if(clk='1' and clk'EVENT) then
+		if(FDL_ADCsRawData = '1') then
+			Interface_01		  <= VCav_16b;
+			Interface_02        <= FwCav_16b;
+			Interface_03        <= RvCav_16b;
+			Interface_04        <= MO_16b;		
+			Interface_05        <= FwIOT1_16b;
+			Interface_06        <= RvIOT1_16b;
+			Interface_07        <= RFIn7_16b;
+			Interface_08        <= RFIn8_16b;		
+		else		
+			Interface_01			<= Interface_01_sig;
+			Interface_02        <= Interface_02_sig;
+			Interface_03        <= Interface_03_sig;
+			Interface_04        <= Interface_04_sig;
+			Interface_05        <= Interface_05_sig;
+			Interface_06        <= Interface_06_sig;
+			Interface_07        <= Interface_07_sig;
+			Interface_08        <= Interface_08_sig;				
+		end if;
+	end if;
+end process;
+			
 
 	VCXO_inst:	component VCXO_Programming
 		port map(LE_VCXO => VCXO_Enable,
@@ -4280,6 +4496,14 @@ FDL: component FDL_Interface
 							 QCell2 <= QRFIn7;
 							 ICell4 <= IRFIn8;
 							 QCell4 <= QRFIn8;
+							 							 
+							 IRvIOT2 <= (others => '0');
+							 QRvIOT2 <= (others => '0');
+							 IRvIOT3 <= (others => '0');
+							 QRvIOT3 <= (others => '0');
+							 IRvIOT4 <= (others => '0');
+							 QRvIOT4 <= (others => '0');
+							 
 			when others => null;
 		end case;
 	end if;

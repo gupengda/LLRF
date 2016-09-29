@@ -111,6 +111,7 @@ entity Averages is
            In81 : in  STD_LOGIC_VECTOR (15 downto 0);
            In82 : in  STD_LOGIC_VECTOR (15 downto 0);
            In83 : in  STD_LOGIC_VECTOR (15 downto 0);
+           In84 : in  STD_LOGIC_VECTOR (15 downto 0);
            clk : in  STD_LOGIC;
 			  PulseUp : in std_logic;
 			  Conditioning : in std_logic;
@@ -196,7 +197,9 @@ entity Averages is
            Out80 : out  STD_LOGIC_VECTOR (15 downto 0);
            Out81 : out  STD_LOGIC_VECTOR (15 downto 0);
            Out82 : out  STD_LOGIC_VECTOR (15 downto 0);
-           Out83 : out  STD_LOGIC_VECTOR (15 downto 0)
+           Out83 : out  STD_LOGIC_VECTOR (15 downto 0);
+           Out84 : out  STD_LOGIC_VECTOR (15 downto 0);
+			  average_update_out : out std_logic
 			  );
 end Averages;
 
@@ -251,6 +254,7 @@ begin
 		average_update7 <= average_update;
 		average_update8 <= average_update;
 		average_update9 <= average_update;
+		average_update_out <= average_update;
 		
 		accum_enable1 <= accum_enable;
 		accum_enable2 <= accum_enable;
@@ -948,7 +952,6 @@ PhCorrectionControl : component average
 			average_update => average_update9,
 			accum_enable => accum_enable9,
 			averageout 	=>	Out81);
-
 			
 AmpCell2 : component average
 	port map(
@@ -957,6 +960,7 @@ AmpCell2 : component average
 			average_update => average_update9,
 			accum_enable => accum_enable9,
 			averageout 	=>	Out82);
+
 AmpCell4 : component average
 	port map(
 			a 				=> In83,
@@ -964,6 +968,14 @@ AmpCell4 : component average
 			average_update => average_update9,
 			accum_enable => accum_enable9,
 			averageout 	=>	Out83);
+			
+FFError : component average
+	port map(
+			a 				=> In84,
+			clk			=> clk,
+			average_update => average_update9,
+			accum_enable => accum_enable9,
+			averageout 	=>	Out84);
 
 end Behavioral;
 

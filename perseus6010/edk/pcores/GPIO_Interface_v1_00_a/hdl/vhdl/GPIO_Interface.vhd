@@ -92,6 +92,7 @@ architecture Behavioral of GPIO_Interface is
 	signal gpio_slave_data_MSBs : std_logic_vector (15 downto 0);
 	
 	signal gpio_plg : std_logic_vector (3 downto 0);
+	signal gpio_itckout : std_logic_vector (1 downto 0);
 	
 -- Components declaration
 
@@ -171,13 +172,17 @@ begin
 	if(clk'EVENT and clk='1') then
 
 		if(conf = "11") then  
-			gpio_plg <= gpio_output_A(4 downto 1); -- Booster Configuration: Two plungers controlled by main cavity (Tuning and Field Flatness)
+			gpio_plg <= gpio_output_A(4)&gpio_output_A(2)&gpio_output_A(3)&gpio_output_A(1); -- Booster Configuration: Two plungers controlled by main cavity (Tuning and Field Flatness)
+			gpio_itckout <= '0'&gpio_output_A(10); -- Booster conf and SC, only Interlocks detected by Cavity A are sent to PLC, Leds and SMA
 			
 		elsif(conf = "10") then 
 			gpio_plg <= gpio_output_A(2)&gpio_output_A(2)&gpio_output_A(1)&gpio_output_A(1); --  Super Conducting Conf: the commands computed by Cavity A are sent to both plunger controllers. 
-																														-- Usually control signals of second plunger  will be left disconnected			
+			gpio_itckout <= '0'&gpio_output_A(10); -- Booster conf and SC, only Interlocks detected by Cavity A are sent to PLC, Leds and SMA
+																												-- Usually control signals of second plunger  will be left disconnected			
 		else 
 			gpio_plg <= gpio_output_B(2)&gpio_output_A(2)&gpio_output_B(1)&gpio_output_A(1); -- Normal Conducting Conf: plungers are moved independently
+			gpio_itckout <= gpio_output_B(10)&gpio_output_A(10); -- Booster conf and SC, only Interlocks detected by Cavity A are sent to PLC, Leds and SMA
+	
 		end if;
 			
 
@@ -188,7 +193,7 @@ begin
 		else
 			gpio_input_A <= Gpio_in(11)&Gpio_in(9)&Gpio_in(15)&Gpio_in(14)&Gpio_in(13)&Gpio_in(12)&Gpio_in(10)&Gpio_in(8)&Gpio_in(6)&Gpio_in(4)&Gpio_in(2)&Gpio_in(1)&Gpio_in(0);
 			gpio_input_B <= Gpio_in(10)&Gpio_in(8)&Gpio_in(15)&Gpio_in(14)&Gpio_in(13)&Gpio_in(12)&Gpio_in(11)&Gpio_in(9)&Gpio_in(7)&Gpio_in(5)&Gpio_in(3)&Gpio_in(1)&Gpio_in(0);
-			gpio_out <= LLRFITckOut&gpio_output_A(9 downto 7)&PinDiodeSw&gpio_plg&gpio_output_B(1)&gpio_output_A(1)&gpio_output_B(0)&gpio_output_A(0)&X"0000";
+			gpio_out <= LLRFITckOut&gpio_output_A(9 downto 7)&PinDiodeSw&gpio_itckout&gpio_plg&gpio_output_B(0)&gpio_output_A(0)&X"0000";
 			GpioDir  <= GpioDir_MSBs & GpioDir_LSBs;
 		end if;
 	end if;

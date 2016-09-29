@@ -641,8 +641,9 @@ BEGIN lyt_axi_perseus6010_regs
  PORT iv32_CustomReg22_p = o_v32_reg_data3_B_s
  PORT ov32_CustomReg22_p = 0x000 & 0b000 & i_v17_reg_data3_B_s
 # # FPGA Version Code
-# # 2016 08 02 - 00 - Loops Version 00 - DLS LLRF NC, SC and Booster
- PORT iv32_CustomReg31_p = 0x782AF148
+# # 2016 07 28 - 00 - Loops Version 00 - DLS LLRF NC, SC and Booster
+# # 2016 09 29 - 00 - General debugging of LLRF with DLS people - V12
+ PORT iv32_CustomReg31_p = 0x782B22E5
 END
 
 # ###
@@ -1166,22 +1167,22 @@ END
 BEGIN MainProgram
  PARAMETER INSTANCE = MainProgram_A
  PARAMETER HW_VER = 1.00.a
- PORT VCav = v14_Mi125AdcDataCh1Top_s
- PORT FwCav = v14_Mi125AdcDataCh2Top_s
- PORT RvCav = v14_Mi125AdcDataCh3Top_s
- PORT MO = v14_Mi125AdcDataCh4Top_s
- PORT FwIOT1 = v14_Mi125AdcDataCh5Top_s
- PORT RvIOT1 = v14_Mi125AdcDataCh6Top_s
- PORT RFIn7 = v14_Mi125AdcDataCh7Top_s
- PORT RFIn8 = v14_Mi125AdcDataCh8Top_s
- PORT RFIn9 = v14_Mi125AdcDataCh9Top_s
- PORT RFIn10 = v14_Mi125AdcDataCh10Top_s
- PORT RFIn11 = v14_Mi125AdcDataCh11Top_s
- PORT RFIn12 = v14_Mi125AdcDataCh12Top_s
- PORT RFIn13 = v14_Mi125AdcDataCh13Top_s
- PORT RFIn14 = v14_Mi125AdcDataCh14Top_s
- PORT RFIn15 = v14_Mi125AdcDataCh15Top_s
- PORT DACsIF = v14_Mi125AdcDataCh16Top_s
+ PORT VCav = v14_Mi125AdcDataCh1Top_s & b00
+ PORT FwCav = v14_Mi125AdcDataCh2Top_s & b00
+ PORT RvCav = v14_Mi125AdcDataCh3Top_s & b00
+ PORT MO = v14_Mi125AdcDataCh4Top_s & b00
+ PORT FwIOT1 = v14_Mi125AdcDataCh5Top_s & b00
+ PORT RvIOT1 = v14_Mi125AdcDataCh6Top_s & b00
+ PORT RFIn7 = v14_Mi125AdcDataCh7Top_s & b00
+ PORT RFIn8 = v14_Mi125AdcDataCh8Top_s & b00
+ PORT RFIn9 = v14_Mi125AdcDataCh9Top_s & b00
+ PORT RFIn10 = v14_Mi125AdcDataCh10Top_s & b00
+ PORT RFIn11 = v14_Mi125AdcDataCh11Top_s & b00
+ PORT RFIn12 = v14_Mi125AdcDataCh12Top_s & b00
+ PORT RFIn13 = v14_Mi125AdcDataCh13Top_s & b00
+ PORT RFIn14 = v14_Mi125AdcDataCh14Top_s & b00
+ PORT RFIn15 = v14_Mi125AdcDataCh15Top_s & b00
+ PORT DACsIF = v14_Mi125AdcDataCh16Top_s & b00
  PORT reg_data1_input = v32_reg_data1_A_s
  PORT reg_data2_input = i_v16_reg_data2_A_s
  PORT reg_data2_output = o_v16_reg_data2_A_s
@@ -1215,22 +1216,22 @@ END
 BEGIN MainProgram
  PARAMETER INSTANCE = MainProgram_B
  PARAMETER HW_VER = 1.00.a
- PORT VCav = v14_Mi125AdcDataCh9Top_s
- PORT FwCav = v14_Mi125AdcDataCh10Top_s
- PORT RvCav = v14_Mi125AdcDataCh11Top_s
- PORT MO = v14_Mi125AdcDataCh4Top_s
- PORT FwIOT1 = v14_Mi125AdcDataCh12Top_s
- PORT RvIOT1 = v14_Mi125AdcDataCh13Top_s
- PORT RFIn7 = v14_Mi125AdcDataCh14Top_s
- PORT RFIn8 = v14_Mi125AdcDataCh15Top_s
- PORT RFIn9 = 0b00000000000000
- PORT RFIn10 = 0b00000000000000
- PORT RFIn11 = 0b00000000000000
- PORT RFIn12 = 0b00000000000000
- PORT RFIn13 = 0b00000000000000
- PORT RFIn14 = 0b00000000000000
- PORT RFIn15 = 0b00000000000000
- PORT DACsIF = v14_Mi125AdcDataCh16Top_s
+ PORT VCav = v14_Mi125AdcDataCh9Top_s& b00
+ PORT FwCav = v14_Mi125AdcDataCh10Top_s& b00
+ PORT RvCav = v14_Mi125AdcDataCh11Top_s& b00
+ PORT MO = v14_Mi125AdcDataCh4Top_s& b00
+ PORT FwIOT1 = v14_Mi125AdcDataCh12Top_s& b00
+ PORT RvIOT1 = v14_Mi125AdcDataCh13Top_s& b00
+ PORT RFIn7 = v14_Mi125AdcDataCh14Top_s& b00
+ PORT RFIn8 = v14_Mi125AdcDataCh15Top_s& b00
+ PORT RFIn9 = 0b0000000000000000
+ PORT RFIn10 = 0b0000000000000000
+ PORT RFIn11 = 0b0000000000000000
+ PORT RFIn12 = 0b0000000000000000
+ PORT RFIn13 = 0b0000000000000000
+ PORT RFIn14 = 0b0000000000000000
+ PORT RFIn15 = 0b0000000000000000
+ PORT DACsIF = v14_Mi125AdcDataCh16Top_s& b00
  PORT reg_data1_input = v32_reg_data1_B_s
  PORT reg_data2_input = i_v16_reg_data2_B_s
  PORT reg_data2_output = o_v16_reg_data2_B_s

@@ -7,23 +7,23 @@ OPTION HDL = VHDL
 OPTION IP_GROUP = Utility
 OPTION STYLE = MIX
 ## Ports
- PORT VCav = "", DIR = i, VEC = [13:0],					
- PORT FwCav = "", DIR = i, VEC = [13:0]				
- PORT RvCav = "", DIR = i, VEC = [13:0]				
- PORT MO = "", DIR = i, VEC = [13:0]						
- PORT FwIOT1 = "", DIR = i, VEC = [13:0]					
- PORT RvIOT1 = "", DIR = i, VEC = [13:0]	
- PORT DACsIF = "", DIR = i, VEC = [13:0]
+ PORT VCav = "", DIR = i, VEC = [15:0],					
+ PORT FwCav = "", DIR = i, VEC = [15:0]				
+ PORT RvCav = "", DIR = i, VEC = [15:0]				
+ PORT MO = "", DIR = i, VEC = [15:0]						
+ PORT FwIOT1 = "", DIR = i, VEC = [15:0]					
+ PORT RvIOT1 = "", DIR = i, VEC = [15:0]	
+ PORT DACsIF = "", DIR = i, VEC = [15:0]
  
- PORT RFIn7 = "", DIR = i, VEC = [13:0]	
- PORT RFIn8 = "", DIR = i, VEC = [13:0]		
- PORT RFIn9 = "", DIR = i, VEC = [13:0]		 
- PORT RFIn10 = "", DIR = i, VEC = [13:0]		 
- PORT RFIn11 = "", DIR = i, VEC = [13:0]		 
- PORT RFIn12 = "", DIR = i, VEC = [13:0]		 
- PORT RFIn13 = "", DIR = i, VEC = [13:0]		 
- PORT RFIn14 = "", DIR = i, VEC = [13:0]		 
- PORT RFIn15 = "", DIR = i, VEC = [13:0]		 
+ PORT RFIn7 = "", DIR = i, VEC = [15:0]	
+ PORT RFIn8 = "", DIR = i, VEC = [15:0]		
+ PORT RFIn9 = "", DIR = i, VEC = [15:0]		 
+ PORT RFIn10 = "", DIR = i, VEC = [15:0]		 
+ PORT RFIn11 = "", DIR = i, VEC = [15:0]		 
+ PORT RFIn12 = "", DIR = i, VEC = [15:0]		 
+ PORT RFIn13 = "", DIR = i, VEC = [15:0]		 
+ PORT RFIn14 = "", DIR = i, VEC = [15:0]		 
+ PORT RFIn15 = "", DIR = i, VEC = [15:0]		 
  
  PORT reg_data1_input = "", DIR = i,VEC = [31:0]			
  PORT reg_data2_input = "", DIR = i, VEC = [15:0]		

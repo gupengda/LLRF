@@ -306,7 +306,8 @@ NET "axi_record_playback_ddr3_ck_n_pin<*>"          IOSTANDARD = DIFF_SSTL15;
 # Note that ISE cannot infer this from other PERIOD constraints because
 # of the use of OSERDES blocks in the BUFR clock generation path
 NET "*/v6Ddr3Controler64b_l/u_memc_ui_top/u_mem_intfc/phy_top0/clk_rsync[?]" TNM_NET = TNM_clk_rsync;
-TIMESPEC "TS_clk_rsync" = PERIOD "TNM_clk_rsync" 5 ns;
+TIMESPEC "TS_clk_rsync" = PERIOD "TNM_clk_rsync" 10 ns;
+## TIMESPEC "TS_clk_rsync" = PERIOD "TNM_clk_rsync" 5 ns; ## increased rsync period to avoid timing errors on 20160925
 
 # Paths between DQ/DQS ISERDES.Q outputs and CLB flops clocked by falling
 # edge of BUFR will by design only be used if DYNCLKDIVSEL is asserted for
@@ -320,7 +321,8 @@ TIMESPEC "TS_clk_rsync" = PERIOD "TNM_clk_rsync" 5 ns;
 TIMEGRP "TG_clk_rsync_rise" = RISING  "TNM_clk_rsync";
 TIMEGRP "TG_clk_rsync_fall" = FALLING "TNM_clk_rsync";
 TIMESPEC "TS_clk_rsync_rise_to_fall" =
-  FROM "TG_clk_rsync_rise" TO "TG_clk_rsync_fall" "TS_sodimm_clk_pin" * 2;
+  FROM "TG_clk_rsync_rise" TO "TG_clk_rsync_fall" "TS_sodimm_clk_pin" * 4; ## increased rsync period to avoid timing errors on 20160925
+##  FROM "TG_clk_rsync_rise" TO "TG_clk_rsync_fall" "TS_sodimm_clk_pin" * 2;
 
 # Signal to select between controller and physical layer signals. Four divided by two clock
 # cycles (4 memory clock cycles) are provided by design for the signal to settle down.

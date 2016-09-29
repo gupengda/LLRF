@@ -80,7 +80,9 @@ entity Reference is
 			  RampIncRate : in std_logic_vector (15 downto 0);
 			  TopRampAmp_out : out std_logic_vector (15 downto 0);
 			  AmpRamp_out : out std_logic_vector (15 downto 0);
-			  PhRamp_out : out std_logic_vector (15 downto 0)
+			  PhRamp_out : out std_logic_vector (15 downto 0);
+			  
+			  PolarLoopsEnable : in std_logic
 			  );	
 			  
 end Reference;
@@ -89,92 +91,74 @@ architecture Behavioral of Reference is
 
 -- signals declaration
 
-signal AmpRefOld : std_logic_vector (15 downto 0);
-signal PhRefOld : std_logic_vector (15 downto 0);
-signal AmpRefNew : std_logic_vector (15 downto 0);
-signal PhRefNew : std_logic_vector (15 downto 0);
-signal AmpRampOffset : std_logic_vector (15 downto 0);
-signal PhRampOffset : std_logic_vector (15 downto 0);
-signal ConditionDutyCycleNew : std_logic_vector (23 downto 0);
-signal ConditionDutyCycleOld : std_logic_vector (23 downto 0);
-signal ConditionOffset : std_logic_vector (23 downto 0);
-signal CounterVoltIncRate : std_logic_vector (27 downto 0);
-signal CounterPhIncRate : std_logic_vector (23 downto 0);
-signal CounterAmpRampOffset : std_logic_vector (27 downto 0);
-signal CounterPhRampOffset : std_logic_vector (23 downto 0);
-signal PhDiff : std_logic_vector (15 downto 0);
-signal WaitConditioning : std_logic;
-signal CounterConditionOffset : std_logic_vector (12 downto 0);
-signal CounterCondition : std_logic_vector (23 downto 0);
+signal AmpRefOld : std_logic_vector (15 downto 0):= (others => '0');
+signal PhRefOld : std_logic_vector (15 downto 0):= (others => '0');
+signal AmpRefNew : std_logic_vector (15 downto 0):= (others => '0');
+signal PhRefNew : std_logic_vector (15 downto 0):= (others => '0');
+signal AmpRampOffset : std_logic_vector (15 downto 0):= (others => '0');
+signal PhRampOffset : std_logic_vector (15 downto 0):= (others => '0');
+signal ConditionDutyCycleNew : std_logic_vector (23 downto 0):= (others => '0');
+signal ConditionDutyCycleOld : std_logic_vector (23 downto 0):= (others => '0');
+signal ConditionOffset : std_logic_vector (23 downto 0):= (others => '0');
+signal CounterVoltIncRate : std_logic_vector (27 downto 0):= (others => '0');
+signal CounterPhIncRate : std_logic_vector (23 downto 0):= (others => '0');
+signal CounterAmpRampOffset : std_logic_vector (27 downto 0):= (others => '0');
+signal CounterPhRampOffset : std_logic_vector (23 downto 0):= (others => '0');
+signal PhDiff : std_logic_vector (15 downto 0):= (others => '0');
+signal WaitConditioning : std_logic := '0';
+signal CounterConditionOffset : std_logic_vector (12 downto 0):= (others => '0');
+signal CounterCondition : std_logic_vector (23 downto 0):= (others => '0');
 
-signal counter_pulseup : std_logic_vector (19 downto 0); 
-signal PulseUp_sig : std_logic;
+signal counter_pulseup : std_logic_vector (19 downto 0):= (others => '0');
+signal PulseUp_sig : std_logic := '0';
 
-signal FreqSquareCounter : std_logic_vector (15 downto 0);
+signal FreqSquareCounter : std_logic_vector (15 downto 0):= (others => '0');
 
-signal Trg3HzIn : std_logic;
-signal Trg3HzInL,Trg3HzInL1,Trg3HzInL2,Trg3HzInL3,Trg3HzInL4,Trg3HzInL5 : std_logic;
-
-
-signal CounterRamping, counterrampingLatch, counterramping2 : std_logic_vector (25 downto 0);
-
-signal AmpRefOld_cond : std_logic_vector (15 downto 0);
-signal PhRefOld_cond : std_logic_vector (15 downto 0);
-signal AmpRefOld_ramp : std_logic_vector (15 downto 0);
-signal PhRefOld_ramp : std_logic_vector (15 downto 0);
-signal AmpTopRamp : std_logic_vector (15 downto 0);
-
-signal counterramp : std_logic_vector (24 downto 0);
-signal OffsetTopRamp : std_logic;
-
-signal t1r : std_logic_vector (25 downto 0);
-signal t2r : std_logic_vector (25 downto 0);
-signal t3r : std_logic_vector (25 downto 0);
-signal t4r : std_logic_vector (25 downto 0);
-signal t2r_sig, t3r_sig, t4r_sig : std_logic_vector (15 downto 0);
-
-signal SlopeAmp1 : std_logic_vector (15 downto 0);
-signal SlopeAmp2 : std_logic_vector (15 downto 0);
-signal SlopePh1 : std_logic_vector (15 downto 0);
-signal SlopePh2 : std_logic_vector (15 downto 0);
-
-signal AmpRampUpOffset : std_logic;
-signal AmpRampUpOffset_sig : std_logic;
-signal AmpRampDwOffset : std_logic;
-signal AmpRampDwOffset_sig : std_logic;
-
-signal PhRampUpOffset : std_logic;
-signal PhRampUpOffset_sig : std_logic;
-signal PhRampDwOffset : std_logic;
-signal PhRampDwOffset_sig : std_logic;
-
-signal counterAmpSlopeRampUp : std_logic_vector (15 downto 0);
-signal counterAmpSlopeRampDw : std_logic_vector (15 downto 0);
-signal counterPhSlopeRampUp : std_logic_vector (15 downto 0);
-signal counterPhSlopeRampDw : std_logic_vector (15 downto 0);
-
-signal IRampOffset : std_logic;
-signal QRampOffset : std_logic;
-
-signal IRefOld, QRefOld : std_logic_vector (15 downto 0);
-signal IRefNew, QRefNew : std_logic_vector (15 downto 0);
-signal IRefOld_cond, QRefOld_cond : std_logic_vector (15 downto 0);
-signal IRefOld_ramp, QRefOld_ramp : std_logic_vector (15 downto 0);
-
-signal RampReady_polar : std_logic;
-
-signal TopRampI : std_logic_vector (15 downto 0);
-signal TopRampQ : std_logic_vector (15 downto 0);
-
-signal RampBoosterOffset1I : std_logic_vector (15 downto 0);
-signal RampBoosterOffset2I : std_logic_vector (15 downto 0);
-signal RampBoosterOffset1Q : std_logic_vector (15 downto 0);
-signal RampBoosterOffset2Q : std_logic_vector (15 downto 0);
-
-signal CounterRampBooster1I, CounterRampBooster2I : std_logic_vector (15 downto 0);
-signal CounterRampBooster1Q, CounterRampBooster2Q : std_logic_vector (15 downto 0);
+signal Trg3HzIn : std_logic := '0';
+signal Trg3HzInL,Trg3HzInL1,Trg3HzInL2,Trg3HzInL3,Trg3HzInL4,Trg3HzInL5 : std_logic := '0';
 
 
+signal CounterRamping, counterrampingLatch, counterramping2 : std_logic_vector (25 downto 0):= (others => '0');
+
+signal AmpRefOld_cond : std_logic_vector (15 downto 0):= (others => '0');
+signal PhRefOld_cond : std_logic_vector (15 downto 0):= (others => '0');
+signal AmpRefOld_ramp : std_logic_vector (15 downto 0):= (others => '0');
+signal PhRefOld_ramp : std_logic_vector (15 downto 0):= (others => '0');
+signal AmpTopRamp : std_logic_vector (15 downto 0):= (others => '0');
+
+signal counterramp : std_logic_vector (24 downto 0):= (others => '0');
+signal OffsetTopRamp : std_logic := '0'; 
+
+signal t1r : std_logic_vector (25 downto 0):= (others => '0');
+signal t2r : std_logic_vector (25 downto 0):= (others => '0');
+signal t3r : std_logic_vector (25 downto 0):= (others => '0');
+signal t4r : std_logic_vector (25 downto 0):= (others => '0');
+signal t2r_sig, t3r_sig, t4r_sig : std_logic_vector (15 downto 0):= (others => '0');
+
+signal SlopeAmp1 : std_logic_vector (15 downto 0):= (others => '0');
+signal SlopeAmp2 : std_logic_vector (15 downto 0):= (others => '0');
+signal SlopePh1 : std_logic_vector (15 downto 0):= (others => '0');
+signal SlopePh2 : std_logic_vector (15 downto 0):= (others => '0');
+
+signal AmpRampUpOffset : std_logic := '0';
+signal AmpRampUpOffset_sig : std_logic := '0';
+signal AmpRampDwOffset : std_logic := '0';
+signal AmpRampDwOffset_sig : std_logic := '0';
+
+signal PhRampUpOffset : std_logic := '0';
+signal PhRampUpOffset_sig : std_logic := '0';
+signal PhRampDwOffset : std_logic := '0';
+signal PhRampDwOffset_sig : std_logic := '0';
+
+signal counterAmpSlopeRampUp : std_logic_vector (15 downto 0):= (others => '0');
+signal counterAmpSlopeRampDw : std_logic_vector (15 downto 0):= (others => '0');
+signal counterPhSlopeRampUp : std_logic_vector (15 downto 0):= (others => '0');
+signal counterPhSlopeRampDw : std_logic_vector (15 downto 0):= (others => '0');
+
+signal RampReady_polar : std_logic := '0';
+signal EnableTrgCounter : std_logic := '0';
+
+signal VoltIncRate_latch, PhIncRate_latch : std_logic_vector (2 downto 0) := (others => '0');
 
 
 -----
@@ -199,13 +183,17 @@ if(clk'EVENT and clk = '1') then
 		Trg3HzInL4 <= Trg3HzInL3;
 		Trg3HzInL5 <= Trg3HzInL4;				
 	
-		if (counterrampingLatch > X"2625A00") then -- if time after trigger is bigger than 0.5s 
+		if (counterrampingLatch > X"2625A00" or EnableTrgCounter = '0') then -- if time after trigger is bigger than 0.5s and no trigger has been risen yet
 			TRG3HzDiag <= '0';
 		else
 			TRG3HzDiag <= '1';
 		end if;		
+		
+		if(Trg3Hz = '1') then
+			EnableTrgCounter <= '1';
+		end if;
 			
-		if(Trg3HzIn = '1' and Trg3HzInL5 = '0') then
+		if(Trg3Hz = '1' and Trg3HzIn = '0') then
 			counterrampingLatch <= counterramping2;
 			counterramping2 <= (others => '0');
 		elsif(counterramping2 < X"7270F00") then
@@ -222,6 +210,9 @@ begin
 	if(clk='1' and clk'EVENT) then
 		AmpRamp_out <= AmpRefOld_ramp;
 		PhRamp_out <= PhRefOld_ramp;
+		
+		VoltIncRate_latch <= VoltIncRate;
+		PhIncRate_latch <= PhIncRate;
 	end if;
 end process;
 
@@ -242,18 +233,31 @@ if(clk'EVENT and clk = '1') then
 
 		ConditionDutyCycleDiag <= ConditionDutyCycleOld(23 downto 8);	
 			
-		
-		case VoltIncRate is
-			when "000" => CounterVoltIncRate <= X"E8D676B"; --0.01mV per second
-			when "001" => CounterVoltIncRate <= X"4C4B400"; -- 0.03mV increase per second
-			when "010" => CounterVoltIncRate <= X"1748A57"; -- 0.1mV increase per second
-			when "011" => CounterVoltIncRate <= X"0950423"; -- 0.25mV increase per second
-			when "100" => CounterVoltIncRate <= X"04A8211"; -- 0.5mV increase per second
-			when "101" => CounterVoltIncRate <= X"0254108"; -- 1mV increase per second
-			when "110" => CounterVoltIncRate <= X"012A084"; -- 2mV increase per second
-			when "111" => CounterVoltIncRate <= X"0000001";-- Inmediatly apply
-			when others => null;
-		end case;
+		if(PolarLoopsEnable = '1') then 
+			case VoltIncRate is
+				when "000" => CounterVoltIncRate <= X"FFFFFFF"; -- 0.015mV per second - minimum achievable speed with 28bits counter
+				when "001" => CounterVoltIncRate <= X"7FCEC00"; -- 0.03mV increase per second
+				when "010" => CounterVoltIncRate <= X"2657AC8"; -- 0.1mV increase per second
+				when "011" => CounterVoltIncRate <= X"0F56450"; -- 0.25mV increase per second
+				when "100" => CounterVoltIncRate <= X"07AB228"; -- 0.5mV increase per second
+				when "101" => CounterVoltIncRate <= X"03D5720"; -- 1mV increase per second
+				when "110" => CounterVoltIncRate <= X"01EAB90"; -- 2mV increase per second
+				when "111" => CounterVoltIncRate <= X"0000001"; -- Immediatly apply
+				when others => null;
+			end case;		
+		else
+			case VoltIncRate is
+				when "000" => CounterVoltIncRate <= X"E8D676B"; -- 0.01mV per second
+				when "001" => CounterVoltIncRate <= X"4C4B400"; -- 0.03mV increase per second
+				when "010" => CounterVoltIncRate <= X"1748A57"; -- 0.1mV increase per second
+				when "011" => CounterVoltIncRate <= X"0950423"; -- 0.25mV increase per second
+				when "100" => CounterVoltIncRate <= X"04A8211"; -- 0.5mV increase per second
+				when "101" => CounterVoltIncRate <= X"0254108"; -- 1mV increase per second
+				when "110" => CounterVoltIncRate <= X"012A084"; -- 2mV increase per second
+				when "111" => CounterVoltIncRate <= X"0000001"; -- Immediatly apply
+				when others => null;
+			end case;
+		end if;
 		
 		
 		case PhIncRate is
@@ -270,7 +274,9 @@ if(clk'EVENT and clk = '1') then
 			
 
 		
-		if(CounterAmpRampOffset = CounterVoltIncRate) then
+		if(VoltIncRate /= VoltIncRate_latch) then
+			CounterAmpRampOffset <= (others => '0');
+		elsif(CounterAmpRampOffset = CounterVoltIncRate) then
 			CounterAmpRampOffset <= (others => '0');
 			if(AutomaticConditioning = '1') then
 				if(Vacuum = '1') then
@@ -286,7 +292,9 @@ if(clk'EVENT and clk = '1') then
 			AmpRampOffset <= X"0000";
 		end if;
 		
-		if(CounterPhRampOffset = CounterPhIncRate) then
+		if(PhIncRate /= PhIncRate_latch) then
+			CounterPhRampOffset <= (others => '0');			
+		elsif(CounterPhRampOffset = CounterPhIncRate) then
 			CounterPhRampOffset <= (others => '0');			
 			PhRampOffset <= X"0001";			
 		else
@@ -325,7 +333,7 @@ begin
 --		AmpRefRamp_out <= AmpRefRamp;
 --		PhRefRamp_out <= PhRefRamp;
 			
-		if(RFONState_Delay = '1' or FIM_Itck_delay = '1') then			
+		if(RFONState_Delay = '0' or FIM_Itck_delay = '1') then	 -- when Tx NOT ready or Fast interlock detected, set RF Drive to minimum		
 			AmpRefOld <= AmpRefMin;
 			PhRefOld <= PhRefMin;
 			AmpRefNew <= AmpRefMin;
@@ -399,7 +407,7 @@ end process;
 ramping : process(clk)
 begin
 if(clk'EVENT and clk='1') then	
-	if(RampEnable = '0' or RFONState_Delay = '1' or FIM_ITCK_Delay = '1') then
+	if(RampEnable = '0' or RFONState_Delay = '0' or FIM_ITCK_Delay = '1') then -- when interlock detected or Tx not ready, set ramping values to minimum
 			AmpRefOld_ramp <= AmpRampInit;
 			PhRefOld_ramp <= PhRampInit;
 			AmpTopRamp <= AmpRampInit;

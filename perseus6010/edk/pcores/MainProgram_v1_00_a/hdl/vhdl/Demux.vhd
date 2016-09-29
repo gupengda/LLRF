@@ -45,12 +45,12 @@ BEGIN
 --		IMux1 <= IMux;
 --		IMux2 <= IMux1;
 --		IMux3 <= IMux2;
-		
+--		
 --		IOut <= IMux + IMux1 + IMux2 + IMux3; 
---		IOut <= IMux + IMux1 + IMux2 + IMux3; 
+--		QOut <= QMux + QMux1 + QMux2 + QMux3; 
 
-		IOut <= IMux(13 downto 0)&"00";
-		QOut <= QMux(13 downto 0)&"00";
+		IOut <= IMux;
+		QOut <= QMux;
 		
 	end if;
 	end process;

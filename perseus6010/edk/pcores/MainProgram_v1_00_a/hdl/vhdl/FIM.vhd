@@ -471,6 +471,7 @@ begin
 		InterlocksDisplay4 <= (others => '0');
 		InterlocksDisplay5 <= (others => '0');
 		InterlocksDisplay6 <= (others => '0');
+		InterlocksDisplay7 <= (others => '0');
 		timestamp1 <= (others => '0');
 		timestamp2 <= (others => '0');
 		timestamp3 <= (others => '0');

@@ -192,7 +192,7 @@ if(clk'EVENT and clk = '1') then
 		AmpRampInit_latch_signal <= AmpRampInit;
 		PhRampInit_latch_signal <= PhRampInit;
 		
-		if(RFONState_Delay = '1' or Fim_Itck_delay = '1') then -- or SpareDI1 = '0') then			
+		if(RFONState_Delay = '0' or Fim_Itck_delay = '1') then -- or SpareDI1 = '0') then			
 			IntLimitLatch_signal <= IntLimitInit;	
 			TuningEnableLatch_signal <= '0';
 			FFEnableLatch_signal <= '0';
@@ -223,7 +223,7 @@ if(clk'EVENT and clk = '1') then
 		end if;
 	
 	
-	elsif(RFONState_Delay = '1' or Fim_Itck_delay = '1') then
+	elsif(RFONState_Delay = '0' or Fim_Itck_delay = '1') then
 		StateStart_signal <= "00000";
 		LoopEnableLatch_signal <= '0';
 		TuningEnableLatch_signal <= '0';
@@ -254,10 +254,10 @@ if(clk'EVENT and clk = '1') then
 		QLoopClosed_signal <= '0';
 		AmpLoopClosed_signal <= '0';
 		PhLoopClosed_signal <= '0';
-		AmpRampInit_latch <= AmpRampInit;
-		PhRAmpInit_latch <= PhRampInit;
-		AmpRampEnd_latch <= AmpRAmpInit;
-		PhRampEnd_latch <= PhRampInit;
+		AmpRampInit_latch_signal <= AmpRampInit;
+		PhRAmpInit_latch_signal <= PhRampInit;
+		AmpRampEnd_latch_signal <= AmpRAmpInit;
+		PhRampEnd_latch_signal <= PhRampInit;
 		counterRef <= (others => '0');
 		SpareDO1 <= '0';
 		
