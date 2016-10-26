@@ -206,7 +206,7 @@ end Averages;
 architecture Behavioral of Averages is
 
 -- signals declaration
-signal counteraverage : std_logic_vector (15 downto 0);
+signal counteraverage : std_logic_vector (11 downto 0);
 signal average_update : std_logic;
 signal accum_enable : std_logic;
 
@@ -273,7 +273,7 @@ begin
 			accum_enable <= '0';
 		end if;
 		
-		if(counteraverage = X"FFFF" and accum_enable = '1') then
+		if(counteraverage = X"FFF" and accum_enable = '1') then
 			average_update <= '1';
 		else
 			average_update <= '0';

@@ -642,8 +642,8 @@ BEGIN lyt_axi_perseus6010_regs
  PORT ov32_CustomReg22_p = 0x000 & 0b000 & i_v17_reg_data3_B_s
 # # FPGA Version Code
 # # 2016 07 28 - 00 - Loops Version 00 - DLS LLRF NC, SC and Booster
-# # 2016 09 29 - 00 - General debugging of LLRF with DLS people - V12
- PORT iv32_CustomReg31_p = 0x782B22E5
+# # 2016 10 25 - 00 - General debugging of LLRF with DLS people - V13
+ PORT iv32_CustomReg31_p = 0x782B4864
 END
 
 # ###

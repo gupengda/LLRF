@@ -126,7 +126,7 @@ signal AmpRefOld_ramp : std_logic_vector (15 downto 0):= (others => '0');
 signal PhRefOld_ramp : std_logic_vector (15 downto 0):= (others => '0');
 signal AmpTopRamp : std_logic_vector (15 downto 0):= (others => '0');
 
-signal counterramp : std_logic_vector (24 downto 0):= (others => '0');
+signal counterramp : std_logic_vector (27 downto 0):= (others => '0');
 signal OffsetTopRamp : std_logic := '0'; 
 
 signal t1r : std_logic_vector (25 downto 0):= (others => '0');
@@ -160,6 +160,9 @@ signal EnableTrgCounter : std_logic := '0';
 
 signal VoltIncRate_latch, PhIncRate_latch : std_logic_vector (2 downto 0) := (others => '0');
 
+signal PhDiffOLd_End : std_logic_vector (15 downto 0);
+signal PhDiffOLd_Init : std_logic_vector (15 downto 0);
+
 
 -----
 
@@ -183,7 +186,9 @@ if(clk'EVENT and clk = '1') then
 		Trg3HzInL4 <= Trg3HzInL3;
 		Trg3HzInL5 <= Trg3HzInL4;				
 	
-		if (counterrampingLatch > X"2625A00" or EnableTrgCounter = '0') then -- if time after trigger is bigger than 0.5s and no trigger has been risen yet
+		if (EnableTrgCounter = '0') then -- if no trigger has been risen yet
+			TRG3HzDiag <= '0';
+		elsif (counterrampingLatch > X"2625A00") then -- if time after trigger is bigger than 0.5s and no trigger has been risen yet
 			TRG3HzDiag <= '0';
 		else
 			TRG3HzDiag <= '1';
@@ -333,7 +338,7 @@ begin
 --		AmpRefRamp_out <= AmpRefRamp;
 --		PhRefRamp_out <= PhRefRamp;
 			
-		if(RFONState_Delay = '0' or FIM_Itck_delay = '1') then	 -- when Tx NOT ready or Fast interlock detected, set RF Drive to minimum		
+		if(RFONState_Delay = '0' or FIM_Itck_delay = '1') then			
 			AmpRefOld <= AmpRefMin;
 			PhRefOld <= PhRefMin;
 			AmpRefNew <= AmpRefMin;
@@ -407,7 +412,7 @@ end process;
 ramping : process(clk)
 begin
 if(clk'EVENT and clk='1') then	
-	if(RampEnable = '0' or RFONState_Delay = '0' or FIM_ITCK_Delay = '1') then -- when interlock detected or Tx not ready, set ramping values to minimum
+	if(RampEnable = '0' or RFONState_Delay = '0' or FIM_ITCK_Delay = '1') then
 			AmpRefOld_ramp <= AmpRampInit;
 			PhRefOld_ramp <= PhRampInit;
 			AmpTopRamp <= AmpRampInit;
@@ -418,7 +423,7 @@ if(clk'EVENT and clk='1') then
 			TopRamp <= '0';
 	else		
 			
-		if(counterramp = RampIncRate&X"00"&'0') then 
+		if(counterramp = RampIncRate&X"000") then 
 			counterramp <= (others => '0');
 			OffsetTopRamp <= '1'; 
 		else
@@ -464,9 +469,10 @@ if(clk'EVENT and clk='1') then
 		elsif(counterramping <t2r) then
 			counterramping <= counterramping + 1;
 			AmpRefOld_ramp <= AmpRefOld_ramp + AmpRampUpOffset;
-			if(PhRefOld_ramp < PhRampEnd) then
+			PhDiffOLd_End <= PhRefOld_ramp - PhRampEnd;
+			if(PhDiffOLd_End < X"0000") then
 				PhRefOld_ramp <= PhRefOld_ramp + PhRampUpOffset;
-			elsif(PhRefOld_ramp > PhRampEnd) then
+			elsif(PhDiffOLd_End > X"0000") then
 				PhRefOld_ramp <= PhRefOld_ramp - PhRampUpOffset;
 			end if;				
 			BottomRamp <= '0';
@@ -484,9 +490,10 @@ if(clk'EVENT and clk='1') then
 		elsif(counterramping <t4r) then
 			counterramping <= counterramping + 1;
 			AmpRefOld_ramp <= AmpRefOld_ramp - AmpRampDwOffset;
-			if(PhRefOld_ramp < PhRampInit) then
+			PhDiffOLd_Init <= PhRefOld_ramp - PhRampInit;
+			if(PhDiffOLd_Init < X"0000") then
 				PhRefOld_ramp <= PhRefOld_ramp + PhRampDwOffset;
-			elsif(PhRefOld_ramp > PhRampInit) then
+			elsif(PhDiffOLd_Init > X"0000") then
 				PhRefOld_ramp <= PhRefOld_ramp - PhRampDwOffset;
 			end if;	
 			BottomRamp <= '0';

@@ -2830,50 +2830,50 @@ BEGIN
 		
 		
 		-- Ramping Diagnostics Signals - only for Booster			
-		when X"0492" =>	reg_data3_out_LSB <= ICell3Top;
-		when X"0493" =>	reg_data3_out_LSB <= QCell3Top;
-		when X"0494" =>	reg_data3_out_LSB <= ICell2Top;
-		when X"0495" =>	reg_data3_out_LSB <= QCell2Top;
-		when X"0496" =>	reg_data3_out_LSB <= ICell4Top;
-		when X"0497" =>	reg_data3_out_LSB <= QCell4Top;
-		when X"0498" =>	reg_data3_out_LSB <= IFwIOT1Top;
-		when X"0499" =>	reg_data3_out_LSB <= QFwIOT1Top;
-		when X"049A" =>	reg_data3_out_LSB <= IRvIOT1Top;
-		when X"049B" =>	reg_data3_out_LSB <= QRvIOT1Top;
-		when X"049C" =>	reg_data3_out_LSB <= IRvCavTop;
-		when X"049D" =>	reg_data3_out_LSB <= QRvCavTop;
-		when X"049E" =>	reg_data3_out_LSB <= TuningDephaseTop;
-		when X"049F" =>	reg_data3_out_LSB <= FFErrorTop;
-		when X"04A0" =>	reg_data3_out_LSB <= IRefTop;
-		when X"04A1" =>	reg_data3_out_LSB <= QRefTop;
-		when X"04A2" =>	reg_data3_out_LSB <= IcontrolTop;
-		when X"04A3" =>	reg_data3_out_LSB <= QControlTop;
-		when X"04A4" =>	reg_data3_out_LSB <= IErrorTop;
-		when X"04A5" =>	reg_data3_out_LSB <= QErrorTop;	
-		when X"04A6" =>	reg_data3_out_LSB <= ICell3Bottom;
-		when X"04A7" =>	reg_data3_out_LSB <= QCell3Bottom;
-		when X"04A8" =>	reg_data3_out_LSB <= ICell2Bottom;
-		when X"04A9" =>	reg_data3_out_LSB <= QCell2Bottom;
-		when X"04AA" =>	reg_data3_out_LSB <= ICell4Bottom;
-		when X"04AB" =>	reg_data3_out_LSB <= QCell4Bottom;
-		when X"04AC" =>	reg_data3_out_LSB <= IFwIOT1Bottom;
-		when X"04AD" =>	reg_data3_out_LSB <= QFwIOT1Bottom;
-		when X"04AE" =>	reg_data3_out_LSB <= IRvIOT1Bottom;
-		when X"04AF" =>	reg_data3_out_LSB <= QRvIOT1Bottom;
-		when X"04B0" =>	reg_data3_out_LSB <= IRvCavBottom;
-		when X"04B1" =>	reg_data3_out_LSB <= QRvCavBottom;
-		when X"04B2" =>	reg_data3_out_LSB <= TuningDephaseBottom;
-		when X"04B3" =>	reg_data3_out_LSB <= FFErrorBottom;
-		when X"04B4" =>	reg_data3_out_LSB <= IRefBottom;
-		when X"04B5" =>	reg_data3_out_LSB <= QRefBottom;
-		when X"04B6" =>	reg_data3_out_LSB <= IcontrolBottom;
-		when X"04B7" =>	reg_data3_out_LSB <= QControlBottom;
-		when X"04B8" =>	reg_data3_out_LSB <= IErrorBottom;
-		when X"04B9" =>	reg_data3_out_LSB <= QErrorBottom;	
-		when X"04BA" =>	reg_data3_out_LSB <= IFwCavTop;	
-		when X"04BB" =>	reg_data3_out_LSB <= QFwCavTop;	
-		when X"04BC" =>	reg_data3_out_LSB <= IFwCavBottom;	
-		when X"04BD" =>	reg_data3_out_LSB <= QFwCavBottom;	 		
+--		when X"0492" =>	reg_data3_out_LSB <= ICell3Top;
+--		when X"0493" =>	reg_data3_out_LSB <= QCell3Top;
+--		when X"0494" =>	reg_data3_out_LSB <= ICell2Top;
+--		when X"0495" =>	reg_data3_out_LSB <= QCell2Top;
+--		when X"0496" =>	reg_data3_out_LSB <= ICell4Top;
+--		when X"0497" =>	reg_data3_out_LSB <= QCell4Top;
+--		when X"0498" =>	reg_data3_out_LSB <= IFwIOT1Top;
+--		when X"0499" =>	reg_data3_out_LSB <= QFwIOT1Top;
+--		when X"049A" =>	reg_data3_out_LSB <= IRvIOT1Top;
+--		when X"049B" =>	reg_data3_out_LSB <= QRvIOT1Top;
+--		when X"049C" =>	reg_data3_out_LSB <= IRvCavTop;
+--		when X"049D" =>	reg_data3_out_LSB <= QRvCavTop;
+--		when X"049E" =>	reg_data3_out_LSB <= TuningDephaseTop;
+--		when X"049F" =>	reg_data3_out_LSB <= FFErrorTop;
+--		when X"04A0" =>	reg_data3_out_LSB <= IRefTop;
+--		when X"04A1" =>	reg_data3_out_LSB <= QRefTop;
+--		when X"04A2" =>	reg_data3_out_LSB <= IcontrolTop;
+--		when X"04A3" =>	reg_data3_out_LSB <= QControlTop;
+--		when X"04A4" =>	reg_data3_out_LSB <= IErrorTop;
+--		when X"04A5" =>	reg_data3_out_LSB <= QErrorTop;	
+--		when X"04A6" =>	reg_data3_out_LSB <= ICell3Bottom;
+--		when X"04A7" =>	reg_data3_out_LSB <= QCell3Bottom;
+--		when X"04A8" =>	reg_data3_out_LSB <= ICell2Bottom;
+--		when X"04A9" =>	reg_data3_out_LSB <= QCell2Bottom;
+--		when X"04AA" =>	reg_data3_out_LSB <= ICell4Bottom;
+--		when X"04AB" =>	reg_data3_out_LSB <= QCell4Bottom;
+--		when X"04AC" =>	reg_data3_out_LSB <= IFwIOT1Bottom;
+--		when X"04AD" =>	reg_data3_out_LSB <= QFwIOT1Bottom;
+--		when X"04AE" =>	reg_data3_out_LSB <= IRvIOT1Bottom;
+--		when X"04AF" =>	reg_data3_out_LSB <= QRvIOT1Bottom;
+--		when X"04B0" =>	reg_data3_out_LSB <= IRvCavBottom;
+--		when X"04B1" =>	reg_data3_out_LSB <= QRvCavBottom;
+--		when X"04B2" =>	reg_data3_out_LSB <= TuningDephaseBottom;
+--		when X"04B3" =>	reg_data3_out_LSB <= FFErrorBottom;
+--		when X"04B4" =>	reg_data3_out_LSB <= IRefBottom;
+--		when X"04B5" =>	reg_data3_out_LSB <= QRefBottom;
+--		when X"04B6" =>	reg_data3_out_LSB <= IcontrolBottom;
+--		when X"04B7" =>	reg_data3_out_LSB <= QControlBottom;
+--		when X"04B8" =>	reg_data3_out_LSB <= IErrorBottom;
+--		when X"04B9" =>	reg_data3_out_LSB <= QErrorBottom;	
+--		when X"04BA" =>	reg_data3_out_LSB <= IFwCavTop;	
+--		when X"04BB" =>	reg_data3_out_LSB <= QFwCavTop;	
+--		when X"04BC" =>	reg_data3_out_LSB <= IFwCavBottom;	
+--		when X"04BD" =>	reg_data3_out_LSB <= QFwCavBottom;	 		
 		
 		
 		--Signals not latched and not filtered		
@@ -3547,10 +3547,10 @@ begin
 			FIM_ITCK_delay <= '1';-- DACs Disable signal coming from FIM component
 		end if;
 		
-		if(RFONState = '1') then -- when Tx Ready for operation, RFONState = 1
+		if(RFONState = '1') then
 			RFONState_counter <= (others => '0');
 			RFONState_Delay <= '1';
-		elsif (RFONState = '0' and RFONState_counter < X"E4E1C00") then -- wait for 3 seconds before disabling loops
+		elsif (RFONState = '1' and RFONState_counter < X"E4E1C00") then -- wait for 3 seconds before disabling loops
 			RFONState_counter <= RFONState_counter + 1;
 			RFONState_Delay <= '1';
 		else

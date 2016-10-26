@@ -97,7 +97,7 @@ signal CounterPulse : std_logic_vector (23 downto 0);
 signal CounterPulse2 : std_logic_vector (23 downto 0);
 signal CountTTL : std_logic_vector (23 downto 0);
 signal State : std_logic_vector (1 downto 0);
-signal NumSteps_latch : std_logic_vector (15 downto 0);
+signal NumSteps_latch,NumSteps_latch1,NumSteps_latch2 : std_logic_vector (15 downto 0);
 signal CounterTuning : std_logic_vector (15 downto 0);
 signal CounterTuning2 : std_logic_vector (15 downto 0);
 
@@ -253,7 +253,19 @@ ManualTuning : process(clk)
 begin
 	if (clk'EVENT and clk = '1') then		
 		if(TuningReset = '1') then 
-			NumSteps_latch <= NumSteps;
+		
+			if(MovePLG1 = '1') then
+				NumSteps_latch1 <= NumSteps;
+			else			
+				NumSteps_latch1 <= (others => '0');
+			end if;
+			
+			if(MovePLG2 = '1') then
+				NumSteps_latch2 <= NumSteps;
+			else
+				NumSteps_latch2 <= (others => '0');				
+			end if;
+			
 			CounterTuning <= (others => '0');
 			CounterTuning2 <= (others => '0');
 			CounterPulse <= (others => '0');
@@ -269,9 +281,9 @@ begin
 			PlungerMoving_Auto <= (ForwardMin and TuningOnDelay and TuningEnable) or (ForwardMin and FFOn and FFEnable and (not(TuningOnDelay)));
 			PlungerMoving_Manual1 <= '0';
 			PlungerMoving_Manual2 <= '0';
-		elsif(CounterTuning < NumSteps_latch or CounterTuning2 < NumSteps_latch) then -- X"B2D05E00" = 50e6*60 --> number of clocks per minute; X"2FAF080" = 50e6 --> number of clocks per second (50MHz)			
+		elsif(CounterTuning < NumSteps_latch1 or CounterTuning2 < NumSteps_latch2) then -- X"B2D05E00" = 50e6*60 --> number of clocks per minute; X"2FAF080" = 50e6 --> number of clocks per second (50MHz)			
 			PlungerMoving_Auto <= '0'; 
-			if(CounterTuning < NumSteps_latch and MovePLG1 = '1') then
+			if(CounterTuning < NumSteps_latch1 and MovePLG1 = '1') then
 				PlungerMoving_Manual1 <= '1';
 				if(CounterPulse < NumCLK1_2) then
 					TTL2 <= '1';
@@ -291,7 +303,7 @@ begin
 				TTL2 <= '0';
 			end if;
 			
-			if(CounterTuning2 < NumSteps_latch and MovePLG2 = '1') then
+			if(CounterTuning2 < NumSteps_latch2 and MovePLG2 = '1') then
 				PlungerMoving_Manual2 <= '1';
 				if(CounterPulse2 < NumCLK1_2) then
 					TTL4 <= '1';
@@ -412,7 +424,7 @@ if (clk'EVENT and clk =  '1')then
 	if(TuningTriggerEnable(0) = '1') then
 		TuningTrigger_out <= TuningTrigger;
 	else
-		TuningTrigger_out <= '1';
+		TuningTrigger_out <= '0';
 	end if;
 	
 	

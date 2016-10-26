@@ -27,7 +27,7 @@ BEGIN
 	if (clk'EVENT and clk = '1') then
 		a_latch <= a;		
 		if(average_update = '1') then
-			accum1 <= accum2(31 downto 16);
+			accum1 <= accum2(27 downto 12);
 			accum2 <= (others => '0');
 		elsif(accum_enable = '1') then
 			accum2 <= accum2 + a_latch;			
