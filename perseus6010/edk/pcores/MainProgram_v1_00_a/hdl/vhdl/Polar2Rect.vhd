@@ -85,6 +85,8 @@ entity Polar2Rect is
 			  cos_phsh_control3 : out std_logic_vector (15 downto 0);
 			  sin_phsh_control4 : out std_logic_vector (15 downto 0);
 			  cos_phsh_control4 : out std_logic_vector (15 downto 0);
+			  I_DACsIF_out : out std_logic_vector (15 downto 0);
+			  Q_DACsIF_out : out std_logic_vector (15 downto 0);
 			  IControl_Polar : out std_logic_vector (15 downto 0);
 			  QControl_Polar : out std_logic_vector (15 downto 0)
 			  );
@@ -95,7 +97,7 @@ architecture Behavioral of Polar2Rect is
 -- signals declaration
 
 signal id_in_sig : std_logic_vector (4 downto 0):= (others => '0');
-signal id_out_sig : std_logic_vector (4 downto 0):= (others => '0');
+signal id_out_sig, id_out_sig_ctrl : std_logic_vector (4 downto 0):= (others => '0');
 signal I_out_sig : std_logic_vector (15 downto 0):= (others => '0');
 signal Q_out_sig : std_logic_vector (15 downto 0):= (others => '0');
 signal Amp_in_sig : std_logic_vector (15 downto 0):= (others => '0');
@@ -251,8 +253,8 @@ if (clk'EVENT and clk = '1') then
 							Amp_in_sig <= GainControl4_sig;
 							Ph_in_sig <= PhShDACsIOT4_sig;
 		when others => id_in_sig <= "00001";
-							Amp_in_sig <= AmpLoop_ControlOutput;
-							Ph_in_sig <= PhLoop_ControlOutput;
+							Amp_in_sig <= X"4DB8";
+							Ph_in_sig <= PhCorrectionControl;
 	end case;
 	
 	case id_out_sig is
@@ -280,8 +282,8 @@ if (clk'EVENT and clk = '1') then
 							sin_phsh_control3 <= Q_out_sig;
 		when "10110" => cos_phsh_control4 <= I_out_sig;
 							sin_phsh_control4 <= Q_out_sig;
-		when others => IControl_Polar <= I_out_sig;
-							QControl_Polar <= Q_out_sig;
+		when others => I_DACsIF_out <= I_out_sig;
+							Q_DACsIF_out <= Q_out_sig;
 	end case;
 	
 end if;
@@ -295,6 +297,16 @@ C_P2R : component CordicPolar2Rect
 				Q_out => Q_out_sig,
 				id_in => id_in_sig,
 				id_out => Id_out_sig);
+
+
+Control_P2R : component CordicPolar2Rect
+	port map( Amp_In => AmpLoop_ControlOutput,
+				Ph_In => PhLoop_ControlOutput,
+				clk => clk,
+				I_Out => IControl_Polar,
+				Q_out => QControl_Polar,
+				id_in => "00001",
+				id_out => Id_out_sig_ctrl);
 
 
 end Behavioral;

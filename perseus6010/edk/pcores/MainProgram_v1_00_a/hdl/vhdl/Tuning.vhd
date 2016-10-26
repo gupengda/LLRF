@@ -84,7 +84,9 @@ entity Tuning is
 			  TuningDephase80HzLPFEnable : in std_logic;
 			  TuningTrigger_out : out std_logic;
 			  TuningTriggerEnable : in std_logic_vector(1 downto 0);
-			  TuningInput_out : out std_logic_vector (15 downto 0));
+			  TuningInput_out : out std_logic_vector (15 downto 0);
+			  
+			  TunFFOnTopEnable : in std_logic);
 end Tuning;
 
 architecture Behavioral of Tuning is
@@ -147,6 +149,7 @@ signal AmpCell4FF_sig : std_logic_vector (31 downto 0);
 signal FFMargin_sig : std_logic_vector (24 downto 0);
 
 signal StateFF : std_logic_vector (1 downto 0);
+signal TuningOn_sig : std_logic;
 
 
 -- Components declaration
@@ -430,17 +433,27 @@ if (clk'EVENT and clk =  '1')then
 	
 	if(TuningInput > MarginUp ) then 
 		State <= "00";
-		TuningOn <= '1';
+		TuningOn_sig <= '1';
 	elsif(TuningInput < NotMarginUp) then 
 		State <= "11";
-		TuningOn <= '1';
+		TuningOn_sig <= '1';
 	elsif(State = "00" and TuningInput < NotMarginLow) then
 		State <= "01";
-		TuningOn <= '0';
+		TuningOn_sig <= '0';
 	elsif(State = "11" and TuningInput > MarginLow) then 
 		State <= "10";
+		TuningOn_sig <= '0';
+	end if;
+	
+	if(RampEnableLatch = '0' or TunFFOnTopEnable = '0') then -- if ramping not enable or pulses always active
+		TuningOn <= TuningOn_sig;		
+	elsif (TopRamp ='1') then -- if ramping enable and pulses enable only on top, tuning loop only active at top of the ramp
+		TuningOn <= TuningOn_sig;
+	else
 		TuningOn <= '0';
 	end if;
+	
+	
 		TuningOn_out <= TuningOn;
 
 end if;
@@ -485,7 +498,7 @@ if (clk'EVENT and clk =  '1')then
 	
 	StateFF_out  <= StateFF;
 	
-	if(RampEnableLatch = '0') then -- if ramping not enable, FF loop active always
+	if(RampEnableLatch = '0' or TunFFOnTopEnable = '0') then -- if ramping not enable, FF loop active always
 		FFOn <= FFOn_sig;		
 	elsif (TopRamp ='1') then -- if ramping enable, FF loop only active at top of the ramp
 		FFOn <= FFOn_sig;

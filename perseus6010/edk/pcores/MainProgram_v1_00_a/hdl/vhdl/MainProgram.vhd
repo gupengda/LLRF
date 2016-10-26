@@ -250,10 +250,13 @@ ARCHITECTURE MainProgram_arc OF MainProgram is
 	signal	MovePLG1					 : std_logic;
 	signal	MoveUp2				 : std_logic;	
 	signal	MovePLG2					 : std_logic;
+	signal	TunFFOnTopEnable		 : std_logic;
 	signal	CLKperPulse			 : std_logic_vector (2 downto 0);	
 	signal	DACsPhaseShiftEnable  : std_logic;					
 	signal	TunPosEnable		 : std_logic;			
 	signal	PhaseOffset			 : std_logic_vector (15 downto 0);	
+	
+	
 	signal	sin_phsh_control1			 : std_logic_vector (15 downto 0);	
 	signal	cos_phsh_control1			 : std_logic_vector (15 downto 0);
 	signal	sin_phsh_control2			 : std_logic_vector (15 downto 0);
@@ -429,6 +432,7 @@ ARCHITECTURE MainProgram_arc OF MainProgram is
 	
 	signal PhCorrectionControl, PhCorrectionControlMean, PhCorrectionControlL : std_logic_vector (15 downto 0);
 	signal PhCorrectionControl_32b : std_logic_vector (31 downto 0);
+	signal Q_DACsIF_Out, I_DACsIF_Out : std_logic_vector (15 downto 0);
 	signal PhCorrection_Error, PhCorrection_ErrorMean, PhCorrection_ErrorL : std_logic_vector (15 downto 0);
 	signal PhaseCorrection_sig : std_logic_vector (15 downto 0);
 	signal AmpSpare1 : std_logic_vector (16 downto 0);
@@ -522,7 +526,8 @@ ARCHITECTURE MainProgram_arc OF MainProgram is
 	signal TTL3 : std_logic;
 	signal TTL4 : std_logic;
 	
-	signal FwMin : std_logic_vector (15 downto 0);
+	signal FwMin_Tuning : std_logic_vector (15 downto 0);
+	signal FwMin_AmpPh : std_logic_vector (15 downto 0);
 	
 	signal MarginUp : std_logic_vector (15 downto 0);
 	signal MarginLow : std_logic_vector (15 downto 0);
@@ -1173,6 +1178,8 @@ ARCHITECTURE MainProgram_arc OF MainProgram is
 			  cos_phsh_control3 : out std_logic_vector (15 downto 0);
 			  sin_phsh_control4 : out std_logic_vector (15 downto 0);
 			  cos_phsh_control4 : out std_logic_vector (15 downto 0);
+			  I_DACsIF_out : out std_logic_vector (15 downto 0);
+			  Q_DACsIF_out : out std_logic_vector (15 downto 0);
 			  IControl_Polar : out std_logic_vector (15 downto 0);
 			  QControl_Polar : out std_logic_vector (15 downto 0)
 			  );
@@ -1736,7 +1743,8 @@ end component Reference;
 			  TuningDephase80HzLPFEnable : in std_logic;
 			  TuningTrigger_out : out std_logic;
 			  TuningTriggerEnable : in std_logic_vector(1 downto 0);
-			  TuningInput_out : out std_logic_vector (15 downto 0));
+			  TuningInput_out : out std_logic_vector (15 downto 0);			  
+			  TunFFOnTopEnable : in std_logic);
 	end component Tuning;
 	
 	component PhSh_Controls is
@@ -1763,7 +1771,8 @@ end component Reference;
 	end component PhSh_Controls;
 	
 	component FwMinLoopsEnable is
-    Port ( FwMin : in  STD_LOGIC_VECTOR (15 downto 0);
+    Port ( FwMin_Tuning : in  STD_LOGIC_VECTOR (15 downto 0);
+			  FwMin_AmpPh : in  STD_LOGIC_VECTOR (15 downto 0);
            clk : in  STD_LOGIC;
            LoopsIn_SlowI : in  STD_LOGIC_VECTOR (15 downto 0);
            LoopsIn_SlowQ : in  STD_LOGIC_VECTOR (15 downto 0);
@@ -1945,6 +1954,7 @@ BEGIN
 		when X"00F4" => PhLoop_kp <= reg_data1_in_data_enables; -- Ki constant of Phase loop
 		when X"00F6" => PhLoop_ki <= reg_data1_in_data_enables; -- Ki constant of Phase loop
 		when X"00F8" => IntLimit_FastPI <= reg_data1_in_data_enables; -- Ki constant of Phase loop
+		when X"00FA" => FwMin_AmpPh <= reg_data1_in_data_enables; -- Threshold to enable amplitude and phase loops (polar and/or rect)
 		
 		--Conditioning (pulse mode)
 		when X"0190" => Conditioning <= reg_data1_in_data_cond(0); -- Pulse Mode Enable 
@@ -1960,7 +1970,7 @@ BEGIN
 		when X"0262" => MovePLG1 <= reg_data1_in_data_tuning(0); -- Manual tuning enable (PLG1)
 		when X"0264" => MoveUp1 <= reg_data1_in_data_tuning(0); -- Manual tuning direction
 		when X"0266" => TuningReset <= reg_data1_in_data_tuning(0); -- Counter pulses of manual tuning reset
-		when X"0268" => FwMin <= reg_data1_in_data_tuning; -- Minimum forward power to enable the tuning
+		when X"0268" => FwMin_Tuning <= reg_data1_in_data_tuning; -- Minimum forward power to enable the tuning
 		when X"026A" => MarginUp <= reg_data1_in_data_tuning; -- High margin of tuning loop deadband
 		when X"026C" => MarginLow <= reg_data1_in_data_tuning; -- Low margin of tuning loop deadband
 		when X"026E" => CounterTuningDelaySetting <= reg_data1_in_data_tuning; -- Period of time to disable the tuning loops after they have reached equilibrium to avoid ringing
@@ -1968,6 +1978,7 @@ BEGIN
 		when X"0272" => tuningTriggerEnable <= reg_data1_in_data_tuning(1 downto 0); -- FDL Tuning trigger:  [bit 0: 0 --> TuningOn trigger disabled; 1 --> tuningOn trigger Enabled. Bit 1: 0 --> TriggerOn on FALLING Edge; 1 --> TriggerOn on RISING EDGE]
 		when X"0274" => MovePLG2 <= reg_data1_in_data_tuning(0); -- Manual tuning enable (PLG2)
 		when X"0276" => MoveUp2 <= reg_data1_in_data_tuning(0); -- Manual tuning direction (PLG2)
+		when X"0278" => TunFFOnTopEnable <= reg_data1_in_data_tuning(0); -- Tuning and FF pulses only on top of the ramp
 		
 		--Field Flatness -- Only for Booster Configuration
 		when X"02BC" => FFEnable <= reg_data1_in_data_tuning(0); -- Field Flatness Enable
@@ -2141,6 +2152,7 @@ BEGIN
 		when X"007A" => reg_data2_output <= PhLoop_kp;-- Kp constant of Phase loop
 		when X"007B" => reg_data2_output <= PhLoop_ki;-- Ki constant of Phase loop
 		when X"007C" => reg_data2_output <= IntLimit_FastPI;-- Integral Limit of Fast PI - IQ
+		when X"007D" => reg_data2_output <= FwMin_AmpPh;-- Threshold to enable amp & ph loops (polar and/or rect)
 	
 		--Conditioning
 		when X"00C8" => reg_data2_output(15 downto 0) <= X"000"&"000"&Conditioning;
@@ -2157,7 +2169,7 @@ BEGIN
 		when X"0131" => reg_data2_output(15 downto 0) <= X"000"&"000"&MovePLG1;
 		when X"0132" => reg_data2_output(15 downto 0) <= X"000"&"000"&MoveUp1;
 		when X"0133" => reg_data2_output(15 downto 0) <= X"000"&"000"&TuningReset;
-		when X"0134" => reg_data2_output(15 downto 0) <= FwMin;
+		when X"0134" => reg_data2_output(15 downto 0) <= FwMin_Tuning;
 		when X"0135" => reg_data2_output(15 downto 0) <= MarginUp;
 		when X"0136" => reg_data2_output(15 downto 0) <= MarginLow;
 		when X"0137" => reg_data2_output(15 downto 0) <= CounterTuningDelaySetting;  -- Period of time to disable the tuning loops after they have reached equilibrium to avoid ringing
@@ -2165,6 +2177,7 @@ BEGIN
 		when X"0139" => reg_data2_output(15 downto 0) <= X"000"&"00"&tuningTriggerEnable; -- FDL Tuning trigger:  [bit 0: 0 --> TuningOn trigger disabled; 1 --> tuningOn trigger Enabled. Bit 1: 0 --> TriggerOn on FALLING Edge; 1 --> TriggerOn on RISING EDGE]
 		when X"013A" => reg_data2_output(15 downto 0) <= X"000"&"000"&MovePLG2;-- Manual tuning enable (PLG2)
 		when X"013B" => reg_data2_output(15 downto 0) <= X"000"&"000"&MoveUp2; -- manul tuning direction (PLG2)
+		when X"013C" => reg_data2_output(15 downto 0) <= X"000"&"000"&TunFFOnTopEnable; -- Tuning and FF Pulses only on top of Ramp
 		
 		--Field Flatness -- Only for Booster Configuration
 		when X"015E" => reg_data2_output(15 downto 0) <= X"000"&"000"&FFEnable;
@@ -2486,13 +2499,15 @@ BEGIN
 		when X"005B"  => reg_data3_out_LSB <= IMuxDACsIF;			
 		when X"005C"  => reg_data3_out_LSB <= QMuxDACsIF;			
 		when X"005D"  => reg_data3_out_LSB <= AmpDACsIF;			
-		when X"005E"  => reg_data3_out_LSB <= PhDACsIF;			
+		when X"005E"  => reg_data3_out_LSB <= PhDACsIF;		
 		
+		when X"005F"  => reg_data3_out_LSB <= I_DACsIF_out;			
+		when X"0060"  => reg_data3_out_LSB <= Q_DACsIF_out;		
 		
 		                                
-		when X"0060"	=> reg_data3_out_LSB <= X"000"&"000"&VCXO_Powered;
-		when X"0061"	=> reg_data3_out_LSB <= X"000"&"000"&VCXO_Ref;
-		when X"0062"	=> reg_data3_out_LSB <= X"000"&"000"&VCXO_Locked;
+		when X"0061"	=> reg_data3_out_LSB <= X"000"&"000"&VCXO_Powered;
+		when X"0062"	=> reg_data3_out_LSB <= X"000"&"000"&VCXO_Ref;
+		when X"0063"	=> reg_data3_out_LSB <= X"000"&"000"&VCXO_Locked;
 		
 		-- Polar Loops diagnostics		
 		when X"0064"	=> reg_data3_out_LSB <= IPolarAmpLoopL;							
@@ -2608,10 +2623,10 @@ BEGIN
                                         
 		
 		-- Tuning Loops Signals		
-		when X"012B"	=> reg_data3_out_LSB <= X"000"&"000"&TuningOn; 							-- TuningDephase out of tuning deadband margins
-		when X"012C"	=> reg_data3_out_LSB <= X"000"&"000"&PlungerMovingAuto; 				-- Cavity out of tune
-		when X"012D"	=> reg_data3_out_LSB <= X"000"&"000"&TTL1;								-- Cavity resonance frequency increasing due to automatic tuning
-		when X"012E"	=> reg_data3_out_LSB <= X"000"&"000"&PlungerMovingManual1;			-- Plunger being moved manually
+		when X"012B"	=> reg_data3_out_LSB <= X"000"&"000"&TuningOn; 													-- TuningDephase out of tuning deadband margins
+		when X"012C"	=> reg_data3_out_LSB <= X"000"&"000"&(not(TTL1) and PlungerMovingAuto); 				-- Cavity out of tune
+		when X"012D"	=> reg_data3_out_LSB <= X"000"&"000"&(TTL1 and PlungerMovingAuto);						-- Cavity resonance frequency increasing due to automatic tuning
+		when X"012E"	=> reg_data3_out_LSB <= X"000"&"000"&(not(MoveUp1) and PlungerMovingManual1);			-- Plunger being moved manually
 		when X"012F"	=> reg_data3_out_LSB <= X"000"&"000"&(MoveUp1 and PlungerMovingManual1);					-- Plunger being moved manually in up direction
 		when X"0130"	=> reg_data3_out_LSB <= X"000"&"00"&State;					-- Tuning State: 00 - TuningOn and TuningDephase > Margin Up, 
 																														--   11 - TuningOn and TuningDephase < -MarginUp, 
@@ -2626,10 +2641,10 @@ BEGIN
 		when X"0137"	=> reg_data3_out_LSB <= X"000"&"000"&ForwardMin_Ph;				-- Detected minimum forward power to activate loops
 		
 		when X"0138"	=> reg_data3_out_LSB <= X"000"&"000"&FFOn;								-- Field Flatness loop out of deadband
-		when X"0139"	=> reg_data3_out_LSB <= X"000"&"000"&PlungerMovingAuto2;				-- Cavity out of tune or out of field flatness
-		when X"013A"	=> reg_data3_out_LSB <= X"000"&"000"&TTL3;								-- Plunger 2 being moved up
-		when X"013B"	=> reg_data3_out_LSB <= X"000"&"000"&PlungerMovingManual2;			-- Plunger 2 being manually moved
-		when X"013C"	=> reg_data3_out_LSB <= X"000"&"000"&(MoveUp1 and PlungerMovingManual2);					-- Plunger being moved manually in up direction
+		when X"0139"	=> reg_data3_out_LSB <= X"000"&"000"&(not(TTL3) and PlungerMovingAuto2);		-- Cavity out of tune or out of field flatness - moving down PLG2
+		when X"013A"	=> reg_data3_out_LSB <= X"000"&"000"&(TTL3 and PlungerMovingAuto2);				-- Cavity out of tune or out of field flatness - moving up PLG2
+		when X"013B"	=> reg_data3_out_LSB <= X"000"&"000"&(not(MoveUp2) and PlungerMovingManual2);		-- Plunger 2 being manually moved down
+		when X"013C"	=> reg_data3_out_LSB <= X"000"&"000"&(MoveUp2 and PlungerMovingManual2);			-- Plunger being manually moved up
 		when X"013D"	=> reg_data3_out_LSB <= FFErrorMean;							
 		 when X"013E"	=> reg_data3_out_LSB <= AmpCell2Mean;						
 		 when X"013F"	=> reg_data3_out_LSB <= AmpCell4Mean;							
@@ -2714,6 +2729,7 @@ BEGIN
 		when X"0218" => reg_data3_out_LSB <= TopRampAmp;
 		when X"0219" => reg_data3_out_LSB <= AmpRamp;
 		when X"021A" => reg_data3_out_LSB <= PhRamp;
+		when X"021B" => reg_data3_out_LSB <= X"000"&"000"&TRG3Hz;
 		
 
 		
@@ -3718,6 +3734,8 @@ P2R : component Polar2Rect
 			cos_phsh_control3           => cos_phsh_control3,
 			sin_phsh_control4           => sin_phsh_control4,
 			cos_phsh_control4           => cos_phsh_control4,
+			I_DACsIF_out					 => I_DACsIF_out,
+			Q_DACsIF_out 					 => Q_DACsIF_out,
 			IControl_Polar              => IControl_Polar,
 			QControl_Polar              => QControl_Polar
 			 );		 
@@ -3951,22 +3969,22 @@ begin
 						 Control2Out_sig <= Qcontrol2;
 						 Control3Out_sig <= Qcontrol3;
 						 Control4Out_sig <= Qcontrol4;	
-						 PhaseCorrection_sig <= X"3FFF";						             
+						 PhaseCorrection_sig <= Q_DACsIF_Out;						             
 			when "01" => Control1Out_sig <= IControl1;
 						 Control2Out_sig <= IControl2;
 						 Control3Out_sig <= IControl3;
 						 Control4Out_sig <= IControl4;
-						 PhaseCorrection_sig <= X"0000";							 
+						 PhaseCorrection_sig <= I_DACsIF_Out;							 
 			when "10" => Control1Out_sig <= not(QControl1);
 						 Control2Out_sig <= not(QControl2);
 						 Control3Out_sig <= not(Qcontrol3);
 						 Control4Out_sig <= not(QControl4);	
-						 PhaseCorrection_sig <= X"C001";
+						 PhaseCorrection_sig <= not(Q_DACsIF_Out);
 			when "11" => Control1Out_sig <= not(IControl1);
 						 Control2Out_sig <= not(IControl2);
 						 Control3Out_sig <= not(IControl3);
 						 Control4Out_sig <= not(IControl4);			
-						 PhaseCorrection_sig <= X"0000";	
+						 PhaseCorrection_sig <= not(I_DACsIF_Out);	
 			when others => null;
 		end case;
 		
@@ -4043,11 +4061,13 @@ Port map (
 			TuningDephase80HzLPFEnable => TuningDephase80HzLPFEnable,		
 			TuningTrigger_out 	=> TuningTrigger, 			
 			TuningTriggerEnable 	=> TuningTriggerEnable, 		
-			TuningInput_out 		=> TuningInput);
+			TuningInput_out 		=> TuningInput,
+			TunFFOnTopEnable 		=> TunFFOnTopEnable);
 			
 inst_FwMin : component FwMinLoopsEnable
 	port map (
-			FwMin 			=>  FwMin,
+			FwMin_Tuning 	=>  FwMin_Tuning,
+			FwMin_AmpPh 	=>  FwMin_AmpPh,
 			clk 				=>  clk,
 			LoopsIn_SlowI 	=>  ILoopInput,
 			LoopsIn_SlowQ 	=>  QLoopInput,

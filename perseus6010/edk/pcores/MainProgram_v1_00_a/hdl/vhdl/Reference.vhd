@@ -188,7 +188,7 @@ if(clk'EVENT and clk = '1') then
 	
 		if (EnableTrgCounter = '0') then -- if no trigger has been risen yet
 			TRG3HzDiag <= '0';
-		elsif (counterrampingLatch > X"2625A00") then -- if time after trigger is bigger than 0.5s and no trigger has been risen yet
+		elsif (counterrampingLatch > X"1310000") then -- if time after trigger is bigger than 0.249s and no trigger has been risen yet
 			TRG3HzDiag <= '0';
 		else
 			TRG3HzDiag <= '1';
@@ -201,7 +201,7 @@ if(clk'EVENT and clk = '1') then
 		if(Trg3Hz = '1' and Trg3HzIn = '0') then
 			counterrampingLatch <= counterramping2;
 			counterramping2 <= (others => '0');
-		elsif(counterramping2 < X"7270F00") then
+		elsif(counterramping2 < X"1312D00") then
 			counterramping2 <= counterramping2 + 1;
 		else
 			counterrampingLatch <= counterramping2;

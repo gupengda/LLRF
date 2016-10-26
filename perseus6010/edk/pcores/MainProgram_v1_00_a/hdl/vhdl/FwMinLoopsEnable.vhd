@@ -25,7 +25,8 @@ use ieee.std_logic_signed.all;
 use ieee.numeric_std.all;
 
 entity FwMinLoopsEnable is
-    Port ( FwMin : in  STD_LOGIC_VECTOR (15 downto 0);
+    Port ( FwMin_Tuning : in  STD_LOGIC_VECTOR (15 downto 0);
+			  FwMin_AmpPh : in  STD_LOGIC_VECTOR (15 downto 0);
            clk : in  STD_LOGIC;
            LoopsIn_SlowI : in  STD_LOGIC_VECTOR (15 downto 0);
            LoopsIn_SlowQ : in  STD_LOGIC_VECTOR (15 downto 0);
@@ -62,7 +63,7 @@ ForwardMin_Process : process ( clk)
 begin
 if (clk'EVENT and clk ='1') then
 	
-	if(AmpFwCav > '0'&FwMin) then
+	if(AmpFwCav > '0'&FwMin_Tuning) then
 		ForwardMin_Tuning <= '1';
 		counter_FwMin_Tuning <= (others => '0');
 	elsif(counter_FwMin_Tuning < X"320") then -- wait 10us before disabling tuning loop
@@ -71,7 +72,7 @@ if (clk'EVENT and clk ='1') then
 		ForwardMin_Tuning <= '0';
 	end if;	
 	
-	if(LoopsIn_Amp > FwMin) then
+	if(LoopsIn_Amp > FwMin_AmpPh) then
 		ForwardMin_Amp <= '1';
 		counter_FwMin_Amp <= (others => '0');
 	elsif(counter_FwMin_Amp < X"320") then -- wait 10us before disabling amplitude loop
@@ -80,7 +81,7 @@ if (clk'EVENT and clk ='1') then
 		ForwardMin_Amp <= '0';
 	end if;	
 		
-	if(LoopsIn_Ph > FwMin) then
+	if(LoopsIn_Ph > FwMin_AmpPh) then
 		ForwardMin_Ph <= '1';
 		counter_FwMin_Ph <= (others => '0');
 	elsif(counter_FwMin_Ph < X"320") then -- wait 10us before disabling phase loop
@@ -117,7 +118,7 @@ if (clk'EVENT and clk ='1') then
 	end if;
 		
 	
-	if(LoopsIn_SlowI_sig > FwMin or LoopsIn_SlowQ_sig > FwMin) then
+	if(LoopsIn_SlowI_sig > FwMin_AmpPh or LoopsIn_SlowQ_sig > FwMin_AmpPh) then
 		ForwardMin_SlowIQ <= '1';
 		counter_FwMin_SlowIQ <= (others => '0');
 	elsif(counter_FwMin_SlowIQ < X"320") then -- wait 10us before disabling Slow IQ loop
@@ -126,7 +127,7 @@ if (clk'EVENT and clk ='1') then
 		ForwardMin_SlowIQ <= '0';
 	end if;
 	
-	if(LoopsIn_FastI_sig > FwMin or LoopsIn_FastQ_sig > FwMin) then
+	if(LoopsIn_FastI_sig > FwMin_AmpPh or LoopsIn_FastQ_sig > FwMin_AmpPh) then
 		ForwardMin_FastIQ <= '1';
 		counter_FwMin_FastIQ <= (others => '0');
 	elsif(counter_FwMin_FastIQ < X"320") then -- wait 10us before disabling Fast IQ loop
