@@ -18,7 +18,7 @@ END average;
 
 ARCHITECTURE average_arc OF average is
 	signal accum1 : std_logic_vector (15 downto 0);
-	signal accum2 : std_logic_vector (31 downto 0);
+	signal accum2 : std_logic_vector (23 downto 0);
 	signal a_latch : std_logic_vector (15 downto 0);
 	
 BEGIN
@@ -27,10 +27,11 @@ BEGIN
 	if (clk'EVENT and clk = '1') then
 		a_latch <= a;		
 		if(average_update = '1') then
-			accum1 <= accum2(27 downto 12);
+			accum1 <= accum2(23 downto 8);
 			accum2 <= (others => '0');
 		elsif(accum_enable = '1') then
-			accum2 <= accum2 + a_latch;			
+			--accum2 <= accum2 + a_latch(15)&a_latch(15)&a_latch(15)&a_latch(15)&a_latch(15)&a_latch(15)&a_latch(15)&a_latch(15)&a_latch;			
+			accum2 <= accum2 + a_latch + X"000000";			
 		end if;
 		averageout <= accum1;
 

@@ -182,7 +182,7 @@ if(clk'EVENT and clk = '1') then
 	else Q_IntLimitInit <= QRefMin;
 	end if;
 	
-	if(I_IntLimitInit > Q_IntLimitInit) then IntLimitInit <= Q_IntLimitInit;
+	if(I_IntLimitInit < Q_IntLimitInit) then IntLimitInit <= Q_IntLimitInit;
 	else IntLimitInit <= I_IntLimitInit;
 	end if;
 	
@@ -405,6 +405,10 @@ if(clk'EVENT and clk = '1') then
 	elsif(StateStart_signal ="01000") then -- or SpareDI1 = '0') then
 		AmpRefIn_Latch_signal <= AmpRefMin;
 		PhRefIN_Latch_signal <= PhRefMin;	
+		AmpRampEnd_Latch_signal <= AmpRefMin;
+		PhRampEnd_Latch_signal <= PhRefMin;
+		AmpRampINit_Latch_signal <= AmpRefMin;
+		PhRampINit_Latch_signal <= PhRefMin;
 		if(AmpRefOld = AmpRefMin) then -- when power has decreased to minimum, disable all loops and inform transmitter
 			StateStart_signal <= "01001";
 			LoopEnableLatch_signal <= '0';
