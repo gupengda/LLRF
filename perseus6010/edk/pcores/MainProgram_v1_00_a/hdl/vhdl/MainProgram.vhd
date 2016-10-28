@@ -2893,12 +2893,12 @@ BEGIN
 		
 		
 		--Signals not latched and not filtered		
---		when X"07D0"  => reg_data3_out_LSB <= ICav;				
---		when X"07D1"  => reg_data3_out_LSB <= QCav;					
---		when X"07D2"  => reg_data3_out_LSB <= IFw;					
---		when X"07D3"  => reg_data3_out_LSB <= QFw;					
---		when X"07D4"  => reg_data3_out_LSB <= IControl;				
---		when X"07D5"  => reg_data3_out_LSB <= QControl;			
+		when X"07D0"  => reg_data3_out_LSB <= ICav;				
+		when X"07D1"  => reg_data3_out_LSB <= QCav;					
+		when X"07D2"  => reg_data3_out_LSB <= IFw;					
+		when X"07D3"  => reg_data3_out_LSB <= QFw;					
+		when X"07D4"  => reg_data3_out_LSB <= IControl;				
+		when X"07D5"  => reg_data3_out_LSB <= QControl;			
 --		when X"07D6"  => reg_data3_out_LSB <= IControl1;				
 --		when X"07D7"  => reg_data3_out_LSB <= Qcontrol1;				
 --		when X"07D8"  => reg_data3_out_LSB <= IControl2;				
@@ -2913,8 +2913,8 @@ BEGIN
 --		when X"07E1"  => reg_data3_out_LSB <= QErrorAccum;				
 --		when X"07E2"  => reg_data3_out_LSB <= AngCav;					
 --		when X"07E3"  => reg_data3_out_LSB <= AngFw;					
---		when X"07E4"  => reg_data3_out_LSB <= IFwIOT1;					
---		when X"07E5"  => reg_data3_out_LSB <= QFwIOT1;					
+		when X"07E4"  => reg_data3_out_LSB <= IFwIOT1;					
+		when X"07E5"  => reg_data3_out_LSB <= QFwIOT1;					
 --		when X"07E6"  => reg_data3_out_LSB <= IFwIOT2;					
 --		when X"07E7"  => reg_data3_out_LSB <= QFwIOT2;					
 --		when X"07E8"  => reg_data3_out_LSB <= IFwIOT3;					
@@ -2930,24 +2930,24 @@ BEGIN
 --		when X"07F2"  => reg_data3_out_LSB <= AmpFw(15 downto 0);	
 --		when X"07F3"  => reg_data3_out_LSB <= IMO;						
 --		when X"07F4"  => reg_data3_out_LSB <= QMO;						
---		when X"07F5"  => reg_data3_out_LSB <= IRFIn7;					
---		when X"07F6"  => reg_data3_out_LSB <= QRFIn7;					
---		when X"07F7"  => reg_data3_out_LSB <= IRFIn8;					
---		when X"07F8"  => reg_data3_out_LSB <= QRFIn8;					
---		when X"07F9"  => reg_data3_out_LSB <= IRFIn9;					
---		when X"07FA"  => reg_data3_out_LSB <= QRFIn9;					
---		when X"07FB"  => reg_data3_out_LSB <= IRFIn10;					
---		when X"07FC"  => reg_data3_out_LSB <= QRFIn10;					
---		when X"07FD"  => reg_data3_out_LSB <= IRFIn11;					
---		when X"07FE"  => reg_data3_out_LSB <= QRFIn11;					
---		when X"07FF"  => reg_data3_out_LSB <= IRFIn12;					
---		when X"0800"  => reg_data3_out_LSB <= QRFIn12;					
---		when X"0801"  => reg_data3_out_LSB <= IRFIn13;					
---		when X"0802"  => reg_data3_out_LSB <= QRFIn13;					
---		when X"0803"  => reg_data3_out_LSB <= IRFIn14;					
---		when X"0804"  => reg_data3_out_LSB <= QRFIn14;					
---		when X"0805"  => reg_data3_out_LSB <= IRFIn15;					
---		when X"0806"  => reg_data3_out_LSB <= QRFIn15;					
+		when X"07F5"  => reg_data3_out_LSB <= IRFIn7;					
+		when X"07F6"  => reg_data3_out_LSB <= QRFIn7;					
+		when X"07F7"  => reg_data3_out_LSB <= IRFIn8;					
+		when X"07F8"  => reg_data3_out_LSB <= QRFIn8;					
+		when X"07F9"  => reg_data3_out_LSB <= IRFIn9;					
+		when X"07FA"  => reg_data3_out_LSB <= QRFIn9;					
+		when X"07FB"  => reg_data3_out_LSB <= IRFIn10;					
+		when X"07FC"  => reg_data3_out_LSB <= QRFIn10;					
+		when X"07FD"  => reg_data3_out_LSB <= IRFIn11;					
+		when X"07FE"  => reg_data3_out_LSB <= QRFIn11;					
+		when X"07FF"  => reg_data3_out_LSB <= IRFIn12;					
+		when X"0800"  => reg_data3_out_LSB <= QRFIn12;					
+		when X"0801"  => reg_data3_out_LSB <= IRFIn13;					
+		when X"0802"  => reg_data3_out_LSB <= QRFIn13;					
+		when X"0803"  => reg_data3_out_LSB <= IRFIn14;					
+		when X"0804"  => reg_data3_out_LSB <= QRFIn14;					
+		when X"0805"  => reg_data3_out_LSB <= IRFIn15;					
+		when X"0806"  => reg_data3_out_LSB <= QRFIn15;					
 --		when X"0807"  => reg_data3_out_LSB <= IPolarAmpLoop;			
 --		when X"0808"  => reg_data3_out_LSB <= QPolarAmpLoop;			
 --		when X"0809"  => reg_data3_out_LSB <= IPolarPhLoop;			
@@ -2973,8 +2973,8 @@ BEGIN
 --		when X"081D"  => reg_data3_out_LSB <= IInput_FastPI;			
 --		when X"081E"  => reg_data3_out_LSB <= QInput_FastPI;		
 --								
---		when X"0820"  => reg_data3_out_LSB <= PhCorrection_Error;				
---		when X"0821"  => reg_data3_out_LSB <= PhCorrectionControl;			
+		when X"0820"  => reg_data3_out_LSB <= PhCorrection_Error;				
+		when X"0821"  => reg_data3_out_LSB <= PhCorrectionControl;			
 --		
 --		                                
 		

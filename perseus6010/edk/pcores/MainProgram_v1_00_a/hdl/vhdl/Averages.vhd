@@ -206,29 +206,29 @@ end Averages;
 architecture Behavioral of Averages is
 
 -- signals declaration
-signal counteraverage : std_logic_vector (7 downto 0);
-signal average_update : std_logic;
-signal accum_enable : std_logic;
+signal counteraverage : std_logic_vector (7 downto 0):=(others => '0');
+signal average_update : std_logic:= '0';
+signal accum_enable : std_logic:= '0';
 
-signal average_update1 : std_logic;
-signal average_update2 : std_logic;
-signal average_update3 : std_logic;
-signal average_update4 : std_logic;
-signal average_update5 : std_logic;
-signal average_update6 : std_logic;
-signal average_update7 : std_logic;
-signal average_update8 : std_logic;
-signal average_update9 : std_logic;
+signal average_update1 : std_logic:= '0';
+signal average_update2 : std_logic:= '0';
+signal average_update3 : std_logic:= '0';
+signal average_update4 : std_logic:= '0';
+signal average_update5 : std_logic:= '0';
+signal average_update6 : std_logic:= '0';
+signal average_update7 : std_logic:= '0';
+signal average_update8 : std_logic:= '0';
+signal average_update9 : std_logic:= '0';
 
-signal accum_enable1 : std_logic;
-signal accum_enable2 : std_logic;
-signal accum_enable3 : std_logic;
-signal accum_enable4 : std_logic;
-signal accum_enable5 : std_logic;
-signal accum_enable6 : std_logic;
-signal accum_enable7 : std_logic;
-signal accum_enable8 : std_logic;
-signal accum_enable9 : std_logic;
+signal accum_enable1 : std_logic:= '0';
+signal accum_enable2 : std_logic:= '0';
+signal accum_enable3 : std_logic:= '0';
+signal accum_enable4 : std_logic:= '0';
+signal accum_enable5 : std_logic:= '0';
+signal accum_enable6 : std_logic:= '0';
+signal accum_enable7 : std_logic:= '0';
+signal accum_enable8 : std_logic:= '0';
+signal accum_enable9 : std_logic:= '0';
 
 -- components declaraion
   component Average is
