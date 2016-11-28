@@ -255,8 +255,6 @@ ARCHITECTURE MainProgram_arc OF MainProgram is
 	signal	DACsPhaseShiftEnable  : std_logic;					
 	signal	TunPosEnable		 : std_logic;			
 	signal	PhaseOffset			 : std_logic_vector (15 downto 0);	
-	
-	
 	signal	sin_phsh_control1			 : std_logic_vector (15 downto 0);	
 	signal	cos_phsh_control1			 : std_logic_vector (15 downto 0);
 	signal	sin_phsh_control2			 : std_logic_vector (15 downto 0);
@@ -404,6 +402,7 @@ ARCHITECTURE MainProgram_arc OF MainProgram is
 	signal PolarLoopsEnable	: std_logic;
 	signal LoopInputSel_FastPI	: std_logic_vector (2 downto 0);
 	signal IntLimit_FastPI : std_logic_vector (15 downto 0);
+	signal FwMin_AmpPh : std_logic_vector (15 downto 0);
 	
 	signal AmpLoopenable : std_logic;
 	signal AmpLoopenable_latch : std_logic;
@@ -432,7 +431,6 @@ ARCHITECTURE MainProgram_arc OF MainProgram is
 	
 	signal PhCorrectionControl, PhCorrectionControlMean, PhCorrectionControlL : std_logic_vector (15 downto 0);
 	signal PhCorrectionControl_32b : std_logic_vector (31 downto 0);
-	signal Q_DACsIF_Out, I_DACsIF_Out : std_logic_vector (15 downto 0);
 	signal PhCorrection_Error, PhCorrection_ErrorMean, PhCorrection_ErrorL : std_logic_vector (15 downto 0);
 	signal PhaseCorrection_sig : std_logic_vector (15 downto 0);
 	signal AmpSpare1 : std_logic_vector (16 downto 0);
@@ -526,8 +524,7 @@ ARCHITECTURE MainProgram_arc OF MainProgram is
 	signal TTL3 : std_logic;
 	signal TTL4 : std_logic;
 	
-	signal FwMin_Tuning : std_logic_vector (15 downto 0);
-	signal FwMin_AmpPh : std_logic_vector (15 downto 0);
+	signal FwMin : std_logic_vector (15 downto 0);
 	
 	signal MarginUp : std_logic_vector (15 downto 0);
 	signal MarginLow : std_logic_vector (15 downto 0);
@@ -1178,8 +1175,6 @@ ARCHITECTURE MainProgram_arc OF MainProgram is
 			  cos_phsh_control3 : out std_logic_vector (15 downto 0);
 			  sin_phsh_control4 : out std_logic_vector (15 downto 0);
 			  cos_phsh_control4 : out std_logic_vector (15 downto 0);
-			  I_DACsIF_out : out std_logic_vector (15 downto 0);
-			  Q_DACsIF_out : out std_logic_vector (15 downto 0);
 			  IControl_Polar : out std_logic_vector (15 downto 0);
 			  QControl_Polar : out std_logic_vector (15 downto 0)
 			  );
@@ -1743,7 +1738,7 @@ end component Reference;
 			  TuningDephase80HzLPFEnable : in std_logic;
 			  TuningTrigger_out : out std_logic;
 			  TuningTriggerEnable : in std_logic_vector(1 downto 0);
-			  TuningInput_out : out std_logic_vector (15 downto 0);			  
+			  TuningInput_out : out std_logic_vector (15 downto 0);		  
 			  TunFFOnTopEnable : in std_logic);
 	end component Tuning;
 	
@@ -1771,7 +1766,7 @@ end component Reference;
 	end component PhSh_Controls;
 	
 	component FwMinLoopsEnable is
-    Port ( FwMin_Tuning : in  STD_LOGIC_VECTOR (15 downto 0);
+    Port ( FwMin : in  STD_LOGIC_VECTOR (15 downto 0);
 			  FwMin_AmpPh : in  STD_LOGIC_VECTOR (15 downto 0);
            clk : in  STD_LOGIC;
            LoopsIn_SlowI : in  STD_LOGIC_VECTOR (15 downto 0);
@@ -1954,7 +1949,7 @@ BEGIN
 		when X"00F4" => PhLoop_kp <= reg_data1_in_data_enables; -- Ki constant of Phase loop
 		when X"00F6" => PhLoop_ki <= reg_data1_in_data_enables; -- Ki constant of Phase loop
 		when X"00F8" => IntLimit_FastPI <= reg_data1_in_data_enables; -- Ki constant of Phase loop
-		when X"00FA" => FwMin_AmpPh <= reg_data1_in_data_enables; -- Threshold to enable amplitude and phase loops (polar and/or rect)
+		when X"00FA" => FwMin_AmpPh <= reg_data1_in_data_enables; -- Minimum Forward Power to enable Amp&Ph Loop
 		
 		--Conditioning (pulse mode)
 		when X"0190" => Conditioning <= reg_data1_in_data_cond(0); -- Pulse Mode Enable 
@@ -1970,7 +1965,7 @@ BEGIN
 		when X"0262" => MovePLG1 <= reg_data1_in_data_tuning(0); -- Manual tuning enable (PLG1)
 		when X"0264" => MoveUp1 <= reg_data1_in_data_tuning(0); -- Manual tuning direction
 		when X"0266" => TuningReset <= reg_data1_in_data_tuning(0); -- Counter pulses of manual tuning reset
-		when X"0268" => FwMin_Tuning <= reg_data1_in_data_tuning; -- Minimum forward power to enable the tuning
+		when X"0268" => FwMin <= reg_data1_in_data_tuning; -- Minimum forward power to enable the tuning
 		when X"026A" => MarginUp <= reg_data1_in_data_tuning; -- High margin of tuning loop deadband
 		when X"026C" => MarginLow <= reg_data1_in_data_tuning; -- Low margin of tuning loop deadband
 		when X"026E" => CounterTuningDelaySetting <= reg_data1_in_data_tuning; -- Period of time to disable the tuning loops after they have reached equilibrium to avoid ringing
@@ -2152,8 +2147,8 @@ BEGIN
 		when X"007A" => reg_data2_output <= PhLoop_kp;-- Kp constant of Phase loop
 		when X"007B" => reg_data2_output <= PhLoop_ki;-- Ki constant of Phase loop
 		when X"007C" => reg_data2_output <= IntLimit_FastPI;-- Integral Limit of Fast PI - IQ
-		when X"007D" => reg_data2_output <= FwMin_AmpPh;-- Threshold to enable amp & ph loops (polar and/or rect)
-	
+		when X"007D" => reg_data2_output <= FwMin_AmpPh;-- Minimum Forward Power to enable Amp&Ph Loops
+		
 		--Conditioning
 		when X"00C8" => reg_data2_output(15 downto 0) <= X"000"&"000"&Conditioning;
 		when X"00C9" => reg_data2_output(15 downto 0) <= X"000"&"000"&AutomaticConditioning;
@@ -2169,7 +2164,7 @@ BEGIN
 		when X"0131" => reg_data2_output(15 downto 0) <= X"000"&"000"&MovePLG1;
 		when X"0132" => reg_data2_output(15 downto 0) <= X"000"&"000"&MoveUp1;
 		when X"0133" => reg_data2_output(15 downto 0) <= X"000"&"000"&TuningReset;
-		when X"0134" => reg_data2_output(15 downto 0) <= FwMin_Tuning;
+		when X"0134" => reg_data2_output(15 downto 0) <= FwMin;
 		when X"0135" => reg_data2_output(15 downto 0) <= MarginUp;
 		when X"0136" => reg_data2_output(15 downto 0) <= MarginLow;
 		when X"0137" => reg_data2_output(15 downto 0) <= CounterTuningDelaySetting;  -- Period of time to disable the tuning loops after they have reached equilibrium to avoid ringing
@@ -2494,15 +2489,15 @@ BEGIN
 		when X"0057"  => reg_data3_out_LSB <= PhRvIOT3;		
 		when X"0058"  => reg_data3_out_LSB <= AmpRvIOT4(15 downto 0);		
 		when X"0059"  => reg_data3_out_LSB <= PhRvIOT4;			
-		when X"005A"  => reg_data3_out_LSB <= FFErrorL;		
-		
+		when X"005A"  => reg_data3_out_LSB <= FFErrorL;			
+
 		when X"005B"  => reg_data3_out_LSB <= IMuxDACsIF;			
 		when X"005C"  => reg_data3_out_LSB <= QMuxDACsIF;			
 		when X"005D"  => reg_data3_out_LSB <= AmpDACsIF;			
 		when X"005E"  => reg_data3_out_LSB <= PhDACsIF;		
 		
-		when X"005F"  => reg_data3_out_LSB <= I_DACsIF_out;			
-		when X"0060"  => reg_data3_out_LSB <= Q_DACsIF_out;		
+--		when X"005F"  => reg_data3_out_LSB <= I_DACsIF_out;			
+--		when X"0060"  => reg_data3_out_LSB <= Q_DACsIF_out;		
 		
 		                                
 		when X"0061"	=> reg_data3_out_LSB <= X"000"&"000"&VCXO_Powered;
@@ -2585,39 +2580,39 @@ BEGIN
 		when X"00C1" =>	reg_data3_out_LSB <= QFwCavBottomL;	
 
 		-- Polar to Rect Diagnostics for phase shifters
---		when X"00C8"	=> reg_data3_out_LSB <= sin_phsh_cav;
---		when X"00C9"	=> reg_data3_out_LSB <= cos_phsh_cav;
---		when X"00CA"	=> reg_data3_out_LSB <= sin_phsh_fwcav;
---		when X"00CB"	=> reg_data3_out_LSB <= cos_phsh_fwcav;
---      when X"00CC"	=> reg_data3_out_LSB <= sin_phsh_FwIOT1;
---      when X"00CD"	=> reg_data3_out_LSB <= cos_phsh_FwIOT1;
---      when X"00CE"	=> reg_data3_out_LSB <= sin_phsh_FwIOT2;
---		when X"00CF"	=> reg_data3_out_LSB <= cos_phsh_FwIOT2;	
---      when X"00D0"	=> reg_data3_out_LSB <= sin_phsh_FwIOT3;
---      when X"00D1"	=> reg_data3_out_LSB <= cos_phsh_FwIOT3;
---      when X"00D2"	=> reg_data3_out_LSB <= sin_phsh_FwIOT4;
---		when X"00D3"	=> reg_data3_out_LSB <= cos_phsh_FwIOT4;	
---		when X"00D4"	=> reg_data3_out_LSB <= sin_phsh_control1;
---		when X"00D5"	=> reg_data3_out_LSB <= cos_phsh_control1;
---		when X"00D6"	=> reg_data3_out_LSB <= sin_phsh_control2;
---		when X"00D7"	=> reg_data3_out_LSB <= cos_phsh_control2;
---		when X"00D8"	=> reg_data3_out_LSB <= sin_phsh_control3;
---		when X"00D9"	=> reg_data3_out_LSB <= cos_phsh_control3;
---		when X"00DA"	=> reg_data3_out_LSB <= sin_phsh_control4;
---		when X"00DB"	=> reg_data3_out_LSB <= cos_phsh_control4;
---		 IQ demodulators output (before phase shifters)
---		when X"00DC"	=> reg_data3_out_LSB <= IMuxCav;
---		when X"00DD"	=> reg_data3_out_LSB <= QMuxCav;
---		when X"00DE"	=> reg_data3_out_LSB <= IMuxFwCav;
---		when X"00DF"	=> reg_data3_out_LSB <= QMuxFwCav;
---		when X"00E0"	=> reg_data3_out_LSB <= IMuxFwIOT1;
---		when X"00E1"	=> reg_data3_out_LSB <= QMuxFwIOT1;
---		when X"00E2"	=> reg_data3_out_LSB <= IMuxFwIOT2;
---		when X"00E3"	=> reg_data3_out_LSB <= QMuxFwIOT2;
---		when X"00E4"	=> reg_data3_out_LSB <= IMuxFwIOT3;
---		when X"00E5"	=> reg_data3_out_LSB <= QMuxFwIOT3;
---		when X"00E6"	=> reg_data3_out_LSB <= IMuxFwIOT4;
---		when X"00E7"	=> reg_data3_out_LSB <= QMuxFwIOT4;
+		when X"00C8"	=> reg_data3_out_LSB <= sin_phsh_cav;
+		when X"00C9"	=> reg_data3_out_LSB <= cos_phsh_cav;
+		when X"00CA"	=> reg_data3_out_LSB <= sin_phsh_fwcav;
+		when X"00CB"	=> reg_data3_out_LSB <= cos_phsh_fwcav;
+      when X"00CC"	=> reg_data3_out_LSB <= sin_phsh_FwIOT1;
+      when X"00CD"	=> reg_data3_out_LSB <= cos_phsh_FwIOT1;
+      when X"00CE"	=> reg_data3_out_LSB <= sin_phsh_FwIOT2;
+		when X"00CF"	=> reg_data3_out_LSB <= cos_phsh_FwIOT2;	
+      when X"00D0"	=> reg_data3_out_LSB <= sin_phsh_FwIOT3;
+      when X"00D1"	=> reg_data3_out_LSB <= cos_phsh_FwIOT3;
+      when X"00D2"	=> reg_data3_out_LSB <= sin_phsh_FwIOT4;
+		when X"00D3"	=> reg_data3_out_LSB <= cos_phsh_FwIOT4;	
+		when X"00D4"	=> reg_data3_out_LSB <= sin_phsh_control1;
+		when X"00D5"	=> reg_data3_out_LSB <= cos_phsh_control1;
+		when X"00D6"	=> reg_data3_out_LSB <= sin_phsh_control2;
+		when X"00D7"	=> reg_data3_out_LSB <= cos_phsh_control2;
+		when X"00D8"	=> reg_data3_out_LSB <= sin_phsh_control3;
+		when X"00D9"	=> reg_data3_out_LSB <= cos_phsh_control3;
+		when X"00DA"	=> reg_data3_out_LSB <= sin_phsh_control4;
+		when X"00DB"	=> reg_data3_out_LSB <= cos_phsh_control4;
+		-- IQ demodulators output (before phase shifters)
+		when X"00DC"	=> reg_data3_out_LSB <= IMuxCav;
+		when X"00DD"	=> reg_data3_out_LSB <= QMuxCav;
+		when X"00DE"	=> reg_data3_out_LSB <= IMuxFwCav;
+		when X"00DF"	=> reg_data3_out_LSB <= QMuxFwCav;
+		when X"00E0"	=> reg_data3_out_LSB <= IMuxFwIOT1;
+		when X"00E1"	=> reg_data3_out_LSB <= QMuxFwIOT1;
+		when X"00E2"	=> reg_data3_out_LSB <= IMuxFwIOT2;
+		when X"00E3"	=> reg_data3_out_LSB <= QMuxFwIOT2;
+		when X"00E4"	=> reg_data3_out_LSB <= IMuxFwIOT3;
+		when X"00E5"	=> reg_data3_out_LSB <= QMuxFwIOT3;
+		when X"00E6"	=> reg_data3_out_LSB <= IMuxFwIOT4;
+		when X"00E7"	=> reg_data3_out_LSB <= QMuxFwIOT4;
 		
 		
                                         
@@ -2649,7 +2644,7 @@ BEGIN
 		 when X"013E"	=> reg_data3_out_LSB <= AmpCell2Mean;						
 		 when X"013F"	=> reg_data3_out_LSB <= AmpCell4Mean;							
 		 when X"0140"	=> reg_data3_out_LSB <= AmpCell2FF;							
-		 when X"0141"	=> reg_data3_out_LSB <= AmpCell4FF;							
+		 when X"0141"	=> reg_data3_out_LSB <= AmpCell4FF;						
 		
 		-- Interlock and digital inputs diagnostics
 		when X"0190" => reg_data3_out_LSB <= X"000"&"000"&RFONState_Delay;
@@ -2729,7 +2724,6 @@ BEGIN
 		when X"0218" => reg_data3_out_LSB <= TopRampAmp;
 		when X"0219" => reg_data3_out_LSB <= AmpRamp;
 		when X"021A" => reg_data3_out_LSB <= PhRamp;
-		when X"021B" => reg_data3_out_LSB <= X"000"&"000"&TRG3Hz;
 		
 
 		
@@ -2899,37 +2893,37 @@ BEGIN
 		when X"07D3"  => reg_data3_out_LSB <= QFw;					
 		when X"07D4"  => reg_data3_out_LSB <= IControl;				
 		when X"07D5"  => reg_data3_out_LSB <= QControl;			
---		when X"07D6"  => reg_data3_out_LSB <= IControl1;				
---		when X"07D7"  => reg_data3_out_LSB <= Qcontrol1;				
---		when X"07D8"  => reg_data3_out_LSB <= IControl2;				
---		when X"07D9"  => reg_data3_out_LSB <= Qcontrol2;				
---		when X"07DA"  => reg_data3_out_LSB <= IControl3;				
---		when X"07DB"  => reg_data3_out_LSB <= Qcontrol3;				
---		when X"07DC"  => reg_data3_out_LSB <= IControl4;				
---		when X"07DD"  => reg_data3_out_LSB <= Qcontrol4;				
---		when X"07DE"  => reg_data3_out_LSB <= IError;					
---		when X"07DF"  => reg_data3_out_LSB <= QError;					
---		when X"07E0"  => reg_data3_out_LSB <= IErrorAccum;				
---		when X"07E1"  => reg_data3_out_LSB <= QErrorAccum;				
---		when X"07E2"  => reg_data3_out_LSB <= AngCav;					
---		when X"07E3"  => reg_data3_out_LSB <= AngFw;					
+		when X"07D6"  => reg_data3_out_LSB <= IControl1;				
+		when X"07D7"  => reg_data3_out_LSB <= Qcontrol1;				
+		when X"07D8"  => reg_data3_out_LSB <= IControl2;				
+		when X"07D9"  => reg_data3_out_LSB <= Qcontrol2;				
+		when X"07DA"  => reg_data3_out_LSB <= IControl3;				
+		when X"07DB"  => reg_data3_out_LSB <= Qcontrol3;				
+		when X"07DC"  => reg_data3_out_LSB <= IControl4;				
+		when X"07DD"  => reg_data3_out_LSB <= Qcontrol4;				
+		when X"07DE"  => reg_data3_out_LSB <= IError;					
+		when X"07DF"  => reg_data3_out_LSB <= QError;					
+		when X"07E0"  => reg_data3_out_LSB <= IErrorAccum;				
+		when X"07E1"  => reg_data3_out_LSB <= QErrorAccum;				
+		when X"07E2"  => reg_data3_out_LSB <= AngCav;					
+		when X"07E3"  => reg_data3_out_LSB <= AngFw;					
 		when X"07E4"  => reg_data3_out_LSB <= IFwIOT1;					
 		when X"07E5"  => reg_data3_out_LSB <= QFwIOT1;					
---		when X"07E6"  => reg_data3_out_LSB <= IFwIOT2;					
---		when X"07E7"  => reg_data3_out_LSB <= QFwIOT2;					
---		when X"07E8"  => reg_data3_out_LSB <= IFwIOT3;					
---		when X"07E9"  => reg_data3_out_LSB <= QFwIOT3;					
---		when X"07EA"  => reg_data3_out_LSB <= IFwIOT4;					
---		when X"07EB"  => reg_data3_out_LSB <= QFwIOT4;					
---		when X"07EC"  => reg_data3_out_LSB <= ICell2;					
---		when X"07ED"  => reg_data3_out_LSB <= QCell2;					
---		when X"07EE"  => reg_data3_out_LSB <= ICell4;					
---		when X"07EF"  => reg_data3_out_LSB <= QCell4;		
---		when X"07F0"  => reg_data3_out_LSB <= AngCavFw;			
---		when X"07F1"  => reg_data3_out_LSB <= AmpCav(15 downto 0);					
---		when X"07F2"  => reg_data3_out_LSB <= AmpFw(15 downto 0);	
---		when X"07F3"  => reg_data3_out_LSB <= IMO;						
---		when X"07F4"  => reg_data3_out_LSB <= QMO;						
+		when X"07E6"  => reg_data3_out_LSB <= IFwIOT2;					
+		when X"07E7"  => reg_data3_out_LSB <= QFwIOT2;					
+		when X"07E8"  => reg_data3_out_LSB <= IFwIOT3;					
+		when X"07E9"  => reg_data3_out_LSB <= QFwIOT3;					
+		when X"07EA"  => reg_data3_out_LSB <= IFwIOT4;					
+		when X"07EB"  => reg_data3_out_LSB <= QFwIOT4;					
+		when X"07EC"  => reg_data3_out_LSB <= ICell2;					
+		when X"07ED"  => reg_data3_out_LSB <= QCell2;					
+		when X"07EE"  => reg_data3_out_LSB <= ICell4;					
+		when X"07EF"  => reg_data3_out_LSB <= QCell4;		
+		when X"07F0"  => reg_data3_out_LSB <= AngCavFw;			
+		when X"07F1"  => reg_data3_out_LSB <= AmpCav(15 downto 0);					
+		when X"07F2"  => reg_data3_out_LSB <= AmpFw(15 downto 0);	
+		when X"07F3"  => reg_data3_out_LSB <= IMO;						
+		when X"07F4"  => reg_data3_out_LSB <= QMO;						
 		when X"07F5"  => reg_data3_out_LSB <= IRFIn7;					
 		when X"07F6"  => reg_data3_out_LSB <= QRFIn7;					
 		when X"07F7"  => reg_data3_out_LSB <= IRFIn8;					
@@ -2948,61 +2942,61 @@ BEGIN
 		when X"0804"  => reg_data3_out_LSB <= QRFIn14;					
 		when X"0805"  => reg_data3_out_LSB <= IRFIn15;					
 		when X"0806"  => reg_data3_out_LSB <= QRFIn15;					
---		when X"0807"  => reg_data3_out_LSB <= IPolarAmpLoop;			
---		when X"0808"  => reg_data3_out_LSB <= QPolarAmpLoop;			
---		when X"0809"  => reg_data3_out_LSB <= IPolarPhLoop;			
---		when X"080A"  => reg_data3_out_LSB <= QPolarPhLoop;			
---		when X"080B"  => reg_data3_out_LSB <= Amp_AmpLoopInput(15 downto 0);	
---		when X"080C"  => reg_data3_out_LSB <= Ph_AmpLoopInput;			
---		when X"080D"  => reg_data3_out_LSB <= Amp_PhLoopInput(15 downto 0);			
---		when X"080E"  => reg_data3_out_LSB <= Ph_PhLoopInput;			
---		when X"080F"  => reg_data3_out_LSB <= AmpLoop_ControlOutput;
---		when X"0810"  => reg_data3_out_LSB <= AmpLoop_Error; 			
---		when X"0811"  => reg_data3_out_LSB <= AmpLoop_ErrorAccum;		
---		when X"0812"  => reg_data3_out_LSB <= PhLoop_controlOutput;	
---		when X"0813"  => reg_data3_out_LSB <= PhLoop_Error; 			
---		when X"0814"  => reg_data3_out_LSB <= PhLoop_ErrorAccum; 		
---		when X"0815"  => reg_data3_out_LSB <= IControl_Polar;			
---		when X"0816"  => reg_data3_out_LSB <= QControl_Polar;			
---		when X"0817"  => reg_data3_out_LSB <= IControl_Rect;			
---		when X"0818"  => reg_data3_out_LSB <= QControl_Rect;			
---		when X"0819"  => reg_data3_out_LSB <= IControl_FastPI;			
---		when X"081A"  => reg_data3_out_LSB <= QControl_FastPI;	
---		when X"081B"  => reg_data3_out_LSB <= IloopInput;				
---		when X"081C"  => reg_data3_out_LSB <= QloopInput;				
---		when X"081D"  => reg_data3_out_LSB <= IInput_FastPI;			
---		when X"081E"  => reg_data3_out_LSB <= QInput_FastPI;		
---								
+		when X"0807"  => reg_data3_out_LSB <= IPolarAmpLoop;			
+		when X"0808"  => reg_data3_out_LSB <= QPolarAmpLoop;			
+		when X"0809"  => reg_data3_out_LSB <= IPolarPhLoop;			
+		when X"080A"  => reg_data3_out_LSB <= QPolarPhLoop;			
+		when X"080B"  => reg_data3_out_LSB <= Amp_AmpLoopInput(15 downto 0);	
+		when X"080C"  => reg_data3_out_LSB <= Ph_AmpLoopInput;			
+		when X"080D"  => reg_data3_out_LSB <= Amp_PhLoopInput(15 downto 0);			
+		when X"080E"  => reg_data3_out_LSB <= Ph_PhLoopInput;			
+		when X"080F"  => reg_data3_out_LSB <= AmpLoop_ControlOutput;
+		when X"0810"  => reg_data3_out_LSB <= AmpLoop_Error; 			
+		when X"0811"  => reg_data3_out_LSB <= AmpLoop_ErrorAccum;		
+		when X"0812"  => reg_data3_out_LSB <= PhLoop_controlOutput;	
+		when X"0813"  => reg_data3_out_LSB <= PhLoop_Error; 			
+		when X"0814"  => reg_data3_out_LSB <= PhLoop_ErrorAccum; 		
+		when X"0815"  => reg_data3_out_LSB <= IControl_Polar;			
+		when X"0816"  => reg_data3_out_LSB <= QControl_Polar;			
+		when X"0817"  => reg_data3_out_LSB <= IControl_Rect;			
+		when X"0818"  => reg_data3_out_LSB <= QControl_Rect;			
+		when X"0819"  => reg_data3_out_LSB <= IControl_FastPI;			
+		when X"081A"  => reg_data3_out_LSB <= QControl_FastPI;	
+		when X"081B"  => reg_data3_out_LSB <= IloopInput;				
+		when X"081C"  => reg_data3_out_LSB <= QloopInput;				
+		when X"081D"  => reg_data3_out_LSB <= IInput_FastPI;			
+		when X"081E"  => reg_data3_out_LSB <= QInput_FastPI;		
+								
 		when X"0820"  => reg_data3_out_LSB <= PhCorrection_Error;				
 		when X"0821"  => reg_data3_out_LSB <= PhCorrectionControl;			
---		
---		                                
+		
+		                                
 		
 		-- Polar Loops diagnostics		
---		when X"0834"	=> reg_data3_out_LSB <= IPolarAmpLoop;							
---		when X"0835"	=> reg_data3_out_LSB <= QPolarAmpLoop;
---		when X"0836"	=> reg_data3_out_LSB <= IPolarPhLoop;
---		when X"0837"	=> reg_data3_out_LSB <= QPolarPhLoop; 
---		when X"0838"	=> reg_data3_out_LSB <= Amp_AmpLoopInput(15 downto 0);
---		when X"0839"	=> reg_data3_out_LSB <= Ph_AmpLoopInput; 
---		when X"083A"	=> reg_data3_out_LSB <= Amp_PhLoopInput(15 downto 0); 
---		when X"083B"	=> reg_data3_out_LSB <= Ph_PhLoopInput; 
---		when X"083C"	=> reg_data3_out_LSB <= AmpLoop_ControlOutput;
---		when X"083D"	=> reg_data3_out_LSB <= AmpLoop_Error; 
---		when X"083E"	=> reg_data3_out_LSB <= AmpLoop_ErrorAccum; 
---		when X"083F"	=> reg_data3_out_LSB <= PhLoop_controlOutput;
---		when X"0840"	=> reg_data3_out_LSB <= PhLoop_Error; 
---		when X"0841"	=> reg_data3_out_LSB <= PhLoop_ErrorAccum; 	
---		when X"0842"	=> reg_data3_out_LSB <= IControl_Polar; 
---		when X"0843"	=> reg_data3_out_LSB <= QControl_Polar; 		
---		when X"0844"	=> reg_data3_out_LSB <= IControl_Rect; 
---		when X"0845"	=> reg_data3_out_LSB <= QControl_Rect; 
---		when X"0846"	=> reg_data3_out_LSB <= IControl_FastPI; 
---		when X"0847"	=> reg_data3_out_LSB <= QControl_FastPI; 
---		when X"0848"	=> reg_data3_out_LSB <= ILoopInput; 
---		when X"0849"	=> reg_data3_out_LSB <= QLoopInput; 
---		when X"084A"	=> reg_data3_out_LSB <= IInput_FastPI; 
---		when X"084B"	=> reg_data3_out_LSB <= QInput_FastPI; 
+		when X"0834"	=> reg_data3_out_LSB <= IPolarAmpLoop;							
+		when X"0835"	=> reg_data3_out_LSB <= QPolarAmpLoop;
+		when X"0836"	=> reg_data3_out_LSB <= IPolarPhLoop;
+		when X"0837"	=> reg_data3_out_LSB <= QPolarPhLoop; 
+		when X"0838"	=> reg_data3_out_LSB <= Amp_AmpLoopInput(15 downto 0);
+		when X"0839"	=> reg_data3_out_LSB <= Ph_AmpLoopInput; 
+		when X"083A"	=> reg_data3_out_LSB <= Amp_PhLoopInput(15 downto 0); 
+		when X"083B"	=> reg_data3_out_LSB <= Ph_PhLoopInput; 
+		when X"083C"	=> reg_data3_out_LSB <= AmpLoop_ControlOutput;
+		when X"083D"	=> reg_data3_out_LSB <= AmpLoop_Error; 
+		when X"083E"	=> reg_data3_out_LSB <= AmpLoop_ErrorAccum; 
+		when X"083F"	=> reg_data3_out_LSB <= PhLoop_controlOutput;
+		when X"0840"	=> reg_data3_out_LSB <= PhLoop_Error; 
+		when X"0841"	=> reg_data3_out_LSB <= PhLoop_ErrorAccum; 	
+		when X"0842"	=> reg_data3_out_LSB <= IControl_Polar; 
+		when X"0843"	=> reg_data3_out_LSB <= QControl_Polar; 		
+		when X"0844"	=> reg_data3_out_LSB <= IControl_Rect; 
+		when X"0845"	=> reg_data3_out_LSB <= QControl_Rect; 
+		when X"0846"	=> reg_data3_out_LSB <= IControl_FastPI; 
+		when X"0847"	=> reg_data3_out_LSB <= QControl_FastPI; 
+		when X"0848"	=> reg_data3_out_LSB <= ILoopInput; 
+		when X"0849"	=> reg_data3_out_LSB <= QLoopInput; 
+		when X"084A"	=> reg_data3_out_LSB <= IInput_FastPI; 
+		when X"084B"	=> reg_data3_out_LSB <= QInput_FastPI; 
 				
 		when others => null;
 		
@@ -3566,11 +3560,10 @@ begin
 		if(RFONState = '1') then
 			RFONState_counter <= (others => '0');
 			RFONState_Delay <= '1';
-		elsif (RFONState = '1' and RFONState_counter < X"E4E1C00") then -- wait for 3 seconds before disabling loops
+		elsif (RFONState = '0' and RFONState_counter < X"E4E1C00") then -- wait for 3 seconds before disabling loops
 			RFONState_counter <= RFONState_counter + 1;
 			RFONState_Delay <= '1';
 		else
-			RFONState_counter <= RFONState_counter;
 			if(RFONState_Disable = '1') then
 				RFONState_Delay <= '1';
 			else
@@ -3734,8 +3727,6 @@ P2R : component Polar2Rect
 			cos_phsh_control3           => cos_phsh_control3,
 			sin_phsh_control4           => sin_phsh_control4,
 			cos_phsh_control4           => cos_phsh_control4,
-			I_DACsIF_out					 => I_DACsIF_out,
-			Q_DACsIF_out 					 => Q_DACsIF_out,
 			IControl_Polar              => IControl_Polar,
 			QControl_Polar              => QControl_Polar
 			 );		 
@@ -3969,22 +3960,22 @@ begin
 						 Control2Out_sig <= Qcontrol2;
 						 Control3Out_sig <= Qcontrol3;
 						 Control4Out_sig <= Qcontrol4;	
-						 PhaseCorrection_sig <= Q_DACsIF_Out;						             
+						 PhaseCorrection_sig <= X"3FFF";						             
 			when "01" => Control1Out_sig <= IControl1;
 						 Control2Out_sig <= IControl2;
 						 Control3Out_sig <= IControl3;
 						 Control4Out_sig <= IControl4;
-						 PhaseCorrection_sig <= I_DACsIF_Out;							 
+						 PhaseCorrection_sig <= X"0000";							 
 			when "10" => Control1Out_sig <= not(QControl1);
 						 Control2Out_sig <= not(QControl2);
 						 Control3Out_sig <= not(Qcontrol3);
 						 Control4Out_sig <= not(QControl4);	
-						 PhaseCorrection_sig <= not(Q_DACsIF_Out);
+						 PhaseCorrection_sig <= X"C001";
 			when "11" => Control1Out_sig <= not(IControl1);
 						 Control2Out_sig <= not(IControl2);
 						 Control3Out_sig <= not(IControl3);
 						 Control4Out_sig <= not(IControl4);			
-						 PhaseCorrection_sig <= not(I_DACsIF_Out);	
+						 PhaseCorrection_sig <= X"0000";	
 			when others => null;
 		end case;
 		
@@ -4061,13 +4052,13 @@ Port map (
 			TuningDephase80HzLPFEnable => TuningDephase80HzLPFEnable,		
 			TuningTrigger_out 	=> TuningTrigger, 			
 			TuningTriggerEnable 	=> TuningTriggerEnable, 		
-			TuningInput_out 		=> TuningInput,
+			TuningInput_out 		=> TuningInput,					  
 			TunFFOnTopEnable 		=> TunFFOnTopEnable);
 			
 inst_FwMin : component FwMinLoopsEnable
 	port map (
-			FwMin_Tuning 	=>  FwMin_Tuning,
-			FwMin_AmpPh 	=>  FwMin_AmpPh,
+			FwMin 			=>  FwMin,
+			FwMin_AmpPh    =>  FwMin_AmpPh,
 			clk 				=>  clk,
 			LoopsIn_SlowI 	=>  ILoopInput,
 			LoopsIn_SlowQ 	=>  QLoopInput,
@@ -4306,10 +4297,8 @@ begin
 if(clk'EVENT and clk = '1') then
 		PhCorrection_Error <= PhMO - PhDACsIF;
 	if(PhCorrectionControl_enable = '1' and LookRefLatch = '0' and AnyLoopsEnable_latch = '0') then	
-		PhCorrectionControl_32b <= PhCorrectionControl_32b + PhCorrection_Error + X"00000000";
-		PhCorrectionControl <= PhCorrectionControl_32b(31 downto 16);
+		PhCorrectionControl <= PhCorrection_ErrorMean;
 	elsif(PhCorrectionControl_enable = '0' ) then
-		PhCorrectionControl_32b <= (others => '0');
 		PhCorrectionControl <= (others => '0');
 	end if;		
 end if;

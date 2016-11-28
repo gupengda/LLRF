@@ -86,6 +86,7 @@ begin
 							 Control3 <= ControlA3;
 							 Control4 <= ControlA4;
 							 Control5 <= VCavA;
+							 Control6 <= (others => '0');
 			when "11" => PinDiodeSw <= "111"&PinDiodeSw_A; -- Booster Cavity
 							 FDL_Trig_Out <= FDL_Trig_Out_A;
 							 LLRFItckOut <= LLRFItck_A;
@@ -94,6 +95,7 @@ begin
 							 Control3 <= (others => '0');
 							 Control4 <= (others => '0');
 							 Control5 <= VCavA;
+							 Control6 <= (others => '0');
 			when others => null;
 		end case;
 	end if;

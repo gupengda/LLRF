@@ -25,7 +25,7 @@ use ieee.std_logic_signed.all;
 use ieee.numeric_std.all;
 
 entity FwMinLoopsEnable is
-    Port ( FwMin_Tuning : in  STD_LOGIC_VECTOR (15 downto 0);
+    Port ( FwMin : in  STD_LOGIC_VECTOR (15 downto 0);
 			  FwMin_AmpPh : in  STD_LOGIC_VECTOR (15 downto 0);
            clk : in  STD_LOGIC;
            LoopsIn_SlowI : in  STD_LOGIC_VECTOR (15 downto 0);
@@ -63,7 +63,7 @@ ForwardMin_Process : process ( clk)
 begin
 if (clk'EVENT and clk ='1') then
 	
-	if(AmpFwCav > '0'&FwMin_Tuning) then
+	if(AmpFwCav > '0'&FwMin) then
 		ForwardMin_Tuning <= '1';
 		counter_FwMin_Tuning <= (others => '0');
 	elsif(counter_FwMin_Tuning < X"320") then -- wait 10us before disabling tuning loop

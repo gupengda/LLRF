@@ -47,9 +47,7 @@ signal Ref_CordicGain_32b : std_logic_vector (31 downto 0);
 signal Ref_CordicGain_16b : std_logic_vector (15 downto 0);
 signal Ref_Latch : std_logic_vector (15 downto 0);
 
-signal IntLimit_CordicGain_32b : std_logic_vector (31 downto 0);
-signal IntLimit_CordicGain_16b : std_logic_vector (15 downto 0);
-signal IntLimit_Latch : std_logic_vector (15 downto 0);
+signal IntLimit_latch : std_logic_vector (15 downto 0);
 
 -- components declaration
 component Gain_OL_CL is
@@ -86,8 +84,6 @@ inst_gain_OL : component Gain_OL_CL
 			Ref_CordicGain_16b <= Ref_CordicGain_32b(29 downto 14);
 			
 			IntLimit_latch <= IntLimit;
-			IntLimit_CordicGain_32b <= IntLimit_latch * X"6963";
-			IntLimit_CordicGain_16b <= IntLimit_CordicGain_32b (29 downto 14);
 			
 			if(ForwardMin = '0')then
 				ErrorVble := (others => '0'); -- If there is no forward power feeding the cavity, the PID loop stops accumulating signal to avoid overdrive when there is no power
@@ -106,10 +102,10 @@ inst_gain_OL : component Gain_OL_CL
 			
 			if(LoopEnable ='0') then
 				ErrorAccum <= Ref_OL&X"000000";
-			elsif(ErrorAccum > IntLimit_CordicGain_16b&X"000000") then
-				ErrorAccum <= IntLimit_CordicGain_16b&X"000000";
-			elsif(ErrorAccum < not(IntLimit_CordicGain_16b&X"000000")) then
-				ErrorAccum <= not(IntLimit_CordicGain_16b&X"000000");
+			elsif(ErrorAccum > IntLimit_latch&X"000000") then
+				ErrorAccum <= IntLimit_latch&X"000000";
+			elsif(ErrorAccum < not(IntLimit_latch&X"000000")) then
+				ErrorAccum <= not(IntLimit_latch&X"000000");
 			else
 				ErrorAccum <= ErrorAccum + ErrorKi_40b;
 			end if;

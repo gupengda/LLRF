@@ -17,10 +17,9 @@ ENTITY average IS
 END average;
 
 ARCHITECTURE average_arc OF average is
-	signal accum1 : std_logic_vector (15 downto 0):= (others => '0');
-	signal accum_notrounding : std_logic_vector (15 downto 0):= (others => '0');
-	signal accum2 : std_logic_vector (23 downto 0):= (others => '0');
-	signal a_latch : std_logic_vector (15 downto 0):= (others => '0');
+	signal accum1 : std_logic_vector (15 downto 0);
+	signal accum2 : std_logic_vector (27 downto 0);
+	signal a_latch : std_logic_vector (15 downto 0);
 	
 BEGIN
 	process (clk)
@@ -28,8 +27,8 @@ BEGIN
 	if (clk'EVENT and clk = '1') then
 		a_latch <= a;		
 		if(average_update = '1') then
-			accum1 <= accum2(23 downto 8) + accum2(7);
-			accum2 <= a_latch(15)&a_latch(15)&a_latch(15)&a_latch(15)&a_latch(15)&a_latch(15)&a_latch(15)&a_latch(15)&a_latch;
+			accum1 <= accum2(27 downto 12);
+			accum2 <= a_latch + X"0000000";
 		elsif(accum_enable = '1') then
 			accum2 <= accum2 + a_latch;			
 		end if;

@@ -199,15 +199,15 @@ end process;
 	begin
 	if(clk'EVENT and clk = '1') then
 		case LoopInputSel is
-			when "001" => 	ILoopInput <= IFwCav;
+			when "000" => 	ILoopInput <= IFwCav;
 								QLoopInput <= QFwCav;
-			when "010" => 	ILoopInput <= IFwIOT1;
+			when "001" => 	ILoopInput <= IFwIOT1;
 								QLoopInput <= QFwIOT1;
-			when "011" => 	ILoopInput <= IFwIOT2;
+			when "010" => 	ILoopInput <= IFwIOT2;
 								QLoopInput <= QFwIOT2;
-			when "100" => 	ILoopInput <= IFwIOT3;
+			when "011" => 	ILoopInput <= IFwIOT3;
 								QLoopInput <= QFwIOT3;
-			when "101" => 	ILoopInput <= IFwIOT4;
+			when "100" => 	ILoopInput <= IFwIOT4;
 								QLoopInput <= QFwIOT4;
 			when others => ILoopInput <= (others => '0');
 								QLoopInput <= (others => '0');

@@ -145,14 +145,6 @@ begin
 			
 		case Quad is
 			when "00" => if(WordQuad = "0011") then
-								offset <= "01";
-							 elsif(WordQuad = "0110") then
-								offset <= "10";
-							 elsif(WordQuad = "1100") then
-								offset <= "11";
-							 else offset <= "00";
-							 end if;
-			when "01" => if(WordQuad = "0011") then
 								offset <= "00";
 							 elsif(WordQuad = "0110") then
 								offset <= "01";
@@ -160,7 +152,7 @@ begin
 								offset <= "10";
 							 else offset <= "11";
 							 end if;
-			when "10" => if(WordQuad = "0011") then
+			when "01" => if(WordQuad = "0011") then
 								offset <= "11";
 							 elsif(WordQuad = "0110") then
 								offset <= "00";
@@ -168,13 +160,21 @@ begin
 								offset <= "01";
 							 else offset <= "10";
 							 end if;
-			when "11" => if(WordQuad = "0011") then
+			when "10" => if(WordQuad = "0011") then
 								offset <= "10";
 							 elsif(WordQuad = "0110") then
 								offset <= "11";
 							 elsif(WordQuad = "1100") then
 								offset <= "00";
 							 else offset <= "01";
+							 end if;
+			when "11" => if(WordQuad = "0011") then
+								offset <= "01";
+							 elsif(WordQuad = "0110") then
+								offset <= "10";
+							 elsif(WordQuad = "1100") then
+								offset <= "11";
+							 else offset <= "00";
 							 end if;
 			when others => null;
 		end case;
