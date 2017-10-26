@@ -52,14 +52,15 @@ begin
 	begin
 		if(clk'EVENT and clk = '1') then
 			
-			if(ForwardMin = '0')then
-				ErrorVble := (others => '0'); -- If there is no forward power feeding the cavity, the Fast_PI loop stops accumulating signal to avoid overdrive when there is no power
-			else 
-				ErrorVble := Ref + not(Input) + 1;
-			end if;
+--			if(ForwardMin = '0')then
+--				ErrorVble := (others => '0'); -- If there is no forward power feeding the cavity, the Fast_PI loop stops accumulating signal to avoid overdrive when there is no power
+--			else 
+--				ErrorVble := Ref + not(Input) + 1;
+--			end if;
 			
-			Error <= ErrorVble;
-			Error_sig <= ErrorVble;
+			Error_sig <= Ref + not(Input) + 1;
+			Error <= Error_sig;
+
 			
 			ErrorKp31 <= Error_sig*kp;
 			ErrorKp <= ErrorKp31(23 downto 8); -- 8LSB of Kp = decimal part
