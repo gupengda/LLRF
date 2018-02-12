@@ -429,6 +429,9 @@ Net "idp_MO1000_0_ClockFromFMC_p" TNM_NET = MO1000_0_Clock_In;
 #TIMESPEC TS_MO1000_0_Clock_In = PERIOD MO1000_0_Clock_In 2 ns HIGH 50%;
 TIMESPEC TS_MO1000_0_Clock_In = PERIOD MO1000_0_Clock_In 4 ns HIGH 50%;
 
+Net "mo1000_0_DesignClk_s" TNM_NET = USR_DAC_CLK;
+#TIMESPEC TS_USR_DAC_CLK = PERIOD "USR_DAC_CLK" TS_MO1000_0_Clock_In * 2;
+
 ##############################################
 ##  MI125 Main Constraints                   #
 ##############################################
@@ -514,14 +517,29 @@ Net "idp_ClockFromADCTop_p" TNM_NET = ADCCLOCKTOP_In;
 TIMESPEC TS_ADCCLOCKTOP_In = PERIOD ADCCLOCKTOP_In 500MHz HIGH 50%;
 NET "idp_ClockFromADCTop_p" CLOCK_DEDICATED_ROUTE = FALSE;
 
+Net "Mi125AdcDataClkTop_s" TNM_NET = USR_ADC_CLK;
+#TIMESPEC TS_USR_ADC_CLK = PERIOD "USR_ADC_CLK" TS_ADCCLOCKTOP_In / 4;
 
 #####  MO1000 - MI125 constraint  ##### 
-TIMESPEC TS_Mi125ToMo1000 = FROM "ADCCLOCKTOP_In" TO "MO1000_0_Clock_In" 8 ns DATAPATHONLY;
-TIMESPEC TS_Mo1000ToMi125 = FROM "MO1000_0_Clock_In" TO "ADCCLOCKTOP_In" 8 ns DATAPATHONLY;
+#TIMESPEC TS_Mi125ToMo1000 = FROM "ADCCLOCKTOP_In" TO "MO1000_0_Clock_In" 8 ns DATAPATHONLY;
+#TIMESPEC TS_Mo1000ToMi125 = FROM "MO1000_0_Clock_In" TO "ADCCLOCKTOP_In" 8 ns DATAPATHONLY;
+TIMESPEC TS_USR_ADC2DAC_CLK = FROM "USR_ADC_CLK" TO "USR_DAC_CLK" 8 ns DATAPATHONLY;
+TIMESPEC TS_USR_DAC2ADC_CLK = FROM "USR_DAC_CLK" TO "USR_ADC_CLK" 8 ns DATAPATHONLY;
 NET "*async_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_gc<*>" TIG;
 NET "*async_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_gc<*>" TIG;
 #######################################
 
+#NET "MainProgram_A/MainProgram_A/reg_data3_input_syncB<*>" TNM_NET = MainProgram_A_reg_data3_input_syncB;
+#NET "MainProgram_A/MainProgram_A/reg_data3_input_syncC<*>" TNM_NET = MainProgram_A_reg_data3_input_syncC;
+#NET "MainProgram_B/MainProgram_B/reg_data3_input_syncC<*>" TNM_NET = "MainProgram_B_reg_data3_input_syncC";
+#NET "MainProgram_A/MainProgram_A/reg_data3_out_LSB<*>" TNM_NET = "MainProgram_A_reg_data3_out_LSB";
+#NET "MainProgram_B/MainProgram_B/reg_data3_out_LSB<*>" TNM_NET = "MainProgram_B_reg_data3_out_LSB";
+
+#NET "*/reg_data3_input_syncC<*>" TIG;
+
+#TIMESPEC TS_MUX_CTRLA = FROM "MainProgram_A_reg_data3_input_syncC" TO "MainProgram_A_reg_data3_out_LSB" TS_ADCCLOCKTOP_In / 8;
+#TIMESPEC TS_MUX_CTRLA = FROM "MainProgram_A_reg_data3_input_syncB" TO "MainProgram_A_reg_data3_input_syncC" TS_ADCCLOCKTOP_In / 8;
+#TIMESPEC TS_MUX_CTRLB = FROM "MainProgram_B_reg_data3_input_syncC" TO "MainProgram_B_reg_data3_out_LSB" TS_ADCCLOCKTOP_In / 8;
 
 #### GPIO Constraints ################## Added on 20140823
 

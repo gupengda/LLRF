@@ -592,8 +592,9 @@ ARCHITECTURE MainProgram_arc OF MainProgram is
 	--Averaging Signals for diagnostics
 	signal reg_data3_inL : std_logic;
 	signal reg_data3_input_syncA, reg_data3_input_syncB : std_logic_vector (16 downto 0);
-	--attribute ASYNC_REG of reg_data3_input_syncA: signal is "TRUE";
-	--attribute ASYNC_REG of reg_data3_input_syncB: signal is "TRUE";
+	attribute ASYNC_REG : string;
+	attribute ASYNC_REG of reg_data3_input_syncA: signal is "TRUE";
+	attribute ASYNC_REG of reg_data3_input_syncB: signal is "TRUE";
 	signal ICavMean : std_logic_vector (15 downto 0);
 	signal ICavL : std_logic_vector (15 downto 0);
 	signal QCavMean : std_logic_vector (15 downto 0);
@@ -713,7 +714,6 @@ ARCHITECTURE MainProgram_arc OF MainProgram is
 	signal reg_data1_in_data_FIM		: std_logic_vector (15 downto 0);
 	
 	signal reg_data3_out_LSB 			: std_logic_vector (15 downto 0);
-	signal reg_data3_out_MSB 			: std_logic_vector (15 downto 0);
 	
 	-- cordic signals
 	signal I_in_r2p : std_logic_vector (15 downto 0);
@@ -2398,7 +2398,7 @@ BEGIN
 	
 
 	
-	case reg_data3_input_syncB(15 downto 0) is
+	case reg_data3_input(15 downto 0) is
 		when X"0000"  => reg_data3_out_LSB <= ICavL;				
 		when X"0001"  => reg_data3_out_LSB <= QCavL;					
 		when X"0002"  => reg_data3_out_LSB <= IFwCavL;					

@@ -78,6 +78,7 @@ Program post_par_trce
 -e 3;                 # Produce error report limited to 3 items per constraint
 #-o <design>.twr;     # Output trace report file
 -xml <design>.twx;    # Output XML version of the timing report
+-u 10;
 #-tsi <design>.tsi;  # Produce Timing Specification Interaction report
 <inputdir><design>.ncd;   # Input placed and routed ncd
 <inputdir><design>.pcf;   # Physical constraints file
