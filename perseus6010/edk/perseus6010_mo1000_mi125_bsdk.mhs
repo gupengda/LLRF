@@ -643,7 +643,7 @@ BEGIN lyt_axi_perseus6010_regs
 # # FPGA Version Code
 # # 2016 07 28 - 00 - Loops Version 00 - DLS LLRF NC, SC and Booster
 # # 2017 03 22 - 00 - V22 - Based on V18 + error fast pi calculated using a signal instead of variable
- PORT iv32_CustomReg31_p = 0x78397808
+ PORT iv32_CustomReg31_p = 0x78486db8
 END
 
 # ###

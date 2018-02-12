@@ -6,7 +6,7 @@ Flow: ise
 ModuleSearchPath: ../../fpga
 MHS File: perseus6010_mo1000_mi125_bsdk.mhs
 Architecture: virtex6
-Device: xc6vlx550t
+Device: xc6vsx315t
 Package: ff1759
 SpeedGrade: -1
 UserCmd1: 

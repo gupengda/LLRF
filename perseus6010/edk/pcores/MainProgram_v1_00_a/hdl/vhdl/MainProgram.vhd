@@ -591,6 +591,9 @@ ARCHITECTURE MainProgram_arc OF MainProgram is
 	
 	--Averaging Signals for diagnostics
 	signal reg_data3_inL : std_logic;
+	signal reg_data3_input_syncA, reg_data3_input_syncB : std_logic_vector (16 downto 0);
+	--attribute ASYNC_REG of reg_data3_input_syncA: signal is "TRUE";
+	--attribute ASYNC_REG of reg_data3_input_syncB: signal is "TRUE";
 	signal ICavMean : std_logic_vector (15 downto 0);
 	signal ICavL : std_logic_vector (15 downto 0);
 	signal QCavMean : std_logic_vector (15 downto 0);
@@ -2249,9 +2252,12 @@ BEGIN
 		
 	
 	---Read Diagnostics signals
-	reg_data3_inL <= reg_data3_input(16);
+	--Synchronise the reg_data3_input signal
+	reg_data3_input_syncA <= reg_data3_input;
+	reg_data3_input_syncB <= reg_data3_input_syncA;
+	reg_data3_inL <= reg_data3_input_syncB(16);
 	
-	if(reg_data3_inL = '0' and reg_data3_input(16) = '1') then
+	if(reg_data3_inL = '0' and reg_data3_input_syncB(16) = '1') then
 			ICavL					<= ICavMean;
 			QCavL					<= QCavMean;
 			IFwCavL					<= IFwCavMean;
@@ -2392,7 +2398,7 @@ BEGIN
 	
 
 	
-	case reg_data3_input(15 downto 0) is
+	case reg_data3_input_syncB(15 downto 0) is
 		when X"0000"  => reg_data3_out_LSB <= ICavL;				
 		when X"0001"  => reg_data3_out_LSB <= QCavL;					
 		when X"0002"  => reg_data3_out_LSB <= IFwCavL;					
