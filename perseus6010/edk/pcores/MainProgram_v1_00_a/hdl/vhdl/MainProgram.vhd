@@ -591,6 +591,10 @@ ARCHITECTURE MainProgram_arc OF MainProgram is
 	
 	--Averaging Signals for diagnostics
 	signal reg_data3_inL : std_logic;
+	signal reg_data3_input_syncA, reg_data3_input_syncB : std_logic_vector (16 downto 0);
+	attribute ASYNC_REG : string;
+	attribute ASYNC_REG of reg_data3_input_syncA: signal is "TRUE";
+	attribute ASYNC_REG of reg_data3_input_syncB: signal is "TRUE";
 	signal ICavMean : std_logic_vector (15 downto 0);
 	signal ICavL : std_logic_vector (15 downto 0);
 	signal QCavMean : std_logic_vector (15 downto 0);
@@ -710,7 +714,6 @@ ARCHITECTURE MainProgram_arc OF MainProgram is
 	signal reg_data1_in_data_FIM		: std_logic_vector (15 downto 0);
 	
 	signal reg_data3_out_LSB 			: std_logic_vector (15 downto 0);
-	signal reg_data3_out_MSB 			: std_logic_vector (15 downto 0);
 	
 	-- cordic signals
 	signal I_in_r2p : std_logic_vector (15 downto 0);
@@ -2249,9 +2252,12 @@ BEGIN
 		
 	
 	---Read Diagnostics signals
-	reg_data3_inL <= reg_data3_input(16);
+	--Synchronise the reg_data3_input signal
+	reg_data3_input_syncA <= reg_data3_input;
+	reg_data3_input_syncB <= reg_data3_input_syncA;
+	reg_data3_inL <= reg_data3_input_syncB(16);
 	
-	if(reg_data3_inL = '0' and reg_data3_input(16) = '1') then
+	if(reg_data3_inL = '0' and reg_data3_input_syncB(16) = '1') then
 			ICavL					<= ICavMean;
 			QCavL					<= QCavMean;
 			IFwCavL					<= IFwCavMean;
