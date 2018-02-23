@@ -1,3 +1,4 @@
+*.vhd~
 /perseus6010/edk/*
 !/perseus6010/edk/data
 !/perseus6010/edk/etc
