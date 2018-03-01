@@ -1,7 +1,7 @@
 #Please do not modify this file by hand
 XmpVersion: 13.4
 VerMgmt: 13.4
-IntStyle: default
+IntStyle: ise
 Flow: ise
 ModuleSearchPath: ../../fpga
 MHS File: perseus6010_mo1000_mi125_bsdk.mhs
@@ -16,9 +16,9 @@ UserCmd2Type: 0
 GenSimTB: 0
 SdkExportBmmBit: 1
 SdkExportDir: SDK/SDK_Export
-InsertNoPads: 0
+InsertNoPads: 1
 WarnForEAArch: 1
-HdlLang: VHDL
+HdlLang: verilog
 SimModel: BEHAVIORAL
 ExternalMemSim: 0
 UcfFile: data/perseus6010_mo1000_mi125_bsdk.ucf

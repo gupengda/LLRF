@@ -1,4 +1,6 @@
 *.vhd~
+/DLLRF_top/*
+!/DLLRF_top/DLLRF_top.xise
 /perseus6010/edk/*
 !/perseus6010/edk/data
 !/perseus6010/edk/etc
