@@ -1,0 +1,1340 @@
+=====================
+Opened log file
+=====================
+=====================
+Opened log file
+=====================
+Xilinx Platform Studio (XPS)
+Xilinx EDK 13.4 Build EDK_O.87xd
+
+Xilinx EDK 13.4 Build EDK_O.87xd
+
+INFO:EDK - file name is
+   /home/clm61942/firmware/DLLRF/DigitalLLRF/fpga/Nutaq_ip_cores/pcores/lyt_axi_
+   mi125_v1_00_a/netlist/mi125_wrapper.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/v6Ddr3Controler64b.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_144_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_18_to_72.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_128.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_256.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_32.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_64.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_288_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_36_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_64_to_16.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_64_to_8.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_72_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_9_to_72.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo128_w32_r256_std_ff.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo64_w256_r32_std_ff.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/mem_controller.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_d16_w288_fwft_dist.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_d16_w288_fwft.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_tx_core.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_mux_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_rx_core.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_mux_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_pause_req_gen.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo_w37_d16.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo_w37_d32.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo1k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo2k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo4k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo8k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo16k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo32k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo1k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo2k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo4k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo8k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo16k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo32k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   /home/clm61942/firmware/DLLRF/DigitalLLRF/fpga/Nutaq_ip_cores/pcores/lyt_axi_
+   mi125_v1_00_a/netlist/mi125_wrapper.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/v6Ddr3Controler64b.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_144_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_18_to_72.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_128.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_256.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_32.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_64.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_288_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_36_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_64_to_16.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_64_to_8.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_72_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_9_to_72.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo128_w32_r256_std_ff.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo64_w256_r32_std_ff.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/mem_controller.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_d16_w288_fwft_dist.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_d16_w288_fwft.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_tx_core.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_mux_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_rx_core.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_mux_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_pause_req_gen.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo_w37_d16.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo_w37_d32.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo1k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo2k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo4k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo8k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo16k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo32k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo1k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo2k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo4k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo8k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo16k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo32k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   /home/clm61942/firmware/DLLRF/DigitalLLRF/fpga/Nutaq_ip_cores/pcores/lyt_axi_
+   mi125_v1_00_a/netlist/mi125_wrapper.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/v6Ddr3Controler64b.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_144_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_18_to_72.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_128.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_256.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_32.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_64.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_288_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_36_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_64_to_16.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_64_to_8.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_72_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_9_to_72.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo128_w32_r256_std_ff.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo64_w256_r32_std_ff.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/mem_controller.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_d16_w288_fwft_dist.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_d16_w288_fwft.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_tx_core.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_mux_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_rx_core.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_mux_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_pause_req_gen.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo_w37_d16.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo_w37_d32.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo1k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo2k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo4k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo8k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo16k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo32k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo1k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo2k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo4k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo8k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo16k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo32k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   /home/clm61942/firmware/DLLRF/DigitalLLRF/fpga/Nutaq_ip_cores/pcores/lyt_axi_
+   mi125_v1_00_a/netlist/mi125_wrapper.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/v6Ddr3Controler64b.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_144_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_18_to_72.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_128.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_256.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_32.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_64.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_288_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_36_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_64_to_16.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_64_to_8.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_72_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_9_to_72.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo128_w32_r256_std_ff.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo64_w256_r32_std_ff.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/mem_controller.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_d16_w288_fwft_dist.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_d16_w288_fwft.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_tx_core.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_mux_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_rx_core.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_mux_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_pause_req_gen.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo_w37_d16.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo_w37_d32.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo1k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo2k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo4k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo8k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo16k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo32k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo1k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo2k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo4k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo8k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo16k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo32k_w32_async_fwft_tx.ngc
+=====================
+Opened log file
+=====================
+=====================
+Opened log file
+=====================
+Xilinx Platform Studio (XPS)
+Xilinx EDK 13.4 Build EDK_O.87xd
+
+Xilinx EDK 13.4 Build EDK_O.87xd
+
+INFO:EDK - file name is
+   /home/clm61942/firmware/DLLRF/DigitalLLRF/fpga/Nutaq_ip_cores/pcores/lyt_axi_
+   mi125_v1_00_a/netlist/mi125_wrapper.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/v6Ddr3Controler64b.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_144_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_18_to_72.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_128.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_256.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_32.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_64.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_288_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_36_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_64_to_16.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_64_to_8.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_72_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_9_to_72.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo128_w32_r256_std_ff.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo64_w256_r32_std_ff.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/mem_controller.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_d16_w288_fwft_dist.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_d16_w288_fwft.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_tx_core.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_mux_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_rx_core.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_mux_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_pause_req_gen.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo_w37_d16.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo_w37_d32.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo1k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo2k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo4k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo8k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo16k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo32k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo1k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo2k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo4k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo8k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo16k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo32k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   /home/clm61942/firmware/DLLRF/DigitalLLRF/fpga/Nutaq_ip_cores/pcores/lyt_axi_
+   mi125_v1_00_a/netlist/mi125_wrapper.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/v6Ddr3Controler64b.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_144_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_18_to_72.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_128.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_256.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_32.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_64.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_288_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_36_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_64_to_16.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_64_to_8.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_72_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_9_to_72.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo128_w32_r256_std_ff.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo64_w256_r32_std_ff.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/mem_controller.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_d16_w288_fwft_dist.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_d16_w288_fwft.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_tx_core.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_mux_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_rx_core.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_mux_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_pause_req_gen.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo_w37_d16.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo_w37_d32.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo1k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo2k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo4k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo8k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo16k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo32k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo1k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo2k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo4k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo8k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo16k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo32k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   /home/clm61942/firmware/DLLRF/DigitalLLRF/fpga/Nutaq_ip_cores/pcores/lyt_axi_
+   mi125_v1_00_a/netlist/mi125_wrapper.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/v6Ddr3Controler64b.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_144_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_18_to_72.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_128.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_256.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_32.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_64.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_288_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_36_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_64_to_16.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_64_to_8.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_72_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_9_to_72.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo128_w32_r256_std_ff.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo64_w256_r32_std_ff.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/mem_controller.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_d16_w288_fwft_dist.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_d16_w288_fwft.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_tx_core.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_mux_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_rx_core.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_mux_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_pause_req_gen.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo_w37_d16.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo_w37_d32.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo1k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo2k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo4k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo8k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo16k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo32k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo1k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo2k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo4k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo8k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo16k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo32k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   /home/clm61942/firmware/DLLRF/DigitalLLRF/fpga/Nutaq_ip_cores/pcores/lyt_axi_
+   mi125_v1_00_a/netlist/mi125_wrapper.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/v6Ddr3Controler64b.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_144_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_18_to_72.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_128.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_256.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_32.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_64.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_288_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_36_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_64_to_16.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_64_to_8.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_72_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_9_to_72.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo128_w32_r256_std_ff.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo64_w256_r32_std_ff.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/mem_controller.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_d16_w288_fwft_dist.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_d16_w288_fwft.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_tx_core.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_mux_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_rx_core.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_mux_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_pause_req_gen.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo_w37_d16.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo_w37_d32.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo1k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo2k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo4k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo8k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo16k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo32k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo1k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo2k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo4k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo8k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo16k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo32k_w32_async_fwft_tx.ngc
+=====================
+Opened log file
+=====================
+=====================
+Opened log file
+=====================
+Xilinx Platform Studio (XPS)
+Xilinx EDK 13.4 Build EDK_O.87xd
+
+Xilinx EDK 13.4 Build EDK_O.87xd
+
+INFO:EDK - file name is
+   /home/clm61942/firmware/DLLRF/DigitalLLRF/fpga/Nutaq_ip_cores/pcores/lyt_axi_
+   mi125_v1_00_a/netlist/mi125_wrapper.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/v6Ddr3Controler64b.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_144_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_18_to_72.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_128.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_256.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_32.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_64.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_288_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_36_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_64_to_16.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_64_to_8.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_72_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_9_to_72.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo128_w32_r256_std_ff.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo64_w256_r32_std_ff.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/mem_controller.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_d16_w288_fwft_dist.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_d16_w288_fwft.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_tx_core.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_mux_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_rx_core.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_mux_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_pause_req_gen.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo_w37_d16.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo_w37_d32.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo1k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo2k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo4k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo8k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo16k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo32k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo1k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo2k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo4k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo8k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo16k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo32k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   /home/clm61942/firmware/DLLRF/DigitalLLRF/fpga/Nutaq_ip_cores/pcores/lyt_axi_
+   mi125_v1_00_a/netlist/mi125_wrapper.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/v6Ddr3Controler64b.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_144_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_18_to_72.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_128.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_256.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_32.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_64.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_288_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_36_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_64_to_16.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_64_to_8.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_72_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_9_to_72.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo128_w32_r256_std_ff.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo64_w256_r32_std_ff.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/mem_controller.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_d16_w288_fwft_dist.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_d16_w288_fwft.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_tx_core.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_mux_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_rx_core.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_mux_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_pause_req_gen.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo_w37_d16.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo_w37_d32.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo1k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo2k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo4k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo8k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo16k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo32k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo1k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo2k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo4k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo8k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo16k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo32k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   /home/clm61942/firmware/DLLRF/DigitalLLRF/fpga/Nutaq_ip_cores/pcores/lyt_axi_
+   mi125_v1_00_a/netlist/mi125_wrapper.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/v6Ddr3Controler64b.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_144_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_18_to_72.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_128.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_256.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_32.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_64.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_288_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_36_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_64_to_16.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_64_to_8.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_72_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_9_to_72.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo128_w32_r256_std_ff.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo64_w256_r32_std_ff.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/mem_controller.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_d16_w288_fwft_dist.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_d16_w288_fwft.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_tx_core.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_mux_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_rx_core.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_mux_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_pause_req_gen.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo_w37_d16.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo_w37_d32.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo1k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo2k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo4k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo8k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo16k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo32k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo1k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo2k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo4k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo8k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo16k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo32k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   /home/clm61942/firmware/DLLRF/DigitalLLRF/fpga/Nutaq_ip_cores/pcores/lyt_axi_
+   mi125_v1_00_a/netlist/mi125_wrapper.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/v6Ddr3Controler64b.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_144_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_18_to_72.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_128.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_256.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_32.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_64.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_288_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_36_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_64_to_16.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_64_to_8.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_72_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_9_to_72.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo128_w32_r256_std_ff.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo64_w256_r32_std_ff.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/mem_controller.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_d16_w288_fwft_dist.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_d16_w288_fwft.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_tx_core.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_mux_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_rx_core.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_mux_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_pause_req_gen.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo_w37_d16.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo_w37_d32.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo1k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo2k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo4k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo8k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo16k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo32k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo1k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo2k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo4k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo8k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo16k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo32k_w32_async_fwft_tx.ngc
+=====================
+Opened log file
+=====================
+=====================
+Opened log file
+=====================
+Xilinx Platform Studio (XPS)
+Xilinx EDK 13.4 Build EDK_O.87xd
+
+Xilinx EDK 13.4 Build EDK_O.87xd
+
+INFO:EDK - file name is
+   /home/clm61942/firmware/DLLRF/DigitalLLRF/fpga/Nutaq_ip_cores/pcores/lyt_axi_
+   mi125_v1_00_a/netlist/mi125_wrapper.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/v6Ddr3Controler64b.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_144_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_18_to_72.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_128.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_256.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_32.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_64.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_288_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_36_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_64_to_16.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_64_to_8.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_72_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_9_to_72.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo128_w32_r256_std_ff.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo64_w256_r32_std_ff.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/mem_controller.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_d16_w288_fwft_dist.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_d16_w288_fwft.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_tx_core.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_mux_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_rx_core.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_mux_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_pause_req_gen.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo_w37_d16.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo_w37_d32.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo1k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo2k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo4k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo8k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo16k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo32k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo1k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo2k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo4k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo8k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo16k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo32k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   /home/clm61942/firmware/DLLRF/DigitalLLRF/fpga/Nutaq_ip_cores/pcores/lyt_axi_
+   mi125_v1_00_a/netlist/mi125_wrapper.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/v6Ddr3Controler64b.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_144_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_18_to_72.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_128.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_256.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_32.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_64.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_288_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_36_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_64_to_16.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_64_to_8.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_72_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_9_to_72.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo128_w32_r256_std_ff.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo64_w256_r32_std_ff.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/mem_controller.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_d16_w288_fwft_dist.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_d16_w288_fwft.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_tx_core.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_mux_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_rx_core.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_mux_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_pause_req_gen.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo_w37_d16.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo_w37_d32.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo1k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo2k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo4k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo8k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo16k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo32k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo1k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo2k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo4k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo8k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo16k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo32k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   /home/clm61942/firmware/DLLRF/DigitalLLRF/fpga/Nutaq_ip_cores/pcores/lyt_axi_
+   mi125_v1_00_a/netlist/mi125_wrapper.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/v6Ddr3Controler64b.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_144_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_18_to_72.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_128.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_256.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_32.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_64.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_288_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_36_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_64_to_16.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_64_to_8.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_72_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_9_to_72.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo128_w32_r256_std_ff.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo64_w256_r32_std_ff.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/mem_controller.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_d16_w288_fwft_dist.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_d16_w288_fwft.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_tx_core.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_mux_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_rx_core.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_mux_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_pause_req_gen.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo_w37_d16.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo_w37_d32.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo1k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo2k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo4k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo8k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo16k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo32k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo1k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo2k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo4k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo8k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo16k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo32k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   /home/clm61942/firmware/DLLRF/DigitalLLRF/fpga/Nutaq_ip_cores/pcores/lyt_axi_
+   mi125_v1_00_a/netlist/mi125_wrapper.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is pcores/lyt_async_fifo_v1_00_a/netlist/async_fifo.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/v6Ddr3Controler64b.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_144_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_18_to_72.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_128.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_256.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_32.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_256_to_64.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_288_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_36_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_64_to_16.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_64_to_8.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_72_to_288.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_9_to_72.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo128_w32_r256_std_ff.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo64_w256_r32_std_ff.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/mem_controller.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_d16_w288_fwft_dist.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_record_playback_v1_00_a/netlist/fifo_d16_w288_fwft.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_tx_core.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_mux_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_rx_core.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_mux_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/rtdex_pause_req_gen.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo_w37_d16.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo_w37_d32.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo1k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo2k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo4k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo8k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo16k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo32k_w32_async_rx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo1k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo2k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo4k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo8k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo16k_w32_async_fwft_tx.ngc
+INFO:EDK - file name is
+   pcores/lyt_axi_emac_rtdex_v1_00_a/netlist/fifo32k_w32_async_fwft_tx.ngc

@@ -1,0 +1,18 @@
+// File: /home/clm61942/firmware/DLLRF/DigitalLLRF/perseus6010/edk/perseus6010_mo1000_mi125_bsdk_stub.bmm
+
+ADDRESS_MAP main_cpu MICROBLAZE-LE 100
+	ADDRESS_SPACE bram_block0_combined COMBINED [0x00000000:0x00007fff]
+		ADDRESS_RANGE RAMB32
+		BUS_BLOCK
+			perseus6010_mo1000_mi125_bsdk_i/bram_block0/bram_block0/ramb36e1_0 [31:28] INPUT = bram_block0_combined_0.mem ;
+			perseus6010_mo1000_mi125_bsdk_i/bram_block0/bram_block0/ramb36e1_1 [27:24] INPUT = bram_block0_combined_1.mem ;
+			perseus6010_mo1000_mi125_bsdk_i/bram_block0/bram_block0/ramb36e1_2 [23:20] INPUT = bram_block0_combined_2.mem ;
+			perseus6010_mo1000_mi125_bsdk_i/bram_block0/bram_block0/ramb36e1_3 [19:16] INPUT = bram_block0_combined_3.mem ;
+			perseus6010_mo1000_mi125_bsdk_i/bram_block0/bram_block0/ramb36e1_4 [15:12] INPUT = bram_block0_combined_4.mem ;
+			perseus6010_mo1000_mi125_bsdk_i/bram_block0/bram_block0/ramb36e1_5 [11:8] INPUT = bram_block0_combined_5.mem ;
+			perseus6010_mo1000_mi125_bsdk_i/bram_block0/bram_block0/ramb36e1_6 [7:4] INPUT = bram_block0_combined_6.mem ;
+			perseus6010_mo1000_mi125_bsdk_i/bram_block0/bram_block0/ramb36e1_7 [3:0] INPUT = bram_block0_combined_7.mem ;
+		END_BUS_BLOCK;
+		END_ADDRESS_RANGE;
+	END_ADDRESS_SPACE;
+END_ADDRESS_MAP;
